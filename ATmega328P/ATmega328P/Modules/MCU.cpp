@@ -420,13 +420,3 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
     break;
   }
 }
-
-/*----------------------------------------//
-                Begin SPI
-//----------------------------------------*/
-
-void MCU::Setting::beginSPI(void)
-{
-  SPCR = (1 << SPE) | (1 << MSTR); //Enable SPI with 2000KHz in Master Mode
-  SPSR = (1 << SPI2X);
-}

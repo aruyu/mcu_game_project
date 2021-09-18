@@ -9,18 +9,6 @@
 
 #include "TFT.hpp"
 
-/*----------------------------------------//
-              SPI Constructor
-//----------------------------------------*/
-
-SPI::SPI(int8_t _CS, int8_t _RST, int8_t _RS, int8_t _MOSI, int8_t _SCK)
-{
-  m_CS = _CS;
-  m_RST = _RST;
-  m_RS = _RS;
-  m_MOSI = _MOSI;
-  m_SCK = _SCK;
-}
 
 /*----------------------------------------//
               Send Serial Bit
@@ -38,12 +26,12 @@ void SPI::sendBit(uint8_t bitValue)
 
 void SPI::exportCommand(uint8_t commandValue)
 {
-  RS_LOW();
-  CS_LOW();
+  RS_LOW;
+  CS_LOW;
 
   sendBit(commandValue);
 
-  CS_HIGH();
+  CS_HIGH;
 }
 
 /*----------------------------------------//
@@ -52,12 +40,12 @@ void SPI::exportCommand(uint8_t commandValue)
 
 void SPI::exportData(uint8_t dataValue)
 {
-  RS_HIGH();
-  CS_LOW();
+  RS_HIGH;
+  CS_LOW;
 
   sendBit(dataValue);
 
-  CS_HIGH();
+  CS_HIGH;
 }
 
 /*----------------------------------------//
@@ -66,13 +54,13 @@ void SPI::exportData(uint8_t dataValue)
 
 void SPI::exportLongData(uint16_t longDataValue)
 {
-  RS_HIGH();
-  CS_LOW();
+  RS_HIGH;
+  CS_LOW;
 
   sendBit(longDataValue >> 8);
   sendBit(longDataValue & 0xFF);
 
-  CS_HIGH();
+  CS_HIGH;
 }
 
 
@@ -80,22 +68,20 @@ void SPI::exportLongData(uint16_t longDataValue)
               Begin TFT LCD
 //----------------------------------------*/
 
-void TFT::begin(int16_t TFTWidth, int16_t TFTHeight)
+void TFT::begin(void)
 {
-  m_Width = TFTWidth;
-  m_Height = TFTHeight;
 
-  CS_HIGH();
-  RST_LOW();
+  CS_HIGH;
+  RST_LOW;
   _delay_ms(20);
-  RST_HIGH();
+  RST_HIGH;
   _delay_ms(500);
 
   exportCommand(0x01); // Software Reset (01h)
   _delay_ms(20);
 
   exportCommand(0xC0); // Power Control 1 (C0h)
-  exportData(0x09);    // VRH[5:0] 3.30 V
+  exportData(0x2B);    // VRH[5:0] 5.00 V
 
   exportCommand(0x36); // Memory Access Control (36h)
   exportData(0x48);    // Column Address Order, RGB-BGR Order
@@ -109,13 +95,14 @@ void TFT::begin(int16_t TFTWidth, int16_t TFTHeight)
   _delay_ms(20);
 
   exportCommand(0x29); // Display ON (29h)
+
 }
 
 /*----------------------------------------//
               Set Rotation
 //----------------------------------------*/
 
-void TFT::setRotation(uint8_t rotation)
+void TFT::setRotation(int8_t rotation)
 {
 
   exportCommand(0x36); // Memory Access Control (36h)
@@ -142,6 +129,9 @@ void TFT::setRotation(uint8_t rotation)
     m_Temp = m_Width;
     m_Width = m_Height;
     m_Height = m_Temp;
+    break;
+
+  default:
     break;
   }
 

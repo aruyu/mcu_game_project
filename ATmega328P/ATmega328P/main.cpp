@@ -12,7 +12,7 @@
 
 using namespace MCU::Setting;
 
-TFT tft(0, 1, 2, 3, 5);
+TFT tft(240, 320);
 
 
 /*========================================//
@@ -22,11 +22,9 @@ TFT tft(0, 1, 2, 3, 5);
 int main(void)
 {
   beginPort(B, OUT);
-  beginSPI();
 
-  tft.begin(240, 320);
-
-  tft.setRotation(0);
+  tft.begin();
+  tft.setRotation(1);
   tft.fillScreen(BLACK);
 
   tft.drawRect(70, 0, 88, 31, RED);
