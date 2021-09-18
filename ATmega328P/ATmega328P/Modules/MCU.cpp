@@ -17,109 +17,108 @@
 uint8_t MCU::insertBit(uint8_t bitValue, bool isHigh)
 {
 
-  uint8_t highValue = 0x00;
-  uint8_t lowValue = 0x00;
+  uint8_t returnValue = 0x00;
 
   if (isHigh == true)
   {
-    return highValue |= (1 << bitValue);
+    return returnValue |= (1 << bitValue);
   }
 
   else
   {
-    return lowValue &= ~(1 << bitValue);
+    return returnValue &= ~(1 << bitValue);
   }
-
 }
 
 /*----------------------------------------//
             Convert 10 to 16
 //----------------------------------------*/
 
-uint8_t MCU::Features::hex(uint8_t decimal)
+uint8_t MCU::Features::hex(int8_t decimal)
 {
 
   uint8_t hexadecimal = 0x00;
 
   if (decimal >= 0 && decimal <= 9)
   {
-    return hexadecimal = decimal;
+    hexadecimal = decimal;
   }
 
   else if (decimal >= 10 && decimal <= 19)
   {
-    return hexadecimal = decimal + 6;
+    hexadecimal = decimal + 6;
   }
 
   else if (decimal >= 20 && decimal <= 29)
   {
-    return hexadecimal = decimal + 12;
+    hexadecimal = decimal + 12;
   }
 
   else if (decimal >= 30 && decimal <= 39)
   {
-    return hexadecimal = decimal + 18;
+    hexadecimal = decimal + 18;
   }
 
   else if (decimal >= 40 && decimal <= 49)
   {
-    return hexadecimal = decimal + 24;
+    hexadecimal = decimal + 24;
   }
 
   else if (decimal >= 50 && decimal <= 59)
   {
-    return hexadecimal = decimal + 30;
+    hexadecimal = decimal + 30;
   }
 
   else if (decimal >= 60 && decimal <= 69)
   {
-    return hexadecimal = decimal + 36;
+    hexadecimal = decimal + 36;
   }
 
   else if (decimal >= 70 && decimal <= 79)
   {
-    return hexadecimal = decimal + 42;
+    hexadecimal = decimal + 42;
   }
 
   else if (decimal >= 80 && decimal <= 89)
   {
-    return hexadecimal = decimal + 48;
+    hexadecimal = decimal + 48;
   }
 
   else if (decimal >= 90 && decimal <= 99)
   {
-    return hexadecimal = decimal + 54;
+    hexadecimal = decimal + 54;
   }
 
+  return hexadecimal;
 }
 
 /*----------------------------------------//
             Convert 10 to ASKII
 //----------------------------------------*/
 
-uint8_t MCU::Features::ASKII(uint8_t decimal)
+uint8_t MCU::Features::ASKII(int8_t decimal)
 {
-
-  int ASKIIValue = 0x00;
+  uint8_t ASKIIValue = 0x00;
 
   if (decimal >= 0 && decimal <= 9)
   {
-    return ASKIIValue = decimal + 0x30;
+    ASKIIValue = decimal + 0x30;
   }
 
+  return ASKIIValue;
 }
 
 /*----------------------------------------//
                 Begin Port
 //----------------------------------------*/
 
-void MCU::Setting::beginPort(uint8_t port, bool isOutput)
+void MCU::Setting::beginPort(int8_t port, bool isOutput)
 {
 
-  int ddrValue;
-  int portValue;
+  uint8_t ddrValue;
+  uint8_t portValue;
 
-    // INPUT or OUTPUT
+  // INPUT or OUTPUT
   if (isOutput == true)
   {
     ddrValue = 0xFF;
@@ -154,17 +153,16 @@ void MCU::Setting::beginPort(uint8_t port, bool isOutput)
   default:
     break;
   }
-
 }
 
 /*----------------------------------------//
         Begin Extended Interrupt
 //----------------------------------------*/
 
-void MCU::Setting::beginINT(uint8_t INTIndex, uint8_t INTMode)
+void MCU::Setting::beginINT(int8_t INTIndex, int8_t INTMode)
 {
 
-  EIMSK += insertBit(INTIndex, HIGH);
+  EIMSK |= insertBit(INTIndex, HIGH);
 
   switch (INTMode)
   {
@@ -183,40 +181,41 @@ void MCU::Setting::beginINT(uint8_t INTIndex, uint8_t INTMode)
   default:
     break;
   }
-
 }
 
 /*----------------------------------------//
         Begin Pin Change Interrupt
 //----------------------------------------*/
 
-void MCU::Setting::beginPCINT(uint8_t PCINTIndex)
+void MCU::Setting::beginPCINT(int8_t PCINTIndex)
 {
 
   if (PCINTIndex <= 7)
   {
-    PCMSK0 += insertBit(PCINTIndex, HIGH);
+    PCMSK0 |= insertBit(PCINTIndex, HIGH);
+    return;
   }
 
   else if (PCINTIndex <= 14)
   {
     PCINTIndex -= 8;
-    PCMSK1 += insertBit(PCINTIndex, HIGH);
+    PCMSK1 |= insertBit(PCINTIndex, HIGH);
+    return;
   }
 
   else if (PCINTIndex <= 23)
   {
     PCINTIndex -= 16;
-    PCMSK1 += insertBit(PCINTIndex, HIGH);
+    PCMSK1 |= insertBit(PCINTIndex, HIGH);
+    return;
   }
-
 }
 
 /*----------------------------------------//
             Begin Timer Interrupt
 //----------------------------------------*/
 
-void MCU::Setting::beginTimer(uint8_t timerIndex, uint8_t timerMode)
+void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
 {
 
   switch (timerIndex)
@@ -227,18 +226,18 @@ void MCU::Setting::beginTimer(uint8_t timerIndex, uint8_t timerMode)
     {
       TIMSK0 = 0x01;
 
-      TCCR0A = 0x00;  // 1024, Normal Mode
+      TCCR0A = 0x00; // 1024, Normal Mode
       TCCR0B = 0x05;
-      TCNT0 = 0x00;   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
     }
 
-    else if (timerMode == COMP)
+    else
     {
       TIMSK0 = 0x02;
 
-      TCCR0A = 0x02;  // 1024, CTC Mode
+      TCCR0A = 0x02; // 1024, CTC Mode
       TCCR0B = 0x05;
-      TCNT0 = 0x00;   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
 
       OCR0A = _OCR0A;
     }
@@ -250,18 +249,18 @@ void MCU::Setting::beginTimer(uint8_t timerIndex, uint8_t timerMode)
     {
       TIMSK2 = 0x01;
 
-      TCCR2A = 0x00;  // 1024, Normal Mode
+      TCCR2A = 0x00; // 1024, Normal Mode
       TCCR2B = 0x07;
-      TCNT2 = 0x00;   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
     }
 
-    else if (timerMode == COMP)
+    else
     {
       TIMSK2 = 0x02;
 
-      TCCR2A = 0x02;  // 1024, CTC Mode
+      TCCR2A = 0x02; // 1024, CTC Mode
       TCCR2B = 0x07;
-      TCNT2 = 0x00;   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
 
       OCR2A = _OCR2A;
     }
@@ -274,19 +273,19 @@ void MCU::Setting::beginTimer(uint8_t timerIndex, uint8_t timerMode)
     {
       TIMSK1 = 0x01;
 
-      TCCR1A = 0x00;  // 1024, Normal Mode
+      TCCR1A = 0x00; // 1024, Normal Mode
       TCCR1B = 0x05;
-      TCNT1H = 0x00;  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
     }
 
-    else if (timerMode == COMP)
+    else
     {
       TIMSK1 = 0x02;
 
-      TCCR1A = 0x00;  // 1024, CTC Mode
+      TCCR1A = 0x00; // 1024, CTC Mode
       TCCR1B = 0x0D;
-      TCNT1H = 0x00;  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
 
       OCR1AH = _OCR1AH;
@@ -298,14 +297,13 @@ void MCU::Setting::beginTimer(uint8_t timerIndex, uint8_t timerMode)
   default:
     break;
   }
-
 }
 
 /*----------------------------------------//
             Begin Timer PWM
 //----------------------------------------*/
 
-void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
+void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
 {
 
   switch (PWMIndex)
@@ -314,16 +312,16 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC0A:
     if (PWMMode == CORRECT)
     {
-      TCCR0A |= 0x01 | (1 << COMA1);  // 256, Phase Correct PWM
+      TCCR0A |= 0x01 | (1 << COM0A1); // 256, Phase Correct PWM
       TCCR0B = 0x04;
-      TCNT0 = 0x00;                   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR0A |= 0x03 | (1 << COMA1);  // 256, Fast PWM Mode
+      TCCR0A |= 0x03 | (1 << COM0A1); // 256, Fast PWM Mode
       TCCR0B = 0x04;
-      TCNT0 = 0x00;                   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
     }
 
     break;
@@ -331,16 +329,16 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC0B:
     if (PWMMode == CORRECT)
     {
-      TCCR0A |= 0x01 | (1 << COMB1);  // 256, Phase Correct PWM
+      TCCR0A |= 0x01 | (1 << COM0B1); // 256, Phase Correct PWM
       TCCR0B = 0x04;
-      TCNT0 = 0x00;                   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR0A |= 0x03 | (1 << COMB1);  // 256, Fast PWM Mode
+      TCCR0A |= 0x03 | (1 << COM0B1); // 256, Fast PWM Mode
       TCCR0B = 0x04;
-      TCNT0 = 0x00;                   // Start Counting 0x00
+      TCNT0 = 0x00; // Start Counting 0x00
     }
 
     break;
@@ -348,16 +346,16 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC2A:
     if (PWMMode == CORRECT)
     {
-      TCCR2A |= 0x01 | (1 << COMA1);  // 256, Phase Correct PWM
+      TCCR2A |= 0x01 | (1 << COM2A1); // 256, Phase Correct PWM
       TCCR2B = 0x06;
-      TCNT2 = 0x00;                   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR2A |= 0x03 | (1 << COMA1);  // 256, Fast PWM Mode
+      TCCR2A |= 0x03 | (1 << COM2A1); // 256, Fast PWM Mode
       TCCR2B = 0x06;
-      TCNT2 = 0x00;                   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
     }
 
     break;
@@ -365,16 +363,16 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC2B:
     if (PWMMode == CORRECT)
     {
-      TCCR2A |= 0x01 | (1 << COMB1);  // 256, Phase Correct PWM
+      TCCR2A |= 0x01 | (1 << COM2B1); // 256, Phase Correct PWM
       TCCR2B = 0x06;
-      TCNT2 = 0x00;                   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR2A |= 0x03 | (1 << COMB1);  // 256, Fast PWM Mode
+      TCCR2A |= 0x03 | (1 << COM2B1); // 256, Fast PWM Mode
       TCCR2B = 0x06;
-      TCNT2 = 0x00;                   // Start Counting 0x00
+      TCNT2 = 0x00; // Start Counting 0x00
     }
 
     break;
@@ -383,17 +381,17 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC1A:
     if (PWMMode == CORRECT)
     {
-      TCCR1A |= 0x03 | (1 << COMA1);  // 256, Phase Correct PWM
+      TCCR1A |= 0x03 | (1 << COM1A1); // 256, Phase Correct PWM
       TCCR1B = 0x04;
-      TCNT1H = 0x00;                  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR1A |= 0x03 | (1 << COMA1);  // 256, Fast PWM Mode
+      TCCR1A |= 0x03 | (1 << COM1A1); // 256, Fast PWM Mode
       TCCR1B = 0x0C;
-      TCNT1H = 0x00;                  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
     }
 
@@ -402,17 +400,17 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   case OC1B:
     if (PWMMode == CORRECT)
     {
-      TCCR1A |= 0x03 | (1 << COMB1);  // 256, Phase Correct PWM
+      TCCR1A |= 0x03 | (1 << COM1B1); // 256, Phase Correct PWM
       TCCR1B = 0x04;
-      TCNT1H = 0x00;                  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
     }
 
-    else if (PWMMode == FAST)
+    else
     {
-      TCCR1A |= 0x03 | (1 << COMB1);  // 256, Fast PWM Mode
+      TCCR1A |= 0x03 | (1 << COM1B1); // 256, Fast PWM Mode
       TCCR1B = 0x0C;
-      TCNT1H = 0x00;                  // Start Counting 0x0000
+      TCNT1H = 0x00; // Start Counting 0x0000
       TCNT1L = 0x00;
     }
 
@@ -421,7 +419,6 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
   default:
     break;
   }
-
 }
 
 /*----------------------------------------//
@@ -430,6 +427,6 @@ void MCU::Setting::beginPWM(uint8_t PWMIndex, uint8_t PWMMode)
 
 void MCU::Setting::beginSPI(void)
 {
-  SPCR = (1 << SPE) | (1 << MSTR);  //Enable SPI with 2000KHz in Master Mode
+  SPCR = (1 << SPE) | (1 << MSTR); //Enable SPI with 2000KHz in Master Mode
   SPSR = (1 << SPI2X);
 }

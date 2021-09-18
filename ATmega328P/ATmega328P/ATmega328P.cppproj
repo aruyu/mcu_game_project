@@ -169,6 +169,12 @@
     <Compile Include="Modules\SW.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Modules\TFT.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Modules\TFT.hpp">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules" />

@@ -31,16 +31,13 @@
 #define OC2A 7
 #define OC2B 8
 
+#define OVF 0
+#define COMP 1
+#define CORRECT 0
+#define FAST 1
 #define MAINTAIN 0
 #define DOWN 1
 #define UP 2
-#define OVF 3
-#define COMP 4
-#define CORRECT 5
-#define FAST 6
-
-#define COMA1 7
-#define COMB1 5
 
 #define _OCR0A 0xFF   // Compare with 0xFF	Timer0
 #define _OCR2A 0xA0   // Compare with 0xA0	Timer2
@@ -61,17 +58,17 @@ namespace MCU
 
   namespace Features
   {
-    uint8_t hex(uint8_t decimal);
-    uint8_t ASKII(uint8_t decimal);
+    uint8_t hex(int8_t decimal);
+    uint8_t ASKII(int8_t decimal);
   }
 
   namespace Setting
   {
-    void beginPort(uint8_t port, bool isOutput);
-    void beginINT(uint8_t INTIndex, uint8_t INTMode);
-    void beginPCINT(uint8_t PCINTIndex);
-    void beginTimer(uint8_t timerIndex, uint8_t timerMode);
-    void beginPWM(uint8_t PWMIndex, uint8_t PWMMode);
+    void beginPort(int8_t port, bool isOutput);
+    void beginINT(int8_t INTIndex, int8_t INTMode);
+    void beginPCINT(int8_t PCINTIndex);
+    void beginTimer(int8_t timerIndex, bool timerMode);
+    void beginPWM(int8_t PWMIndex, bool PWMMode);
     void beginSPI(void);
   }
 

@@ -8,6 +8,7 @@
  */
 
 #pragma once
+#include "MCU.hpp"
 
 #define REVERSAL 0
 #define NONREVERSAL 1
@@ -24,7 +25,7 @@
 #define SW_7 0x80
 
 typedef volatile unsigned int NonOptimal;
-//using NonOptimal = volatile unsigned int;
+//using NonOptimal = volatile uint8_t;
 
 
 /*
@@ -37,11 +38,11 @@ class SW
 {
 
 private:
-  uint8_t m_SwitchPort;
-  uint8_t m_SwitchMode;
+  int8_t m_SwitchPort;
+  int8_t m_SwitchMode;
 
 public:
-  SW(uint8_t switchPort, uint8_t switchMode)
+  SW(int8_t switchPort, int8_t switchMode)
   {
     m_SwitchPort = switchPort;
     m_SwitchMode = switchMode;
