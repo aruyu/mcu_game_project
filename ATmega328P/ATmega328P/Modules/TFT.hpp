@@ -10,18 +10,7 @@
 #pragma once
 #include "MCU.hpp"
 
-#define _CS 0
-#define _RST 1
-#define _RS 2
-#define _MOSI 3
-#define _SCK 5
-
-#define CS_HIGH (PORTB |= (1 << _CS))
-#define CS_LOW (PORTB &= ~(1 << _CS))
-#define RST_HIGH (PORTB |= (1 << _RST))
-#define RST_LOW (PORTB &= ~(1 << _RST))
-#define RS_HIGH (PORTB |= (1 << _RS))
-#define RS_LOW (PORTB &= ~(1 << _RS))
+#define _SPEED
 
 #define BLACK 0x0000       /*   0,   0,   0 */
 #define NAVY 0x000F        /*   0,   0,  15 */
@@ -44,6 +33,21 @@
 #define PINK 0xF81F        /*  31,   0,  31 */
 
 
+#ifdef _SPEED
+
+#define CS 0
+#define RST 1
+#define RS 2
+#define MOSI 3
+#define SCK 5
+
+#define CS_HIGH (PORTB |= (1 << CS))
+#define CS_LOW (PORTB &= ~(1 << CS))
+#define RST_HIGH (PORTB |= (1 << RST))
+#define RST_LOW (PORTB &= ~(1 << RST))
+#define RS_HIGH (PORTB |= (1 << RS))
+#define RS_LOW (PORTB &= ~(1 << RS))
+
 /*
 //==========================================
                 CLASS - SPI
@@ -54,7 +58,7 @@ class SPI
 {
 
 public:
-  SPI() { SPCR = (1 << SPE) | (1 << MSTR); SPSR = (1 << SPI2X); };
+  SPI(){};
   ~SPI(){};
 
   void sendBit(uint8_t bitValue);
@@ -89,17 +93,21 @@ public:
   void fillScreen(uint16_t colorValue);
   void drawPixel(int16_t xPos, int16_t yPos, uint16_t colorValue);
   void drawRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);
-  void draw1Bitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit);
-  //void draw4Bitmap();
+  void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
+  void drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   //void setDraw(const uint8_t *cacheMap);
   //void startDraw(void);
   //void drawImageRotate();
 
 };
 
+#endif
+
+
+#ifdef _SCALE
 
 // Only for scalability, Slow speed. //
-/*
+
 class SPI
 {
 
@@ -111,13 +119,13 @@ private:
   int8_t m_SCK;
 
 public:
-  SPI(int8_t _CS, int8_t _RST, int8_t _RS, int8_t _MOSI, int8_t _SCK)
+  SPI(int8_t CS, int8_t RST, int8_t RS, int8_t MOSI, int8_t SCK)
   {
-    m_CS = _CS;
-    m_RST = _RST;
-    m_RS = _RS;
-    m_MOSI = _MOSI;
-    m_SCK = _SCK;
+    m_CS = CS;
+    m_RST = RST;
+    m_RS = RS;
+    m_MOSI = MOSI;
+    m_SCK = SCK;
   }
   ~SPI(){};
 
@@ -144,8 +152,8 @@ private:
   int16_t m_Temp;
 
 public:
-  TFT(int8_t _CS, int8_t _RST, int8_t _RS, int8_t _MOSI, int8_t _SCK)
-    : SPI(_CS, _RST, _RS, _MOSI, _SCK){};
+  TFT(int8_t CS, int8_t RST, int8_t RS, int8_t MOSI, int8_t SCK)
+    : SPI(CS, RST, RS, MOSI, SCK){};
   ~TFT(){};
 
   void begin(int16_t TFTWidth, int16_t TFTHeight);
@@ -158,4 +166,5 @@ public:
   //void drawImageRotate();
 
 };
-*/
+
+#endif

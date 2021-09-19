@@ -8,7 +8,6 @@
  */
 
 #pragma once
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
@@ -69,6 +68,7 @@ namespace MCU
     void beginPCINT(int8_t PCINTIndex);
     void beginTimer(int8_t timerIndex, bool timerMode);
     void beginPWM(int8_t PWMIndex, bool PWMMode);
+    void beginSPI(void);
   }
 
 }

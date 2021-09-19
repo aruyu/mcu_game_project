@@ -28,6 +28,7 @@ uint8_t MCU::insertBit(uint8_t bitValue, bool isHigh)
   {
     return returnValue &= ~(1 << bitValue);
   }
+
 }
 
 /*----------------------------------------//
@@ -153,6 +154,7 @@ void MCU::Setting::beginPort(int8_t port, bool isOutput)
   default:
     break;
   }
+
 }
 
 /*----------------------------------------//
@@ -181,6 +183,7 @@ void MCU::Setting::beginINT(int8_t INTIndex, int8_t INTMode)
   default:
     break;
   }
+
 }
 
 /*----------------------------------------//
@@ -209,6 +212,7 @@ void MCU::Setting::beginPCINT(int8_t PCINTIndex)
     PCMSK1 |= insertBit(PCINTIndex, HIGH);
     return;
   }
+
 }
 
 /*----------------------------------------//
@@ -297,6 +301,7 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
   default:
     break;
   }
+
 }
 
 /*----------------------------------------//
@@ -419,4 +424,15 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   default:
     break;
   }
+
+}
+
+/*----------------------------------------//
+            Begin SPI Protocol
+//----------------------------------------*/
+
+void MCU::Setting::beginSPI(void)
+{
+  SPCR = (1 << SPE) | (1 << MSTR);
+  SPSR = (1 << SPI2X); 
 }

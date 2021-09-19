@@ -175,9 +175,16 @@
     <Compile Include="Modules\TFT.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\assets\Logo.hpp">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules" />
+    <Folder Include="src" />
+    <Folder Include="src\assets" />
+    <Folder Include="src\audio" />
+    <Folder Include="src\core" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

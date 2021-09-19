@@ -145,13 +145,13 @@ void TFT::setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height)
 {
   exportCommand(0x2A); // Column Address set 0x2A
 
-  exportLongData(xPos);  // xSTART
-  exportLongData(width); // xEND
+  exportLongData(xPos);  // xPosition
+  exportLongData(width);
 
   exportCommand(0x2B); // Page Address Set 0x2B
 
-  exportLongData(yPos);   // ySTART
-  exportLongData(height); // yEND
+  exportLongData(yPos);   // yPosition
+  exportLongData(height);
 
   exportCommand(0x2C); // Memory Write 0x2C
 }
@@ -203,3 +203,166 @@ void TFT::drawRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, ui
   }
 
 }
+
+/*----------------------------------------//
+              Draw Bitmap
+//----------------------------------------*/
+
+void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+{
+
+  uint8_t data;
+  uint8_t temp;
+
+  setAddress(xPos, yPos, (xPos+ width-1), (yPos+ height-1));
+
+  for (int i=0; i<height; i++)
+  {
+    for (int j=0; j<(width/4); j++)
+    {
+
+      data = pgm_read_byte( &bitmap[i* (width/4) +j] );
+
+      for (int k=0; k<4; k++)
+      {
+        temp = data >> 6;
+
+        if (temp == 0x00) //1Pixel = 00
+        {
+          exportLongData(color0Bit);
+        }
+
+        else if (temp == 0x01)  //1Pixel = 01
+        {
+          exportLongData(color1Bit);
+        }
+
+        else if (temp == 0x02)  //1Pixel = 10
+        {
+          exportLongData(color2Bit);
+        }
+
+        else if (temp == 0x03)  //1Pixel = 11
+        {
+          exportLongData(color3Bit);
+        }
+
+        data <<= 2;
+      }
+
+    }
+  }
+
+}
+
+/*----------------------------------------//
+            Draw Bitmap Twice
+//----------------------------------------*/
+
+void TFT::drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+{
+
+  uint8_t data;
+  uint8_t temp;
+
+  setAddress(xPos, yPos, (xPos+ width-1), (yPos+ height-1));
+
+  for (int i=0; i<(height/2); i++)
+  {
+    for (int j=0; j<2; j++)
+    {
+      for (int k=0; k<(width/8); k++)
+      {
+
+        data = pgm_read_byte( &bitmap[i* (width/8) +k] );
+
+        for (int l=0; l<4; l++)
+        {
+          temp = data >> 6;
+
+          if (temp == 0x00) //1Pixel = 00
+          {
+            exportLongData(color0Bit);
+            exportLongData(color0Bit);
+          }
+
+          else if (temp == 0x01)  //1Pixel = 01
+          {
+            exportLongData(color1Bit);
+            exportLongData(color1Bit);
+          }
+
+          else if (temp == 0x02)  //1Pixel = 10
+          {
+            exportLongData(color2Bit);
+            exportLongData(color2Bit);
+          }
+
+          else if (temp == 0x03)  //1Pixel = 11
+          {
+            exportLongData(color3Bit);
+            exportLongData(color3Bit);
+          }
+
+          data <<= 2;
+        }
+
+      }
+    }
+  }
+
+}
+
+/*----------------------------------------//
+            Draw 16x16 Tile
+//----------------------------------------*/
+/*
+void TFT::drawTile(int16_t xPos, int16_t yPos, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+{
+
+  const uint8_t *data;
+
+  setAddress(xPos, yPos, (xPos + 31), (yPos + 31));
+
+  for (int i=0; i<32; i++)
+  {
+    for (int j=0; j<(32/8); j++)
+    {
+
+      *data = pgm_read_byte( &bitmap[i* (32/8) +j] );
+
+      for (int k=0; k<2; k++)
+      {
+
+        if (&data & 0x00) //1Pixel = 00
+        {
+          exportLongData(color0Bit);
+          exportLongData(color0Bit);
+        }
+
+        else if (&data & 0x40)  //1Pixel = 01
+        {
+          exportLongData(color1Bit);
+          exportLongData(color1Bit);
+        }
+
+        else if (&data & 0x80)  //1Pixel = 10
+        {
+          exportLongData(color2Bit);
+          exportLongData(color2Bit);
+        }
+
+        else if (&data & 0xC0)  //1Pixel = 11
+        {
+          exportLongData(color3Bit);
+          exportLongData(color3Bit);
+        }
+
+        *data <<= 2;
+
+      }
+
+    }
+  }
+
+}*/
