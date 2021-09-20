@@ -318,22 +318,22 @@ void TFT::drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t hei
             Draw 20x20 Tile
 //----------------------------------------*/
 
-void TFT::drawTile(int16_t xPos, int16_t yPos, const uint8_t *bitmap, int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+void TFT::drawTile(int16_t xPos, int16_t yPos, const uint8_t (*bitmap)[100], int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
   uint8_t data;
   uint8_t temp;
 
-  setAddress(xPos, yPos, (xPos+ 19), (yPos+ 19));
+  setAddress(xPos, yPos, (xPos+ 39), (yPos+ 39));
 
-  for (int i=0; i<(20/2); i++)
+  for (int i=0; i<(40/2); i++)
   {
     for (int j=0; j<2; j++)
     {
-      for (int k=0; k<(20/8); k++)
+      for (int k=0; k<(40/8); k++)
       {
 
-        data = pgm_read_byte( &bitmap[tileSelection][i* (20/8) +k] );
+        data = pgm_read_byte( &bitmap[tileSelection][i* (40/8) +k] );
 
         for (int l=0; l<4; l++)
         {

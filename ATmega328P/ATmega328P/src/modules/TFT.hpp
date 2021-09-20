@@ -96,7 +96,7 @@ public:
   void drawRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);
   void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   void drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
-  void drawTile(int16_t xPos, int16_t yPos, const uint8_t *bitmap, int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
+  void drawTile(int16_t xPos, int16_t yPos, const uint8_t (*bitmap)[100], int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   //void setDraw(const uint8_t *cacheMap);
   //void startDraw(void);
   //void drawImageRotate();

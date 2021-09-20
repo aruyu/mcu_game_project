@@ -50,6 +50,7 @@ void Game::title(void)
 void Game::start(void)
 {
   fillScreen(BLACK);
+  _delay_ms(100);
   
   Player user;
 
