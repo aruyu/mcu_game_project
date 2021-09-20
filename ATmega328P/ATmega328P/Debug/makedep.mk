@@ -4,9 +4,15 @@
 
 main.cpp
 
-Modules\MCU.cpp
+src\core\Game.cpp
 
-Modules\SW.cpp
+src\core\Object.cpp
 
-Modules\TFT.cpp
+src\core\Player.cpp
+
+src\modules\MCU.cpp
+
+src\modules\SW.cpp
+
+src\modules\TFT.cpp
 

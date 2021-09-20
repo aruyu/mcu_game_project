@@ -1,4 +1,5 @@
-main.d main.o: .././main.cpp .././src/modules/MCU.hpp \
+src/core/Object.d src/core/Object.o: ../src/core/Object.cpp \
+ ../src/core/Object.hpp ../src/core/../modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -16,11 +17,11 @@ main.d main.o: .././main.cpp .././src/modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././src/core/Game.hpp .././src/core/../modules/TFT.hpp \
- .././src/core/../assets/Logo.hpp .././src/core/Player.hpp \
- .././src/core/../assets/CharRun.hpp .././src/core/Object.hpp
+ ../src/core/../modules/TFT.hpp
 
-.././src/modules/MCU.hpp:
+../src/core/Object.hpp:
+
+../src/core/../modules/MCU.hpp:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -56,14 +57,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././src/core/Game.hpp:
-
-.././src/core/../modules/TFT.hpp:
-
-.././src/core/../assets/Logo.hpp:
-
-.././src/core/Player.hpp:
-
-.././src/core/../assets/CharRun.hpp:
-
-.././src/core/Object.hpp:
+../src/core/../modules/TFT.hpp:

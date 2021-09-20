@@ -280,28 +280,29 @@ void TFT::drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t hei
         {
           temp = data >> 6;
 
-          if (temp == 0x00) //1Pixel = 00
+          for (int m=0; m<2; m++)
           {
-            exportLongData(color0Bit);
-            exportLongData(color0Bit);
-          }
 
-          else if (temp == 0x01)  //1Pixel = 01
-          {
-            exportLongData(color1Bit);
-            exportLongData(color1Bit);
-          }
+            if (temp == 0x00) //1Pixel = 00
+            {
+              exportLongData(color0Bit);
+            }
 
-          else if (temp == 0x02)  //1Pixel = 10
-          {
-            exportLongData(color2Bit);
-            exportLongData(color2Bit);
-          }
+            else if (temp == 0x01)  //1Pixel = 01
+            {
+              exportLongData(color1Bit);
+            }
 
-          else if (temp == 0x03)  //1Pixel = 11
-          {
-            exportLongData(color3Bit);
-            exportLongData(color3Bit);
+            else if (temp == 0x02)  //1Pixel = 10
+            {
+              exportLongData(color2Bit);
+            }
+
+            else if (temp == 0x03)  //1Pixel = 11
+            {
+              exportLongData(color3Bit);
+            }
+
           }
 
           data <<= 2;
@@ -314,55 +315,60 @@ void TFT::drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t hei
 }
 
 /*----------------------------------------//
-            Draw 16x16 Tile
+            Draw 20x20 Tile
 //----------------------------------------*/
-/*
-void TFT::drawTile(int16_t xPos, int16_t yPos, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+
+void TFT::drawTile(int16_t xPos, int16_t yPos, const uint8_t *bitmap, int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
-  const uint8_t *data;
+  uint8_t data;
+  uint8_t temp;
 
-  setAddress(xPos, yPos, (xPos + 31), (yPos + 31));
+  setAddress(xPos, yPos, (xPos+ 19), (yPos+ 19));
 
-  for (int i=0; i<32; i++)
+  for (int i=0; i<(20/2); i++)
   {
-    for (int j=0; j<(32/8); j++)
+    for (int j=0; j<2; j++)
     {
-
-      *data = pgm_read_byte( &bitmap[i* (32/8) +j] );
-
-      for (int k=0; k<2; k++)
+      for (int k=0; k<(20/8); k++)
       {
 
-        if (&data & 0x00) //1Pixel = 00
-        {
-          exportLongData(color0Bit);
-          exportLongData(color0Bit);
-        }
+        data = pgm_read_byte( &bitmap[tileSelection][i* (20/8) +k] );
 
-        else if (&data & 0x40)  //1Pixel = 01
+        for (int l=0; l<4; l++)
         {
-          exportLongData(color1Bit);
-          exportLongData(color1Bit);
-        }
+          temp = data >> 6;
 
-        else if (&data & 0x80)  //1Pixel = 10
-        {
-          exportLongData(color2Bit);
-          exportLongData(color2Bit);
-        }
+          for (int m=0; m<2; m++)
+          {
 
-        else if (&data & 0xC0)  //1Pixel = 11
-        {
-          exportLongData(color3Bit);
-          exportLongData(color3Bit);
-        }
+            if (temp == 0x00) //1Pixel = 00
+            {
+              exportLongData(color0Bit);
+            }
 
-        *data <<= 2;
+            else if (temp == 0x01)  //1Pixel = 01
+            {
+              exportLongData(color1Bit);
+            }
+
+            else if (temp == 0x02)  //1Pixel = 10
+            {
+              exportLongData(color2Bit);
+            }
+
+            else if (temp == 0x03)  //1Pixel = 11
+            {
+              exportLongData(color3Bit);
+            }
+
+          }
+
+          data <<= 2;
+        }
 
       }
-
     }
   }
 
-}*/
+}

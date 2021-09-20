@@ -1,5 +1,5 @@
-Modules/SW.d Modules/SW.o: ../Modules/SW.cpp ../Modules/SW.hpp \
- ../Modules/MCU.hpp \
+src/modules/TFT.d src/modules/TFT.o: ../src/modules/TFT.cpp \
+ ../src/modules/TFT.hpp ../src/modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -18,9 +18,9 @@ Modules/SW.d Modules/SW.o: ../Modules/SW.cpp ../Modules/SW.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-../Modules/SW.hpp:
+../src/modules/TFT.hpp:
 
-../Modules/MCU.hpp:
+../src/modules/MCU.hpp:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

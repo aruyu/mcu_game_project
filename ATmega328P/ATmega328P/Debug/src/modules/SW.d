@@ -1,4 +1,5 @@
-Modules/MCU.d Modules/MCU.o: ../Modules/MCU.cpp ../Modules/MCU.hpp \
+src/modules/SW.d src/modules/SW.o: ../src/modules/SW.cpp \
+ ../src/modules/SW.hpp ../src/modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -17,7 +18,9 @@ Modules/MCU.d Modules/MCU.o: ../Modules/MCU.cpp ../Modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-../Modules/MCU.hpp:
+../src/modules/SW.hpp:
+
+../src/modules/MCU.hpp:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

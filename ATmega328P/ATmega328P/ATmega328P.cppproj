@@ -157,34 +157,55 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Modules\MCU.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Modules\MCU.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Modules\SW.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Modules\SW.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Modules\TFT.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Modules\TFT.hpp">
+    <Compile Include="src\assets\CharRun.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\assets\Logo.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\core\Game.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Game.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Object.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Object.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Player.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Player.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\MCU.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\MCU.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\SW.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\SW.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\TFT.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\modules\TFT.hpp">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modules" />
     <Folder Include="src" />
     <Folder Include="src\assets" />
     <Folder Include="src\audio" />
     <Folder Include="src\core" />
+    <Folder Include="src\modules" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
