@@ -58,7 +58,7 @@ namespace MCU
   namespace Features
   {
     uint8_t hex(int8_t decimal);
-    uint8_t ASKII(int8_t decimal);
+    uint8_t ASCII(int8_t decimal);
   }
 
   namespace Setting

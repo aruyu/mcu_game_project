@@ -4,6 +4,7 @@
         Gray 2bit/pixel       Total : 100 x 6 Bytes
 */
 
+
 const uint8_t charRun[6][100] PROGMEM = 
 {
   {

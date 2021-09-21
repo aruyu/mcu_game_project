@@ -94,19 +94,19 @@ uint8_t MCU::Features::hex(int8_t decimal)
 }
 
 /*----------------------------------------//
-            Convert 10 to ASKII
+            Convert 10 to ASCII
 //----------------------------------------*/
 
-uint8_t MCU::Features::ASKII(int8_t decimal)
+uint8_t MCU::Features::ASCII(int8_t decimal)
 {
-  uint8_t ASKIIValue = 0x00;
+  uint8_t ASCIIValue = 0x00;
 
   if (decimal >= 0 && decimal <= 9)
   {
-    ASKIIValue = decimal + 0x30;
+    ASCIIValue = decimal + 0x30;
   }
 
-  return ASKIIValue;
+  return ASCIIValue;
 }
 
 /*----------------------------------------//

@@ -34,12 +34,15 @@ void Game::title(void)
   fillScreen(BLUE);
   _delay_ms(500);
 
+  //fillScreen(BLACK);
+  //drawBitmap(0, 0, 48, 128, font, BLACK, WHITE);
+
   fillScreen(WHITE);
   drawBitmap(0, 30, 160, 80, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(500);
 
   drawBitmapTwice(0, 30, 320, 160, logoAtmel, BLACK, RED, BLUE, WHITE);
-  _delay_ms(5000);
+  _delay_ms(3000);
 }
 
 
@@ -50,7 +53,7 @@ void Game::title(void)
 void Game::start(void)
 {
   fillScreen(BLACK);
-  _delay_ms(100);
+  _delay_ms(10);
   
   Player user;
 

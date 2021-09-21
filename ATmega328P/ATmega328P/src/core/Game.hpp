@@ -10,8 +10,10 @@
 #pragma once
 #include "../modules/MCU.hpp"
 #include "../modules/TFT.hpp"
-#include "../assets/Logo.hpp"
+#include "../assets/LogoAtmel.hpp"
+#include "../assets/FontASCII.hpp"
 
+#include "Font.hpp"
 #include "Player.hpp"
 #include "Object.hpp"
 
@@ -22,14 +24,14 @@
 ==========================================//
 */
 
-class Game : public TFT
+class Game : public Font
 {
 
 private:
   
 
 public:
-  Game() : TFT(){};
+  Game() : Font(){};
   ~Game(){};
 
   void title(void);
