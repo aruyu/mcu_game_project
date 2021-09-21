@@ -1,5 +1,5 @@
-src/core/Game.d src/core/Game.o: ../src/core/Game.cpp \
- ../src/core/Game.hpp ../src/core/../modules/MCU.hpp \
+src/core/Font.d src/core/Font.o: ../src/core/Font.cpp \
+ ../src/core/Font.hpp ../src/core/../modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -17,12 +17,9 @@ src/core/Game.d src/core/Game.o: ../src/core/Game.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/core/../modules/TFT.hpp ../src/core/../assets/LogoAtmel.hpp \
- ../src/core/../assets/FontASCII.hpp ../src/core/Font.hpp \
- ../src/core/Player.hpp ../src/core/../assets/CharRun.hpp \
- ../src/core/Object.hpp
+ ../src/core/../modules/TFT.hpp
 
-../src/core/Game.hpp:
+../src/core/Font.hpp:
 
 ../src/core/../modules/MCU.hpp:
 
@@ -61,15 +58,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 ../src/core/../modules/TFT.hpp:
-
-../src/core/../assets/LogoAtmel.hpp:
-
-../src/core/../assets/FontASCII.hpp:
-
-../src/core/Font.hpp:
-
-../src/core/Player.hpp:
-
-../src/core/../assets/CharRun.hpp:
-
-../src/core/Object.hpp:

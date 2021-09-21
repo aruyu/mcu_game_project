@@ -12,31 +12,30 @@
 
 #define _SPEED
 
-#define BLACK 0x0000       /*   0,   0,   0 */
-#define WHITE 0xFFFF       /*  31,  63,  31 */
-#define LIGHTGREY 0xC618   /*  24,  48,  24 */
-#define DARKGREY 0x7BEF    /*  15,  31,  15 */
+#define BLACK 0x0000        //   0.  0.  0  //
+#define WHITE 0xFFFF        //  31. 63. 31  //
+#define LIGHTGREY 0xC618    //  24. 48. 24  //
+#define DARKGREY 0x7BEF     //  15. 31. 15  //
 
-#define MAROON 0x7800      /*  15,   0,   0 */
-#define RED 0xF800         /*  31,   0,   0 */
+#define MAROON 0x7800       //  15.  0.  0  //
+#define RED 0xF800          //  31.  0.  0  //
 
-#define DARKGREEN 0x03E0   /*   0,  31,   0 */
-#define GREEN 0x07E0       /*   0,  63,   0 */
+#define DARKGREEN 0x03E0    //   0. 31.  0  //
+#define GREEN 0x07E0        //   0. 63.  0  //
 
-#define NAVY 0x000F        /*   0,   0,  15 */
-#define BLUE 0x001F        /*   0,   0,  31 */
+#define NAVY 0x000F         //   0.  0. 15  //
+#define BLUE 0x001F         //   0.  0. 31  //
 
-#define PURPLE 0x780F      /*  15,   0,  15 */
-#define PINK 0xF81F        /*  31,   0,  31 */
+#define PURPLE 0x780F       //  15.  0. 15  //
+#define PINK 0xF81F         //  31.  0. 31  //
 
-#define DARKCYAN 0x03EF    /*   0,  31,  15 */
-#define CYAN 0x07FF        /*   0,  63,  31 */
+#define DARKCYAN 0x03EF     //   0. 31. 15  //
+#define CYAN 0x07FF         //   0. 63. 31  //
 
-#define OLIVE 0x7BE0       /*  15,  31,   0 */
-#define ORANGE 0xFD20      /*  31,  41,   0 */
-#define YELLOW 0xFFE0      /*  31,  63,   0 */
-#define GREENYELLOW 0xAFE5 /*  21,  63,   5 */
-#define MAGENTA 0xF81F     /*  31,   0,  31 */
+#define OLIVE 0x7BE0        //  15. 31.  0  //
+#define ORANGE 0xFD20       //  31. 41.  0  //
+#define YELLOW 0xFFE0       //  31. 63.  0  //
+#define GREENYELLOW 0xAFE5  //  21. 63.  5  //
 
 
 #ifdef _SPEED
@@ -87,7 +86,6 @@ private:
   int16_t m_Width;
   int16_t m_Height;
   int16_t m_Temp;
-  //uint16_t m_Cache[15][20];
 
 public:
   TFT() : SPI() { m_Width = 240; m_Height = 320; }
@@ -98,8 +96,6 @@ public:
   void setRotation(int8_t rotation);
   void setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height);
   void fillScreen(uint16_t colorValue);
-  void drawPixel(int16_t xPos, int16_t yPos, uint16_t colorValue);
-  void drawRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);
   void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   void drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   void drawTile(int16_t xPos, int16_t yPos, const unsigned char (*bitmap)[100], int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
@@ -165,8 +161,7 @@ public:
   void setRotation(uint8_t rotation);
   void setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height);
   void fillScreen(uint16_t colorValue);
-  void drawPixel(int16_t xPos, int16_t yPos, uint16_t colorValue);
-  void drawRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);
+  void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit);
 
 };
 

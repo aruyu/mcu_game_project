@@ -10,12 +10,11 @@
 #pragma once
 #include "../modules/MCU.hpp"
 #include "../modules/TFT.hpp"
-#include "../assets/Font.hpp"
 
 
 /*
 //==========================================
-              CLASS - Player
+              CLASS - Font
 ==========================================//
 */
 
@@ -29,12 +28,12 @@ private:
 
 public:
   Font() : TFT(){};
-  Font(const uint8_t *bitmap) : TFT() { &m_Bitmap = *bitmap; }
+  Font(const uint8_t *bitmap) : TFT() { m_Bitmap = bitmap; }
   ~Font(){};
 
-  void setFont(const uint8_t *bitmap) { &m_Bitmap = *bitmap; }
+  void setFont(const uint8_t *bitmap) { m_Bitmap = bitmap; }
+  void setColor(uint16_t color0Bit, uint16_t color1Bit) { m_Background = color0Bit; m_Colored = color1Bit; }
   void printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII);
-  void print(const uint8_t *String);
+  void print(int16_t xPos, int16_t yPos, const char *stringValue);
 
 };
-

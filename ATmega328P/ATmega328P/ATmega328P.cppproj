@@ -160,7 +160,16 @@
     <Compile Include="src\assets\CharRun.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\assets\Logo.hpp">
+    <Compile Include="src\assets\FontASCII.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\assets\LogoAtmel.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Font.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Font.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\core\Game.cpp">
