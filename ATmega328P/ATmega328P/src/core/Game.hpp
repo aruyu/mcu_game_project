@@ -14,8 +14,8 @@
 #include "../assets/FontASCII.hpp"
 
 #include "Font.hpp"
-#include "Player.hpp"
 #include "Object.hpp"
+#include "Player.hpp"
 
 
 /*

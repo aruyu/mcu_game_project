@@ -19,8 +19,8 @@ main.d main.o: .././main.cpp .././src/modules/MCU.hpp \
  .././src/core/Game.hpp .././src/core/../modules/TFT.hpp \
  .././src/core/../assets/LogoAtmel.hpp \
  .././src/core/../assets/FontASCII.hpp .././src/core/Font.hpp \
- .././src/core/Player.hpp .././src/core/../assets/CharRun.hpp \
- .././src/core/Object.hpp
+ .././src/core/Object.hpp .././src/core/Player.hpp \
+ .././src/core/../assets/CharRun.hpp
 
 .././src/modules/MCU.hpp:
 
@@ -68,8 +68,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././src/core/Font.hpp:
 
+.././src/core/Object.hpp:
+
 .././src/core/Player.hpp:
 
 .././src/core/../assets/CharRun.hpp:
-
-.././src/core/Object.hpp:
