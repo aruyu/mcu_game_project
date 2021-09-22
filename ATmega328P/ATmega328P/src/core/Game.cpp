@@ -19,15 +19,6 @@ void Game::title(void)
   begin();
   setRotation(0);
 
-  fillScreen(RED);
-  _delay_ms(500);
-
-  fillScreen(GREEN);
-  _delay_ms(500);
-
-  fillScreen(BLUE);
-  _delay_ms(500);
-
   fillScreen(WHITE);
   drawBitmap(0, 30, 160, 80, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(500);
@@ -56,7 +47,7 @@ void Game::start(void)
 {
 
   fillScreen(BLACK);
-  _delay_ms(10);
+  _delay_ms(100);
 
   Player user;
 

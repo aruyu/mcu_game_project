@@ -38,14 +38,14 @@ void Font::printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII)
         for (int l=0; l<2; l++)
         {
 
-          if (temp == 0x00)
+          if (temp == 0x00)       //1Pixel = 0
           {
-            exportLongData(m_Background); //1Pixel = 0
+            exportLongData(m_Background);
           }
 
-          else
+          else                    //1Pixel = 1
           {
-            exportLongData(m_Colored); //1Pixel = 1
+            exportLongData(m_Colored);
           }
 
         }

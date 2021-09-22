@@ -76,24 +76,24 @@ void TFT::begin(void)
   RST_HIGH;
   _delay_ms(500);
 
-  exportCommand(0x01); // Software Reset (01h)
+  exportCommand(0x01);  // Software Reset (01h)
   _delay_ms(20);
 
-  exportCommand(0xC0); // Power Control 1 (C0h)
-  exportData(0x2B);    // VRH[5:0] 5.00 V
+  exportCommand(0xC0);  // Power Control 1 (C0h)
+  exportData(0x2B);     // VRH [5:0], GVDD 5.00V
 
-  exportCommand(0x36); // Memory Access Control (36h)
-  exportData(0x48);    // Column Address Order, RGB-BGR Order
+  exportCommand(0x36);  // Memory Access Control (36h)
+  exportData(0x48);     // Column Address Order, RGB-BGR Order
 
-  exportCommand(0x3A); // COLMOD: Pixel Format Set (3Ah)
-  exportData(0x55);    // 16 bits / pixel
+  exportCommand(0x3A);  // COLMOD: Pixel Format Set (3Ah)
+  exportData(0x55);     // DBI [2:0], Format 16 bits / pixel
 
-  exportCommand(0x20); // Display Inversion OFF (20h)
+  exportCommand(0x20);  // Display Inversion OFF (20h)
 
-  exportCommand(0x11); // Sleep Out (11h)
+  exportCommand(0x11);  // Sleep Out (11h)
   _delay_ms(20);
 
-  exportCommand(0x29); // Display ON (29h)
+  exportCommand(0x29);  // Display ON (29h)
 }
 
 /*----------------------------------------//
@@ -108,25 +108,18 @@ void TFT::setRotation(int8_t rotation)
   switch (rotation)
   {
   case 0:
-    exportData(0x28);   //(MADCTL_MV | MADCTL_BGR)
+    exportData(0x28);   // Row / Column Exchange, RGB-BGR Order
     m_Temp = m_Width;
     m_Width = m_Height;
     m_Height = m_Temp;
     break;
 
   case 1:
-    exportData(0x48);   //(MADCTL_MX | MADCTL_BGR)
+    exportData(0x48);   // Column Address Order, RGB-BGR Order
     break;
 
   case 2:
-    exportData(0x88);   //(MADCTL_MY | MADCTL_BGR)
-    break;
-
-  case 3:
-    exportData(0xE8);   //(MADCTL_MX | MADCTL_MY | MADCTL_MV | MADCTL_BGR)
-    m_Temp = m_Width;
-    m_Width = m_Height;
-    m_Height = m_Temp;
+    exportData(0x88);   // Row Address Order, RGB-BGR Order
     break;
 
   default:
@@ -141,17 +134,17 @@ void TFT::setRotation(int8_t rotation)
 
 void TFT::setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height)
 {
-  exportCommand(0x2A);    // Column Address set 0x2A
+  exportCommand(0x2A);    // Column Address Set (2Ah)
 
   exportLongData(xPos);   // xPosition
   exportLongData(width);
 
-  exportCommand(0x2B);    // Page Address Set 0x2B
+  exportCommand(0x2B);    // Page Address Set (2Bh)
 
   exportLongData(yPos);   // yPosition
   exportLongData(height);
 
-  exportCommand(0x2C);    // Memory Write 0x2C
+  exportCommand(0x2C);    // Memory Write (2Ch)
 }
 
 /*----------------------------------------//

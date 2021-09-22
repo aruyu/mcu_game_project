@@ -10,34 +10,31 @@
 #pragma once
 #include "MCU.hpp"
 
-#define _SPEED
-
 #define BLACK 0x0000        //   0.  0.  0  //
 #define WHITE 0xFFFF        //  31. 63. 31  //
-#define LIGHTGREY 0xC618    //  24. 48. 24  //
-#define DARKGREY 0x7BEF     //  15. 31. 15  //
 
 #define MAROON 0x7800       //  15.  0.  0  //
 #define RED 0xF800          //  31.  0.  0  //
-
 #define DARKGREEN 0x03E0    //   0. 31.  0  //
 #define GREEN 0x07E0        //   0. 63.  0  //
-
 #define NAVY 0x000F         //   0.  0. 15  //
 #define BLUE 0x001F         //   0.  0. 31  //
 
-#define PURPLE 0x780F       //  15.  0. 15  //
-#define PINK 0xF81F         //  31.  0. 31  //
-
 #define DARKCYAN 0x03EF     //   0. 31. 15  //
 #define CYAN 0x07FF         //   0. 63. 31  //
+#define PURPLE 0x780F       //  15.  0. 15  //
+#define PINK 0xF81F         //  31.  0. 31  //
 
 #define OLIVE 0x7BE0        //  15. 31.  0  //
 #define ORANGE 0xFD20       //  31. 41.  0  //
 #define YELLOW 0xFFE0       //  31. 63.  0  //
 #define GREENYELLOW 0xAFE5  //  21. 63.  5  //
 
+#define DARKGREY 0x7BEF     //  15. 31. 15  //
+#define GREY 0xC618         //  24. 48. 24  //
 
+
+#define _SPEED
 #ifdef _SPEED
 
 #define CS 0

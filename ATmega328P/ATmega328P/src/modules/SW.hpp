@@ -25,7 +25,7 @@
 #define SW_7 0x80
 
 typedef volatile unsigned int NonOptimal;
-//using NonOptimal = volatile uint8_t;
+//using NonOptimal = volatile unsigned int;
 
 
 /*
