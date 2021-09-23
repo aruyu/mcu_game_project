@@ -230,7 +230,7 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK0 = 0x01;
 
-      TCCR0A = 0x00;    // 1024, Normal Mode
+      TCCR0A = 0x00;    // 1024 Prescaler, Normal Mode
       TCCR0B = 0x05;
       TCNT0 = 0x00;     // Start Counting 0x00
     }
@@ -239,7 +239,7 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK0 = 0x02;
 
-      TCCR0A = 0x02;    // 1024, CTC Mode
+      TCCR0A = 0x02;    // 1024 Prescaler, CTC Mode
       TCCR0B = 0x05;
       TCNT0 = 0x00;     // Start Counting 0x00
 
@@ -253,7 +253,7 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK2 = 0x01;
 
-      TCCR2A = 0x00;    // 1024, Normal Mode
+      TCCR2A = 0x00;    // 1024 Prescaler, Normal Mode
       TCCR2B = 0x07;
       TCNT2 = 0x00;     // Start Counting 0x00
     }
@@ -262,7 +262,7 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK2 = 0x02;
 
-      TCCR2A = 0x02;    // 1024, CTC Mode
+      TCCR2A = 0x02;    // 1024 Prescaler, CTC Mode
       TCCR2B = 0x07;
       TCNT2 = 0x00;     // Start Counting 0x00
 
@@ -277,8 +277,8 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK1 = 0x01;
 
-      TCCR1A = 0x00;    // 1024, Normal Mode
-      TCCR1B = 0x05;
+      TCCR1A = 0x00;    // 256 Prescaler, Normal Mode
+      TCCR1B = 0x04;
       TCNT1H = 0x00;    // Start Counting 0x0000
       TCNT1L = 0x00;
     }
@@ -287,8 +287,8 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK1 = 0x02;
 
-      TCCR1A = 0x00;    // 1024, CTC Mode
-      TCCR1B = 0x0D;
+      TCCR1A = 0x00;    // 256 Prescaler, CTC Mode
+      TCCR1B = 0x0C;
       TCNT1H = 0x00;    // Start Counting 0x0000
       TCNT1L = 0x00;
 
@@ -317,14 +317,14 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC0A:
     if (PWMMode == CORRECT)
     {
-      TCCR0A |= 0x01 | (1 << COM0A1);   // 256, Phase Correct PWM
+      TCCR0A |= 0x01 | (1 << COM0A1);   // 256 Prescaler, Phase Correct PWM
       TCCR0B = 0x04;
       TCNT0 = 0x00;                     // Start Counting 0x00
     }
 
     else
     {
-      TCCR0A |= 0x03 | (1 << COM0A1);   // 256, Fast PWM Mode
+      TCCR0A |= 0x03 | (1 << COM0A1);   // 256 Prescaler, Fast PWM Mode
       TCCR0B = 0x04;
       TCNT0 = 0x00;                     // Start Counting 0x00
     }
@@ -334,14 +334,14 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC0B:
     if (PWMMode == CORRECT)
     {
-      TCCR0A |= 0x01 | (1 << COM0B1);   // 256, Phase Correct PWM
+      TCCR0A |= 0x01 | (1 << COM0B1);   // 256 Prescaler, Phase Correct PWM
       TCCR0B = 0x04;
       TCNT0 = 0x00;                     // Start Counting 0x00
     }
 
     else
     {
-      TCCR0A |= 0x03 | (1 << COM0B1);   // 256, Fast PWM Mode
+      TCCR0A |= 0x03 | (1 << COM0B1);   // 256 Prescaler, Fast PWM Mode
       TCCR0B = 0x04;
       TCNT0 = 0x00;                     // Start Counting 0x00
     }
@@ -351,14 +351,14 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC2A:
     if (PWMMode == CORRECT)
     {
-      TCCR2A |= 0x01 | (1 << COM2A1);   // 256, Phase Correct PWM
+      TCCR2A |= 0x01 | (1 << COM2A1);   // 256 Prescaler, Phase Correct PWM
       TCCR2B = 0x06;
       TCNT2 = 0x00;                     // Start Counting 0x00
     }
 
     else
     {
-      TCCR2A |= 0x03 | (1 << COM2A1);   // 256, Fast PWM Mode
+      TCCR2A |= 0x03 | (1 << COM2A1);   // 256 Prescaler, Fast PWM Mode
       TCCR2B = 0x06;
       TCNT2 = 0x00;                     // Start Counting 0x00
     }
@@ -368,14 +368,14 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC2B:
     if (PWMMode == CORRECT)
     {
-      TCCR2A |= 0x01 | (1 << COM2B1);   // 256, Phase Correct PWM
+      TCCR2A |= 0x01 | (1 << COM2B1);   // 256 Prescaler, Phase Correct PWM
       TCCR2B = 0x06;
       TCNT2 = 0x00;                     // Start Counting 0x00
     }
 
     else
     {
-      TCCR2A |= 0x03 | (1 << COM2B1);   // 256, Fast PWM Mode
+      TCCR2A |= 0x03 | (1 << COM2B1);   // 256 Prescaler, Fast PWM Mode
       TCCR2B = 0x06;
       TCNT2 = 0x00;                     // Start Counting 0x00
     }
@@ -386,7 +386,7 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC1A:
     if (PWMMode == CORRECT)
     {
-      TCCR1A |= 0x03 | (1 << COM1A1);   // 256, Phase Correct PWM
+      TCCR1A |= 0x03 | (1 << COM1A1);   // 256 Prescaler, Phase Correct PWM
       TCCR1B = 0x04;
       TCNT1H = 0x00;                    // Start Counting 0x0000
       TCNT1L = 0x00;
@@ -394,7 +394,7 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
 
     else
     {
-      TCCR1A |= 0x03 | (1 << COM1A1);   // 256, Fast PWM Mode
+      TCCR1A |= 0x03 | (1 << COM1A1);   // 256 Prescaler, Fast PWM Mode
       TCCR1B = 0x0C;
       TCNT1H = 0x00;                    // Start Counting 0x0000
       TCNT1L = 0x00;
@@ -405,7 +405,7 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
   case OC1B:
     if (PWMMode == CORRECT)
     {
-      TCCR1A |= 0x03 | (1 << COM1B1);   // 256, Phase Correct PWM
+      TCCR1A |= 0x03 | (1 << COM1B1);   // 256 Prescaler, Phase Correct PWM
       TCCR1B = 0x04;
       TCNT1H = 0x00;                    // Start Counting 0x0000
       TCNT1L = 0x00;
@@ -413,7 +413,7 @@ void MCU::Setting::beginPWM(int8_t PWMIndex, bool PWMMode)
 
     else
     {
-      TCCR1A |= 0x03 | (1 << COM1B1);   // 256, Fast PWM Mode
+      TCCR1A |= 0x03 | (1 << COM1B1);   // 256 Prescaler, Fast PWM Mode
       TCCR1B = 0x0C;
       TCNT1H = 0x00;                    // Start Counting 0x0000
       TCNT1L = 0x00;

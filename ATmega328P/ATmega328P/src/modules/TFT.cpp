@@ -102,6 +102,8 @@ void TFT::begin(void)
 
 void TFT::setRotation(int8_t rotation)
 {
+  
+  int16_t temp;
 
   exportCommand(0x36);  // Memory Access Control (36h)
 
@@ -109,9 +111,9 @@ void TFT::setRotation(int8_t rotation)
   {
   case 0:
     exportData(0x28);   // Row / Column Exchange, RGB-BGR Order
-    m_Temp = m_Width;
+    temp = m_Width;
     m_Width = m_Height;
-    m_Height = m_Temp;
+    m_Height = temp;
     break;
 
   case 1:

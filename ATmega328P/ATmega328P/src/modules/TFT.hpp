@@ -82,7 +82,6 @@ class TFT : public SPI
 private:
   int16_t m_Width;
   int16_t m_Height;
-  int16_t m_Temp;
 
 public:
   TFT() : SPI() { m_Width = 240; m_Height = 320; }

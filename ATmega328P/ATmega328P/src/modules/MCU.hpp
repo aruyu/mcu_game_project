@@ -38,10 +38,10 @@
 #define DOWN 1
 #define UP 2
 
-#define _OCR0A 0xFF   // Compare with 0xFF	Timer0
-#define _OCR2A 0xA0   // Compare with 0xA0	Timer2
-#define _OCR1AH 0x3D
-#define _OCR1AL 0x09  // Compare with 0x3D09	Timer1
+#define _OCR0A 0xFF   // Compare with 255  Timer0
+#define _OCR2A 0xA0   // Compare with 160  Timer2
+#define _OCR1AH 0x02
+#define _OCR1AL 0x71  // Compare with 625  Timer1 (10ms in 256 Prescaler)
 
 
 /*
