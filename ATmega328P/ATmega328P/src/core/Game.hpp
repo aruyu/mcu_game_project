@@ -14,13 +14,14 @@
 #include "../assets/FontASCII.hpp"
 
 #include "Font.hpp"
+#include "Frame.hpp"
 #include "Object.hpp"
 #include "Player.hpp"
 
 
 /*
 //==========================================
-              CLASS - Game
+                CLASS - Game
 ==========================================//
 */
 

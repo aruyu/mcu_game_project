@@ -3,31 +3,31 @@ ATmega328P.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000030  00800100  00001796  0000182a  2**0
+  0 .data         00000030  00800100  0000191a  000019ae  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00001796  00000000  00000000  00000094  2**1
+  1 .text         0000191a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000c  00800130  00800130  0000185a  2**0
+  2 .bss          00000011  00800130  00800130  000019de  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000185a  2**0
+  3 .comment      00000030  00000000  00000000  000019de  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000188c  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001a10  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000170  00000000  00000000  000018cc  2**0
+  5 .debug_aranges 00000198  00000000  00000000  00001a50  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00004a92  00000000  00000000  00001a3c  2**0
+  6 .debug_info   00004c92  00000000  00000000  00001be8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001115  00000000  00000000  000064ce  2**0
+  7 .debug_abbrev 000011a7  00000000  00000000  0000687a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000011a9  00000000  00000000  000075e3  2**0
+  8 .debug_line   000012a4  00000000  00000000  00007a21  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000004e4  00000000  00000000  0000878c  2**2
+  9 .debug_frame  00000530  00000000  00000000  00008cc8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000afd  00000000  00000000  00008c70  2**0
+ 10 .debug_str    00000c09  00000000  00000000  000091f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000210a  00000000  00000000  0000976d  2**0
+ 11 .debug_loc    00002177  00000000  00000000  00009e01  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000170  00000000  00000000  0000b877  2**0
+ 12 .debug_ranges 00000188  00000000  00000000  0000bf78  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -44,7 +44,7 @@ Disassembly of section .text:
       20:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
       24:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
       28:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
-      2c:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
+      2c:	0c 94 af 06 	jmp	0xd5e	; 0xd5e <__vector_11>
       30:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
       34:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
       38:	0c 94 99 06 	jmp	0xd32	; 0xd32 <__bad_interrupt>
@@ -129,15 +129,15 @@ Disassembly of section .text:
       fa:	06 06       	cpc	r0, r22
       fc:	c6 c0       	rjmp	.+396    	; 0x28a <__trampolines_end+0x222>
       fe:	c0 06       	cpc	r12, r16
-     100:	c6 c6       	rjmp	.+3468   	; 0xe8e <_ZN4Font5printEiiPKc+0x32>
+     100:	c6 c6       	rjmp	.+3468   	; 0xe8e <_ZN4Font11printLetterEiih+0xee>
      102:	00 00       	nop
      104:	18 00       	.word	0x0018	; ????
-     106:	30 c6       	rjmp	.+3168   	; 0xd68 <_GLOBAL__sub_I_game+0x14>
+     106:	30 c6       	rjmp	.+3168   	; 0xd68 <__vector_11+0xa>
      108:	c6 18       	sub	r12, r6
      10a:	06 3c       	cpi	r16, 0xC6	; 198
      10c:	c6 fc       	sbrc	r12, 6
      10e:	fc 06       	cpc	r15, r28
-     110:	7c c6       	rjmp	.+3320   	; 0xe0a <_ZN4Font11printLetterEiih+0xa0>
+     110:	7c c6       	rjmp	.+3320   	; 0xe0a <_ZN4Font11printLetterEiih+0x6a>
      112:	30 30       	cpi	r19, 0x00	; 0
      114:	30 7c       	andi	r19, 0xC0	; 192
      116:	18 06       	cpc	r1, r24
@@ -145,7 +145,7 @@ Disassembly of section .text:
      11a:	7c 06       	cpc	r7, r28
      11c:	c6 06       	cpc	r12, r22
      11e:	c6 0c       	add	r12, r6
-     120:	c6 c6       	rjmp	.+3468   	; 0xeae <_ZN4Game5titleEv+0x6>
+     120:	c6 c6       	rjmp	.+3468   	; 0xeae <_ZN4Font5printEiiPKc+0x1c>
      122:	00 00       	nop
      124:	60 00       	.word	0x0060	; ????
      126:	0c 06       	cpc	r0, r28
@@ -179,93 +179,93 @@ Disassembly of section .text:
      16c:	fc fe       	.word	0xfefc	; ????
      16e:	fe 7c       	andi	r31, 0xCE	; 206
      170:	c6 3c       	cpi	r28, 0xC6	; 198
-     172:	1e c6       	rjmp	.+3132   	; 0xdb0 <_ZN4Font11printLetterEiih+0x46>
-     174:	c0 c6       	rjmp	.+3456   	; 0xef6 <_ZN4Game5titleEv+0x4e>
+     172:	1e c6       	rjmp	.+3132   	; 0xdb0 <_ZN4Font11printLetterEiih+0x10>
+     174:	c0 c6       	rjmp	.+3456   	; 0xef6 <_ZN5Frame11updateFrameEv+0x18>
      176:	c6 7c       	andi	r28, 0xC6	; 198
-     178:	c6 c6       	rjmp	.+3468   	; 0xf06 <_ZN4Game5titleEv+0x5e>
+     178:	c6 c6       	rjmp	.+3468   	; 0xf06 <_ZN5Frame11updateFrameEv+0x28>
      17a:	c6 c0       	rjmp	.+396    	; 0x308 <__trampolines_end+0x2a0>
      17c:	c6 c0       	rjmp	.+396    	; 0x30a <__trampolines_end+0x2a2>
-     17e:	c0 c6       	rjmp	.+3456   	; 0xf00 <_ZN4Game5titleEv+0x58>
+     17e:	c0 c6       	rjmp	.+3456   	; 0xf00 <_ZN5Frame11updateFrameEv+0x22>
      180:	c6 18       	sub	r12, r6
-     182:	06 c6       	rjmp	.+3084   	; 0xd90 <_ZN4Font11printLetterEiih+0x26>
+     182:	06 c6       	rjmp	.+3084   	; 0xd90 <_GLOBAL__sub_I_game+0x6>
      184:	c0 ee       	ldi	r28, 0xE0	; 224
-     186:	e6 c6       	rjmp	.+3532   	; 0xf54 <_ZN4Game5titleEv+0xac>
-     188:	c6 c6       	rjmp	.+3468   	; 0xf16 <_ZN4Game5titleEv+0x6e>
+     186:	e6 c6       	rjmp	.+3532   	; 0xf54 <_ZN5Frame11updateFrameEv+0x76>
+     188:	c6 c6       	rjmp	.+3468   	; 0xf16 <_ZN5Frame11updateFrameEv+0x38>
      18a:	c6 c0       	rjmp	.+396    	; 0x318 <__trampolines_end+0x2b0>
      18c:	c6 c0       	rjmp	.+396    	; 0x31a <__trampolines_end+0x2b2>
      18e:	c0 c0       	rjmp	.+384    	; 0x310 <__trampolines_end+0x2a8>
      190:	c6 18       	sub	r12, r6
      192:	06 cc       	rjmp	.-2036   	; 0xfffff9a0 <__eeprom_end+0xff7ef9a0>
      194:	c0 fe       	sbrs	r12, 0
-     196:	f6 c6       	rjmp	.+3564   	; 0xf84 <_ZN4Game5titleEv+0xdc>
-     198:	d6 c6       	rjmp	.+3500   	; 0xf46 <_ZN4Game5titleEv+0x9e>
+     196:	f6 c6       	rjmp	.+3564   	; 0xf84 <_ZN4Game5titleEv+0xa>
+     198:	d6 c6       	rjmp	.+3500   	; 0xf46 <_ZN5Frame11updateFrameEv+0x68>
      19a:	fc c0       	rjmp	.+504    	; 0x394 <_ZL9logoAtmel+0x2c>
      19c:	c6 f8       	bld	r12, 6
      19e:	fc de       	rcall	.-520    	; 0xffffff98 <__eeprom_end+0xff7eff98>
      1a0:	fe 18       	sub	r15, r14
      1a2:	06 f8       	bld	r0, 6
-     1a4:	c0 d6       	rcall	.+3456   	; 0xf26 <_ZN4Game5titleEv+0x7e>
-     1a6:	de c6       	rjmp	.+3516   	; 0xf64 <_ZN4Game5titleEv+0xbc>
+     1a4:	c0 d6       	rcall	.+3456   	; 0xf26 <_ZN5Frame11updateFrameEv+0x48>
+     1a6:	de c6       	rjmp	.+3516   	; 0xf64 <_ZN5Frame11updateFrameEv+0x86>
      1a8:	dc fe       	.word	0xfedc	; ????
      1aa:	c6 c0       	rjmp	.+396    	; 0x338 <__trampolines_end+0x2d0>
      1ac:	c6 c0       	rjmp	.+396    	; 0x33a <__trampolines_end+0x2d2>
-     1ae:	c0 c6       	rjmp	.+3456   	; 0xf30 <_ZN4Game5titleEv+0x88>
+     1ae:	c0 c6       	rjmp	.+3456   	; 0xf30 <_ZN5Frame11updateFrameEv+0x52>
      1b0:	c6 18       	sub	r12, r6
      1b2:	06 cc       	rjmp	.-2036   	; 0xfffff9c0 <__eeprom_end+0xff7ef9c0>
-     1b4:	c0 c6       	rjmp	.+3456   	; 0xf36 <_ZN4Game5titleEv+0x8e>
-     1b6:	ce c6       	rjmp	.+3484   	; 0xf54 <_ZN4Game5titleEv+0xac>
-     1b8:	c0 c6       	rjmp	.+3456   	; 0xf3a <_ZN4Game5titleEv+0x92>
+     1b4:	c0 c6       	rjmp	.+3456   	; 0xf36 <_ZN5Frame11updateFrameEv+0x58>
+     1b6:	ce c6       	rjmp	.+3484   	; 0xf54 <_ZN5Frame11updateFrameEv+0x76>
+     1b8:	c0 c6       	rjmp	.+3456   	; 0xf3a <_ZN5Frame11updateFrameEv+0x5c>
      1ba:	c6 c0       	rjmp	.+396    	; 0x348 <__trampolines_end+0x2e0>
      1bc:	c6 c0       	rjmp	.+396    	; 0x34a <__trampolines_end+0x2e2>
-     1be:	c0 c6       	rjmp	.+3456   	; 0xf40 <_ZN4Game5titleEv+0x98>
+     1be:	c0 c6       	rjmp	.+3456   	; 0xf40 <_ZN5Frame11updateFrameEv+0x62>
      1c0:	c6 18       	sub	r12, r6
-     1c2:	c6 c6       	rjmp	.+3468   	; 0xf50 <_ZN4Game5titleEv+0xa8>
-     1c4:	c0 c6       	rjmp	.+3456   	; 0xf46 <_ZN4Game5titleEv+0x9e>
-     1c6:	c6 c6       	rjmp	.+3468   	; 0xf54 <_ZN4Game5titleEv+0xac>
-     1c8:	7c c6       	rjmp	.+3320   	; 0xec2 <_ZN4Game5titleEv+0x1a>
+     1c2:	c6 c6       	rjmp	.+3468   	; 0xf50 <_ZN5Frame11updateFrameEv+0x72>
+     1c4:	c0 c6       	rjmp	.+3456   	; 0xf46 <_ZN5Frame11updateFrameEv+0x68>
+     1c6:	c6 c6       	rjmp	.+3468   	; 0xf54 <_ZN5Frame11updateFrameEv+0x76>
+     1c8:	7c c6       	rjmp	.+3320   	; 0xec2 <_ZN4Font5printEiiPKc+0x30>
      1ca:	fc 7e       	andi	r31, 0xEC	; 236
      1cc:	fc fe       	.word	0xfefc	; ????
      1ce:	c0 7e       	andi	r28, 0xE0	; 224
      1d0:	c6 3c       	cpi	r28, 0xC6	; 198
-     1d2:	7c c6       	rjmp	.+3320   	; 0xecc <_ZN4Game5titleEv+0x24>
-     1d4:	fe c6       	rjmp	.+3580   	; 0xfd2 <_ZN4Game5titleEv+0x12a>
+     1d2:	7c c6       	rjmp	.+3320   	; 0xecc <_ZN4Font5printEiiPKc+0x3a>
+     1d4:	fe c6       	rjmp	.+3580   	; 0xfd2 <_ZN4Game5titleEv+0x58>
      1d6:	c6 7c       	andi	r28, 0xC6	; 198
 	...
      1e8:	fc 7c       	andi	r31, 0xCC	; 204
      1ea:	fc 7e       	andi	r31, 0xEC	; 236
-     1ec:	7e c6       	rjmp	.+3324   	; 0xeea <_ZN4Game5titleEv+0x42>
-     1ee:	c6 c6       	rjmp	.+3468   	; 0xf7c <_ZN4Game5titleEv+0xd4>
+     1ec:	7e c6       	rjmp	.+3324   	; 0xeea <_ZN5Frame11updateFrameEv+0xc>
+     1ee:	c6 c6       	rjmp	.+3468   	; 0xf7c <_ZN4Game5titleEv+0x2>
      1f0:	c6 66       	ori	r28, 0x66	; 102
      1f2:	fe 00       	.word	0x00fe	; ????
      1f4:	00 00       	nop
      1f6:	00 00       	nop
-     1f8:	c6 c6       	rjmp	.+3468   	; 0xf86 <_ZN4Game5titleEv+0xde>
+     1f8:	c6 c6       	rjmp	.+3468   	; 0xf86 <_ZN4Game5titleEv+0xc>
      1fa:	c6 c0       	rjmp	.+396    	; 0x388 <_ZL9logoAtmel+0x20>
-     1fc:	18 c6       	rjmp	.+3120   	; 0xe2e <_ZN4Font11printLetterEiih+0xc4>
-     1fe:	c6 c6       	rjmp	.+3468   	; 0xf8c <_ZN4Game5titleEv+0xe4>
+     1fc:	18 c6       	rjmp	.+3120   	; 0xe2e <_ZN4Font11printLetterEiih+0x8e>
+     1fe:	c6 c6       	rjmp	.+3468   	; 0xf8c <_ZN4Game5titleEv+0x12>
      200:	c6 66       	ori	r28, 0x66	; 102
      202:	06 38       	cpi	r16, 0x86	; 134
      204:	60 38       	cpi	r22, 0x80	; 128
      206:	10 00       	.word	0x0010	; ????
-     208:	c6 c6       	rjmp	.+3468   	; 0xf96 <_ZN4Game5titleEv+0xee>
+     208:	c6 c6       	rjmp	.+3468   	; 0xf96 <_ZN4Game5titleEv+0x1c>
      20a:	c6 c0       	rjmp	.+396    	; 0x398 <_ZL9logoAtmel+0x30>
-     20c:	18 c6       	rjmp	.+3120   	; 0xe3e <_ZN4Font11printLetterEiih+0xd4>
-     20e:	c6 c6       	rjmp	.+3468   	; 0xf9c <_ZN4Game5titleEv+0xf4>
+     20c:	18 c6       	rjmp	.+3120   	; 0xe3e <_ZN4Font11printLetterEiih+0x9e>
+     20e:	c6 c6       	rjmp	.+3468   	; 0xf9c <_ZN4Game5titleEv+0x22>
      210:	6c 66       	ori	r22, 0x6C	; 108
      212:	0c 30       	cpi	r16, 0x0C	; 12
      214:	30 18       	sub	r3, r0
      216:	38 00       	.word	0x0038	; ????
-     218:	c6 c6       	rjmp	.+3468   	; 0xfa6 <_ZN4Game5titleEv+0xfe>
+     218:	c6 c6       	rjmp	.+3468   	; 0xfa6 <_ZN4Game5titleEv+0x2c>
      21a:	c6 7c       	andi	r28, 0xC6	; 198
-     21c:	18 c6       	rjmp	.+3120   	; 0xe4e <_ZN4Font11printLetterEiih+0xe4>
-     21e:	c6 d6       	rcall	.+3468   	; 0xfac <_ZN4Game5titleEv+0x104>
+     21c:	18 c6       	rjmp	.+3120   	; 0xe4e <_ZN4Font11printLetterEiih+0xae>
+     21e:	c6 d6       	rcall	.+3468   	; 0xfac <_ZN4Game5titleEv+0x32>
      220:	38 3c       	cpi	r19, 0xC8	; 200
      222:	38 30       	cpi	r19, 0x08	; 8
      224:	18 18       	sub	r1, r8
      226:	6c 00       	.word	0x006c	; ????
      228:	fc de       	rcall	.-520    	; 0x22 <__FUSE_REGION_LENGTH__+0x1f>
      22a:	fc 06       	cpc	r15, r28
-     22c:	18 c6       	rjmp	.+3120   	; 0xe5e <_ZN4Font5printEiiPKc+0x2>
+     22c:	18 c6       	rjmp	.+3120   	; 0xe5e <_ZN4Font11printLetterEiih+0xbe>
      22e:	6c fe       	.word	0xfe6c	; ????
      230:	6c 18       	sub	r6, r12
      232:	60 30       	cpi	r22, 0x00	; 0
@@ -273,7 +273,7 @@ Disassembly of section .text:
      236:	44 00       	.word	0x0044	; ????
      238:	c0 cc       	rjmp	.-1664   	; 0xfffffbba <__eeprom_end+0xff7efbba>
      23a:	c6 06       	cpc	r12, r22
-     23c:	18 c6       	rjmp	.+3120   	; 0xe6e <_ZN4Font5printEiiPKc+0x12>
+     23c:	18 c6       	rjmp	.+3120   	; 0xe6e <_ZN4Font11printLetterEiih+0xce>
      23e:	38 ee       	ldi	r19, 0xE8	; 232
      240:	c6 18       	sub	r12, r6
      242:	c0 38       	cpi	r28, 0x80	; 128
@@ -282,7 +282,7 @@ Disassembly of section .text:
      248:	c0 76       	andi	r28, 0x60	; 96
      24a:	c6 fc       	sbrc	r12, 6
      24c:	18 7c       	andi	r17, 0xC8	; 200
-     24e:	10 c6       	rjmp	.+3104   	; 0xe70 <_ZN4Font5printEiiPKc+0x14>
+     24e:	10 c6       	rjmp	.+3104   	; 0xe70 <_ZN4Font11printLetterEiih+0xd0>
      250:	c6 18       	sub	r12, r6
      252:	fe 00       	.word	0x00fe	; ????
      254:	00 00       	nop
@@ -301,48 +301,48 @@ Disassembly of section .text:
      27c:	7e 7c       	andi	r23, 0xCE	; 206
      27e:	60 7e       	andi	r22, 0xE0	; 224
      280:	c0 00       	.word	0x00c0	; ????
-     282:	00 c6       	rjmp	.+3072   	; 0xe84 <_ZN4Font5printEiiPKc+0x28>
+     282:	00 c6       	rjmp	.+3072   	; 0xe84 <_ZN4Font11printLetterEiih+0xe4>
      284:	18 fc       	.word	0xfc18	; ????
      286:	fc 7c       	andi	r31, 0xCC	; 204
      288:	20 06       	cpc	r2, r16
      28a:	c6 c0       	rjmp	.+396    	; 0x418 <__EEPROM_REGION_LENGTH__+0x18>
-     28c:	c6 c6       	rjmp	.+3468   	; 0x101a <_ZN4Game5startEv+0xc>
-     28e:	60 c6       	rjmp	.+3264   	; 0xf50 <_ZN4Game5titleEv+0xa8>
+     28c:	c6 c6       	rjmp	.+3468   	; 0x101a <_ZN4Game5titleEv+0xa0>
+     28e:	60 c6       	rjmp	.+3264   	; 0xf50 <_ZN5Frame11updateFrameEv+0x72>
      290:	fc 38       	cpi	r31, 0x8C	; 140
      292:	1c cc       	rjmp	.-1992   	; 0xfffffacc <__eeprom_end+0xff7efacc>
-     294:	18 d6       	rcall	.+3120   	; 0xec6 <_ZN4Game5titleEv+0x1e>
-     296:	c6 c6       	rjmp	.+3468   	; 0x1024 <_ZN4Game5startEv+0x16>
+     294:	18 d6       	rcall	.+3120   	; 0xec6 <_ZN4Font5printEiiPKc+0x34>
+     296:	c6 c6       	rjmp	.+3468   	; 0x1024 <_ZN4Game5titleEv+0xaa>
      298:	00 7e       	andi	r16, 0xE0	; 224
      29a:	c6 c0       	rjmp	.+396    	; 0x428 <__EEPROM_REGION_LENGTH__+0x28>
-     29c:	c6 c6       	rjmp	.+3468   	; 0x102a <_ZN4Game5startEv+0x1c>
-     29e:	fc c6       	rjmp	.+3576   	; 0x1098 <_ZN6Player11startPlayerEv+0x3e>
+     29c:	c6 c6       	rjmp	.+3468   	; 0x102a <_ZN4Game5titleEv+0xb0>
+     29e:	fc c6       	rjmp	.+3576   	; 0x1098 <_ZN4Game5titleEv+0x11e>
      2a0:	c6 18       	sub	r12, r6
      2a2:	0c f8       	.word	0xf80c	; ????
-     2a4:	18 d6       	rcall	.+3120   	; 0xed6 <_ZN4Game5titleEv+0x2e>
-     2a6:	c6 c6       	rjmp	.+3468   	; 0x1034 <_ZN4Game5startEv+0x26>
-     2a8:	00 c6       	rjmp	.+3072   	; 0xeaa <_ZN4Game5titleEv+0x2>
+     2a4:	18 d6       	rcall	.+3120   	; 0xed6 <_ZN4Font5printEiiPKc+0x44>
+     2a6:	c6 c6       	rjmp	.+3468   	; 0x1034 <_ZN4Game5titleEv+0xba>
+     2a8:	00 c6       	rjmp	.+3072   	; 0xeaa <_ZN4Font5printEiiPKc+0x18>
      2aa:	c6 c0       	rjmp	.+396    	; 0x438 <__EEPROM_REGION_LENGTH__+0x38>
      2ac:	c6 fc       	sbrc	r12, 6
-     2ae:	60 c6       	rjmp	.+3264   	; 0xf70 <_ZN4Game5titleEv+0xc8>
+     2ae:	60 c6       	rjmp	.+3264   	; 0xf70 <_ZN5Frame11updateFrameEv+0x92>
      2b0:	c6 18       	sub	r12, r6
      2b2:	0c cc       	rjmp	.-2024   	; 0xfffffacc <__eeprom_end+0xff7efacc>
-     2b4:	18 d6       	rcall	.+3120   	; 0xee6 <_ZN4Game5titleEv+0x3e>
-     2b6:	c6 c6       	rjmp	.+3468   	; 0x1044 <_ZN4Game5startEv+0x36>
-     2b8:	00 c6       	rjmp	.+3072   	; 0xeba <_ZN4Game5titleEv+0x12>
+     2b4:	18 d6       	rcall	.+3120   	; 0xee6 <_ZN5Frame11updateFrameEv+0x8>
+     2b6:	c6 c6       	rjmp	.+3468   	; 0x1044 <_ZN4Game5titleEv+0xca>
+     2b8:	00 c6       	rjmp	.+3072   	; 0xeba <_ZN4Font5printEiiPKc+0x28>
      2ba:	c6 c0       	rjmp	.+396    	; 0x448 <__EEPROM_REGION_LENGTH__+0x48>
      2bc:	c6 c0       	rjmp	.+396    	; 0x44a <__EEPROM_REGION_LENGTH__+0x4a>
      2be:	60 7e       	andi	r22, 0xE0	; 224
      2c0:	c6 18       	sub	r12, r6
-     2c2:	0c c6       	rjmp	.+3096   	; 0xedc <_ZN4Game5titleEv+0x34>
-     2c4:	18 d6       	rcall	.+3120   	; 0xef6 <_ZN4Game5titleEv+0x4e>
-     2c6:	c6 c6       	rjmp	.+3468   	; 0x1054 <_ZN4Game5startEv+0x46>
+     2c2:	0c c6       	rjmp	.+3096   	; 0xedc <_ZN4Font5printEiiPKc+0x4a>
+     2c4:	18 d6       	rcall	.+3120   	; 0xef6 <_ZN5Frame11updateFrameEv+0x18>
+     2c6:	c6 c6       	rjmp	.+3468   	; 0x1054 <_ZN4Game5titleEv+0xda>
      2c8:	00 7e       	andi	r16, 0xE0	; 224
      2ca:	fc 7e       	andi	r31, 0xEC	; 236
      2cc:	7e 7c       	andi	r23, 0xCE	; 206
      2ce:	60 06       	cpc	r6, r16
      2d0:	c6 18       	sub	r12, r6
-     2d2:	0c c6       	rjmp	.+3096   	; 0xeec <_ZN4Game5titleEv+0x44>
-     2d4:	18 d6       	rcall	.+3120   	; 0xf06 <_ZN4Game5titleEv+0x5e>
+     2d2:	0c c6       	rjmp	.+3096   	; 0xeec <_ZN5Frame11updateFrameEv+0xe>
+     2d4:	18 d6       	rcall	.+3120   	; 0xf06 <_ZN5Frame11updateFrameEv+0x28>
      2d6:	c6 7c       	andi	r28, 0xC6	; 198
      2d8:	00 00       	nop
      2da:	00 00       	nop
@@ -356,40 +356,40 @@ Disassembly of section .text:
      2f6:	00 00       	nop
      2f8:	fc 7e       	andi	r31, 0xEC	; 236
      2fa:	fc 7c       	andi	r31, 0xCC	; 204
-     2fc:	18 c6       	rjmp	.+3120   	; 0xf2e <_ZN4Game5titleEv+0x86>
-     2fe:	c6 d6       	rcall	.+3468   	; 0x108c <_ZN6Player11startPlayerEv+0x32>
-     300:	c6 c6       	rjmp	.+3468   	; 0x108e <_ZN6Player11startPlayerEv+0x34>
+     2fc:	18 c6       	rjmp	.+3120   	; 0xf2e <_ZN5Frame11updateFrameEv+0x50>
+     2fe:	c6 d6       	rcall	.+3468   	; 0x108c <_ZN4Game5titleEv+0x112>
+     300:	c6 c6       	rjmp	.+3468   	; 0x108e <_ZN4Game5titleEv+0x114>
      302:	fe 38       	cpi	r31, 0x8E	; 142
      304:	10 38       	cpi	r17, 0x80	; 128
      306:	00 00       	nop
-     308:	c6 c6       	rjmp	.+3468   	; 0x1096 <_ZN6Player11startPlayerEv+0x3c>
+     308:	c6 c6       	rjmp	.+3468   	; 0x1096 <_ZN4Game5titleEv+0x11c>
      30a:	c6 c0       	rjmp	.+396    	; 0x498 <__EEPROM_REGION_LENGTH__+0x98>
-     30c:	7e c6       	rjmp	.+3324   	; 0x100a <_ZN4Game5titleEv+0x162>
-     30e:	c6 d6       	rcall	.+3468   	; 0x109c <_ZN6Player11startPlayerEv+0x42>
-     310:	6c c6       	rjmp	.+3288   	; 0xfea <_ZN4Game5titleEv+0x142>
+     30c:	7e c6       	rjmp	.+3324   	; 0x100a <_ZN4Game5titleEv+0x90>
+     30e:	c6 d6       	rcall	.+3468   	; 0x109c <_ZN4Game5titleEv+0x122>
+     310:	6c c6       	rjmp	.+3288   	; 0xfea <_ZN4Game5titleEv+0x70>
      312:	0c 30       	cpi	r16, 0x0C	; 12
      314:	10 18       	sub	r1, r0
      316:	30 00       	.word	0x0030	; ????
-     318:	c6 c6       	rjmp	.+3468   	; 0x10a6 <_ZN6Player11startPlayerEv+0x4c>
+     318:	c6 c6       	rjmp	.+3468   	; 0x10a6 <_ZN4Game5titleEv+0x12c>
      31a:	c0 7c       	andi	r28, 0xC0	; 192
-     31c:	18 c6       	rjmp	.+3120   	; 0xf4e <_ZN4Game5titleEv+0xa6>
-     31e:	c6 d6       	rcall	.+3468   	; 0x10ac <_ZN6Player11startPlayerEv+0x52>
-     320:	38 c6       	rjmp	.+3184   	; 0xf92 <_ZN4Game5titleEv+0xea>
+     31c:	18 c6       	rjmp	.+3120   	; 0xf4e <_ZN5Frame11updateFrameEv+0x70>
+     31e:	c6 d6       	rcall	.+3468   	; 0x10ac <_ZN4Game5titleEv+0x132>
+     320:	38 c6       	rjmp	.+3184   	; 0xf92 <_ZN4Game5titleEv+0x18>
      322:	38 60       	ori	r19, 0x08	; 8
      324:	10 0c       	add	r1, r0
      326:	5a 00       	.word	0x005a	; ????
-     328:	c6 c6       	rjmp	.+3468   	; 0x10b6 <_ZN6Player11startPlayerEv+0x5c>
+     328:	c6 c6       	rjmp	.+3468   	; 0x10b6 <_ZN4Game5titleEv+0x13c>
      32a:	c0 06       	cpc	r12, r16
-     32c:	18 c6       	rjmp	.+3120   	; 0xf5e <_ZN4Game5titleEv+0xb6>
-     32e:	6c d6       	rcall	.+3288   	; 0x1008 <_ZN4Game5titleEv+0x160>
-     330:	6c c6       	rjmp	.+3288   	; 0x100a <_ZN4Game5titleEv+0x162>
+     32c:	18 c6       	rjmp	.+3120   	; 0xf5e <_ZN5Frame11updateFrameEv+0x80>
+     32e:	6c d6       	rcall	.+3288   	; 0x1008 <_ZN4Game5titleEv+0x8e>
+     330:	6c c6       	rjmp	.+3288   	; 0x100a <_ZN4Game5titleEv+0x90>
      332:	60 30       	cpi	r22, 0x00	; 0
      334:	10 18       	sub	r1, r0
      336:	0c 00       	.word	0x000c	; ????
-     338:	c6 c6       	rjmp	.+3468   	; 0x10c6 <_ZN6Player11startPlayerEv+0x6c>
+     338:	c6 c6       	rjmp	.+3468   	; 0x10c6 <_ZN4Game5titleEv+0x14c>
      33a:	c0 06       	cpc	r12, r16
-     33c:	18 c6       	rjmp	.+3120   	; 0xf6e <_ZN4Game5titleEv+0xc6>
-     33e:	38 d6       	rcall	.+3184   	; 0xfb0 <_ZN4Game5titleEv+0x108>
+     33c:	18 c6       	rjmp	.+3120   	; 0xf6e <_ZN5Frame11updateFrameEv+0x90>
+     33e:	38 d6       	rcall	.+3184   	; 0xfb0 <_ZN4Game5titleEv+0x36>
      340:	c6 7e       	andi	r28, 0xE6	; 230
      342:	c0 38       	cpi	r28, 0x80	; 128
      344:	10 38       	cpi	r17, 0x80	; 128
@@ -568,7 +568,7 @@ Disassembly of section .text:
      cd8:	50 03 00 03 cd 4c 0c 00                             P....L..
 
 00000ce0 <__ctors_start>:
-     ce0:	aa 06       	cpc	r10, r26
+     ce0:	c5 06       	cpc	r12, r21
 
 00000ce2 <__ctors_end>:
      ce2:	11 24       	eor	r1, r1
@@ -582,8 +582,8 @@ Disassembly of section .text:
      cee:	11 e0       	ldi	r17, 0x01	; 1
      cf0:	a0 e0       	ldi	r26, 0x00	; 0
      cf2:	b1 e0       	ldi	r27, 0x01	; 1
-     cf4:	e6 e9       	ldi	r30, 0x96	; 150
-     cf6:	f7 e1       	ldi	r31, 0x17	; 23
+     cf4:	ea e1       	ldi	r30, 0x1A	; 26
+     cf6:	f9 e1       	ldi	r31, 0x19	; 25
      cf8:	02 c0       	rjmp	.+4      	; 0xcfe <__do_copy_data+0x10>
      cfa:	05 90       	lpm	r0, Z+
      cfc:	0d 92       	st	X+, r0
@@ -601,7 +601,7 @@ Disassembly of section .text:
      d0c:	1d 92       	st	X+, r1
 
 00000d0e <.do_clear_bss_start>:
-     d0e:	ac 33       	cpi	r26, 0x3C	; 60
+     d0e:	a1 34       	cpi	r26, 0x41	; 65
      d10:	b2 07       	cpc	r27, r18
      d12:	e1 f7       	brne	.-8      	; 0xd0c <.do_clear_bss_loop>
 
@@ -612,12 +612,12 @@ Disassembly of section .text:
      d1a:	04 c0       	rjmp	.+8      	; 0xd24 <__do_global_ctors+0x10>
      d1c:	21 97       	sbiw	r28, 0x01	; 1
      d1e:	fe 01       	movw	r30, r28
-     d20:	0e 94 c3 0b 	call	0x1786	; 0x1786 <__tablejump2__>
+     d20:	0e 94 85 0c 	call	0x190a	; 0x190a <__tablejump2__>
      d24:	c0 37       	cpi	r28, 0x70	; 112
      d26:	d1 07       	cpc	r29, r17
      d28:	c9 f7       	brne	.-14     	; 0xd1c <__do_global_ctors+0x8>
      d2a:	0e 94 9b 06 	call	0xd36	; 0xd36 <main>
-     d2e:	0c 94 c9 0b 	jmp	0x1792	; 0x1792 <_exit>
+     d2e:	0c 94 8b 0c 	jmp	0x1916	; 0x1916 <_exit>
 
 00000d32 <__bad_interrupt>:
      d32:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -631,1926 +631,2169 @@ int main(void)
   beginPort(B, OUT);
      d36:	61 e0       	ldi	r22, 0x01	; 1
      d38:	80 e0       	ldi	r24, 0x00	; 0
-     d3a:	0e 94 6d 08 	call	0x10da	; 0x10da <_ZN3MCU7Setting9beginPortEab>
+     d3a:	0e 94 db 08 	call	0x11b6	; 0x11b6 <_ZN3MCU7Setting9beginPortEab>
+  beginTimer(1, COMP);
+     d3e:	61 e0       	ldi	r22, 0x01	; 1
+     d40:	81 e0       	ldi	r24, 0x01	; 1
+     d42:	0e 94 eb 08 	call	0x11d6	; 0x11d6 <_ZN3MCU7Setting10beginTimerEab>
   beginSPI();
-     d3e:	0e 94 7d 08 	call	0x10fa	; 0x10fa <_ZN3MCU7Setting8beginSPIEv>
+     d46:	0e 94 41 09 	call	0x1282	; 0x1282 <_ZN3MCU7Setting8beginSPIEv>
+
+  sei();
+     d4a:	78 94       	sei
 
   game.title();
-     d42:	80 e3       	ldi	r24, 0x30	; 48
-     d44:	91 e0       	ldi	r25, 0x01	; 1
-     d46:	0e 94 54 07 	call	0xea8	; 0xea8 <_ZN4Game5titleEv>
+     d4c:	80 e3       	ldi	r24, 0x30	; 48
+     d4e:	91 e0       	ldi	r25, 0x01	; 1
+     d50:	0e 94 bd 07 	call	0xf7a	; 0xf7a <_ZN4Game5titleEv>
 
   while (1)
   {
     game.start();
-     d4a:	80 e3       	ldi	r24, 0x30	; 48
-     d4c:	91 e0       	ldi	r25, 0x01	; 1
-     d4e:	0e 94 07 08 	call	0x100e	; 0x100e <_ZN4Game5startEv>
-     d52:	fb cf       	rjmp	.-10     	; 0xd4a <main+0x14>
+     d54:	80 e3       	ldi	r24, 0x30	; 48
+     d56:	91 e0       	ldi	r25, 0x01	; 1
+     d58:	0e 94 70 08 	call	0x10e0	; 0x10e0 <_ZN4Game5startEv>
+     d5c:	fb cf       	rjmp	.-10     	; 0xd54 <main+0x1e>
 
-00000d54 <_GLOBAL__sub_I_game>:
+00000d5e <__vector_11>:
+---------------  MAIN END  ---------------
+//========================================*/
+
+
+ISR(TIMER1_COMPA_vect)
+{
+     d5e:	1f 92       	push	r1
+     d60:	0f 92       	push	r0
+     d62:	0f b6       	in	r0, 0x3f	; 63
+     d64:	0f 92       	push	r0
+     d66:	11 24       	eor	r1, r1
+     d68:	8f 93       	push	r24
+
+  Frame::frameRate++;
+     d6a:	80 91 40 01 	lds	r24, 0x0140	; 0x800140 <_ZN5Frame9frameRateE>
+     d6e:	8f 5f       	subi	r24, 0xFF	; 255
+
+  if (Frame::frameRate == 101)
+     d70:	85 36       	cpi	r24, 0x65	; 101
+     d72:	19 f0       	breq	.+6      	; 0xd7a <__vector_11+0x1c>
+
+
+ISR(TIMER1_COMPA_vect)
+{
+
+  Frame::frameRate++;
+     d74:	80 93 40 01 	sts	0x0140, r24	; 0x800140 <_ZN5Frame9frameRateE>
+     d78:	02 c0       	rjmp	.+4      	; 0xd7e <__vector_11+0x20>
+
+  if (Frame::frameRate == 101)
+  {
+    Frame::frameRate = 0;
+     d7a:	10 92 40 01 	sts	0x0140, r1	; 0x800140 <_ZN5Frame9frameRateE>
+  }
+
+     d7e:	8f 91       	pop	r24
+     d80:	0f 90       	pop	r0
+     d82:	0f be       	out	0x3f, r0	; 63
+     d84:	0f 90       	pop	r0
+     d86:	1f 90       	pop	r1
+     d88:	18 95       	reti
+
+00000d8a <_GLOBAL__sub_I_game>:
+private:
   int16_t m_Width;
   int16_t m_Height;
-  int16_t m_Temp;
 
 public:
   TFT() : SPI() { m_Width = 240; m_Height = 320; }
-     d54:	e0 e3       	ldi	r30, 0x30	; 48
-     d56:	f1 e0       	ldi	r31, 0x01	; 1
-     d58:	80 ef       	ldi	r24, 0xF0	; 240
-     d5a:	90 e0       	ldi	r25, 0x00	; 0
-     d5c:	91 83       	std	Z+1, r25	; 0x01
-     d5e:	80 83       	st	Z, r24
-     d60:	80 e4       	ldi	r24, 0x40	; 64
-     d62:	91 e0       	ldi	r25, 0x01	; 1
-     d64:	93 83       	std	Z+3, r25	; 0x03
-     d66:	82 83       	std	Z+2, r24	; 0x02
-     d68:	08 95       	ret
+     d8a:	e0 e3       	ldi	r30, 0x30	; 48
+     d8c:	f1 e0       	ldi	r31, 0x01	; 1
+     d8e:	80 ef       	ldi	r24, 0xF0	; 240
+     d90:	90 e0       	ldi	r25, 0x00	; 0
+     d92:	91 83       	std	Z+1, r25	; 0x01
+     d94:	80 83       	st	Z, r24
+     d96:	80 e4       	ldi	r24, 0x40	; 64
+     d98:	91 e0       	ldi	r25, 0x01	; 1
+     d9a:	93 83       	std	Z+3, r25	; 0x03
+     d9c:	82 83       	std	Z+2, r24	; 0x02
+     d9e:	08 95       	ret
 
-00000d6a <_ZN4Font11printLetterEiih>:
+00000da0 <_ZN4Font11printLetterEiih>:
 /*----------------------------------------//
               Print 8x8 Letter
 //----------------------------------------*/
 
 void Font::printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII)
 {
-     d6a:	8f 92       	push	r8
-     d6c:	9f 92       	push	r9
-     d6e:	af 92       	push	r10
-     d70:	bf 92       	push	r11
-     d72:	cf 92       	push	r12
-     d74:	df 92       	push	r13
-     d76:	ef 92       	push	r14
-     d78:	ff 92       	push	r15
-     d7a:	0f 93       	push	r16
-     d7c:	1f 93       	push	r17
-     d7e:	cf 93       	push	r28
-     d80:	df 93       	push	r29
-     d82:	ec 01       	movw	r28, r24
+     da0:	8f 92       	push	r8
+     da2:	9f 92       	push	r9
+     da4:	af 92       	push	r10
+     da6:	bf 92       	push	r11
+     da8:	cf 92       	push	r12
+     daa:	df 92       	push	r13
+     dac:	ef 92       	push	r14
+     dae:	ff 92       	push	r15
+     db0:	0f 93       	push	r16
+     db2:	1f 93       	push	r17
+     db4:	cf 93       	push	r28
+     db6:	df 93       	push	r29
+     db8:	ec 01       	movw	r28, r24
 
   uint8_t data;
   uint8_t temp;
   int16_t ASCIIValue = ASCII - 32;
-     d84:	82 2f       	mov	r24, r18
-     d86:	90 e0       	ldi	r25, 0x00	; 0
-     d88:	80 97       	sbiw	r24, 0x20	; 32
+     dba:	82 2f       	mov	r24, r18
+     dbc:	90 e0       	ldi	r25, 0x00	; 0
+     dbe:	80 97       	sbiw	r24, 0x20	; 32
   ASCIIValue = (ASCIIValue / 16) * 128 + (ASCIIValue % 16);
-     d8a:	9c 01       	movw	r18, r24
-     d8c:	12 f4       	brpl	.+4      	; 0xd92 <_ZN4Font11printLetterEiih+0x28>
-     d8e:	21 5f       	subi	r18, 0xF1	; 241
-     d90:	3f 4f       	sbci	r19, 0xFF	; 255
-     d92:	49 01       	movw	r8, r18
-     d94:	95 94       	asr	r9
-     d96:	87 94       	ror	r8
-     d98:	95 94       	asr	r9
-     d9a:	87 94       	ror	r8
-     d9c:	95 94       	asr	r9
-     d9e:	87 94       	ror	r8
-     da0:	95 94       	asr	r9
-     da2:	87 94       	ror	r8
-     da4:	96 94       	lsr	r9
-     da6:	98 2c       	mov	r9, r8
-     da8:	88 24       	eor	r8, r8
-     daa:	97 94       	ror	r9
-     dac:	87 94       	ror	r8
-     dae:	8f 70       	andi	r24, 0x0F	; 15
-     db0:	90 78       	andi	r25, 0x80	; 128
-     db2:	99 23       	and	r25, r25
-     db4:	24 f4       	brge	.+8      	; 0xdbe <_ZN4Font11printLetterEiih+0x54>
-     db6:	01 97       	sbiw	r24, 0x01	; 1
-     db8:	80 6f       	ori	r24, 0xF0	; 240
-     dba:	9f 6f       	ori	r25, 0xFF	; 255
-     dbc:	01 96       	adiw	r24, 0x01	; 1
-     dbe:	88 0e       	add	r8, r24
-     dc0:	99 1e       	adc	r9, r25
+     dc0:	9c 01       	movw	r18, r24
+     dc2:	12 f4       	brpl	.+4      	; 0xdc8 <_ZN4Font11printLetterEiih+0x28>
+     dc4:	21 5f       	subi	r18, 0xF1	; 241
+     dc6:	3f 4f       	sbci	r19, 0xFF	; 255
+     dc8:	49 01       	movw	r8, r18
+     dca:	95 94       	asr	r9
+     dcc:	87 94       	ror	r8
+     dce:	95 94       	asr	r9
+     dd0:	87 94       	ror	r8
+     dd2:	95 94       	asr	r9
+     dd4:	87 94       	ror	r8
+     dd6:	95 94       	asr	r9
+     dd8:	87 94       	ror	r8
+     dda:	96 94       	lsr	r9
+     ddc:	98 2c       	mov	r9, r8
+     dde:	88 24       	eor	r8, r8
+     de0:	97 94       	ror	r9
+     de2:	87 94       	ror	r8
+     de4:	8f 70       	andi	r24, 0x0F	; 15
+     de6:	90 78       	andi	r25, 0x80	; 128
+     de8:	99 23       	and	r25, r25
+     dea:	24 f4       	brge	.+8      	; 0xdf4 <_ZN4Font11printLetterEiih+0x54>
+     dec:	01 97       	sbiw	r24, 0x01	; 1
+     dee:	80 6f       	ori	r24, 0xF0	; 240
+     df0:	9f 6f       	ori	r25, 0xFF	; 255
+     df2:	01 96       	adiw	r24, 0x01	; 1
+     df4:	88 0e       	add	r8, r24
+     df6:	99 1e       	adc	r9, r25
 
   setAddress(xPos, yPos, (xPos + 15), (yPos + 15));
-     dc2:	8a 01       	movw	r16, r20
-     dc4:	01 5f       	subi	r16, 0xF1	; 241
-     dc6:	1f 4f       	sbci	r17, 0xFF	; 255
-     dc8:	9b 01       	movw	r18, r22
-     dca:	21 5f       	subi	r18, 0xF1	; 241
-     dcc:	3f 4f       	sbci	r19, 0xFF	; 255
-     dce:	ce 01       	movw	r24, r28
-     dd0:	0e 94 25 09 	call	0x124a	; 0x124a <_ZN3TFT10setAddressEiiii>
-     dd4:	54 01       	movw	r10, r8
-     dd6:	80 e8       	ldi	r24, 0x80	; 128
-     dd8:	88 0e       	add	r8, r24
-     dda:	91 1c       	adc	r9, r1
+     df8:	8a 01       	movw	r16, r20
+     dfa:	01 5f       	subi	r16, 0xF1	; 241
+     dfc:	1f 4f       	sbci	r17, 0xFF	; 255
+     dfe:	9b 01       	movw	r18, r22
+     e00:	21 5f       	subi	r18, 0xF1	; 241
+     e02:	3f 4f       	sbci	r19, 0xFF	; 255
+     e04:	ce 01       	movw	r24, r28
+     e06:	0e 94 e7 09 	call	0x13ce	; 0x13ce <_ZN3TFT10setAddressEiiii>
+     e0a:	54 01       	movw	r10, r8
+     e0c:	80 e8       	ldi	r24, 0x80	; 128
+     e0e:	88 0e       	add	r8, r24
+     e10:	91 1c       	adc	r9, r1
 /*----------------------------------------//
               Print 8x8 Letter
 //----------------------------------------*/
 
 void Font::printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII)
 {
-     ddc:	68 94       	set
-     dde:	cc 24       	eor	r12, r12
-     de0:	c1 f8       	bld	r12, 1
-     de2:	d1 2c       	mov	r13, r1
+     e12:	68 94       	set
+     e14:	cc 24       	eor	r12, r12
+     e16:	c1 f8       	bld	r12, 1
+     e18:	d1 2c       	mov	r13, r1
   for (int i=0; i<(16 / 2); i++)
   {
     for (int j=0; j<2; j++)
     {
 
       data = pgm_read_byte(&m_Bitmap[(i * 16) + ASCIIValue]);
-     de4:	ee 81       	ldd	r30, Y+6	; 0x06
-     de6:	ff 81       	ldd	r31, Y+7	; 0x07
-     de8:	ea 0d       	add	r30, r10
-     dea:	fb 1d       	adc	r31, r11
-     dec:	14 91       	lpm	r17, Z
-     dee:	68 94       	set
-     df0:	ee 24       	eor	r14, r14
-     df2:	e3 f8       	bld	r14, 3
-     df4:	f1 2c       	mov	r15, r1
+     e1a:	ec 81       	ldd	r30, Y+4	; 0x04
+     e1c:	fd 81       	ldd	r31, Y+5	; 0x05
+     e1e:	ea 0d       	add	r30, r10
+     e20:	fb 1d       	adc	r31, r11
+     e22:	14 91       	lpm	r17, Z
+     e24:	68 94       	set
+     e26:	ee 24       	eor	r14, r14
+     e28:	e3 f8       	bld	r14, 3
+     e2a:	f1 2c       	mov	r15, r1
         temp = data >> 7;
 
         for (int l=0; l<2; l++)
         {
 
           if (temp == 0x00)       //1Pixel = 0
-     df6:	11 23       	and	r17, r17
-     df8:	5c f4       	brge	.+22     	; 0xe10 <_ZN4Font11printLetterEiih+0xa6>
+     e2c:	11 23       	and	r17, r17
+     e2e:	5c f4       	brge	.+22     	; 0xe46 <_ZN4Font11printLetterEiih+0xa6>
             exportLongData(m_Background);
           }
 
           else                    //1Pixel = 1
           {
             exportLongData(m_Colored);
-     dfa:	6a 85       	ldd	r22, Y+10	; 0x0a
-     dfc:	7b 85       	ldd	r23, Y+11	; 0x0b
-     dfe:	ce 01       	movw	r24, r28
-     e00:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-     e04:	6a 85       	ldd	r22, Y+10	; 0x0a
-     e06:	7b 85       	ldd	r23, Y+11	; 0x0b
-     e08:	ce 01       	movw	r24, r28
-     e0a:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-     e0e:	0a c0       	rjmp	.+20     	; 0xe24 <_ZN4Font11printLetterEiih+0xba>
+     e30:	68 85       	ldd	r22, Y+8	; 0x08
+     e32:	79 85       	ldd	r23, Y+9	; 0x09
+     e34:	ce 01       	movw	r24, r28
+     e36:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+     e3a:	68 85       	ldd	r22, Y+8	; 0x08
+     e3c:	79 85       	ldd	r23, Y+9	; 0x09
+     e3e:	ce 01       	movw	r24, r28
+     e40:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+     e44:	0a c0       	rjmp	.+20     	; 0xe5a <_ZN4Font11printLetterEiih+0xba>
         for (int l=0; l<2; l++)
         {
 
           if (temp == 0x00)       //1Pixel = 0
           {
             exportLongData(m_Background);
-     e10:	68 85       	ldd	r22, Y+8	; 0x08
-     e12:	79 85       	ldd	r23, Y+9	; 0x09
-     e14:	ce 01       	movw	r24, r28
-     e16:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-     e1a:	68 85       	ldd	r22, Y+8	; 0x08
-     e1c:	79 85       	ldd	r23, Y+9	; 0x09
-     e1e:	ce 01       	movw	r24, r28
-     e20:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+     e46:	6e 81       	ldd	r22, Y+6	; 0x06
+     e48:	7f 81       	ldd	r23, Y+7	; 0x07
+     e4a:	ce 01       	movw	r24, r28
+     e4c:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+     e50:	6e 81       	ldd	r22, Y+6	; 0x06
+     e52:	7f 81       	ldd	r23, Y+7	; 0x07
+     e54:	ce 01       	movw	r24, r28
+     e56:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
             exportLongData(m_Colored);
           }
 
         }
 
         data <<= 1;
-     e24:	11 0f       	add	r17, r17
-     e26:	81 e0       	ldi	r24, 0x01	; 1
-     e28:	e8 1a       	sub	r14, r24
-     e2a:	f1 08       	sbc	r15, r1
+     e5a:	11 0f       	add	r17, r17
+     e5c:	81 e0       	ldi	r24, 0x01	; 1
+     e5e:	e8 1a       	sub	r14, r24
+     e60:	f1 08       	sbc	r15, r1
     for (int j=0; j<2; j++)
     {
 
       data = pgm_read_byte(&m_Bitmap[(i * 16) + ASCIIValue]);
 
       for (int k=0; k<8; k++)
-     e2c:	21 f7       	brne	.-56     	; 0xdf6 <_ZN4Font11printLetterEiih+0x8c>
-     e2e:	81 e0       	ldi	r24, 0x01	; 1
-     e30:	c8 1a       	sub	r12, r24
-     e32:	d1 08       	sbc	r13, r1
+     e62:	21 f7       	brne	.-56     	; 0xe2c <_ZN4Font11printLetterEiih+0x8c>
+     e64:	81 e0       	ldi	r24, 0x01	; 1
+     e66:	c8 1a       	sub	r12, r24
+     e68:	d1 08       	sbc	r13, r1
 
   setAddress(xPos, yPos, (xPos + 15), (yPos + 15));
 
   for (int i=0; i<(16 / 2); i++)
   {
     for (int j=0; j<2; j++)
-     e34:	b9 f6       	brne	.-82     	; 0xde4 <_ZN4Font11printLetterEiih+0x7a>
-     e36:	80 e1       	ldi	r24, 0x10	; 16
-     e38:	a8 0e       	add	r10, r24
-     e3a:	b1 1c       	adc	r11, r1
+     e6a:	b9 f6       	brne	.-82     	; 0xe1a <_ZN4Font11printLetterEiih+0x7a>
+     e6c:	80 e1       	ldi	r24, 0x10	; 16
+     e6e:	a8 0e       	add	r10, r24
+     e70:	b1 1c       	adc	r11, r1
   int16_t ASCIIValue = ASCII - 32;
   ASCIIValue = (ASCIIValue / 16) * 128 + (ASCIIValue % 16);
 
   setAddress(xPos, yPos, (xPos + 15), (yPos + 15));
 
   for (int i=0; i<(16 / 2); i++)
-     e3c:	a8 14       	cp	r10, r8
-     e3e:	b9 04       	cpc	r11, r9
-     e40:	69 f6       	brne	.-102    	; 0xddc <_ZN4Font11printLetterEiih+0x72>
+     e72:	a8 14       	cp	r10, r8
+     e74:	b9 04       	cpc	r11, r9
+     e76:	69 f6       	brne	.-102    	; 0xe12 <_ZN4Font11printLetterEiih+0x72>
       }
 
     }
   }
 
 }
-     e42:	df 91       	pop	r29
-     e44:	cf 91       	pop	r28
-     e46:	1f 91       	pop	r17
-     e48:	0f 91       	pop	r16
-     e4a:	ff 90       	pop	r15
-     e4c:	ef 90       	pop	r14
-     e4e:	df 90       	pop	r13
-     e50:	cf 90       	pop	r12
-     e52:	bf 90       	pop	r11
-     e54:	af 90       	pop	r10
-     e56:	9f 90       	pop	r9
-     e58:	8f 90       	pop	r8
-     e5a:	08 95       	ret
+     e78:	df 91       	pop	r29
+     e7a:	cf 91       	pop	r28
+     e7c:	1f 91       	pop	r17
+     e7e:	0f 91       	pop	r16
+     e80:	ff 90       	pop	r15
+     e82:	ef 90       	pop	r14
+     e84:	df 90       	pop	r13
+     e86:	cf 90       	pop	r12
+     e88:	bf 90       	pop	r11
+     e8a:	af 90       	pop	r10
+     e8c:	9f 90       	pop	r9
+     e8e:	8f 90       	pop	r8
+     e90:	08 95       	ret
 
-00000e5c <_ZN4Font5printEiiPKc>:
+00000e92 <_ZN4Font5printEiiPKc>:
 /*----------------------------------------//
               Print String
 //----------------------------------------*/
 
 void Font::print(int16_t xPos, int16_t yPos, const char *stringValue)
 {
-     e5c:	cf 92       	push	r12
-     e5e:	df 92       	push	r13
-     e60:	ef 92       	push	r14
-     e62:	ff 92       	push	r15
-     e64:	0f 93       	push	r16
-     e66:	1f 93       	push	r17
-     e68:	cf 93       	push	r28
-     e6a:	df 93       	push	r29
-     e6c:	7c 01       	movw	r14, r24
-     e6e:	eb 01       	movw	r28, r22
-     e70:	6a 01       	movw	r12, r20
-     e72:	f9 01       	movw	r30, r18
+     e92:	cf 92       	push	r12
+     e94:	df 92       	push	r13
+     e96:	ef 92       	push	r14
+     e98:	ff 92       	push	r15
+     e9a:	0f 93       	push	r16
+     e9c:	1f 93       	push	r17
+     e9e:	cf 93       	push	r28
+     ea0:	df 93       	push	r29
+     ea2:	7c 01       	movw	r14, r24
+     ea4:	eb 01       	movw	r28, r22
+     ea6:	6a 01       	movw	r12, r20
+     ea8:	f9 01       	movw	r30, r18
 
   while (*stringValue != '\0')
-     e74:	20 81       	ld	r18, Z
-     e76:	22 23       	and	r18, r18
-     e78:	71 f0       	breq	.+28     	; 0xe96 <_ZN4Font5printEiiPKc+0x3a>
-     e7a:	8f 01       	movw	r16, r30
-     e7c:	0f 5f       	subi	r16, 0xFF	; 255
-     e7e:	1f 4f       	sbci	r17, 0xFF	; 255
+     eaa:	20 81       	ld	r18, Z
+     eac:	22 23       	and	r18, r18
+     eae:	71 f0       	breq	.+28     	; 0xecc <_ZN4Font5printEiiPKc+0x3a>
+     eb0:	8f 01       	movw	r16, r30
+     eb2:	0f 5f       	subi	r16, 0xFF	; 255
+     eb4:	1f 4f       	sbci	r17, 0xFF	; 255
   {
     printLetter(xPos, yPos, *stringValue);
-     e80:	a6 01       	movw	r20, r12
-     e82:	be 01       	movw	r22, r28
-     e84:	c7 01       	movw	r24, r14
-     e86:	0e 94 b5 06 	call	0xd6a	; 0xd6a <_ZN4Font11printLetterEiih>
+     eb6:	a6 01       	movw	r20, r12
+     eb8:	be 01       	movw	r22, r28
+     eba:	c7 01       	movw	r24, r14
+     ebc:	0e 94 d0 06 	call	0xda0	; 0xda0 <_ZN4Font11printLetterEiih>
     stringValue++;
     xPos += 16;
-     e8a:	60 96       	adiw	r28, 0x10	; 16
+     ec0:	60 96       	adiw	r28, 0x10	; 16
 //----------------------------------------*/
 
 void Font::print(int16_t xPos, int16_t yPos, const char *stringValue)
 {
 
   while (*stringValue != '\0')
-     e8c:	f8 01       	movw	r30, r16
-     e8e:	21 91       	ld	r18, Z+
-     e90:	8f 01       	movw	r16, r30
-     e92:	21 11       	cpse	r18, r1
-     e94:	f5 cf       	rjmp	.-22     	; 0xe80 <_ZN4Font5printEiiPKc+0x24>
+     ec2:	f8 01       	movw	r30, r16
+     ec4:	21 91       	ld	r18, Z+
+     ec6:	8f 01       	movw	r16, r30
+     ec8:	21 11       	cpse	r18, r1
+     eca:	f5 cf       	rjmp	.-22     	; 0xeb6 <_ZN4Font5printEiiPKc+0x24>
     printLetter(xPos, yPos, *stringValue);
     stringValue++;
     xPos += 16;
   }
 
-     e96:	df 91       	pop	r29
-     e98:	cf 91       	pop	r28
-     e9a:	1f 91       	pop	r17
-     e9c:	0f 91       	pop	r16
-     e9e:	ff 90       	pop	r15
-     ea0:	ef 90       	pop	r14
-     ea2:	df 90       	pop	r13
-     ea4:	cf 90       	pop	r12
-     ea6:	08 95       	ret
+     ecc:	df 91       	pop	r29
+     ece:	cf 91       	pop	r28
+     ed0:	1f 91       	pop	r17
+     ed2:	0f 91       	pop	r16
+     ed4:	ff 90       	pop	r15
+     ed6:	ef 90       	pop	r14
+     ed8:	df 90       	pop	r13
+     eda:	cf 90       	pop	r12
+     edc:	08 95       	ret
 
-00000ea8 <_ZN4Game5titleEv>:
+00000ede <_ZN5Frame11updateFrameEv>:
+//----------------------------------------*/
+
+void Frame::updateFrame(void)
+{
+
+  if (frameRate == 100)
+     ede:	90 91 40 01 	lds	r25, 0x0140	; 0x800140 <_ZN5Frame9frameRateE>
+     ee2:	94 36       	cpi	r25, 0x64	; 100
+     ee4:	79 f4       	brne	.+30     	; 0xf04 <_ZN5Frame11updateFrameEv+0x26>
+  {
+
+    secondFrame++;
+     ee6:	20 91 3a 01 	lds	r18, 0x013A	; 0x80013a <_ZN5Frame11secondFrameE>
+     eea:	30 91 3b 01 	lds	r19, 0x013B	; 0x80013b <_ZN5Frame11secondFrameE+0x1>
+     eee:	2f 5f       	subi	r18, 0xFF	; 255
+     ef0:	3f 4f       	sbci	r19, 0xFF	; 255
+
+    if (secondFrame == 1000)
+     ef2:	28 3e       	cpi	r18, 0xE8	; 232
+     ef4:	83 e0       	ldi	r24, 0x03	; 3
+     ef6:	38 07       	cpc	r19, r24
+     ef8:	d1 f5       	brne	.+116    	; 0xf6e <_ZN5Frame11updateFrameEv+0x90>
+    {
+      secondFrame = 0;
+     efa:	10 92 3b 01 	sts	0x013B, r1	; 0x80013b <_ZN5Frame11secondFrameE+0x1>
+     efe:	10 92 3a 01 	sts	0x013A, r1	; 0x80013a <_ZN5Frame11secondFrameE>
+     f02:	0e c0       	rjmp	.+28     	; 0xf20 <_ZN5Frame11updateFrameEv+0x42>
+    }
+
+  }
+
+  if (frameRate % 10 == 0)
+     f04:	8d ec       	ldi	r24, 0xCD	; 205
+     f06:	98 9f       	mul	r25, r24
+     f08:	81 2d       	mov	r24, r1
+     f0a:	11 24       	eor	r1, r1
+     f0c:	86 95       	lsr	r24
+     f0e:	86 95       	lsr	r24
+     f10:	86 95       	lsr	r24
+     f12:	88 0f       	add	r24, r24
+     f14:	28 2f       	mov	r18, r24
+     f16:	22 0f       	add	r18, r18
+     f18:	22 0f       	add	r18, r18
+     f1a:	82 0f       	add	r24, r18
+     f1c:	98 13       	cpse	r25, r24
+     f1e:	12 c0       	rjmp	.+36     	; 0xf44 <_ZN5Frame11updateFrameEv+0x66>
+  {
+
+    fourFrames++;
+     f20:	20 91 3f 01 	lds	r18, 0x013F	; 0x80013f <_ZN5Frame10fourFramesE>
+     f24:	2f 5f       	subi	r18, 0xFF	; 255
+     f26:	20 93 3f 01 	sts	0x013F, r18	; 0x80013f <_ZN5Frame10fourFramesE>
+    sixFrames++;
+     f2a:	80 91 3e 01 	lds	r24, 0x013E	; 0x80013e <_ZN5Frame9sixFramesE>
+     f2e:	8f 5f       	subi	r24, 0xFF	; 255
+     f30:	80 93 3e 01 	sts	0x013E, r24	; 0x80013e <_ZN5Frame9sixFramesE>
+
+    if (fourFrames == 5)
+     f34:	25 30       	cpi	r18, 0x05	; 5
+     f36:	11 f4       	brne	.+4      	; 0xf3c <_ZN5Frame11updateFrameEv+0x5e>
+    {
+      fourFrames = 0;
+     f38:	10 92 3f 01 	sts	0x013F, r1	; 0x80013f <_ZN5Frame10fourFramesE>
+    }
+
+    if (sixFrames == 7)
+     f3c:	87 30       	cpi	r24, 0x07	; 7
+     f3e:	11 f4       	brne	.+4      	; 0xf44 <_ZN5Frame11updateFrameEv+0x66>
+    {
+      sixFrames = 0;
+     f40:	10 92 3e 01 	sts	0x013E, r1	; 0x80013e <_ZN5Frame9sixFramesE>
+    }
+
+  }
+
+  if (frameRate % 2 == 0)
+     f44:	90 fd       	sbrc	r25, 0
+     f46:	18 c0       	rjmp	.+48     	; 0xf78 <_ZN5Frame11updateFrameEv+0x9a>
+  {
+
+    tickFrame++;
+     f48:	80 91 3c 01 	lds	r24, 0x013C	; 0x80013c <_ZN5Frame9tickFrameE>
+     f4c:	90 91 3d 01 	lds	r25, 0x013D	; 0x80013d <_ZN5Frame9tickFrameE+0x1>
+     f50:	01 96       	adiw	r24, 0x01	; 1
+
+    if (tickFrame == 1000)
+     f52:	88 3e       	cpi	r24, 0xE8	; 232
+     f54:	23 e0       	ldi	r18, 0x03	; 3
+     f56:	92 07       	cpc	r25, r18
+     f58:	29 f0       	breq	.+10     	; 0xf64 <_ZN5Frame11updateFrameEv+0x86>
+  }
+
+  if (frameRate % 2 == 0)
+  {
+
+    tickFrame++;
+     f5a:	90 93 3d 01 	sts	0x013D, r25	; 0x80013d <_ZN5Frame9tickFrameE+0x1>
+     f5e:	80 93 3c 01 	sts	0x013C, r24	; 0x80013c <_ZN5Frame9tickFrameE>
+     f62:	08 95       	ret
+
+    if (tickFrame == 1000)
+    {
+      tickFrame = 0;
+     f64:	10 92 3d 01 	sts	0x013D, r1	; 0x80013d <_ZN5Frame9tickFrameE+0x1>
+     f68:	10 92 3c 01 	sts	0x013C, r1	; 0x80013c <_ZN5Frame9tickFrameE>
+    }
+
+  }
+
+     f6c:	08 95       	ret
+{
+
+  if (frameRate == 100)
+  {
+
+    secondFrame++;
+     f6e:	30 93 3b 01 	sts	0x013B, r19	; 0x80013b <_ZN5Frame11secondFrameE+0x1>
+     f72:	20 93 3a 01 	sts	0x013A, r18	; 0x80013a <_ZN5Frame11secondFrameE>
+     f76:	d4 cf       	rjmp	.-88     	; 0xf20 <_ZN5Frame11updateFrameEv+0x42>
+     f78:	08 95       	ret
+
+00000f7a <_ZN4Game5titleEv>:
 /*----------------------------------------//
                 Game Title
 //----------------------------------------*/
 
 void Game::title(void)
 {
-     ea8:	7f 92       	push	r7
-     eaa:	8f 92       	push	r8
-     eac:	9f 92       	push	r9
-     eae:	af 92       	push	r10
-     eb0:	bf 92       	push	r11
-     eb2:	cf 92       	push	r12
-     eb4:	df 92       	push	r13
-     eb6:	ef 92       	push	r14
-     eb8:	ff 92       	push	r15
-     eba:	0f 93       	push	r16
-     ebc:	1f 93       	push	r17
-     ebe:	cf 93       	push	r28
-     ec0:	df 93       	push	r29
-     ec2:	ec 01       	movw	r28, r24
+     f7a:	7f 92       	push	r7
+     f7c:	8f 92       	push	r8
+     f7e:	9f 92       	push	r9
+     f80:	af 92       	push	r10
+     f82:	bf 92       	push	r11
+     f84:	cf 92       	push	r12
+     f86:	df 92       	push	r13
+     f88:	ef 92       	push	r14
+     f8a:	ff 92       	push	r15
+     f8c:	0f 93       	push	r16
+     f8e:	1f 93       	push	r17
+     f90:	cf 93       	push	r28
+     f92:	df 93       	push	r29
+     f94:	ec 01       	movw	r28, r24
   begin();
-     ec4:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN3TFT5beginEv>
+     f96:	0e 94 6a 09 	call	0x12d4	; 0x12d4 <_ZN3TFT5beginEv>
   setRotation(0);
-     ec8:	60 e0       	ldi	r22, 0x00	; 0
-     eca:	ce 01       	movw	r24, r28
-     ecc:	0e 94 fb 08 	call	0x11f6	; 0x11f6 <_ZN3TFT11setRotationEa>
+     f9a:	60 e0       	ldi	r22, 0x00	; 0
+     f9c:	ce 01       	movw	r24, r28
+     f9e:	0e 94 bf 09 	call	0x137e	; 0x137e <_ZN3TFT11setRotationEa>
 
   fillScreen(WHITE);
-     ed0:	6f ef       	ldi	r22, 0xFF	; 255
-     ed2:	7f ef       	ldi	r23, 0xFF	; 255
-     ed4:	ce 01       	movw	r24, r28
-     ed6:	0e 94 59 09 	call	0x12b2	; 0x12b2 <_ZN3TFT10fillScreenEj>
+     fa2:	6f ef       	ldi	r22, 0xFF	; 255
+     fa4:	7f ef       	ldi	r23, 0xFF	; 255
+     fa6:	ce 01       	movw	r24, r28
+     fa8:	0e 94 1b 0a 	call	0x1436	; 0x1436 <_ZN3TFT10fillScreenEj>
   drawBitmap(8, 70, 152, 48, logoAtmel, BLACK, RED, BLUE, WHITE);
-     eda:	77 24       	eor	r7, r7
-     edc:	7a 94       	dec	r7
-     ede:	7f 92       	push	r7
-     ee0:	7f 92       	push	r7
-     ee2:	0f 2e       	mov	r0, r31
-     ee4:	ff e1       	ldi	r31, 0x1F	; 31
-     ee6:	8f 2e       	mov	r8, r31
-     ee8:	91 2c       	mov	r9, r1
-     eea:	f0 2d       	mov	r31, r0
-     eec:	0f 2e       	mov	r0, r31
-     eee:	a1 2c       	mov	r10, r1
-     ef0:	f8 ef       	ldi	r31, 0xF8	; 248
-     ef2:	bf 2e       	mov	r11, r31
-     ef4:	f0 2d       	mov	r31, r0
-     ef6:	c1 2c       	mov	r12, r1
-     ef8:	d1 2c       	mov	r13, r1
-     efa:	0f 2e       	mov	r0, r31
-     efc:	f8 e6       	ldi	r31, 0x68	; 104
-     efe:	ef 2e       	mov	r14, r31
-     f00:	f3 e0       	ldi	r31, 0x03	; 3
-     f02:	ff 2e       	mov	r15, r31
-     f04:	f0 2d       	mov	r31, r0
-     f06:	00 e3       	ldi	r16, 0x30	; 48
-     f08:	10 e0       	ldi	r17, 0x00	; 0
-     f0a:	28 e9       	ldi	r18, 0x98	; 152
-     f0c:	30 e0       	ldi	r19, 0x00	; 0
-     f0e:	46 e4       	ldi	r20, 0x46	; 70
-     f10:	50 e0       	ldi	r21, 0x00	; 0
-     f12:	68 e0       	ldi	r22, 0x08	; 8
-     f14:	70 e0       	ldi	r23, 0x00	; 0
-     f16:	ce 01       	movw	r24, r28
-     f18:	0e 94 9e 09 	call	0x133c	; 0x133c <_ZN3TFT10drawBitmapEiiiiPKhjjjj>
+     fac:	77 24       	eor	r7, r7
+     fae:	7a 94       	dec	r7
+     fb0:	7f 92       	push	r7
+     fb2:	7f 92       	push	r7
+     fb4:	0f 2e       	mov	r0, r31
+     fb6:	ff e1       	ldi	r31, 0x1F	; 31
+     fb8:	8f 2e       	mov	r8, r31
+     fba:	91 2c       	mov	r9, r1
+     fbc:	f0 2d       	mov	r31, r0
+     fbe:	0f 2e       	mov	r0, r31
+     fc0:	a1 2c       	mov	r10, r1
+     fc2:	f8 ef       	ldi	r31, 0xF8	; 248
+     fc4:	bf 2e       	mov	r11, r31
+     fc6:	f0 2d       	mov	r31, r0
+     fc8:	c1 2c       	mov	r12, r1
+     fca:	d1 2c       	mov	r13, r1
+     fcc:	0f 2e       	mov	r0, r31
+     fce:	f8 e6       	ldi	r31, 0x68	; 104
+     fd0:	ef 2e       	mov	r14, r31
+     fd2:	f3 e0       	ldi	r31, 0x03	; 3
+     fd4:	ff 2e       	mov	r15, r31
+     fd6:	f0 2d       	mov	r31, r0
+     fd8:	00 e3       	ldi	r16, 0x30	; 48
+     fda:	10 e0       	ldi	r17, 0x00	; 0
+     fdc:	28 e9       	ldi	r18, 0x98	; 152
+     fde:	30 e0       	ldi	r19, 0x00	; 0
+     fe0:	46 e4       	ldi	r20, 0x46	; 70
+     fe2:	50 e0       	ldi	r21, 0x00	; 0
+     fe4:	68 e0       	ldi	r22, 0x08	; 8
+     fe6:	70 e0       	ldi	r23, 0x00	; 0
+     fe8:	ce 01       	movw	r24, r28
+     fea:	0e 94 60 0a 	call	0x14c0	; 0x14c0 <_ZN3TFT10drawBitmapEiiiiPKhjjjj>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     f1c:	2f ef       	ldi	r18, 0xFF	; 255
-     f1e:	89 e6       	ldi	r24, 0x69	; 105
-     f20:	98 e1       	ldi	r25, 0x18	; 24
-     f22:	21 50       	subi	r18, 0x01	; 1
-     f24:	80 40       	sbci	r24, 0x00	; 0
-     f26:	90 40       	sbci	r25, 0x00	; 0
-     f28:	e1 f7       	brne	.-8      	; 0xf22 <_ZN4Game5titleEv+0x7a>
-     f2a:	00 c0       	rjmp	.+0      	; 0xf2c <_ZN4Game5titleEv+0x84>
-     f2c:	00 00       	nop
+     fee:	2f ef       	ldi	r18, 0xFF	; 255
+     ff0:	89 e6       	ldi	r24, 0x69	; 105
+     ff2:	98 e1       	ldi	r25, 0x18	; 24
+     ff4:	21 50       	subi	r18, 0x01	; 1
+     ff6:	80 40       	sbci	r24, 0x00	; 0
+     ff8:	90 40       	sbci	r25, 0x00	; 0
+     ffa:	e1 f7       	brne	.-8      	; 0xff4 <_ZN4Game5titleEv+0x7a>
+     ffc:	00 c0       	rjmp	.+0      	; 0xffe <_ZN4Game5titleEv+0x84>
+     ffe:	00 00       	nop
   _delay_ms(500);
 
   drawBitmapTwice(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
-     f2e:	7f 92       	push	r7
-     f30:	7f 92       	push	r7
-     f32:	00 e6       	ldi	r16, 0x60	; 96
-     f34:	10 e0       	ldi	r17, 0x00	; 0
-     f36:	20 e3       	ldi	r18, 0x30	; 48
-     f38:	31 e0       	ldi	r19, 0x01	; 1
-     f3a:	46 e4       	ldi	r20, 0x46	; 70
-     f3c:	50 e0       	ldi	r21, 0x00	; 0
-     f3e:	68 e0       	ldi	r22, 0x08	; 8
-     f40:	70 e0       	ldi	r23, 0x00	; 0
-     f42:	ce 01       	movw	r24, r28
-     f44:	0e 94 46 0a 	call	0x148c	; 0x148c <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj>
-     f48:	2f ef       	ldi	r18, 0xFF	; 255
-     f4a:	8b e7       	ldi	r24, 0x7B	; 123
-     f4c:	92 e9       	ldi	r25, 0x92	; 146
-     f4e:	21 50       	subi	r18, 0x01	; 1
-     f50:	80 40       	sbci	r24, 0x00	; 0
-     f52:	90 40       	sbci	r25, 0x00	; 0
-     f54:	e1 f7       	brne	.-8      	; 0xf4e <_ZN4Game5titleEv+0xa6>
-     f56:	00 c0       	rjmp	.+0      	; 0xf58 <_ZN4Game5titleEv+0xb0>
-     f58:	00 00       	nop
+    1000:	7f 92       	push	r7
+    1002:	7f 92       	push	r7
+    1004:	00 e6       	ldi	r16, 0x60	; 96
+    1006:	10 e0       	ldi	r17, 0x00	; 0
+    1008:	20 e3       	ldi	r18, 0x30	; 48
+    100a:	31 e0       	ldi	r19, 0x01	; 1
+    100c:	46 e4       	ldi	r20, 0x46	; 70
+    100e:	50 e0       	ldi	r21, 0x00	; 0
+    1010:	68 e0       	ldi	r22, 0x08	; 8
+    1012:	70 e0       	ldi	r23, 0x00	; 0
+    1014:	ce 01       	movw	r24, r28
+    1016:	0e 94 08 0b 	call	0x1610	; 0x1610 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj>
+    101a:	2f ef       	ldi	r18, 0xFF	; 255
+    101c:	8b e7       	ldi	r24, 0x7B	; 123
+    101e:	92 e9       	ldi	r25, 0x92	; 146
+    1020:	21 50       	subi	r18, 0x01	; 1
+    1022:	80 40       	sbci	r24, 0x00	; 0
+    1024:	90 40       	sbci	r25, 0x00	; 0
+    1026:	e1 f7       	brne	.-8      	; 0x1020 <_ZN4Game5titleEv+0xa6>
+    1028:	00 c0       	rjmp	.+0      	; 0x102a <_ZN4Game5titleEv+0xb0>
+    102a:	00 00       	nop
   _delay_ms(3000);
 
   fillScreen(BLACK);
-     f5a:	60 e0       	ldi	r22, 0x00	; 0
-     f5c:	70 e0       	ldi	r23, 0x00	; 0
-     f5e:	ce 01       	movw	r24, r28
-     f60:	0e 94 59 09 	call	0x12b2	; 0x12b2 <_ZN3TFT10fillScreenEj>
+    102c:	60 e0       	ldi	r22, 0x00	; 0
+    102e:	70 e0       	ldi	r23, 0x00	; 0
+    1030:	ce 01       	movw	r24, r28
+    1032:	0e 94 1b 0a 	call	0x1436	; 0x1436 <_ZN3TFT10fillScreenEj>
 public:
   Font() : TFT(){};
   Font(const uint8_t *bitmap) : TFT() { m_Bitmap = bitmap; }
   ~Font(){};
 
   void setFont(const uint8_t *bitmap) { m_Bitmap = bitmap; }
-     f64:	88 e6       	ldi	r24, 0x68	; 104
-     f66:	90 e0       	ldi	r25, 0x00	; 0
-     f68:	9f 83       	std	Y+7, r25	; 0x07
-     f6a:	8e 83       	std	Y+6, r24	; 0x06
+    1036:	88 e6       	ldi	r24, 0x68	; 104
+    1038:	90 e0       	ldi	r25, 0x00	; 0
+    103a:	9d 83       	std	Y+5, r25	; 0x05
+    103c:	8c 83       	std	Y+4, r24	; 0x04
   void setColor(uint16_t color0Bit, uint16_t color1Bit) { m_Background = color0Bit; m_Colored = color1Bit; }
-     f6c:	19 86       	std	Y+9, r1	; 0x09
-     f6e:	18 86       	std	Y+8, r1	; 0x08
-     f70:	8f ef       	ldi	r24, 0xFF	; 255
-     f72:	9f ef       	ldi	r25, 0xFF	; 255
-     f74:	9b 87       	std	Y+11, r25	; 0x0b
-     f76:	8a 87       	std	Y+10, r24	; 0x0a
+    103e:	1f 82       	std	Y+7, r1	; 0x07
+    1040:	1e 82       	std	Y+6, r1	; 0x06
+    1042:	8f ef       	ldi	r24, 0xFF	; 255
+    1044:	9f ef       	ldi	r25, 0xFF	; 255
+    1046:	99 87       	std	Y+9, r25	; 0x09
+    1048:	88 87       	std	Y+8, r24	; 0x08
   setFont(fontASCII);
   setColor(BLACK, WHITE);
   print(30, 70, "Hello, World!");
-     f78:	20 e0       	ldi	r18, 0x00	; 0
-     f7a:	31 e0       	ldi	r19, 0x01	; 1
-     f7c:	46 e4       	ldi	r20, 0x46	; 70
-     f7e:	50 e0       	ldi	r21, 0x00	; 0
-     f80:	6e e1       	ldi	r22, 0x1E	; 30
-     f82:	70 e0       	ldi	r23, 0x00	; 0
-     f84:	ce 01       	movw	r24, r28
-     f86:	0e 94 2e 07 	call	0xe5c	; 0xe5c <_ZN4Font5printEiiPKc>
-     f8a:	2f ef       	ldi	r18, 0xFF	; 255
-     f8c:	83 ed       	ldi	r24, 0xD3	; 211
-     f8e:	90 e3       	ldi	r25, 0x30	; 48
-     f90:	21 50       	subi	r18, 0x01	; 1
-     f92:	80 40       	sbci	r24, 0x00	; 0
-     f94:	90 40       	sbci	r25, 0x00	; 0
-     f96:	e1 f7       	brne	.-8      	; 0xf90 <_ZN4Game5titleEv+0xe8>
-     f98:	00 c0       	rjmp	.+0      	; 0xf9a <_ZN4Game5titleEv+0xf2>
-     f9a:	00 00       	nop
-     f9c:	19 86       	std	Y+9, r1	; 0x09
-     f9e:	18 86       	std	Y+8, r1	; 0x08
-     fa0:	8f ef       	ldi	r24, 0xFF	; 255
-     fa2:	97 e0       	ldi	r25, 0x07	; 7
-     fa4:	9b 87       	std	Y+11, r25	; 0x0b
-     fa6:	8a 87       	std	Y+10, r24	; 0x0a
+    104a:	20 e0       	ldi	r18, 0x00	; 0
+    104c:	31 e0       	ldi	r19, 0x01	; 1
+    104e:	46 e4       	ldi	r20, 0x46	; 70
+    1050:	50 e0       	ldi	r21, 0x00	; 0
+    1052:	6e e1       	ldi	r22, 0x1E	; 30
+    1054:	70 e0       	ldi	r23, 0x00	; 0
+    1056:	ce 01       	movw	r24, r28
+    1058:	0e 94 49 07 	call	0xe92	; 0xe92 <_ZN4Font5printEiiPKc>
+    105c:	2f ef       	ldi	r18, 0xFF	; 255
+    105e:	83 ed       	ldi	r24, 0xD3	; 211
+    1060:	90 e3       	ldi	r25, 0x30	; 48
+    1062:	21 50       	subi	r18, 0x01	; 1
+    1064:	80 40       	sbci	r24, 0x00	; 0
+    1066:	90 40       	sbci	r25, 0x00	; 0
+    1068:	e1 f7       	brne	.-8      	; 0x1062 <_ZN4Game5titleEv+0xe8>
+    106a:	00 c0       	rjmp	.+0      	; 0x106c <_ZN4Game5titleEv+0xf2>
+    106c:	00 00       	nop
+    106e:	1f 82       	std	Y+7, r1	; 0x07
+    1070:	1e 82       	std	Y+6, r1	; 0x06
+    1072:	8f ef       	ldi	r24, 0xFF	; 255
+    1074:	97 e0       	ldi	r25, 0x07	; 7
+    1076:	99 87       	std	Y+9, r25	; 0x09
+    1078:	88 87       	std	Y+8, r24	; 0x08
   _delay_ms(1000);
 
   setColor(BLACK, CYAN);
   print(30, 120, "And Welcome to");
-     fa8:	2e e0       	ldi	r18, 0x0E	; 14
-     faa:	31 e0       	ldi	r19, 0x01	; 1
-     fac:	48 e7       	ldi	r20, 0x78	; 120
-     fae:	50 e0       	ldi	r21, 0x00	; 0
-     fb0:	6e e1       	ldi	r22, 0x1E	; 30
-     fb2:	70 e0       	ldi	r23, 0x00	; 0
-     fb4:	ce 01       	movw	r24, r28
-     fb6:	0e 94 2e 07 	call	0xe5c	; 0xe5c <_ZN4Font5printEiiPKc>
-     fba:	19 86       	std	Y+9, r1	; 0x09
-     fbc:	18 86       	std	Y+8, r1	; 0x08
-     fbe:	80 e0       	ldi	r24, 0x00	; 0
-     fc0:	98 ef       	ldi	r25, 0xF8	; 248
-     fc2:	9b 87       	std	Y+11, r25	; 0x0b
-     fc4:	8a 87       	std	Y+10, r24	; 0x0a
+    107a:	2e e0       	ldi	r18, 0x0E	; 14
+    107c:	31 e0       	ldi	r19, 0x01	; 1
+    107e:	48 e7       	ldi	r20, 0x78	; 120
+    1080:	50 e0       	ldi	r21, 0x00	; 0
+    1082:	6e e1       	ldi	r22, 0x1E	; 30
+    1084:	70 e0       	ldi	r23, 0x00	; 0
+    1086:	ce 01       	movw	r24, r28
+    1088:	0e 94 49 07 	call	0xe92	; 0xe92 <_ZN4Font5printEiiPKc>
+    108c:	1f 82       	std	Y+7, r1	; 0x07
+    108e:	1e 82       	std	Y+6, r1	; 0x06
+    1090:	80 e0       	ldi	r24, 0x00	; 0
+    1092:	98 ef       	ldi	r25, 0xF8	; 248
+    1094:	99 87       	std	Y+9, r25	; 0x09
+    1096:	88 87       	std	Y+8, r24	; 0x08
   setColor(BLACK, RED);
   print(30, 136, "Atmega Game (^0^)");
-     fc6:	2d e1       	ldi	r18, 0x1D	; 29
-     fc8:	31 e0       	ldi	r19, 0x01	; 1
-     fca:	48 e8       	ldi	r20, 0x88	; 136
-     fcc:	50 e0       	ldi	r21, 0x00	; 0
-     fce:	6e e1       	ldi	r22, 0x1E	; 30
-     fd0:	70 e0       	ldi	r23, 0x00	; 0
-     fd2:	ce 01       	movw	r24, r28
-     fd4:	0e 94 2e 07 	call	0xe5c	; 0xe5c <_ZN4Font5printEiiPKc>
-     fd8:	2f ef       	ldi	r18, 0xFF	; 255
-     fda:	83 e2       	ldi	r24, 0x23	; 35
-     fdc:	94 ef       	ldi	r25, 0xF4	; 244
-     fde:	21 50       	subi	r18, 0x01	; 1
-     fe0:	80 40       	sbci	r24, 0x00	; 0
-     fe2:	90 40       	sbci	r25, 0x00	; 0
-     fe4:	e1 f7       	brne	.-8      	; 0xfde <_ZN4Game5titleEv+0x136>
-     fe6:	00 c0       	rjmp	.+0      	; 0xfe8 <_ZN4Game5titleEv+0x140>
-     fe8:	00 00       	nop
+    1098:	2d e1       	ldi	r18, 0x1D	; 29
+    109a:	31 e0       	ldi	r19, 0x01	; 1
+    109c:	48 e8       	ldi	r20, 0x88	; 136
+    109e:	50 e0       	ldi	r21, 0x00	; 0
+    10a0:	6e e1       	ldi	r22, 0x1E	; 30
+    10a2:	70 e0       	ldi	r23, 0x00	; 0
+    10a4:	ce 01       	movw	r24, r28
+    10a6:	0e 94 49 07 	call	0xe92	; 0xe92 <_ZN4Font5printEiiPKc>
+    10aa:	2f ef       	ldi	r18, 0xFF	; 255
+    10ac:	83 e2       	ldi	r24, 0x23	; 35
+    10ae:	94 ef       	ldi	r25, 0xF4	; 244
+    10b0:	21 50       	subi	r18, 0x01	; 1
+    10b2:	80 40       	sbci	r24, 0x00	; 0
+    10b4:	90 40       	sbci	r25, 0x00	; 0
+    10b6:	e1 f7       	brne	.-8      	; 0x10b0 <_ZN4Game5titleEv+0x136>
+    10b8:	00 c0       	rjmp	.+0      	; 0x10ba <_ZN4Game5titleEv+0x140>
+    10ba:	00 00       	nop
   _delay_ms(5000);
 }
-     fea:	0f 90       	pop	r0
-     fec:	0f 90       	pop	r0
-     fee:	0f 90       	pop	r0
-     ff0:	0f 90       	pop	r0
-     ff2:	df 91       	pop	r29
-     ff4:	cf 91       	pop	r28
-     ff6:	1f 91       	pop	r17
-     ff8:	0f 91       	pop	r16
-     ffa:	ff 90       	pop	r15
-     ffc:	ef 90       	pop	r14
-     ffe:	df 90       	pop	r13
-    1000:	cf 90       	pop	r12
-    1002:	bf 90       	pop	r11
-    1004:	af 90       	pop	r10
-    1006:	9f 90       	pop	r9
-    1008:	8f 90       	pop	r8
-    100a:	7f 90       	pop	r7
-    100c:	08 95       	ret
+    10bc:	0f 90       	pop	r0
+    10be:	0f 90       	pop	r0
+    10c0:	0f 90       	pop	r0
+    10c2:	0f 90       	pop	r0
+    10c4:	df 91       	pop	r29
+    10c6:	cf 91       	pop	r28
+    10c8:	1f 91       	pop	r17
+    10ca:	0f 91       	pop	r16
+    10cc:	ff 90       	pop	r15
+    10ce:	ef 90       	pop	r14
+    10d0:	df 90       	pop	r13
+    10d2:	cf 90       	pop	r12
+    10d4:	bf 90       	pop	r11
+    10d6:	af 90       	pop	r10
+    10d8:	9f 90       	pop	r9
+    10da:	8f 90       	pop	r8
+    10dc:	7f 90       	pop	r7
+    10de:	08 95       	ret
 
-0000100e <_ZN4Game5startEv>:
+000010e0 <_ZN4Game5startEv>:
 /*----------------------------------------//
                 Start Game
 //----------------------------------------*/
 
 void Game::start(void)
 {
-    100e:	cf 93       	push	r28
-    1010:	df 93       	push	r29
-    1012:	cd b7       	in	r28, 0x3d	; 61
-    1014:	de b7       	in	r29, 0x3e	; 62
-    1016:	29 97       	sbiw	r28, 0x09	; 9
-    1018:	0f b6       	in	r0, 0x3f	; 63
-    101a:	f8 94       	cli
-    101c:	de bf       	out	0x3e, r29	; 62
-    101e:	0f be       	out	0x3f, r0	; 63
-    1020:	cd bf       	out	0x3d, r28	; 61
+    10e0:	cf 93       	push	r28
+    10e2:	df 93       	push	r29
+    10e4:	cd b7       	in	r28, 0x3d	; 61
+    10e6:	de b7       	in	r29, 0x3e	; 62
+    10e8:	28 97       	sbiw	r28, 0x08	; 8
+    10ea:	0f b6       	in	r0, 0x3f	; 63
+    10ec:	f8 94       	cli
+    10ee:	de bf       	out	0x3e, r29	; 62
+    10f0:	0f be       	out	0x3f, r0	; 63
+    10f2:	cd bf       	out	0x3d, r28	; 61
 
   fillScreen(BLACK);
-    1022:	60 e0       	ldi	r22, 0x00	; 0
-    1024:	70 e0       	ldi	r23, 0x00	; 0
-    1026:	0e 94 59 09 	call	0x12b2	; 0x12b2 <_ZN3TFT10fillScreenEj>
-    102a:	2f ef       	ldi	r18, 0xFF	; 255
-    102c:	81 ee       	ldi	r24, 0xE1	; 225
-    102e:	94 e0       	ldi	r25, 0x04	; 4
-    1030:	21 50       	subi	r18, 0x01	; 1
-    1032:	80 40       	sbci	r24, 0x00	; 0
-    1034:	90 40       	sbci	r25, 0x00	; 0
-    1036:	e1 f7       	brne	.-8      	; 0x1030 <_ZN4Game5startEv+0x22>
-    1038:	00 c0       	rjmp	.+0      	; 0x103a <_ZN4Game5startEv+0x2c>
-    103a:	00 00       	nop
+    10f4:	60 e0       	ldi	r22, 0x00	; 0
+    10f6:	70 e0       	ldi	r23, 0x00	; 0
+    10f8:	0e 94 1b 0a 	call	0x1436	; 0x1436 <_ZN3TFT10fillScreenEj>
+    10fc:	2f ef       	ldi	r18, 0xFF	; 255
+    10fe:	81 ee       	ldi	r24, 0xE1	; 225
+    1100:	94 e0       	ldi	r25, 0x04	; 4
+    1102:	21 50       	subi	r18, 0x01	; 1
+    1104:	80 40       	sbci	r24, 0x00	; 0
+    1106:	90 40       	sbci	r25, 0x00	; 0
+    1108:	e1 f7       	brne	.-8      	; 0x1102 <_ZN4Game5startEv+0x22>
+    110a:	00 c0       	rjmp	.+0      	; 0x110c <_ZN4Game5startEv+0x2c>
+    110c:	00 00       	nop
+private:
   int16_t m_Width;
   int16_t m_Height;
-  int16_t m_Temp;
 
 public:
   TFT() : SPI() { m_Width = 240; m_Height = 320; }
-    103c:	80 ef       	ldi	r24, 0xF0	; 240
-    103e:	90 e0       	ldi	r25, 0x00	; 0
-    1040:	9a 83       	std	Y+2, r25	; 0x02
-    1042:	89 83       	std	Y+1, r24	; 0x01
-    1044:	80 e4       	ldi	r24, 0x40	; 64
-    1046:	91 e0       	ldi	r25, 0x01	; 1
-    1048:	9c 83       	std	Y+4, r25	; 0x04
-    104a:	8b 83       	std	Y+3, r24	; 0x03
+    110e:	80 ef       	ldi	r24, 0xF0	; 240
+    1110:	90 e0       	ldi	r25, 0x00	; 0
+    1112:	9b 83       	std	Y+3, r25	; 0x03
+    1114:	8a 83       	std	Y+2, r24	; 0x02
+    1116:	80 e4       	ldi	r24, 0x40	; 64
+    1118:	91 e0       	ldi	r25, 0x01	; 1
+    111a:	9d 83       	std	Y+5, r25	; 0x05
+    111c:	8c 83       	std	Y+4, r24	; 0x04
   int8_t m_YPos;
   int8_t m_Life;
   int8_t m_Weapon;
 
 public:
   Player() : TFT() { m_Life = 3; }
-    104c:	83 e0       	ldi	r24, 0x03	; 3
-    104e:	88 87       	std	Y+8, r24	; 0x08
-
+    111e:	83 e0       	ldi	r24, 0x03	; 3
+    1120:	8f 83       	std	Y+7, r24	; 0x07
+  Frame frame;
   Player user;
 
   while (1)
   {
+    frame.updateFrame();
+    1122:	ce 01       	movw	r24, r28
+    1124:	01 96       	adiw	r24, 0x01	; 1
+    1126:	0e 94 6f 07 	call	0xede	; 0xede <_ZN5Frame11updateFrameEv>
     user.startPlayer();
-    1050:	ce 01       	movw	r24, r28
-    1052:	01 96       	adiw	r24, 0x01	; 1
-    1054:	0e 94 2d 08 	call	0x105a	; 0x105a <_ZN6Player11startPlayerEv>
-    1058:	fb cf       	rjmp	.-10     	; 0x1050 <_ZN4Game5startEv+0x42>
+    112a:	ce 01       	movw	r24, r28
+    112c:	02 96       	adiw	r24, 0x02	; 2
+    112e:	0e 94 9a 08 	call	0x1134	; 0x1134 <_ZN6Player11startPlayerEv>
+    1132:	f7 cf       	rjmp	.-18     	; 0x1122 <_ZN4Game5startEv+0x42>
 
-0000105a <_ZN6Player11startPlayerEv>:
+00001134 <_ZN6Player11startPlayerEv>:
 /*----------------------------------------//
                 Start Game
 //----------------------------------------*/
 
 void Player::startPlayer(void)
 {
-    105a:	6f 92       	push	r6
-    105c:	7f 92       	push	r7
-    105e:	8f 92       	push	r8
-    1060:	9f 92       	push	r9
-    1062:	af 92       	push	r10
-    1064:	bf 92       	push	r11
-    1066:	cf 92       	push	r12
-    1068:	df 92       	push	r13
-    106a:	ef 92       	push	r14
-    106c:	ff 92       	push	r15
-    106e:	0f 93       	push	r16
-    1070:	cf 93       	push	r28
-    1072:	3c 01       	movw	r6, r24
-    1074:	c0 e0       	ldi	r28, 0x00	; 0
+    1134:	6f 92       	push	r6
+    1136:	7f 92       	push	r7
+    1138:	8f 92       	push	r8
+    113a:	9f 92       	push	r9
+    113c:	af 92       	push	r10
+    113e:	bf 92       	push	r11
+    1140:	cf 92       	push	r12
+    1142:	df 92       	push	r13
+    1144:	ef 92       	push	r14
+    1146:	ff 92       	push	r15
+    1148:	0f 93       	push	r16
+    114a:	cf 93       	push	r28
+    114c:	df 93       	push	r29
+    114e:	3c 01       	movw	r6, r24
 
   for (int i=0; i<6; i++)
+    1150:	c0 e0       	ldi	r28, 0x00	; 0
+    1152:	d0 e0       	ldi	r29, 0x00	; 0
   {
-    drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
-    1076:	88 24       	eor	r8, r8
-    1078:	8a 94       	dec	r8
-    107a:	98 2c       	mov	r9, r8
-    107c:	0f 2e       	mov	r0, r31
-    107e:	a1 2c       	mov	r10, r1
-    1080:	f8 ef       	ldi	r31, 0xF8	; 248
-    1082:	bf 2e       	mov	r11, r31
-    1084:	f0 2d       	mov	r31, r0
-    1086:	0f 2e       	mov	r0, r31
-    1088:	c1 2c       	mov	r12, r1
-    108a:	f8 e7       	ldi	r31, 0x78	; 120
-    108c:	df 2e       	mov	r13, r31
-    108e:	f0 2d       	mov	r31, r0
-    1090:	e1 2c       	mov	r14, r1
-    1092:	f1 2c       	mov	r15, r1
-    1094:	0c 2f       	mov	r16, r28
-    1096:	28 e8       	ldi	r18, 0x88	; 136
-    1098:	3a e0       	ldi	r19, 0x0A	; 10
-    109a:	48 e7       	ldi	r20, 0x78	; 120
-    109c:	50 e0       	ldi	r21, 0x00	; 0
-    109e:	6c e3       	ldi	r22, 0x3C	; 60
-    10a0:	70 e0       	ldi	r23, 0x00	; 0
-    10a2:	c3 01       	movw	r24, r6
-    10a4:	0e 94 18 0b 	call	0x1630	; 0x1630 <_ZN3TFT8drawTileEiiPA100_Khajjjj>
-    10a8:	2f ef       	ldi	r18, 0xFF	; 255
-    10aa:	81 ee       	ldi	r24, 0xE1	; 225
-    10ac:	94 e0       	ldi	r25, 0x04	; 4
-    10ae:	21 50       	subi	r18, 0x01	; 1
-    10b0:	80 40       	sbci	r24, 0x00	; 0
-    10b2:	90 40       	sbci	r25, 0x00	; 0
-    10b4:	e1 f7       	brne	.-8      	; 0x10ae <_ZN6Player11startPlayerEv+0x54>
-    10b6:	00 c0       	rjmp	.+0      	; 0x10b8 <_ZN6Player11startPlayerEv+0x5e>
-    10b8:	00 00       	nop
-    10ba:	cf 5f       	subi	r28, 0xFF	; 255
+    if (Frame::sixFrames == i)
+    1154:	80 91 3e 01 	lds	r24, 0x013E	; 0x80013e <_ZN5Frame9sixFramesE>
+    1158:	90 e0       	ldi	r25, 0x00	; 0
+    115a:	8c 17       	cp	r24, r28
+    115c:	9d 07       	cpc	r25, r29
+    115e:	c9 f4       	brne	.+50     	; 0x1192 <_ZN6Player11startPlayerEv+0x5e>
+    {
+      drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
+    1160:	88 24       	eor	r8, r8
+    1162:	8a 94       	dec	r8
+    1164:	98 2c       	mov	r9, r8
+    1166:	0f 2e       	mov	r0, r31
+    1168:	a1 2c       	mov	r10, r1
+    116a:	f8 ef       	ldi	r31, 0xF8	; 248
+    116c:	bf 2e       	mov	r11, r31
+    116e:	f0 2d       	mov	r31, r0
+    1170:	0f 2e       	mov	r0, r31
+    1172:	c1 2c       	mov	r12, r1
+    1174:	f8 e7       	ldi	r31, 0x78	; 120
+    1176:	df 2e       	mov	r13, r31
+    1178:	f0 2d       	mov	r31, r0
+    117a:	e1 2c       	mov	r14, r1
+    117c:	f1 2c       	mov	r15, r1
+    117e:	0c 2f       	mov	r16, r28
+    1180:	28 e8       	ldi	r18, 0x88	; 136
+    1182:	3a e0       	ldi	r19, 0x0A	; 10
+    1184:	48 e7       	ldi	r20, 0x78	; 120
+    1186:	50 e0       	ldi	r21, 0x00	; 0
+    1188:	6c e3       	ldi	r22, 0x3C	; 60
+    118a:	70 e0       	ldi	r23, 0x00	; 0
+    118c:	c3 01       	movw	r24, r6
+    118e:	0e 94 da 0b 	call	0x17b4	; 0x17b4 <_ZN3TFT8drawTileEiiPA100_Khajjjj>
 //----------------------------------------*/
 
 void Player::startPlayer(void)
 {
 
   for (int i=0; i<6; i++)
-    10bc:	c6 30       	cpi	r28, 0x06	; 6
-    10be:	d9 f6       	brne	.-74     	; 0x1076 <_ZN6Player11startPlayerEv+0x1c>
-  {
-    drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
-    _delay_ms(100);
+    1192:	21 96       	adiw	r28, 0x01	; 1
+    1194:	c6 30       	cpi	r28, 0x06	; 6
+    1196:	d1 05       	cpc	r29, r1
+    1198:	e9 f6       	brne	.-70     	; 0x1154 <_ZN6Player11startPlayerEv+0x20>
+    {
+      drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
+    }
   }
 
-    10c0:	cf 91       	pop	r28
-    10c2:	0f 91       	pop	r16
-    10c4:	ff 90       	pop	r15
-    10c6:	ef 90       	pop	r14
-    10c8:	df 90       	pop	r13
-    10ca:	cf 90       	pop	r12
-    10cc:	bf 90       	pop	r11
-    10ce:	af 90       	pop	r10
-    10d0:	9f 90       	pop	r9
-    10d2:	8f 90       	pop	r8
-    10d4:	7f 90       	pop	r7
-    10d6:	6f 90       	pop	r6
-    10d8:	08 95       	ret
+    119a:	df 91       	pop	r29
+    119c:	cf 91       	pop	r28
+    119e:	0f 91       	pop	r16
+    11a0:	ff 90       	pop	r15
+    11a2:	ef 90       	pop	r14
+    11a4:	df 90       	pop	r13
+    11a6:	cf 90       	pop	r12
+    11a8:	bf 90       	pop	r11
+    11aa:	af 90       	pop	r10
+    11ac:	9f 90       	pop	r9
+    11ae:	8f 90       	pop	r8
+    11b0:	7f 90       	pop	r7
+    11b2:	6f 90       	pop	r6
+    11b4:	08 95       	ret
 
-000010da <_ZN3MCU7Setting9beginPortEab>:
+000011b6 <_ZN3MCU7Setting9beginPortEab>:
     else
     {
-      TCCR1A |= 0x03 | (1 << COM1B1);   // 256, Fast PWM Mode
+      TCCR1A |= 0x03 | (1 << COM1B1);   // 256 Prescaler, Fast PWM Mode
       TCCR1B = 0x0C;
       TCNT1H = 0x00;                    // Start Counting 0x0000
       TCNT1L = 0x00;
-    10da:	61 95       	neg	r22
-    10dc:	81 30       	cpi	r24, 0x01	; 1
-    10de:	39 f0       	breq	.+14     	; 0x10ee <_ZN3MCU7Setting9beginPortEab+0x14>
-    10e0:	82 30       	cpi	r24, 0x02	; 2
-    10e2:	41 f0       	breq	.+16     	; 0x10f4 <_ZN3MCU7Setting9beginPortEab+0x1a>
-    10e4:	81 11       	cpse	r24, r1
-    10e6:	08 c0       	rjmp	.+16     	; 0x10f8 <_ZN3MCU7Setting9beginPortEab+0x1e>
-    10e8:	64 b9       	out	0x04, r22	; 4
-    10ea:	15 b8       	out	0x05, r1	; 5
-    10ec:	08 95       	ret
-    10ee:	67 b9       	out	0x07, r22	; 7
-    10f0:	18 b8       	out	0x08, r1	; 8
-    10f2:	08 95       	ret
-    10f4:	6a b9       	out	0x0a, r22	; 10
-    10f6:	1b b8       	out	0x0b, r1	; 11
-    10f8:	08 95       	ret
+    11b6:	61 95       	neg	r22
+    11b8:	81 30       	cpi	r24, 0x01	; 1
+    11ba:	39 f0       	breq	.+14     	; 0x11ca <_ZN3MCU7Setting9beginPortEab+0x14>
+    11bc:	82 30       	cpi	r24, 0x02	; 2
+    11be:	41 f0       	breq	.+16     	; 0x11d0 <_ZN3MCU7Setting9beginPortEab+0x1a>
+    11c0:	81 11       	cpse	r24, r1
+    11c2:	08 c0       	rjmp	.+16     	; 0x11d4 <_ZN3MCU7Setting9beginPortEab+0x1e>
+    11c4:	64 b9       	out	0x04, r22	; 4
+    11c6:	15 b8       	out	0x05, r1	; 5
+    11c8:	08 95       	ret
+    11ca:	67 b9       	out	0x07, r22	; 7
+    11cc:	18 b8       	out	0x08, r1	; 8
+    11ce:	08 95       	ret
+    11d0:	6a b9       	out	0x0a, r22	; 10
+    11d2:	1b b8       	out	0x0b, r1	; 11
+    11d4:	08 95       	ret
 
-000010fa <_ZN3MCU7Setting8beginSPIEv>:
+000011d6 <_ZN3MCU7Setting10beginTimerEab>:
+    11d6:	81 30       	cpi	r24, 0x01	; 1
+    11d8:	99 f1       	breq	.+102    	; 0x1240 <_ZN3MCU7Setting10beginTimerEab+0x6a>
+    11da:	82 30       	cpi	r24, 0x02	; 2
+    11dc:	b1 f0       	breq	.+44     	; 0x120a <_ZN3MCU7Setting10beginTimerEab+0x34>
+    11de:	81 11       	cpse	r24, r1
+    11e0:	4f c0       	rjmp	.+158    	; 0x1280 <_ZN3MCU7Setting10beginTimerEab+0xaa>
+    11e2:	61 11       	cpse	r22, r1
+    11e4:	08 c0       	rjmp	.+16     	; 0x11f6 <_ZN3MCU7Setting10beginTimerEab+0x20>
+    11e6:	81 e0       	ldi	r24, 0x01	; 1
+    11e8:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <__TEXT_REGION_LENGTH__+0x7f806e>
+    11ec:	14 bc       	out	0x24, r1	; 36
+    11ee:	85 e0       	ldi	r24, 0x05	; 5
+    11f0:	85 bd       	out	0x25, r24	; 37
+    11f2:	16 bc       	out	0x26, r1	; 38
+    11f4:	08 95       	ret
+    11f6:	82 e0       	ldi	r24, 0x02	; 2
+    11f8:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <__TEXT_REGION_LENGTH__+0x7f806e>
+    11fc:	84 bd       	out	0x24, r24	; 36
+    11fe:	85 e0       	ldi	r24, 0x05	; 5
+    1200:	85 bd       	out	0x25, r24	; 37
+    1202:	16 bc       	out	0x26, r1	; 38
+    1204:	8f ef       	ldi	r24, 0xFF	; 255
+    1206:	87 bd       	out	0x27, r24	; 39
+    1208:	08 95       	ret
+    120a:	61 11       	cpse	r22, r1
+    120c:	0b c0       	rjmp	.+22     	; 0x1224 <_ZN3MCU7Setting10beginTimerEab+0x4e>
+    120e:	81 e0       	ldi	r24, 0x01	; 1
+    1210:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__TEXT_REGION_LENGTH__+0x7f8070>
+    1214:	10 92 b0 00 	sts	0x00B0, r1	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7f80b0>
+    1218:	87 e0       	ldi	r24, 0x07	; 7
+    121a:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+    121e:	10 92 b2 00 	sts	0x00B2, r1	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7f80b2>
+    1222:	08 95       	ret
+    1224:	82 e0       	ldi	r24, 0x02	; 2
+    1226:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__TEXT_REGION_LENGTH__+0x7f8070>
+    122a:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7f80b0>
+    122e:	87 e0       	ldi	r24, 0x07	; 7
+    1230:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+    1234:	10 92 b2 00 	sts	0x00B2, r1	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7f80b2>
+    1238:	80 ea       	ldi	r24, 0xA0	; 160
+    123a:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+    123e:	08 95       	ret
+    1240:	61 11       	cpse	r22, r1
+    1242:	0d c0       	rjmp	.+26     	; 0x125e <_ZN3MCU7Setting10beginTimerEab+0x88>
+    1244:	81 e0       	ldi	r24, 0x01	; 1
+    1246:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
+    124a:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+    124e:	84 e0       	ldi	r24, 0x04	; 4
+    1250:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+    1254:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+    1258:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+    125c:	08 95       	ret
+    125e:	82 e0       	ldi	r24, 0x02	; 2
+    1260:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
+    1264:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+    1268:	9c e0       	ldi	r25, 0x0C	; 12
+    126a:	90 93 81 00 	sts	0x0081, r25	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+    126e:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+    1272:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+    1276:	80 93 89 00 	sts	0x0089, r24	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+    127a:	80 e7       	ldi	r24, 0x70	; 112
+    127c:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+    1280:	08 95       	ret
+
+00001282 <_ZN3MCU7Setting8beginSPIEv>:
             Begin SPI Protocol
 //----------------------------------------*/
 
 void MCU::Setting::beginSPI(void)
 {
   SPCR = (1 << SPE) | (1 << MSTR);
-    10fa:	80 e5       	ldi	r24, 0x50	; 80
-    10fc:	8c bd       	out	0x2c, r24	; 44
+    1282:	80 e5       	ldi	r24, 0x50	; 80
+    1284:	8c bd       	out	0x2c, r24	; 44
   SPSR = (1 << SPI2X);
-    10fe:	81 e0       	ldi	r24, 0x01	; 1
-    1100:	8d bd       	out	0x2d, r24	; 45
-    1102:	08 95       	ret
+    1286:	81 e0       	ldi	r24, 0x01	; 1
+    1288:	8d bd       	out	0x2d, r24	; 45
+    128a:	08 95       	ret
 
-00001104 <_ZN3SPI7sendBitEh>:
+0000128c <_ZN3SPI7sendBitEh>:
               Send Serial Bit
 //----------------------------------------*/
 
 void SPI::sendBit(uint8_t bitValue)
 {
   SPDR = bitValue;
-    1104:	6e bd       	out	0x2e, r22	; 46
+    128c:	6e bd       	out	0x2e, r22	; 46
   while (!(SPSR & 0x80));
-    1106:	0d b4       	in	r0, 0x2d	; 45
-    1108:	07 fe       	sbrs	r0, 7
-    110a:	fd cf       	rjmp	.-6      	; 0x1106 <_ZN3SPI7sendBitEh+0x2>
+    128e:	0d b4       	in	r0, 0x2d	; 45
+    1290:	07 fe       	sbrs	r0, 7
+    1292:	fd cf       	rjmp	.-6      	; 0x128e <_ZN3SPI7sendBitEh+0x2>
 }
-    110c:	08 95       	ret
+    1294:	08 95       	ret
 
-0000110e <_ZN3SPI13exportCommandEh>:
+00001296 <_ZN3SPI13exportCommandEh>:
               Export Command
 //----------------------------------------*/
 
 void SPI::exportCommand(uint8_t commandValue)
 {
   RS_LOW;
-    110e:	2a 98       	cbi	0x05, 2	; 5
+    1296:	2a 98       	cbi	0x05, 2	; 5
   CS_LOW;
-    1110:	28 98       	cbi	0x05, 0	; 5
+    1298:	28 98       	cbi	0x05, 0	; 5
 
   sendBit(commandValue);
-    1112:	0e 94 82 08 	call	0x1104	; 0x1104 <_ZN3SPI7sendBitEh>
+    129a:	0e 94 46 09 	call	0x128c	; 0x128c <_ZN3SPI7sendBitEh>
 
   CS_HIGH;
-    1116:	28 9a       	sbi	0x05, 0	; 5
-    1118:	08 95       	ret
+    129e:	28 9a       	sbi	0x05, 0	; 5
+    12a0:	08 95       	ret
 
-0000111a <_ZN3SPI10exportDataEh>:
+000012a2 <_ZN3SPI10exportDataEh>:
               Export Data
 //----------------------------------------*/
 
 void SPI::exportData(uint8_t dataValue)
 {
   RS_HIGH;
-    111a:	2a 9a       	sbi	0x05, 2	; 5
+    12a2:	2a 9a       	sbi	0x05, 2	; 5
   CS_LOW;
-    111c:	28 98       	cbi	0x05, 0	; 5
+    12a4:	28 98       	cbi	0x05, 0	; 5
 
   sendBit(dataValue);
-    111e:	0e 94 82 08 	call	0x1104	; 0x1104 <_ZN3SPI7sendBitEh>
+    12a6:	0e 94 46 09 	call	0x128c	; 0x128c <_ZN3SPI7sendBitEh>
 
   CS_HIGH;
-    1122:	28 9a       	sbi	0x05, 0	; 5
-    1124:	08 95       	ret
+    12aa:	28 9a       	sbi	0x05, 0	; 5
+    12ac:	08 95       	ret
 
-00001126 <_ZN3SPI14exportLongDataEj>:
+000012ae <_ZN3SPI14exportLongDataEj>:
 /*----------------------------------------//
             Export Long Data
 //----------------------------------------*/
 
 void SPI::exportLongData(uint16_t longDataValue)
 {
-    1126:	1f 93       	push	r17
-    1128:	cf 93       	push	r28
-    112a:	df 93       	push	r29
-    112c:	ec 01       	movw	r28, r24
-    112e:	16 2f       	mov	r17, r22
-    1130:	67 2f       	mov	r22, r23
+    12ae:	1f 93       	push	r17
+    12b0:	cf 93       	push	r28
+    12b2:	df 93       	push	r29
+    12b4:	ec 01       	movw	r28, r24
+    12b6:	16 2f       	mov	r17, r22
+    12b8:	67 2f       	mov	r22, r23
   RS_HIGH;
-    1132:	2a 9a       	sbi	0x05, 2	; 5
+    12ba:	2a 9a       	sbi	0x05, 2	; 5
   CS_LOW;
-    1134:	28 98       	cbi	0x05, 0	; 5
+    12bc:	28 98       	cbi	0x05, 0	; 5
 
   sendBit(longDataValue >> 8);
-    1136:	0e 94 82 08 	call	0x1104	; 0x1104 <_ZN3SPI7sendBitEh>
+    12be:	0e 94 46 09 	call	0x128c	; 0x128c <_ZN3SPI7sendBitEh>
   sendBit(longDataValue & 0xFF);
-    113a:	61 2f       	mov	r22, r17
-    113c:	ce 01       	movw	r24, r28
-    113e:	0e 94 82 08 	call	0x1104	; 0x1104 <_ZN3SPI7sendBitEh>
+    12c2:	61 2f       	mov	r22, r17
+    12c4:	ce 01       	movw	r24, r28
+    12c6:	0e 94 46 09 	call	0x128c	; 0x128c <_ZN3SPI7sendBitEh>
 
   CS_HIGH;
-    1142:	28 9a       	sbi	0x05, 0	; 5
+    12ca:	28 9a       	sbi	0x05, 0	; 5
 }
-    1144:	df 91       	pop	r29
-    1146:	cf 91       	pop	r28
-    1148:	1f 91       	pop	r17
-    114a:	08 95       	ret
+    12cc:	df 91       	pop	r29
+    12ce:	cf 91       	pop	r28
+    12d0:	1f 91       	pop	r17
+    12d2:	08 95       	ret
 
-0000114c <_ZN3TFT5beginEv>:
+000012d4 <_ZN3TFT5beginEv>:
 /*----------------------------------------//
               Begin TFT LCD
 //----------------------------------------*/
 
 void TFT::begin(void)
 {
-    114c:	cf 93       	push	r28
-    114e:	df 93       	push	r29
-    1150:	ec 01       	movw	r28, r24
+    12d4:	cf 93       	push	r28
+    12d6:	df 93       	push	r29
+    12d8:	ec 01       	movw	r28, r24
   CS_HIGH;
-    1152:	28 9a       	sbi	0x05, 0	; 5
+    12da:	28 9a       	sbi	0x05, 0	; 5
   RST_LOW;
-    1154:	29 98       	cbi	0x05, 1	; 5
-    1156:	2f ef       	ldi	r18, 0xFF	; 255
-    1158:	89 ef       	ldi	r24, 0xF9	; 249
-    115a:	90 e0       	ldi	r25, 0x00	; 0
-    115c:	21 50       	subi	r18, 0x01	; 1
-    115e:	80 40       	sbci	r24, 0x00	; 0
-    1160:	90 40       	sbci	r25, 0x00	; 0
-    1162:	e1 f7       	brne	.-8      	; 0x115c <_ZN3TFT5beginEv+0x10>
-    1164:	00 c0       	rjmp	.+0      	; 0x1166 <_ZN3TFT5beginEv+0x1a>
-    1166:	00 00       	nop
+    12dc:	29 98       	cbi	0x05, 1	; 5
+    12de:	2f ef       	ldi	r18, 0xFF	; 255
+    12e0:	89 ef       	ldi	r24, 0xF9	; 249
+    12e2:	90 e0       	ldi	r25, 0x00	; 0
+    12e4:	21 50       	subi	r18, 0x01	; 1
+    12e6:	80 40       	sbci	r24, 0x00	; 0
+    12e8:	90 40       	sbci	r25, 0x00	; 0
+    12ea:	e1 f7       	brne	.-8      	; 0x12e4 <_ZN3TFT5beginEv+0x10>
+    12ec:	00 c0       	rjmp	.+0      	; 0x12ee <_ZN3TFT5beginEv+0x1a>
+    12ee:	00 00       	nop
   _delay_ms(20);
   RST_HIGH;
-    1168:	29 9a       	sbi	0x05, 1	; 5
-    116a:	2f ef       	ldi	r18, 0xFF	; 255
-    116c:	89 e6       	ldi	r24, 0x69	; 105
-    116e:	98 e1       	ldi	r25, 0x18	; 24
-    1170:	21 50       	subi	r18, 0x01	; 1
-    1172:	80 40       	sbci	r24, 0x00	; 0
-    1174:	90 40       	sbci	r25, 0x00	; 0
-    1176:	e1 f7       	brne	.-8      	; 0x1170 <_ZN3TFT5beginEv+0x24>
-    1178:	00 c0       	rjmp	.+0      	; 0x117a <_ZN3TFT5beginEv+0x2e>
-    117a:	00 00       	nop
+    12f0:	29 9a       	sbi	0x05, 1	; 5
+    12f2:	2f ef       	ldi	r18, 0xFF	; 255
+    12f4:	89 e6       	ldi	r24, 0x69	; 105
+    12f6:	98 e1       	ldi	r25, 0x18	; 24
+    12f8:	21 50       	subi	r18, 0x01	; 1
+    12fa:	80 40       	sbci	r24, 0x00	; 0
+    12fc:	90 40       	sbci	r25, 0x00	; 0
+    12fe:	e1 f7       	brne	.-8      	; 0x12f8 <_ZN3TFT5beginEv+0x24>
+    1300:	00 c0       	rjmp	.+0      	; 0x1302 <_ZN3TFT5beginEv+0x2e>
+    1302:	00 00       	nop
   _delay_ms(500);
 
   exportCommand(0x01);  // Software Reset (01h)
-    117c:	61 e0       	ldi	r22, 0x01	; 1
-    117e:	ce 01       	movw	r24, r28
-    1180:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
-    1184:	2f ef       	ldi	r18, 0xFF	; 255
-    1186:	89 ef       	ldi	r24, 0xF9	; 249
-    1188:	90 e0       	ldi	r25, 0x00	; 0
-    118a:	21 50       	subi	r18, 0x01	; 1
-    118c:	80 40       	sbci	r24, 0x00	; 0
-    118e:	90 40       	sbci	r25, 0x00	; 0
-    1190:	e1 f7       	brne	.-8      	; 0x118a <_ZN3TFT5beginEv+0x3e>
-    1192:	00 c0       	rjmp	.+0      	; 0x1194 <_ZN3TFT5beginEv+0x48>
-    1194:	00 00       	nop
+    1304:	61 e0       	ldi	r22, 0x01	; 1
+    1306:	ce 01       	movw	r24, r28
+    1308:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
+    130c:	2f ef       	ldi	r18, 0xFF	; 255
+    130e:	89 ef       	ldi	r24, 0xF9	; 249
+    1310:	90 e0       	ldi	r25, 0x00	; 0
+    1312:	21 50       	subi	r18, 0x01	; 1
+    1314:	80 40       	sbci	r24, 0x00	; 0
+    1316:	90 40       	sbci	r25, 0x00	; 0
+    1318:	e1 f7       	brne	.-8      	; 0x1312 <_ZN3TFT5beginEv+0x3e>
+    131a:	00 c0       	rjmp	.+0      	; 0x131c <_ZN3TFT5beginEv+0x48>
+    131c:	00 00       	nop
   _delay_ms(20);
 
   exportCommand(0xC0);  // Power Control 1 (C0h)
-    1196:	60 ec       	ldi	r22, 0xC0	; 192
-    1198:	ce 01       	movw	r24, r28
-    119a:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    131e:	60 ec       	ldi	r22, 0xC0	; 192
+    1320:	ce 01       	movw	r24, r28
+    1322:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
   exportData(0x2B);     // VRH [5:0], GVDD 5.00V
-    119e:	6b e2       	ldi	r22, 0x2B	; 43
-    11a0:	ce 01       	movw	r24, r28
-    11a2:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
+    1326:	6b e2       	ldi	r22, 0x2B	; 43
+    1328:	ce 01       	movw	r24, r28
+    132a:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
 
   exportCommand(0x36);  // Memory Access Control (36h)
-    11a6:	66 e3       	ldi	r22, 0x36	; 54
-    11a8:	ce 01       	movw	r24, r28
-    11aa:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    132e:	66 e3       	ldi	r22, 0x36	; 54
+    1330:	ce 01       	movw	r24, r28
+    1332:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
   exportData(0x48);     // Column Address Order, RGB-BGR Order
-    11ae:	68 e4       	ldi	r22, 0x48	; 72
-    11b0:	ce 01       	movw	r24, r28
-    11b2:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
+    1336:	68 e4       	ldi	r22, 0x48	; 72
+    1338:	ce 01       	movw	r24, r28
+    133a:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
 
   exportCommand(0x3A);  // COLMOD: Pixel Format Set (3Ah)
-    11b6:	6a e3       	ldi	r22, 0x3A	; 58
-    11b8:	ce 01       	movw	r24, r28
-    11ba:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    133e:	6a e3       	ldi	r22, 0x3A	; 58
+    1340:	ce 01       	movw	r24, r28
+    1342:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
   exportData(0x55);     // DBI [2:0], Format 16 bits / pixel
-    11be:	65 e5       	ldi	r22, 0x55	; 85
-    11c0:	ce 01       	movw	r24, r28
-    11c2:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
+    1346:	65 e5       	ldi	r22, 0x55	; 85
+    1348:	ce 01       	movw	r24, r28
+    134a:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
 
   exportCommand(0x20);  // Display Inversion OFF (20h)
-    11c6:	60 e2       	ldi	r22, 0x20	; 32
-    11c8:	ce 01       	movw	r24, r28
-    11ca:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    134e:	60 e2       	ldi	r22, 0x20	; 32
+    1350:	ce 01       	movw	r24, r28
+    1352:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 
   exportCommand(0x11);  // Sleep Out (11h)
-    11ce:	61 e1       	ldi	r22, 0x11	; 17
-    11d0:	ce 01       	movw	r24, r28
-    11d2:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
-    11d6:	2f ef       	ldi	r18, 0xFF	; 255
-    11d8:	89 ef       	ldi	r24, 0xF9	; 249
-    11da:	90 e0       	ldi	r25, 0x00	; 0
-    11dc:	21 50       	subi	r18, 0x01	; 1
-    11de:	80 40       	sbci	r24, 0x00	; 0
-    11e0:	90 40       	sbci	r25, 0x00	; 0
-    11e2:	e1 f7       	brne	.-8      	; 0x11dc <_ZN3TFT5beginEv+0x90>
-    11e4:	00 c0       	rjmp	.+0      	; 0x11e6 <_ZN3TFT5beginEv+0x9a>
-    11e6:	00 00       	nop
+    1356:	61 e1       	ldi	r22, 0x11	; 17
+    1358:	ce 01       	movw	r24, r28
+    135a:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
+    135e:	2f ef       	ldi	r18, 0xFF	; 255
+    1360:	89 ef       	ldi	r24, 0xF9	; 249
+    1362:	90 e0       	ldi	r25, 0x00	; 0
+    1364:	21 50       	subi	r18, 0x01	; 1
+    1366:	80 40       	sbci	r24, 0x00	; 0
+    1368:	90 40       	sbci	r25, 0x00	; 0
+    136a:	e1 f7       	brne	.-8      	; 0x1364 <_ZN3TFT5beginEv+0x90>
+    136c:	00 c0       	rjmp	.+0      	; 0x136e <_ZN3TFT5beginEv+0x9a>
+    136e:	00 00       	nop
   _delay_ms(20);
 
   exportCommand(0x29);  // Display ON (29h)
-    11e8:	69 e2       	ldi	r22, 0x29	; 41
-    11ea:	ce 01       	movw	r24, r28
-    11ec:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    1370:	69 e2       	ldi	r22, 0x29	; 41
+    1372:	ce 01       	movw	r24, r28
+    1374:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 }
-    11f0:	df 91       	pop	r29
-    11f2:	cf 91       	pop	r28
-    11f4:	08 95       	ret
+    1378:	df 91       	pop	r29
+    137a:	cf 91       	pop	r28
+    137c:	08 95       	ret
 
-000011f6 <_ZN3TFT11setRotationEa>:
+0000137e <_ZN3TFT11setRotationEa>:
 /*----------------------------------------//
               Set Rotation
 //----------------------------------------*/
 
 void TFT::setRotation(int8_t rotation)
 {
-    11f6:	1f 93       	push	r17
-    11f8:	cf 93       	push	r28
-    11fa:	df 93       	push	r29
-    11fc:	ec 01       	movw	r28, r24
-    11fe:	16 2f       	mov	r17, r22
+    137e:	1f 93       	push	r17
+    1380:	cf 93       	push	r28
+    1382:	df 93       	push	r29
+    1384:	ec 01       	movw	r28, r24
+    1386:	16 2f       	mov	r17, r22
+  
+  int16_t temp;
 
   exportCommand(0x36);  // Memory Access Control (36h)
-    1200:	66 e3       	ldi	r22, 0x36	; 54
-    1202:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    1388:	66 e3       	ldi	r22, 0x36	; 54
+    138a:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 
   switch (rotation)
-    1206:	11 30       	cpi	r17, 0x01	; 1
-    1208:	99 f0       	breq	.+38     	; 0x1230 <_ZN3TFT11setRotationEa+0x3a>
-    120a:	12 30       	cpi	r17, 0x02	; 2
-    120c:	b1 f0       	breq	.+44     	; 0x123a <_ZN3TFT11setRotationEa+0x44>
-    120e:	11 11       	cpse	r17, r1
-    1210:	18 c0       	rjmp	.+48     	; 0x1242 <_ZN3TFT11setRotationEa+0x4c>
+    138e:	11 30       	cpi	r17, 0x01	; 1
+    1390:	89 f0       	breq	.+34     	; 0x13b4 <_ZN3TFT11setRotationEa+0x36>
+    1392:	12 30       	cpi	r17, 0x02	; 2
+    1394:	a1 f0       	breq	.+40     	; 0x13be <_ZN3TFT11setRotationEa+0x40>
+    1396:	11 11       	cpse	r17, r1
+    1398:	16 c0       	rjmp	.+44     	; 0x13c6 <_ZN3TFT11setRotationEa+0x48>
   {
   case 0:
     exportData(0x28);   // Row / Column Exchange, RGB-BGR Order
-    1212:	68 e2       	ldi	r22, 0x28	; 40
-    1214:	ce 01       	movw	r24, r28
-    1216:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
-    m_Temp = m_Width;
-    121a:	88 81       	ld	r24, Y
-    121c:	99 81       	ldd	r25, Y+1	; 0x01
-    121e:	9d 83       	std	Y+5, r25	; 0x05
-    1220:	8c 83       	std	Y+4, r24	; 0x04
+    139a:	68 e2       	ldi	r22, 0x28	; 40
+    139c:	ce 01       	movw	r24, r28
+    139e:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
+    temp = m_Width;
+    13a2:	88 81       	ld	r24, Y
+    13a4:	99 81       	ldd	r25, Y+1	; 0x01
     m_Width = m_Height;
-    1222:	2a 81       	ldd	r18, Y+2	; 0x02
-    1224:	3b 81       	ldd	r19, Y+3	; 0x03
-    1226:	39 83       	std	Y+1, r19	; 0x01
-    1228:	28 83       	st	Y, r18
-    m_Height = m_Temp;
-    122a:	9b 83       	std	Y+3, r25	; 0x03
-    122c:	8a 83       	std	Y+2, r24	; 0x02
+    13a6:	2a 81       	ldd	r18, Y+2	; 0x02
+    13a8:	3b 81       	ldd	r19, Y+3	; 0x03
+    13aa:	39 83       	std	Y+1, r19	; 0x01
+    13ac:	28 83       	st	Y, r18
+    m_Height = temp;
+    13ae:	9b 83       	std	Y+3, r25	; 0x03
+    13b0:	8a 83       	std	Y+2, r24	; 0x02
     break;
-    122e:	09 c0       	rjmp	.+18     	; 0x1242 <_ZN3TFT11setRotationEa+0x4c>
+    13b2:	09 c0       	rjmp	.+18     	; 0x13c6 <_ZN3TFT11setRotationEa+0x48>
 
   case 1:
     exportData(0x48);   // Column Address Order, RGB-BGR Order
-    1230:	68 e4       	ldi	r22, 0x48	; 72
-    1232:	ce 01       	movw	r24, r28
-    1234:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
+    13b4:	68 e4       	ldi	r22, 0x48	; 72
+    13b6:	ce 01       	movw	r24, r28
+    13b8:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
     break;
-    1238:	04 c0       	rjmp	.+8      	; 0x1242 <_ZN3TFT11setRotationEa+0x4c>
+    13bc:	04 c0       	rjmp	.+8      	; 0x13c6 <_ZN3TFT11setRotationEa+0x48>
 
   case 2:
     exportData(0x88);   // Row Address Order, RGB-BGR Order
-    123a:	68 e8       	ldi	r22, 0x88	; 136
-    123c:	ce 01       	movw	r24, r28
-    123e:	0e 94 8d 08 	call	0x111a	; 0x111a <_ZN3SPI10exportDataEh>
+    13be:	68 e8       	ldi	r22, 0x88	; 136
+    13c0:	ce 01       	movw	r24, r28
+    13c2:	0e 94 51 09 	call	0x12a2	; 0x12a2 <_ZN3SPI10exportDataEh>
 
   default:
     break;
   }
 
 }
-    1242:	df 91       	pop	r29
-    1244:	cf 91       	pop	r28
-    1246:	1f 91       	pop	r17
-    1248:	08 95       	ret
+    13c6:	df 91       	pop	r29
+    13c8:	cf 91       	pop	r28
+    13ca:	1f 91       	pop	r17
+    13cc:	08 95       	ret
 
-0000124a <_ZN3TFT10setAddressEiiii>:
+000013ce <_ZN3TFT10setAddressEiiii>:
 /*----------------------------------------//
               Set Address
 //----------------------------------------*/
 
 void TFT::setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height)
 {
-    124a:	af 92       	push	r10
-    124c:	bf 92       	push	r11
-    124e:	cf 92       	push	r12
-    1250:	df 92       	push	r13
-    1252:	ef 92       	push	r14
-    1254:	ff 92       	push	r15
-    1256:	0f 93       	push	r16
-    1258:	1f 93       	push	r17
-    125a:	cf 93       	push	r28
-    125c:	df 93       	push	r29
-    125e:	ec 01       	movw	r28, r24
-    1260:	5b 01       	movw	r10, r22
-    1262:	7a 01       	movw	r14, r20
-    1264:	69 01       	movw	r12, r18
+    13ce:	af 92       	push	r10
+    13d0:	bf 92       	push	r11
+    13d2:	cf 92       	push	r12
+    13d4:	df 92       	push	r13
+    13d6:	ef 92       	push	r14
+    13d8:	ff 92       	push	r15
+    13da:	0f 93       	push	r16
+    13dc:	1f 93       	push	r17
+    13de:	cf 93       	push	r28
+    13e0:	df 93       	push	r29
+    13e2:	ec 01       	movw	r28, r24
+    13e4:	5b 01       	movw	r10, r22
+    13e6:	7a 01       	movw	r14, r20
+    13e8:	69 01       	movw	r12, r18
   exportCommand(0x2A);    // Column Address Set (2Ah)
-    1266:	6a e2       	ldi	r22, 0x2A	; 42
-    1268:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    13ea:	6a e2       	ldi	r22, 0x2A	; 42
+    13ec:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 
   exportLongData(xPos);   // xPosition
-    126c:	b5 01       	movw	r22, r10
-    126e:	ce 01       	movw	r24, r28
-    1270:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    13f0:	b5 01       	movw	r22, r10
+    13f2:	ce 01       	movw	r24, r28
+    13f4:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
   exportLongData(width);
-    1274:	b6 01       	movw	r22, r12
-    1276:	ce 01       	movw	r24, r28
-    1278:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    13f8:	b6 01       	movw	r22, r12
+    13fa:	ce 01       	movw	r24, r28
+    13fc:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
 
   exportCommand(0x2B);    // Page Address Set (2Bh)
-    127c:	6b e2       	ldi	r22, 0x2B	; 43
-    127e:	ce 01       	movw	r24, r28
-    1280:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    1400:	6b e2       	ldi	r22, 0x2B	; 43
+    1402:	ce 01       	movw	r24, r28
+    1404:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 
   exportLongData(yPos);   // yPosition
-    1284:	b7 01       	movw	r22, r14
-    1286:	ce 01       	movw	r24, r28
-    1288:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    1408:	b7 01       	movw	r22, r14
+    140a:	ce 01       	movw	r24, r28
+    140c:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
   exportLongData(height);
-    128c:	b8 01       	movw	r22, r16
-    128e:	ce 01       	movw	r24, r28
-    1290:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    1410:	b8 01       	movw	r22, r16
+    1412:	ce 01       	movw	r24, r28
+    1414:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
 
   exportCommand(0x2C);    // Memory Write (2Ch)
-    1294:	6c e2       	ldi	r22, 0x2C	; 44
-    1296:	ce 01       	movw	r24, r28
-    1298:	0e 94 87 08 	call	0x110e	; 0x110e <_ZN3SPI13exportCommandEh>
+    1418:	6c e2       	ldi	r22, 0x2C	; 44
+    141a:	ce 01       	movw	r24, r28
+    141c:	0e 94 4b 09 	call	0x1296	; 0x1296 <_ZN3SPI13exportCommandEh>
 }
-    129c:	df 91       	pop	r29
-    129e:	cf 91       	pop	r28
-    12a0:	1f 91       	pop	r17
-    12a2:	0f 91       	pop	r16
-    12a4:	ff 90       	pop	r15
-    12a6:	ef 90       	pop	r14
-    12a8:	df 90       	pop	r13
-    12aa:	cf 90       	pop	r12
-    12ac:	bf 90       	pop	r11
-    12ae:	af 90       	pop	r10
-    12b0:	08 95       	ret
+    1420:	df 91       	pop	r29
+    1422:	cf 91       	pop	r28
+    1424:	1f 91       	pop	r17
+    1426:	0f 91       	pop	r16
+    1428:	ff 90       	pop	r15
+    142a:	ef 90       	pop	r14
+    142c:	df 90       	pop	r13
+    142e:	cf 90       	pop	r12
+    1430:	bf 90       	pop	r11
+    1432:	af 90       	pop	r10
+    1434:	08 95       	ret
 
-000012b2 <_ZN3TFT10fillScreenEj>:
+00001436 <_ZN3TFT10fillScreenEj>:
 /*----------------------------------------//
               Fill Screen
 //----------------------------------------*/
 
 void TFT::fillScreen(uint16_t colorValue)
 {
-    12b2:	cf 92       	push	r12
-    12b4:	df 92       	push	r13
-    12b6:	ef 92       	push	r14
-    12b8:	ff 92       	push	r15
-    12ba:	0f 93       	push	r16
-    12bc:	1f 93       	push	r17
-    12be:	cf 93       	push	r28
-    12c0:	df 93       	push	r29
-    12c2:	7c 01       	movw	r14, r24
-    12c4:	6b 01       	movw	r12, r22
+    1436:	cf 92       	push	r12
+    1438:	df 92       	push	r13
+    143a:	ef 92       	push	r14
+    143c:	ff 92       	push	r15
+    143e:	0f 93       	push	r16
+    1440:	1f 93       	push	r17
+    1442:	cf 93       	push	r28
+    1444:	df 93       	push	r29
+    1446:	7c 01       	movw	r14, r24
+    1448:	6b 01       	movw	r12, r22
 
   setAddress(0, 0, (m_Width - 1), (m_Height - 1));
-    12c6:	fc 01       	movw	r30, r24
-    12c8:	02 81       	ldd	r16, Z+2	; 0x02
-    12ca:	13 81       	ldd	r17, Z+3	; 0x03
-    12cc:	01 50       	subi	r16, 0x01	; 1
-    12ce:	11 09       	sbc	r17, r1
-    12d0:	20 81       	ld	r18, Z
-    12d2:	31 81       	ldd	r19, Z+1	; 0x01
-    12d4:	21 50       	subi	r18, 0x01	; 1
-    12d6:	31 09       	sbc	r19, r1
-    12d8:	40 e0       	ldi	r20, 0x00	; 0
-    12da:	50 e0       	ldi	r21, 0x00	; 0
-    12dc:	60 e0       	ldi	r22, 0x00	; 0
-    12de:	70 e0       	ldi	r23, 0x00	; 0
-    12e0:	0e 94 25 09 	call	0x124a	; 0x124a <_ZN3TFT10setAddressEiiii>
+    144a:	fc 01       	movw	r30, r24
+    144c:	02 81       	ldd	r16, Z+2	; 0x02
+    144e:	13 81       	ldd	r17, Z+3	; 0x03
+    1450:	01 50       	subi	r16, 0x01	; 1
+    1452:	11 09       	sbc	r17, r1
+    1454:	20 81       	ld	r18, Z
+    1456:	31 81       	ldd	r19, Z+1	; 0x01
+    1458:	21 50       	subi	r18, 0x01	; 1
+    145a:	31 09       	sbc	r19, r1
+    145c:	40 e0       	ldi	r20, 0x00	; 0
+    145e:	50 e0       	ldi	r21, 0x00	; 0
+    1460:	60 e0       	ldi	r22, 0x00	; 0
+    1462:	70 e0       	ldi	r23, 0x00	; 0
+    1464:	0e 94 e7 09 	call	0x13ce	; 0x13ce <_ZN3TFT10setAddressEiiii>
 
   for (int i=0; i<m_Height; i++)
-    12e4:	f7 01       	movw	r30, r14
-    12e6:	82 81       	ldd	r24, Z+2	; 0x02
-    12e8:	93 81       	ldd	r25, Z+3	; 0x03
-    12ea:	18 16       	cp	r1, r24
-    12ec:	19 06       	cpc	r1, r25
-    12ee:	ec f4       	brge	.+58     	; 0x132a <_ZN3TFT10fillScreenEj+0x78>
-    12f0:	00 e0       	ldi	r16, 0x00	; 0
-    12f2:	10 e0       	ldi	r17, 0x00	; 0
+    1468:	f7 01       	movw	r30, r14
+    146a:	82 81       	ldd	r24, Z+2	; 0x02
+    146c:	93 81       	ldd	r25, Z+3	; 0x03
+    146e:	18 16       	cp	r1, r24
+    1470:	19 06       	cpc	r1, r25
+    1472:	ec f4       	brge	.+58     	; 0x14ae <_ZN3TFT10fillScreenEj+0x78>
+    1474:	00 e0       	ldi	r16, 0x00	; 0
+    1476:	10 e0       	ldi	r17, 0x00	; 0
   {
     for (int j=0; j<m_Width; j++)
-    12f4:	f7 01       	movw	r30, r14
-    12f6:	80 81       	ld	r24, Z
-    12f8:	91 81       	ldd	r25, Z+1	; 0x01
-    12fa:	18 16       	cp	r1, r24
-    12fc:	19 06       	cpc	r1, r25
-    12fe:	6c f4       	brge	.+26     	; 0x131a <_ZN3TFT10fillScreenEj+0x68>
-    1300:	c0 e0       	ldi	r28, 0x00	; 0
-    1302:	d0 e0       	ldi	r29, 0x00	; 0
+    1478:	f7 01       	movw	r30, r14
+    147a:	80 81       	ld	r24, Z
+    147c:	91 81       	ldd	r25, Z+1	; 0x01
+    147e:	18 16       	cp	r1, r24
+    1480:	19 06       	cpc	r1, r25
+    1482:	6c f4       	brge	.+26     	; 0x149e <_ZN3TFT10fillScreenEj+0x68>
+    1484:	c0 e0       	ldi	r28, 0x00	; 0
+    1486:	d0 e0       	ldi	r29, 0x00	; 0
     {
       exportLongData(colorValue);
-    1304:	b6 01       	movw	r22, r12
-    1306:	c7 01       	movw	r24, r14
-    1308:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    1488:	b6 01       	movw	r22, r12
+    148a:	c7 01       	movw	r24, r14
+    148c:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
 
   setAddress(0, 0, (m_Width - 1), (m_Height - 1));
 
   for (int i=0; i<m_Height; i++)
   {
     for (int j=0; j<m_Width; j++)
-    130c:	21 96       	adiw	r28, 0x01	; 1
-    130e:	f7 01       	movw	r30, r14
-    1310:	80 81       	ld	r24, Z
-    1312:	91 81       	ldd	r25, Z+1	; 0x01
-    1314:	c8 17       	cp	r28, r24
-    1316:	d9 07       	cpc	r29, r25
-    1318:	ac f3       	brlt	.-22     	; 0x1304 <_ZN3TFT10fillScreenEj+0x52>
+    1490:	21 96       	adiw	r28, 0x01	; 1
+    1492:	f7 01       	movw	r30, r14
+    1494:	80 81       	ld	r24, Z
+    1496:	91 81       	ldd	r25, Z+1	; 0x01
+    1498:	c8 17       	cp	r28, r24
+    149a:	d9 07       	cpc	r29, r25
+    149c:	ac f3       	brlt	.-22     	; 0x1488 <_ZN3TFT10fillScreenEj+0x52>
 void TFT::fillScreen(uint16_t colorValue)
 {
 
   setAddress(0, 0, (m_Width - 1), (m_Height - 1));
 
   for (int i=0; i<m_Height; i++)
-    131a:	0f 5f       	subi	r16, 0xFF	; 255
-    131c:	1f 4f       	sbci	r17, 0xFF	; 255
-    131e:	f7 01       	movw	r30, r14
-    1320:	82 81       	ldd	r24, Z+2	; 0x02
-    1322:	93 81       	ldd	r25, Z+3	; 0x03
-    1324:	08 17       	cp	r16, r24
-    1326:	19 07       	cpc	r17, r25
-    1328:	2c f3       	brlt	.-54     	; 0x12f4 <_ZN3TFT10fillScreenEj+0x42>
+    149e:	0f 5f       	subi	r16, 0xFF	; 255
+    14a0:	1f 4f       	sbci	r17, 0xFF	; 255
+    14a2:	f7 01       	movw	r30, r14
+    14a4:	82 81       	ldd	r24, Z+2	; 0x02
+    14a6:	93 81       	ldd	r25, Z+3	; 0x03
+    14a8:	08 17       	cp	r16, r24
+    14aa:	19 07       	cpc	r17, r25
+    14ac:	2c f3       	brlt	.-54     	; 0x1478 <_ZN3TFT10fillScreenEj+0x42>
     {
       exportLongData(colorValue);
     }
   }
 
 }
-    132a:	df 91       	pop	r29
-    132c:	cf 91       	pop	r28
-    132e:	1f 91       	pop	r17
-    1330:	0f 91       	pop	r16
-    1332:	ff 90       	pop	r15
-    1334:	ef 90       	pop	r14
-    1336:	df 90       	pop	r13
-    1338:	cf 90       	pop	r12
-    133a:	08 95       	ret
+    14ae:	df 91       	pop	r29
+    14b0:	cf 91       	pop	r28
+    14b2:	1f 91       	pop	r17
+    14b4:	0f 91       	pop	r16
+    14b6:	ff 90       	pop	r15
+    14b8:	ef 90       	pop	r14
+    14ba:	df 90       	pop	r13
+    14bc:	cf 90       	pop	r12
+    14be:	08 95       	ret
 
-0000133c <_ZN3TFT10drawBitmapEiiiiPKhjjjj>:
+000014c0 <_ZN3TFT10drawBitmapEiiiiPKhjjjj>:
 /*----------------------------------------//
               Draw Bitmap
 //----------------------------------------*/
 
 void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
-    133c:	2f 92       	push	r2
-    133e:	3f 92       	push	r3
-    1340:	4f 92       	push	r4
-    1342:	5f 92       	push	r5
-    1344:	6f 92       	push	r6
-    1346:	7f 92       	push	r7
-    1348:	8f 92       	push	r8
-    134a:	9f 92       	push	r9
-    134c:	af 92       	push	r10
-    134e:	bf 92       	push	r11
-    1350:	cf 92       	push	r12
-    1352:	df 92       	push	r13
-    1354:	ef 92       	push	r14
-    1356:	ff 92       	push	r15
-    1358:	0f 93       	push	r16
-    135a:	1f 93       	push	r17
-    135c:	cf 93       	push	r28
-    135e:	df 93       	push	r29
-    1360:	cd b7       	in	r28, 0x3d	; 61
-    1362:	de b7       	in	r29, 0x3e	; 62
-    1364:	2a 97       	sbiw	r28, 0x0a	; 10
-    1366:	0f b6       	in	r0, 0x3f	; 63
-    1368:	f8 94       	cli
-    136a:	de bf       	out	0x3e, r29	; 62
-    136c:	0f be       	out	0x3f, r0	; 63
-    136e:	cd bf       	out	0x3d, r28	; 61
-    1370:	3c 01       	movw	r6, r24
-    1372:	29 01       	movw	r4, r18
-    1374:	18 87       	std	Y+8, r17	; 0x08
-    1376:	0f 83       	std	Y+7, r16	; 0x07
-    1378:	16 01       	movw	r2, r12
-    137a:	ba 82       	std	Y+2, r11	; 0x02
-    137c:	a9 82       	std	Y+1, r10	; 0x01
-    137e:	9c 82       	std	Y+4, r9	; 0x04
-    1380:	8b 82       	std	Y+3, r8	; 0x03
+    14c0:	2f 92       	push	r2
+    14c2:	3f 92       	push	r3
+    14c4:	4f 92       	push	r4
+    14c6:	5f 92       	push	r5
+    14c8:	6f 92       	push	r6
+    14ca:	7f 92       	push	r7
+    14cc:	8f 92       	push	r8
+    14ce:	9f 92       	push	r9
+    14d0:	af 92       	push	r10
+    14d2:	bf 92       	push	r11
+    14d4:	cf 92       	push	r12
+    14d6:	df 92       	push	r13
+    14d8:	ef 92       	push	r14
+    14da:	ff 92       	push	r15
+    14dc:	0f 93       	push	r16
+    14de:	1f 93       	push	r17
+    14e0:	cf 93       	push	r28
+    14e2:	df 93       	push	r29
+    14e4:	cd b7       	in	r28, 0x3d	; 61
+    14e6:	de b7       	in	r29, 0x3e	; 62
+    14e8:	2a 97       	sbiw	r28, 0x0a	; 10
+    14ea:	0f b6       	in	r0, 0x3f	; 63
+    14ec:	f8 94       	cli
+    14ee:	de bf       	out	0x3e, r29	; 62
+    14f0:	0f be       	out	0x3f, r0	; 63
+    14f2:	cd bf       	out	0x3d, r28	; 61
+    14f4:	3c 01       	movw	r6, r24
+    14f6:	29 01       	movw	r4, r18
+    14f8:	18 87       	std	Y+8, r17	; 0x08
+    14fa:	0f 83       	std	Y+7, r16	; 0x07
+    14fc:	16 01       	movw	r2, r12
+    14fe:	ba 82       	std	Y+2, r11	; 0x02
+    1500:	a9 82       	std	Y+1, r10	; 0x01
+    1502:	9c 82       	std	Y+4, r9	; 0x04
+    1504:	8b 82       	std	Y+3, r8	; 0x03
 
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
-    1382:	04 0f       	add	r16, r20
-    1384:	15 1f       	adc	r17, r21
-    1386:	01 50       	subi	r16, 0x01	; 1
-    1388:	11 09       	sbc	r17, r1
-    138a:	9b 01       	movw	r18, r22
-    138c:	24 0d       	add	r18, r4
-    138e:	35 1d       	adc	r19, r5
-    1390:	21 50       	subi	r18, 0x01	; 1
-    1392:	31 09       	sbc	r19, r1
-    1394:	0e 94 25 09 	call	0x124a	; 0x124a <_ZN3TFT10setAddressEiiii>
+    1506:	04 0f       	add	r16, r20
+    1508:	15 1f       	adc	r17, r21
+    150a:	01 50       	subi	r16, 0x01	; 1
+    150c:	11 09       	sbc	r17, r1
+    150e:	9b 01       	movw	r18, r22
+    1510:	24 0d       	add	r18, r4
+    1512:	35 1d       	adc	r19, r5
+    1514:	21 50       	subi	r18, 0x01	; 1
+    1516:	31 09       	sbc	r19, r1
+    1518:	0e 94 e7 09 	call	0x13ce	; 0x13ce <_ZN3TFT10setAddressEiiii>
 
   for (int i=0; i<height; i++)
-    1398:	2f 81       	ldd	r18, Y+7	; 0x07
-    139a:	38 85       	ldd	r19, Y+8	; 0x08
-    139c:	12 16       	cp	r1, r18
-    139e:	13 06       	cpc	r1, r19
-    13a0:	0c f0       	brlt	.+2      	; 0x13a4 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x68>
-    13a2:	5b c0       	rjmp	.+182    	; 0x145a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x11e>
+    151c:	2f 81       	ldd	r18, Y+7	; 0x07
+    151e:	38 85       	ldd	r19, Y+8	; 0x08
+    1520:	12 16       	cp	r1, r18
+    1522:	13 06       	cpc	r1, r19
+    1524:	0c f0       	brlt	.+2      	; 0x1528 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x68>
+    1526:	5b c0       	rjmp	.+182    	; 0x15de <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x11e>
   {
     for (int j=0; j<(width / 4); j++)
-    13a4:	c2 01       	movw	r24, r4
-    13a6:	99 23       	and	r25, r25
-    13a8:	0c f4       	brge	.+2      	; 0x13ac <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x70>
-    13aa:	03 96       	adiw	r24, 0x03	; 3
-    13ac:	fc 01       	movw	r30, r24
-    13ae:	f5 95       	asr	r31
-    13b0:	e7 95       	ror	r30
-    13b2:	f5 95       	asr	r31
-    13b4:	e7 95       	ror	r30
-    13b6:	fa 87       	std	Y+10, r31	; 0x0a
-    13b8:	e9 87       	std	Y+9, r30	; 0x09
-    13ba:	fe 83       	std	Y+6, r31	; 0x06
-    13bc:	ed 83       	std	Y+5, r30	; 0x05
-    13be:	ae 2c       	mov	r10, r14
-    13c0:	bf 2c       	mov	r11, r15
-    13c2:	41 2c       	mov	r4, r1
-    13c4:	51 2c       	mov	r5, r1
-    13c6:	29 85       	ldd	r18, Y+9	; 0x09
-    13c8:	3a 85       	ldd	r19, Y+10	; 0x0a
-    13ca:	12 16       	cp	r1, r18
-    13cc:	13 06       	cpc	r1, r19
-    13ce:	c4 f5       	brge	.+112    	; 0x1440 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x104>
-    13d0:	ed 80       	ldd	r14, Y+5	; 0x05
-    13d2:	fe 80       	ldd	r15, Y+6	; 0x06
-    13d4:	ea 0c       	add	r14, r10
-    13d6:	fb 1c       	adc	r15, r11
-    13d8:	85 01       	movw	r16, r10
+    1528:	c2 01       	movw	r24, r4
+    152a:	99 23       	and	r25, r25
+    152c:	0c f4       	brge	.+2      	; 0x1530 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x70>
+    152e:	03 96       	adiw	r24, 0x03	; 3
+    1530:	fc 01       	movw	r30, r24
+    1532:	f5 95       	asr	r31
+    1534:	e7 95       	ror	r30
+    1536:	f5 95       	asr	r31
+    1538:	e7 95       	ror	r30
+    153a:	fa 87       	std	Y+10, r31	; 0x0a
+    153c:	e9 87       	std	Y+9, r30	; 0x09
+    153e:	fe 83       	std	Y+6, r31	; 0x06
+    1540:	ed 83       	std	Y+5, r30	; 0x05
+    1542:	ae 2c       	mov	r10, r14
+    1544:	bf 2c       	mov	r11, r15
+    1546:	41 2c       	mov	r4, r1
+    1548:	51 2c       	mov	r5, r1
+    154a:	29 85       	ldd	r18, Y+9	; 0x09
+    154c:	3a 85       	ldd	r19, Y+10	; 0x0a
+    154e:	12 16       	cp	r1, r18
+    1550:	13 06       	cpc	r1, r19
+    1552:	c4 f5       	brge	.+112    	; 0x15c4 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x104>
+    1554:	ed 80       	ldd	r14, Y+5	; 0x05
+    1556:	fe 80       	ldd	r15, Y+6	; 0x06
+    1558:	ea 0c       	add	r14, r10
+    155a:	fb 1c       	adc	r15, r11
+    155c:	85 01       	movw	r16, r10
     {
 
       data = pgm_read_byte(&bitmap[i * (width / 4) + j]);
-    13da:	f8 01       	movw	r30, r16
-    13dc:	94 90       	lpm	r9, Z
-    13de:	68 94       	set
-    13e0:	cc 24       	eor	r12, r12
-    13e2:	c2 f8       	bld	r12, 2
-    13e4:	d1 2c       	mov	r13, r1
+    155e:	f8 01       	movw	r30, r16
+    1560:	94 90       	lpm	r9, Z
+    1562:	68 94       	set
+    1564:	cc 24       	eor	r12, r12
+    1566:	c2 f8       	bld	r12, 2
+    1568:	d1 2c       	mov	r13, r1
 
       for (int k=0; k<4; k++)
       {
         temp = data >> 6;
-    13e6:	89 2d       	mov	r24, r9
-    13e8:	82 95       	swap	r24
-    13ea:	86 95       	lsr	r24
-    13ec:	86 95       	lsr	r24
-    13ee:	83 70       	andi	r24, 0x03	; 3
+    156a:	89 2d       	mov	r24, r9
+    156c:	82 95       	swap	r24
+    156e:	86 95       	lsr	r24
+    1570:	86 95       	lsr	r24
+    1572:	83 70       	andi	r24, 0x03	; 3
 
         if (temp == 0x00)       //1Pixel = 00
-    13f0:	29 f4       	brne	.+10     	; 0x13fc <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xc0>
+    1574:	29 f4       	brne	.+10     	; 0x1580 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xc0>
         {
           exportLongData(color0Bit);
-    13f2:	b1 01       	movw	r22, r2
-    13f4:	c3 01       	movw	r24, r6
-    13f6:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    13fa:	17 c0       	rjmp	.+46     	; 0x142a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
+    1576:	b1 01       	movw	r22, r2
+    1578:	c3 01       	movw	r24, r6
+    157a:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    157e:	17 c0       	rjmp	.+46     	; 0x15ae <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
         }
 
         else if (temp == 0x01)  //1Pixel = 01
-    13fc:	81 30       	cpi	r24, 0x01	; 1
-    13fe:	31 f4       	brne	.+12     	; 0x140c <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xd0>
+    1580:	81 30       	cpi	r24, 0x01	; 1
+    1582:	31 f4       	brne	.+12     	; 0x1590 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xd0>
         {
           exportLongData(color1Bit);
-    1400:	69 81       	ldd	r22, Y+1	; 0x01
-    1402:	7a 81       	ldd	r23, Y+2	; 0x02
-    1404:	c3 01       	movw	r24, r6
-    1406:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    140a:	0f c0       	rjmp	.+30     	; 0x142a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
+    1584:	69 81       	ldd	r22, Y+1	; 0x01
+    1586:	7a 81       	ldd	r23, Y+2	; 0x02
+    1588:	c3 01       	movw	r24, r6
+    158a:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    158e:	0f c0       	rjmp	.+30     	; 0x15ae <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
         }
 
         else if (temp == 0x02)  //1Pixel = 10
-    140c:	82 30       	cpi	r24, 0x02	; 2
-    140e:	31 f4       	brne	.+12     	; 0x141c <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xe0>
+    1590:	82 30       	cpi	r24, 0x02	; 2
+    1592:	31 f4       	brne	.+12     	; 0x15a0 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xe0>
         {
           exportLongData(color2Bit);
-    1410:	6b 81       	ldd	r22, Y+3	; 0x03
-    1412:	7c 81       	ldd	r23, Y+4	; 0x04
-    1414:	c3 01       	movw	r24, r6
-    1416:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    141a:	07 c0       	rjmp	.+14     	; 0x142a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
+    1594:	6b 81       	ldd	r22, Y+3	; 0x03
+    1596:	7c 81       	ldd	r23, Y+4	; 0x04
+    1598:	c3 01       	movw	r24, r6
+    159a:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    159e:	07 c0       	rjmp	.+14     	; 0x15ae <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
         }
 
         else if (temp == 0x03)  //1Pixel = 11
-    141c:	83 30       	cpi	r24, 0x03	; 3
-    141e:	29 f4       	brne	.+10     	; 0x142a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
+    15a0:	83 30       	cpi	r24, 0x03	; 3
+    15a2:	29 f4       	brne	.+10     	; 0x15ae <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xee>
         {
           exportLongData(color3Bit);
-    1420:	6f 8d       	ldd	r22, Y+31	; 0x1f
-    1422:	78 a1       	ldd	r23, Y+32	; 0x20
-    1424:	c3 01       	movw	r24, r6
-    1426:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
+    15a4:	6f 8d       	ldd	r22, Y+31	; 0x1f
+    15a6:	78 a1       	ldd	r23, Y+32	; 0x20
+    15a8:	c3 01       	movw	r24, r6
+    15aa:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
         }
 
         data <<= 2;
-    142a:	99 0c       	add	r9, r9
-    142c:	99 0c       	add	r9, r9
-    142e:	f1 e0       	ldi	r31, 0x01	; 1
-    1430:	cf 1a       	sub	r12, r31
-    1432:	d1 08       	sbc	r13, r1
+    15ae:	99 0c       	add	r9, r9
+    15b0:	99 0c       	add	r9, r9
+    15b2:	f1 e0       	ldi	r31, 0x01	; 1
+    15b4:	cf 1a       	sub	r12, r31
+    15b6:	d1 08       	sbc	r13, r1
     for (int j=0; j<(width / 4); j++)
     {
 
       data = pgm_read_byte(&bitmap[i * (width / 4) + j]);
 
       for (int k=0; k<4; k++)
-    1434:	c1 f6       	brne	.-80     	; 0x13e6 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xaa>
-    1436:	0f 5f       	subi	r16, 0xFF	; 255
-    1438:	1f 4f       	sbci	r17, 0xFF	; 255
+    15b8:	c1 f6       	brne	.-80     	; 0x156a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0xaa>
+    15ba:	0f 5f       	subi	r16, 0xFF	; 255
+    15bc:	1f 4f       	sbci	r17, 0xFF	; 255
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
   for (int i=0; i<height; i++)
   {
     for (int j=0; j<(width / 4); j++)
-    143a:	e0 16       	cp	r14, r16
-    143c:	f1 06       	cpc	r15, r17
-    143e:	69 f6       	brne	.-102    	; 0x13da <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x9e>
+    15be:	e0 16       	cp	r14, r16
+    15c0:	f1 06       	cpc	r15, r17
+    15c2:	69 f6       	brne	.-102    	; 0x155e <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x9e>
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
   for (int i=0; i<height; i++)
-    1440:	2f ef       	ldi	r18, 0xFF	; 255
-    1442:	42 1a       	sub	r4, r18
-    1444:	52 0a       	sbc	r5, r18
-    1446:	8d 81       	ldd	r24, Y+5	; 0x05
-    1448:	9e 81       	ldd	r25, Y+6	; 0x06
-    144a:	a8 0e       	add	r10, r24
-    144c:	b9 1e       	adc	r11, r25
-    144e:	ef 81       	ldd	r30, Y+7	; 0x07
-    1450:	f8 85       	ldd	r31, Y+8	; 0x08
-    1452:	e4 15       	cp	r30, r4
-    1454:	f5 05       	cpc	r31, r5
-    1456:	09 f0       	breq	.+2      	; 0x145a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x11e>
-    1458:	b6 cf       	rjmp	.-148    	; 0x13c6 <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x8a>
+    15c4:	2f ef       	ldi	r18, 0xFF	; 255
+    15c6:	42 1a       	sub	r4, r18
+    15c8:	52 0a       	sbc	r5, r18
+    15ca:	8d 81       	ldd	r24, Y+5	; 0x05
+    15cc:	9e 81       	ldd	r25, Y+6	; 0x06
+    15ce:	a8 0e       	add	r10, r24
+    15d0:	b9 1e       	adc	r11, r25
+    15d2:	ef 81       	ldd	r30, Y+7	; 0x07
+    15d4:	f8 85       	ldd	r31, Y+8	; 0x08
+    15d6:	e4 15       	cp	r30, r4
+    15d8:	f5 05       	cpc	r31, r5
+    15da:	09 f0       	breq	.+2      	; 0x15de <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x11e>
+    15dc:	b6 cf       	rjmp	.-148    	; 0x154a <_ZN3TFT10drawBitmapEiiiiPKhjjjj+0x8a>
       }
 
     }
   }
 
 }
-    145a:	2a 96       	adiw	r28, 0x0a	; 10
-    145c:	0f b6       	in	r0, 0x3f	; 63
-    145e:	f8 94       	cli
-    1460:	de bf       	out	0x3e, r29	; 62
-    1462:	0f be       	out	0x3f, r0	; 63
-    1464:	cd bf       	out	0x3d, r28	; 61
-    1466:	df 91       	pop	r29
-    1468:	cf 91       	pop	r28
-    146a:	1f 91       	pop	r17
-    146c:	0f 91       	pop	r16
-    146e:	ff 90       	pop	r15
-    1470:	ef 90       	pop	r14
-    1472:	df 90       	pop	r13
-    1474:	cf 90       	pop	r12
-    1476:	bf 90       	pop	r11
-    1478:	af 90       	pop	r10
-    147a:	9f 90       	pop	r9
-    147c:	8f 90       	pop	r8
-    147e:	7f 90       	pop	r7
-    1480:	6f 90       	pop	r6
-    1482:	5f 90       	pop	r5
-    1484:	4f 90       	pop	r4
-    1486:	3f 90       	pop	r3
-    1488:	2f 90       	pop	r2
-    148a:	08 95       	ret
+    15de:	2a 96       	adiw	r28, 0x0a	; 10
+    15e0:	0f b6       	in	r0, 0x3f	; 63
+    15e2:	f8 94       	cli
+    15e4:	de bf       	out	0x3e, r29	; 62
+    15e6:	0f be       	out	0x3f, r0	; 63
+    15e8:	cd bf       	out	0x3d, r28	; 61
+    15ea:	df 91       	pop	r29
+    15ec:	cf 91       	pop	r28
+    15ee:	1f 91       	pop	r17
+    15f0:	0f 91       	pop	r16
+    15f2:	ff 90       	pop	r15
+    15f4:	ef 90       	pop	r14
+    15f6:	df 90       	pop	r13
+    15f8:	cf 90       	pop	r12
+    15fa:	bf 90       	pop	r11
+    15fc:	af 90       	pop	r10
+    15fe:	9f 90       	pop	r9
+    1600:	8f 90       	pop	r8
+    1602:	7f 90       	pop	r7
+    1604:	6f 90       	pop	r6
+    1606:	5f 90       	pop	r5
+    1608:	4f 90       	pop	r4
+    160a:	3f 90       	pop	r3
+    160c:	2f 90       	pop	r2
+    160e:	08 95       	ret
 
-0000148c <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj>:
+00001610 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj>:
 /*----------------------------------------//
             Draw Bitmap Twice
 //----------------------------------------*/
 
 void TFT::drawBitmapTwice(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
-    148c:	2f 92       	push	r2
-    148e:	3f 92       	push	r3
-    1490:	4f 92       	push	r4
-    1492:	5f 92       	push	r5
-    1494:	6f 92       	push	r6
-    1496:	7f 92       	push	r7
-    1498:	8f 92       	push	r8
-    149a:	9f 92       	push	r9
-    149c:	af 92       	push	r10
-    149e:	bf 92       	push	r11
-    14a0:	cf 92       	push	r12
-    14a2:	df 92       	push	r13
-    14a4:	ef 92       	push	r14
-    14a6:	ff 92       	push	r15
-    14a8:	0f 93       	push	r16
-    14aa:	1f 93       	push	r17
-    14ac:	cf 93       	push	r28
-    14ae:	df 93       	push	r29
-    14b0:	cd b7       	in	r28, 0x3d	; 61
-    14b2:	de b7       	in	r29, 0x3e	; 62
-    14b4:	60 97       	sbiw	r28, 0x10	; 16
-    14b6:	0f b6       	in	r0, 0x3f	; 63
-    14b8:	f8 94       	cli
-    14ba:	de bf       	out	0x3e, r29	; 62
-    14bc:	0f be       	out	0x3f, r0	; 63
-    14be:	cd bf       	out	0x3d, r28	; 61
-    14c0:	98 8b       	std	Y+16, r25	; 0x10
-    14c2:	8f 87       	std	Y+15, r24	; 0x0f
-    14c4:	29 01       	movw	r4, r18
-    14c6:	38 01       	movw	r6, r16
-    14c8:	da 82       	std	Y+2, r13	; 0x02
-    14ca:	c9 82       	std	Y+1, r12	; 0x01
-    14cc:	ba 86       	std	Y+10, r11	; 0x0a
-    14ce:	a9 86       	std	Y+9, r10	; 0x09
-    14d0:	9c 86       	std	Y+12, r9	; 0x0c
-    14d2:	8b 86       	std	Y+11, r8	; 0x0b
+    1610:	2f 92       	push	r2
+    1612:	3f 92       	push	r3
+    1614:	4f 92       	push	r4
+    1616:	5f 92       	push	r5
+    1618:	6f 92       	push	r6
+    161a:	7f 92       	push	r7
+    161c:	8f 92       	push	r8
+    161e:	9f 92       	push	r9
+    1620:	af 92       	push	r10
+    1622:	bf 92       	push	r11
+    1624:	cf 92       	push	r12
+    1626:	df 92       	push	r13
+    1628:	ef 92       	push	r14
+    162a:	ff 92       	push	r15
+    162c:	0f 93       	push	r16
+    162e:	1f 93       	push	r17
+    1630:	cf 93       	push	r28
+    1632:	df 93       	push	r29
+    1634:	cd b7       	in	r28, 0x3d	; 61
+    1636:	de b7       	in	r29, 0x3e	; 62
+    1638:	60 97       	sbiw	r28, 0x10	; 16
+    163a:	0f b6       	in	r0, 0x3f	; 63
+    163c:	f8 94       	cli
+    163e:	de bf       	out	0x3e, r29	; 62
+    1640:	0f be       	out	0x3f, r0	; 63
+    1642:	cd bf       	out	0x3d, r28	; 61
+    1644:	98 8b       	std	Y+16, r25	; 0x10
+    1646:	8f 87       	std	Y+15, r24	; 0x0f
+    1648:	29 01       	movw	r4, r18
+    164a:	38 01       	movw	r6, r16
+    164c:	da 82       	std	Y+2, r13	; 0x02
+    164e:	c9 82       	std	Y+1, r12	; 0x01
+    1650:	ba 86       	std	Y+10, r11	; 0x0a
+    1652:	a9 86       	std	Y+9, r10	; 0x09
+    1654:	9c 86       	std	Y+12, r9	; 0x0c
+    1656:	8b 86       	std	Y+11, r8	; 0x0b
 
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
-    14d4:	8a 01       	movw	r16, r20
-    14d6:	06 0d       	add	r16, r6
-    14d8:	17 1d       	adc	r17, r7
-    14da:	01 50       	subi	r16, 0x01	; 1
-    14dc:	11 09       	sbc	r17, r1
-    14de:	9b 01       	movw	r18, r22
-    14e0:	24 0d       	add	r18, r4
-    14e2:	35 1d       	adc	r19, r5
-    14e4:	21 50       	subi	r18, 0x01	; 1
-    14e6:	31 09       	sbc	r19, r1
-    14e8:	0e 94 25 09 	call	0x124a	; 0x124a <_ZN3TFT10setAddressEiiii>
+    1658:	8a 01       	movw	r16, r20
+    165a:	06 0d       	add	r16, r6
+    165c:	17 1d       	adc	r17, r7
+    165e:	01 50       	subi	r16, 0x01	; 1
+    1660:	11 09       	sbc	r17, r1
+    1662:	9b 01       	movw	r18, r22
+    1664:	24 0d       	add	r18, r4
+    1666:	35 1d       	adc	r19, r5
+    1668:	21 50       	subi	r18, 0x01	; 1
+    166a:	31 09       	sbc	r19, r1
+    166c:	0e 94 e7 09 	call	0x13ce	; 0x13ce <_ZN3TFT10setAddressEiiii>
 
   for (int i=0; i<(height / 2); i++)
-    14ec:	c3 01       	movw	r24, r6
-    14ee:	99 23       	and	r25, r25
-    14f0:	0c f4       	brge	.+2      	; 0x14f4 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x68>
-    14f2:	01 96       	adiw	r24, 0x01	; 1
-    14f4:	9c 01       	movw	r18, r24
-    14f6:	35 95       	asr	r19
-    14f8:	27 95       	ror	r18
-    14fa:	3e 87       	std	Y+14, r19	; 0x0e
-    14fc:	2d 87       	std	Y+13, r18	; 0x0d
-    14fe:	12 16       	cp	r1, r18
-    1500:	13 06       	cpc	r1, r19
-    1502:	0c f0       	brlt	.+2      	; 0x1506 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x7a>
-    1504:	7c c0       	rjmp	.+248    	; 0x15fe <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x172>
+    1670:	c3 01       	movw	r24, r6
+    1672:	99 23       	and	r25, r25
+    1674:	0c f4       	brge	.+2      	; 0x1678 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x68>
+    1676:	01 96       	adiw	r24, 0x01	; 1
+    1678:	9c 01       	movw	r18, r24
+    167a:	35 95       	asr	r19
+    167c:	27 95       	ror	r18
+    167e:	3e 87       	std	Y+14, r19	; 0x0e
+    1680:	2d 87       	std	Y+13, r18	; 0x0d
+    1682:	12 16       	cp	r1, r18
+    1684:	13 06       	cpc	r1, r19
+    1686:	0c f0       	brlt	.+2      	; 0x168a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x7a>
+    1688:	7c c0       	rjmp	.+248    	; 0x1782 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x172>
   {
     for (int j=0; j<2; j++)
     {
       for (int k=0; k<(width / 8); k++)
-    1506:	c2 01       	movw	r24, r4
-    1508:	99 23       	and	r25, r25
-    150a:	0c f4       	brge	.+2      	; 0x150e <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x82>
-    150c:	07 96       	adiw	r24, 0x07	; 7
-    150e:	fc 01       	movw	r30, r24
-    1510:	f5 95       	asr	r31
-    1512:	e7 95       	ror	r30
-    1514:	f5 95       	asr	r31
-    1516:	e7 95       	ror	r30
-    1518:	f5 95       	asr	r31
-    151a:	e7 95       	ror	r30
-    151c:	fe 83       	std	Y+6, r31	; 0x06
-    151e:	ed 83       	std	Y+5, r30	; 0x05
-    1520:	f8 87       	std	Y+8, r31	; 0x08
-    1522:	ef 83       	std	Y+7, r30	; 0x07
-    1524:	6e 2c       	mov	r6, r14
-    1526:	7f 2c       	mov	r7, r15
-    1528:	21 2c       	mov	r2, r1
-    152a:	31 2c       	mov	r3, r1
-    152c:	68 94       	set
-    152e:	aa 24       	eor	r10, r10
-    1530:	a1 f8       	bld	r10, 1
-    1532:	b1 2c       	mov	r11, r1
-    1534:	8f 80       	ldd	r8, Y+7	; 0x07
-    1536:	98 84       	ldd	r9, Y+8	; 0x08
-    1538:	86 0c       	add	r8, r6
-    153a:	97 1c       	adc	r9, r7
-    153c:	7c 82       	std	Y+4, r7	; 0x04
-    153e:	6b 82       	std	Y+3, r6	; 0x03
-    1540:	4f 84       	ldd	r4, Y+15	; 0x0f
-    1542:	58 88       	ldd	r5, Y+16	; 0x10
-    1544:	2d 81       	ldd	r18, Y+5	; 0x05
-    1546:	3e 81       	ldd	r19, Y+6	; 0x06
-    1548:	12 16       	cp	r1, r18
-    154a:	13 06       	cpc	r1, r19
-    154c:	0c f0       	brlt	.+2      	; 0x1550 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xc4>
-    154e:	43 c0       	rjmp	.+134    	; 0x15d6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x14a>
-    1550:	eb 80       	ldd	r14, Y+3	; 0x03
-    1552:	fc 80       	ldd	r15, Y+4	; 0x04
+    168a:	c2 01       	movw	r24, r4
+    168c:	99 23       	and	r25, r25
+    168e:	0c f4       	brge	.+2      	; 0x1692 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x82>
+    1690:	07 96       	adiw	r24, 0x07	; 7
+    1692:	fc 01       	movw	r30, r24
+    1694:	f5 95       	asr	r31
+    1696:	e7 95       	ror	r30
+    1698:	f5 95       	asr	r31
+    169a:	e7 95       	ror	r30
+    169c:	f5 95       	asr	r31
+    169e:	e7 95       	ror	r30
+    16a0:	fe 83       	std	Y+6, r31	; 0x06
+    16a2:	ed 83       	std	Y+5, r30	; 0x05
+    16a4:	f8 87       	std	Y+8, r31	; 0x08
+    16a6:	ef 83       	std	Y+7, r30	; 0x07
+    16a8:	6e 2c       	mov	r6, r14
+    16aa:	7f 2c       	mov	r7, r15
+    16ac:	21 2c       	mov	r2, r1
+    16ae:	31 2c       	mov	r3, r1
+    16b0:	68 94       	set
+    16b2:	aa 24       	eor	r10, r10
+    16b4:	a1 f8       	bld	r10, 1
+    16b6:	b1 2c       	mov	r11, r1
+    16b8:	8f 80       	ldd	r8, Y+7	; 0x07
+    16ba:	98 84       	ldd	r9, Y+8	; 0x08
+    16bc:	86 0c       	add	r8, r6
+    16be:	97 1c       	adc	r9, r7
+    16c0:	7c 82       	std	Y+4, r7	; 0x04
+    16c2:	6b 82       	std	Y+3, r6	; 0x03
+    16c4:	4f 84       	ldd	r4, Y+15	; 0x0f
+    16c6:	58 88       	ldd	r5, Y+16	; 0x10
+    16c8:	2d 81       	ldd	r18, Y+5	; 0x05
+    16ca:	3e 81       	ldd	r19, Y+6	; 0x06
+    16cc:	12 16       	cp	r1, r18
+    16ce:	13 06       	cpc	r1, r19
+    16d0:	0c f0       	brlt	.+2      	; 0x16d4 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xc4>
+    16d2:	43 c0       	rjmp	.+134    	; 0x175a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x14a>
+    16d4:	eb 80       	ldd	r14, Y+3	; 0x03
+    16d6:	fc 80       	ldd	r15, Y+4	; 0x04
       {
 
         data = pgm_read_byte(&bitmap[i * (width / 8) + k]);
-    1554:	f7 01       	movw	r30, r14
-    1556:	c4 90       	lpm	r12, Z
-    1558:	68 94       	set
-    155a:	66 24       	eor	r6, r6
-    155c:	62 f8       	bld	r6, 2
-    155e:	71 2c       	mov	r7, r1
+    16d8:	f7 01       	movw	r30, r14
+    16da:	c4 90       	lpm	r12, Z
+    16dc:	68 94       	set
+    16de:	66 24       	eor	r6, r6
+    16e0:	62 f8       	bld	r6, 2
+    16e2:	71 2c       	mov	r7, r1
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
-    1560:	dc 2c       	mov	r13, r12
-    1562:	d6 94       	lsr	r13
-    1564:	d6 94       	lsr	r13
-    1566:	d6 94       	lsr	r13
-    1568:	d6 94       	lsr	r13
-    156a:	d6 94       	lsr	r13
-    156c:	d6 94       	lsr	r13
-    156e:	02 e0       	ldi	r16, 0x02	; 2
-    1570:	10 e0       	ldi	r17, 0x00	; 0
+    16e4:	dc 2c       	mov	r13, r12
+    16e6:	d6 94       	lsr	r13
+    16e8:	d6 94       	lsr	r13
+    16ea:	d6 94       	lsr	r13
+    16ec:	d6 94       	lsr	r13
+    16ee:	d6 94       	lsr	r13
+    16f0:	d6 94       	lsr	r13
+    16f2:	02 e0       	ldi	r16, 0x02	; 2
+    16f4:	10 e0       	ldi	r17, 0x00	; 0
 
           for (int m=0; m<2; m++)
           {
 
             if (temp == 0x00)       //1Pixel = 00
-    1572:	d1 10       	cpse	r13, r1
-    1574:	06 c0       	rjmp	.+12     	; 0x1582 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xf6>
+    16f6:	d1 10       	cpse	r13, r1
+    16f8:	06 c0       	rjmp	.+12     	; 0x1706 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xf6>
             {
               exportLongData(color0Bit);
-    1576:	69 81       	ldd	r22, Y+1	; 0x01
-    1578:	7a 81       	ldd	r23, Y+2	; 0x02
-    157a:	c2 01       	movw	r24, r4
-    157c:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    1580:	1a c0       	rjmp	.+52     	; 0x15b6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
+    16fa:	69 81       	ldd	r22, Y+1	; 0x01
+    16fc:	7a 81       	ldd	r23, Y+2	; 0x02
+    16fe:	c2 01       	movw	r24, r4
+    1700:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    1704:	1a c0       	rjmp	.+52     	; 0x173a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
             }
 
             else if (temp == 0x01)  //1Pixel = 01
-    1582:	f1 e0       	ldi	r31, 0x01	; 1
-    1584:	df 12       	cpse	r13, r31
-    1586:	06 c0       	rjmp	.+12     	; 0x1594 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x108>
+    1706:	f1 e0       	ldi	r31, 0x01	; 1
+    1708:	df 12       	cpse	r13, r31
+    170a:	06 c0       	rjmp	.+12     	; 0x1718 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x108>
             {
               exportLongData(color1Bit);
-    1588:	69 85       	ldd	r22, Y+9	; 0x09
-    158a:	7a 85       	ldd	r23, Y+10	; 0x0a
-    158c:	c2 01       	movw	r24, r4
-    158e:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    1592:	11 c0       	rjmp	.+34     	; 0x15b6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
+    170c:	69 85       	ldd	r22, Y+9	; 0x09
+    170e:	7a 85       	ldd	r23, Y+10	; 0x0a
+    1710:	c2 01       	movw	r24, r4
+    1712:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    1716:	11 c0       	rjmp	.+34     	; 0x173a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
             }
 
             else if (temp == 0x02)  //1Pixel = 10
-    1594:	22 e0       	ldi	r18, 0x02	; 2
-    1596:	d2 12       	cpse	r13, r18
-    1598:	06 c0       	rjmp	.+12     	; 0x15a6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x11a>
+    1718:	22 e0       	ldi	r18, 0x02	; 2
+    171a:	d2 12       	cpse	r13, r18
+    171c:	06 c0       	rjmp	.+12     	; 0x172a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x11a>
             {
               exportLongData(color2Bit);
-    159a:	6b 85       	ldd	r22, Y+11	; 0x0b
-    159c:	7c 85       	ldd	r23, Y+12	; 0x0c
-    159e:	c2 01       	movw	r24, r4
-    15a0:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    15a4:	08 c0       	rjmp	.+16     	; 0x15b6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
+    171e:	6b 85       	ldd	r22, Y+11	; 0x0b
+    1720:	7c 85       	ldd	r23, Y+12	; 0x0c
+    1722:	c2 01       	movw	r24, r4
+    1724:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    1728:	08 c0       	rjmp	.+16     	; 0x173a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
             }
 
             else if (temp == 0x03)  //1Pixel = 11
-    15a6:	33 e0       	ldi	r19, 0x03	; 3
-    15a8:	d3 12       	cpse	r13, r19
-    15aa:	05 c0       	rjmp	.+10     	; 0x15b6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
+    172a:	33 e0       	ldi	r19, 0x03	; 3
+    172c:	d3 12       	cpse	r13, r19
+    172e:	05 c0       	rjmp	.+10     	; 0x173a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x12a>
             {
               exportLongData(color3Bit);
-    15ac:	6d a1       	ldd	r22, Y+37	; 0x25
-    15ae:	7e a1       	ldd	r23, Y+38	; 0x26
-    15b0:	c2 01       	movw	r24, r4
-    15b2:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    15b6:	01 50       	subi	r16, 0x01	; 1
-    15b8:	11 09       	sbc	r17, r1
+    1730:	6d a1       	ldd	r22, Y+37	; 0x25
+    1732:	7e a1       	ldd	r23, Y+38	; 0x26
+    1734:	c2 01       	movw	r24, r4
+    1736:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    173a:	01 50       	subi	r16, 0x01	; 1
+    173c:	11 09       	sbc	r17, r1
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
 
           for (int m=0; m<2; m++)
-    15ba:	d9 f6       	brne	.-74     	; 0x1572 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xe6>
+    173e:	d9 f6       	brne	.-74     	; 0x16f6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xe6>
               exportLongData(color3Bit);
             }
 
           }
 
           data <<= 2;
-    15bc:	cc 0c       	add	r12, r12
-    15be:	cc 0c       	add	r12, r12
-    15c0:	81 e0       	ldi	r24, 0x01	; 1
-    15c2:	68 1a       	sub	r6, r24
-    15c4:	71 08       	sbc	r7, r1
+    1740:	cc 0c       	add	r12, r12
+    1742:	cc 0c       	add	r12, r12
+    1744:	81 e0       	ldi	r24, 0x01	; 1
+    1746:	68 1a       	sub	r6, r24
+    1748:	71 08       	sbc	r7, r1
       for (int k=0; k<(width / 8); k++)
       {
 
         data = pgm_read_byte(&bitmap[i * (width / 8) + k]);
 
         for (int l=0; l<4; l++)
-    15c6:	61 f6       	brne	.-104    	; 0x1560 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xd4>
-    15c8:	9f ef       	ldi	r25, 0xFF	; 255
-    15ca:	e9 1a       	sub	r14, r25
-    15cc:	f9 0a       	sbc	r15, r25
+    174a:	61 f6       	brne	.-104    	; 0x16e4 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xd4>
+    174c:	9f ef       	ldi	r25, 0xFF	; 255
+    174e:	e9 1a       	sub	r14, r25
+    1750:	f9 0a       	sbc	r15, r25
 
   for (int i=0; i<(height / 2); i++)
   {
     for (int j=0; j<2; j++)
     {
       for (int k=0; k<(width / 8); k++)
-    15ce:	e8 14       	cp	r14, r8
-    15d0:	f9 04       	cpc	r15, r9
-    15d2:	09 f0       	breq	.+2      	; 0x15d6 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x14a>
-    15d4:	bf cf       	rjmp	.-130    	; 0x1554 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xc8>
-    15d6:	e1 e0       	ldi	r30, 0x01	; 1
-    15d8:	ae 1a       	sub	r10, r30
-    15da:	b1 08       	sbc	r11, r1
+    1752:	e8 14       	cp	r14, r8
+    1754:	f9 04       	cpc	r15, r9
+    1756:	09 f0       	breq	.+2      	; 0x175a <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x14a>
+    1758:	bf cf       	rjmp	.-130    	; 0x16d8 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xc8>
+    175a:	e1 e0       	ldi	r30, 0x01	; 1
+    175c:	ae 1a       	sub	r10, r30
+    175e:	b1 08       	sbc	r11, r1
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
   for (int i=0; i<(height / 2); i++)
   {
     for (int j=0; j<2; j++)
-    15dc:	09 f0       	breq	.+2      	; 0x15e0 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x154>
-    15de:	b2 cf       	rjmp	.-156    	; 0x1544 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xb8>
-    15e0:	6b 80       	ldd	r6, Y+3	; 0x03
-    15e2:	7c 80       	ldd	r7, Y+4	; 0x04
+    1760:	09 f0       	breq	.+2      	; 0x1764 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x154>
+    1762:	b2 cf       	rjmp	.-156    	; 0x16c8 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xb8>
+    1764:	6b 80       	ldd	r6, Y+3	; 0x03
+    1766:	7c 80       	ldd	r7, Y+4	; 0x04
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
   for (int i=0; i<(height / 2); i++)
-    15e4:	ff ef       	ldi	r31, 0xFF	; 255
-    15e6:	2f 1a       	sub	r2, r31
-    15e8:	3f 0a       	sbc	r3, r31
-    15ea:	2f 81       	ldd	r18, Y+7	; 0x07
-    15ec:	38 85       	ldd	r19, Y+8	; 0x08
-    15ee:	62 0e       	add	r6, r18
-    15f0:	73 1e       	adc	r7, r19
-    15f2:	8d 85       	ldd	r24, Y+13	; 0x0d
-    15f4:	9e 85       	ldd	r25, Y+14	; 0x0e
-    15f6:	28 16       	cp	r2, r24
-    15f8:	39 06       	cpc	r3, r25
-    15fa:	09 f0       	breq	.+2      	; 0x15fe <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x172>
-    15fc:	97 cf       	rjmp	.-210    	; 0x152c <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xa0>
+    1768:	ff ef       	ldi	r31, 0xFF	; 255
+    176a:	2f 1a       	sub	r2, r31
+    176c:	3f 0a       	sbc	r3, r31
+    176e:	2f 81       	ldd	r18, Y+7	; 0x07
+    1770:	38 85       	ldd	r19, Y+8	; 0x08
+    1772:	62 0e       	add	r6, r18
+    1774:	73 1e       	adc	r7, r19
+    1776:	8d 85       	ldd	r24, Y+13	; 0x0d
+    1778:	9e 85       	ldd	r25, Y+14	; 0x0e
+    177a:	28 16       	cp	r2, r24
+    177c:	39 06       	cpc	r3, r25
+    177e:	09 f0       	breq	.+2      	; 0x1782 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0x172>
+    1780:	97 cf       	rjmp	.-210    	; 0x16b0 <_ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj+0xa0>
 
       }
     }
   }
 
 }
-    15fe:	60 96       	adiw	r28, 0x10	; 16
-    1600:	0f b6       	in	r0, 0x3f	; 63
-    1602:	f8 94       	cli
-    1604:	de bf       	out	0x3e, r29	; 62
-    1606:	0f be       	out	0x3f, r0	; 63
-    1608:	cd bf       	out	0x3d, r28	; 61
-    160a:	df 91       	pop	r29
-    160c:	cf 91       	pop	r28
-    160e:	1f 91       	pop	r17
-    1610:	0f 91       	pop	r16
-    1612:	ff 90       	pop	r15
-    1614:	ef 90       	pop	r14
-    1616:	df 90       	pop	r13
-    1618:	cf 90       	pop	r12
-    161a:	bf 90       	pop	r11
-    161c:	af 90       	pop	r10
-    161e:	9f 90       	pop	r9
-    1620:	8f 90       	pop	r8
-    1622:	7f 90       	pop	r7
-    1624:	6f 90       	pop	r6
-    1626:	5f 90       	pop	r5
-    1628:	4f 90       	pop	r4
-    162a:	3f 90       	pop	r3
-    162c:	2f 90       	pop	r2
-    162e:	08 95       	ret
+    1782:	60 96       	adiw	r28, 0x10	; 16
+    1784:	0f b6       	in	r0, 0x3f	; 63
+    1786:	f8 94       	cli
+    1788:	de bf       	out	0x3e, r29	; 62
+    178a:	0f be       	out	0x3f, r0	; 63
+    178c:	cd bf       	out	0x3d, r28	; 61
+    178e:	df 91       	pop	r29
+    1790:	cf 91       	pop	r28
+    1792:	1f 91       	pop	r17
+    1794:	0f 91       	pop	r16
+    1796:	ff 90       	pop	r15
+    1798:	ef 90       	pop	r14
+    179a:	df 90       	pop	r13
+    179c:	cf 90       	pop	r12
+    179e:	bf 90       	pop	r11
+    17a0:	af 90       	pop	r10
+    17a2:	9f 90       	pop	r9
+    17a4:	8f 90       	pop	r8
+    17a6:	7f 90       	pop	r7
+    17a8:	6f 90       	pop	r6
+    17aa:	5f 90       	pop	r5
+    17ac:	4f 90       	pop	r4
+    17ae:	3f 90       	pop	r3
+    17b0:	2f 90       	pop	r2
+    17b2:	08 95       	ret
 
-00001630 <_ZN3TFT8drawTileEiiPA100_Khajjjj>:
+000017b4 <_ZN3TFT8drawTileEiiPA100_Khajjjj>:
 /*----------------------------------------//
               Draw 20x20 Tile
 //----------------------------------------*/
 
 void TFT::drawTile(int16_t xPos, int16_t yPos, const unsigned char (*bitmap)[100], int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
-    1630:	2f 92       	push	r2
-    1632:	3f 92       	push	r3
-    1634:	4f 92       	push	r4
-    1636:	5f 92       	push	r5
-    1638:	6f 92       	push	r6
-    163a:	7f 92       	push	r7
-    163c:	8f 92       	push	r8
-    163e:	9f 92       	push	r9
-    1640:	af 92       	push	r10
-    1642:	bf 92       	push	r11
-    1644:	cf 92       	push	r12
-    1646:	df 92       	push	r13
-    1648:	ef 92       	push	r14
-    164a:	ff 92       	push	r15
-    164c:	0f 93       	push	r16
-    164e:	1f 93       	push	r17
-    1650:	cf 93       	push	r28
-    1652:	df 93       	push	r29
-    1654:	cd b7       	in	r28, 0x3d	; 61
-    1656:	de b7       	in	r29, 0x3e	; 62
-    1658:	28 97       	sbiw	r28, 0x08	; 8
-    165a:	0f b6       	in	r0, 0x3f	; 63
-    165c:	f8 94       	cli
-    165e:	de bf       	out	0x3e, r29	; 62
-    1660:	0f be       	out	0x3f, r0	; 63
-    1662:	cd bf       	out	0x3d, r28	; 61
-    1664:	3c 01       	movw	r6, r24
-    1666:	19 01       	movw	r2, r18
-    1668:	0f 83       	std	Y+7, r16	; 0x07
-    166a:	27 01       	movw	r4, r14
-    166c:	da 82       	std	Y+2, r13	; 0x02
-    166e:	c9 82       	std	Y+1, r12	; 0x01
-    1670:	bc 82       	std	Y+4, r11	; 0x04
-    1672:	ab 82       	std	Y+3, r10	; 0x03
-    1674:	9e 82       	std	Y+6, r9	; 0x06
-    1676:	8d 82       	std	Y+5, r8	; 0x05
+    17b4:	2f 92       	push	r2
+    17b6:	3f 92       	push	r3
+    17b8:	4f 92       	push	r4
+    17ba:	5f 92       	push	r5
+    17bc:	6f 92       	push	r6
+    17be:	7f 92       	push	r7
+    17c0:	8f 92       	push	r8
+    17c2:	9f 92       	push	r9
+    17c4:	af 92       	push	r10
+    17c6:	bf 92       	push	r11
+    17c8:	cf 92       	push	r12
+    17ca:	df 92       	push	r13
+    17cc:	ef 92       	push	r14
+    17ce:	ff 92       	push	r15
+    17d0:	0f 93       	push	r16
+    17d2:	1f 93       	push	r17
+    17d4:	cf 93       	push	r28
+    17d6:	df 93       	push	r29
+    17d8:	cd b7       	in	r28, 0x3d	; 61
+    17da:	de b7       	in	r29, 0x3e	; 62
+    17dc:	28 97       	sbiw	r28, 0x08	; 8
+    17de:	0f b6       	in	r0, 0x3f	; 63
+    17e0:	f8 94       	cli
+    17e2:	de bf       	out	0x3e, r29	; 62
+    17e4:	0f be       	out	0x3f, r0	; 63
+    17e6:	cd bf       	out	0x3d, r28	; 61
+    17e8:	3c 01       	movw	r6, r24
+    17ea:	19 01       	movw	r2, r18
+    17ec:	0f 83       	std	Y+7, r16	; 0x07
+    17ee:	27 01       	movw	r4, r14
+    17f0:	da 82       	std	Y+2, r13	; 0x02
+    17f2:	c9 82       	std	Y+1, r12	; 0x01
+    17f4:	bc 82       	std	Y+4, r11	; 0x04
+    17f6:	ab 82       	std	Y+3, r10	; 0x03
+    17f8:	9e 82       	std	Y+6, r9	; 0x06
+    17fa:	8d 82       	std	Y+5, r8	; 0x05
 
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + 39), (yPos + 39));
-    1678:	8a 01       	movw	r16, r20
-    167a:	09 5d       	subi	r16, 0xD9	; 217
-    167c:	1f 4f       	sbci	r17, 0xFF	; 255
-    167e:	9b 01       	movw	r18, r22
-    1680:	29 5d       	subi	r18, 0xD9	; 217
-    1682:	3f 4f       	sbci	r19, 0xFF	; 255
-    1684:	0e 94 25 09 	call	0x124a	; 0x124a <_ZN3TFT10setAddressEiiii>
+    17fc:	8a 01       	movw	r16, r20
+    17fe:	09 5d       	subi	r16, 0xD9	; 217
+    1800:	1f 4f       	sbci	r17, 0xFF	; 255
+    1802:	9b 01       	movw	r18, r22
+    1804:	29 5d       	subi	r18, 0xD9	; 217
+    1806:	3f 4f       	sbci	r19, 0xFF	; 255
+    1808:	0e 94 e7 09 	call	0x13ce	; 0x13ce <_ZN3TFT10setAddressEiiii>
     for (int j=0; j<2; j++)
     {
       for (int k=0; k<(40 / 8); k++)
       {
 
         data = pgm_read_byte(&bitmap[tileSelection][i * (40 / 8) + k]);
-    1688:	c1 01       	movw	r24, r2
-    168a:	2f 81       	ldd	r18, Y+7	; 0x07
-    168c:	34 e6       	ldi	r19, 0x64	; 100
-    168e:	23 02       	muls	r18, r19
-    1690:	80 0d       	add	r24, r0
-    1692:	91 1d       	adc	r25, r1
-    1694:	11 24       	eor	r1, r1
-    1696:	5c 01       	movw	r10, r24
-    1698:	e5 e0       	ldi	r30, 0x05	; 5
-    169a:	ae 0e       	add	r10, r30
-    169c:	b1 1c       	adc	r11, r1
-    169e:	9c 01       	movw	r18, r24
-    16a0:	27 59       	subi	r18, 0x97	; 151
-    16a2:	3f 4f       	sbci	r19, 0xFF	; 255
-    16a4:	38 87       	std	Y+8, r19	; 0x08
-    16a6:	2f 83       	std	Y+7, r18	; 0x07
+    180c:	c1 01       	movw	r24, r2
+    180e:	2f 81       	ldd	r18, Y+7	; 0x07
+    1810:	34 e6       	ldi	r19, 0x64	; 100
+    1812:	23 02       	muls	r18, r19
+    1814:	80 0d       	add	r24, r0
+    1816:	91 1d       	adc	r25, r1
+    1818:	11 24       	eor	r1, r1
+    181a:	5c 01       	movw	r10, r24
+    181c:	e5 e0       	ldi	r30, 0x05	; 5
+    181e:	ae 0e       	add	r10, r30
+    1820:	b1 1c       	adc	r11, r1
+    1822:	9c 01       	movw	r18, r24
+    1824:	27 59       	subi	r18, 0x97	; 151
+    1826:	3f 4f       	sbci	r19, 0xFF	; 255
+    1828:	38 87       	std	Y+8, r19	; 0x08
+    182a:	2f 83       	std	Y+7, r18	; 0x07
 /*----------------------------------------//
               Draw 20x20 Tile
 //----------------------------------------*/
 
 void TFT::drawTile(int16_t xPos, int16_t yPos, const unsigned char (*bitmap)[100], int8_t tileSelection, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
-    16a8:	68 94       	set
-    16aa:	88 24       	eor	r8, r8
-    16ac:	81 f8       	bld	r8, 1
-    16ae:	91 2c       	mov	r9, r1
-    16b0:	65 01       	movw	r12, r10
-    16b2:	35 e0       	ldi	r19, 0x05	; 5
-    16b4:	c3 1a       	sub	r12, r19
-    16b6:	d1 08       	sbc	r13, r1
+    182c:	68 94       	set
+    182e:	88 24       	eor	r8, r8
+    1830:	81 f8       	bld	r8, 1
+    1832:	91 2c       	mov	r9, r1
+    1834:	65 01       	movw	r12, r10
+    1836:	35 e0       	ldi	r19, 0x05	; 5
+    1838:	c3 1a       	sub	r12, r19
+    183a:	d1 08       	sbc	r13, r1
     for (int j=0; j<2; j++)
     {
       for (int k=0; k<(40 / 8); k++)
       {
 
         data = pgm_read_byte(&bitmap[tileSelection][i * (40 / 8) + k]);
-    16b8:	f6 01       	movw	r30, r12
-    16ba:	24 90       	lpm	r2, Z
-    16bc:	68 94       	set
-    16be:	ee 24       	eor	r14, r14
-    16c0:	e2 f8       	bld	r14, 2
-    16c2:	f1 2c       	mov	r15, r1
+    183c:	f6 01       	movw	r30, r12
+    183e:	24 90       	lpm	r2, Z
+    1840:	68 94       	set
+    1842:	ee 24       	eor	r14, r14
+    1844:	e2 f8       	bld	r14, 2
+    1846:	f1 2c       	mov	r15, r1
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
-    16c4:	32 2c       	mov	r3, r2
-    16c6:	36 94       	lsr	r3
-    16c8:	36 94       	lsr	r3
-    16ca:	36 94       	lsr	r3
-    16cc:	36 94       	lsr	r3
-    16ce:	36 94       	lsr	r3
-    16d0:	36 94       	lsr	r3
-    16d2:	02 e0       	ldi	r16, 0x02	; 2
-    16d4:	10 e0       	ldi	r17, 0x00	; 0
+    1848:	32 2c       	mov	r3, r2
+    184a:	36 94       	lsr	r3
+    184c:	36 94       	lsr	r3
+    184e:	36 94       	lsr	r3
+    1850:	36 94       	lsr	r3
+    1852:	36 94       	lsr	r3
+    1854:	36 94       	lsr	r3
+    1856:	02 e0       	ldi	r16, 0x02	; 2
+    1858:	10 e0       	ldi	r17, 0x00	; 0
 
           for (int m=0; m<2; m++)
           {
 
             if (temp == 0x00)       //1Pixel = 00
-    16d6:	31 10       	cpse	r3, r1
-    16d8:	05 c0       	rjmp	.+10     	; 0x16e4 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xb4>
+    185a:	31 10       	cpse	r3, r1
+    185c:	05 c0       	rjmp	.+10     	; 0x1868 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xb4>
             {
               exportLongData(color0Bit);
-    16da:	b2 01       	movw	r22, r4
-    16dc:	c3 01       	movw	r24, r6
-    16de:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    16e2:	1a c0       	rjmp	.+52     	; 0x1718 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
+    185e:	b2 01       	movw	r22, r4
+    1860:	c3 01       	movw	r24, r6
+    1862:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    1866:	1a c0       	rjmp	.+52     	; 0x189c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
             }
 
             else if (temp == 0x01)  //1Pixel = 01
-    16e4:	f1 e0       	ldi	r31, 0x01	; 1
-    16e6:	3f 12       	cpse	r3, r31
-    16e8:	06 c0       	rjmp	.+12     	; 0x16f6 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xc6>
+    1868:	f1 e0       	ldi	r31, 0x01	; 1
+    186a:	3f 12       	cpse	r3, r31
+    186c:	06 c0       	rjmp	.+12     	; 0x187a <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xc6>
             {
               exportLongData(color1Bit);
-    16ea:	69 81       	ldd	r22, Y+1	; 0x01
-    16ec:	7a 81       	ldd	r23, Y+2	; 0x02
-    16ee:	c3 01       	movw	r24, r6
-    16f0:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    16f4:	11 c0       	rjmp	.+34     	; 0x1718 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
+    186e:	69 81       	ldd	r22, Y+1	; 0x01
+    1870:	7a 81       	ldd	r23, Y+2	; 0x02
+    1872:	c3 01       	movw	r24, r6
+    1874:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    1878:	11 c0       	rjmp	.+34     	; 0x189c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
             }
 
             else if (temp == 0x02)  //1Pixel = 10
-    16f6:	22 e0       	ldi	r18, 0x02	; 2
-    16f8:	32 12       	cpse	r3, r18
-    16fa:	06 c0       	rjmp	.+12     	; 0x1708 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xd8>
+    187a:	22 e0       	ldi	r18, 0x02	; 2
+    187c:	32 12       	cpse	r3, r18
+    187e:	06 c0       	rjmp	.+12     	; 0x188c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xd8>
             {
               exportLongData(color2Bit);
-    16fc:	6b 81       	ldd	r22, Y+3	; 0x03
-    16fe:	7c 81       	ldd	r23, Y+4	; 0x04
-    1700:	c3 01       	movw	r24, r6
-    1702:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    1706:	08 c0       	rjmp	.+16     	; 0x1718 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
+    1880:	6b 81       	ldd	r22, Y+3	; 0x03
+    1882:	7c 81       	ldd	r23, Y+4	; 0x04
+    1884:	c3 01       	movw	r24, r6
+    1886:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    188a:	08 c0       	rjmp	.+16     	; 0x189c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
             }
 
             else if (temp == 0x03)  //1Pixel = 11
-    1708:	33 e0       	ldi	r19, 0x03	; 3
-    170a:	33 12       	cpse	r3, r19
-    170c:	05 c0       	rjmp	.+10     	; 0x1718 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
+    188c:	33 e0       	ldi	r19, 0x03	; 3
+    188e:	33 12       	cpse	r3, r19
+    1890:	05 c0       	rjmp	.+10     	; 0x189c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xe8>
             {
               exportLongData(color3Bit);
-    170e:	6d 81       	ldd	r22, Y+5	; 0x05
-    1710:	7e 81       	ldd	r23, Y+6	; 0x06
-    1712:	c3 01       	movw	r24, r6
-    1714:	0e 94 93 08 	call	0x1126	; 0x1126 <_ZN3SPI14exportLongDataEj>
-    1718:	01 50       	subi	r16, 0x01	; 1
-    171a:	11 09       	sbc	r17, r1
+    1892:	6d 81       	ldd	r22, Y+5	; 0x05
+    1894:	7e 81       	ldd	r23, Y+6	; 0x06
+    1896:	c3 01       	movw	r24, r6
+    1898:	0e 94 57 09 	call	0x12ae	; 0x12ae <_ZN3SPI14exportLongDataEj>
+    189c:	01 50       	subi	r16, 0x01	; 1
+    189e:	11 09       	sbc	r17, r1
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
 
           for (int m=0; m<2; m++)
-    171c:	e1 f6       	brne	.-72     	; 0x16d6 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xa6>
+    18a0:	e1 f6       	brne	.-72     	; 0x185a <_ZN3TFT8drawTileEiiPA100_Khajjjj+0xa6>
               exportLongData(color3Bit);
             }
 
           }
 
           data <<= 2;
-    171e:	22 0c       	add	r2, r2
-    1720:	22 0c       	add	r2, r2
-    1722:	81 e0       	ldi	r24, 0x01	; 1
-    1724:	e8 1a       	sub	r14, r24
-    1726:	f1 08       	sbc	r15, r1
+    18a2:	22 0c       	add	r2, r2
+    18a4:	22 0c       	add	r2, r2
+    18a6:	81 e0       	ldi	r24, 0x01	; 1
+    18a8:	e8 1a       	sub	r14, r24
+    18aa:	f1 08       	sbc	r15, r1
       for (int k=0; k<(40 / 8); k++)
       {
 
         data = pgm_read_byte(&bitmap[tileSelection][i * (40 / 8) + k]);
 
         for (int l=0; l<4; l++)
-    1728:	69 f6       	brne	.-102    	; 0x16c4 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x94>
-    172a:	9f ef       	ldi	r25, 0xFF	; 255
-    172c:	c9 1a       	sub	r12, r25
-    172e:	d9 0a       	sbc	r13, r25
+    18ac:	69 f6       	brne	.-102    	; 0x1848 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x94>
+    18ae:	9f ef       	ldi	r25, 0xFF	; 255
+    18b0:	c9 1a       	sub	r12, r25
+    18b2:	d9 0a       	sbc	r13, r25
 
   for (int i=0; i<(40 / 2); i++)
   {
     for (int j=0; j<2; j++)
     {
       for (int k=0; k<(40 / 8); k++)
-    1730:	ca 14       	cp	r12, r10
-    1732:	db 04       	cpc	r13, r11
-    1734:	09 f0       	breq	.+2      	; 0x1738 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x108>
-    1736:	c0 cf       	rjmp	.-128    	; 0x16b8 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x88>
-    1738:	e1 e0       	ldi	r30, 0x01	; 1
-    173a:	8e 1a       	sub	r8, r30
-    173c:	91 08       	sbc	r9, r1
+    18b4:	ca 14       	cp	r12, r10
+    18b6:	db 04       	cpc	r13, r11
+    18b8:	09 f0       	breq	.+2      	; 0x18bc <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x108>
+    18ba:	c0 cf       	rjmp	.-128    	; 0x183c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x88>
+    18bc:	e1 e0       	ldi	r30, 0x01	; 1
+    18be:	8e 1a       	sub	r8, r30
+    18c0:	91 08       	sbc	r9, r1
 
   setAddress(xPos, yPos, (xPos + 39), (yPos + 39));
 
   for (int i=0; i<(40 / 2); i++)
   {
     for (int j=0; j<2; j++)
-    173e:	09 f0       	breq	.+2      	; 0x1742 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x112>
-    1740:	b7 cf       	rjmp	.-146    	; 0x16b0 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x80>
-    1742:	f5 e0       	ldi	r31, 0x05	; 5
-    1744:	af 0e       	add	r10, r31
-    1746:	b1 1c       	adc	r11, r1
+    18c2:	09 f0       	breq	.+2      	; 0x18c6 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x112>
+    18c4:	b7 cf       	rjmp	.-146    	; 0x1834 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x80>
+    18c6:	f5 e0       	ldi	r31, 0x05	; 5
+    18c8:	af 0e       	add	r10, r31
+    18ca:	b1 1c       	adc	r11, r1
   uint8_t data;
   uint8_t temp;
 
   setAddress(xPos, yPos, (xPos + 39), (yPos + 39));
 
   for (int i=0; i<(40 / 2); i++)
-    1748:	2f 81       	ldd	r18, Y+7	; 0x07
-    174a:	38 85       	ldd	r19, Y+8	; 0x08
-    174c:	2a 15       	cp	r18, r10
-    174e:	3b 05       	cpc	r19, r11
-    1750:	09 f0       	breq	.+2      	; 0x1754 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x124>
-    1752:	aa cf       	rjmp	.-172    	; 0x16a8 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x78>
+    18cc:	2f 81       	ldd	r18, Y+7	; 0x07
+    18ce:	38 85       	ldd	r19, Y+8	; 0x08
+    18d0:	2a 15       	cp	r18, r10
+    18d2:	3b 05       	cpc	r19, r11
+    18d4:	09 f0       	breq	.+2      	; 0x18d8 <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x124>
+    18d6:	aa cf       	rjmp	.-172    	; 0x182c <_ZN3TFT8drawTileEiiPA100_Khajjjj+0x78>
 
       }
     }
   }
 
-    1754:	28 96       	adiw	r28, 0x08	; 8
-    1756:	0f b6       	in	r0, 0x3f	; 63
-    1758:	f8 94       	cli
-    175a:	de bf       	out	0x3e, r29	; 62
-    175c:	0f be       	out	0x3f, r0	; 63
-    175e:	cd bf       	out	0x3d, r28	; 61
-    1760:	df 91       	pop	r29
-    1762:	cf 91       	pop	r28
-    1764:	1f 91       	pop	r17
-    1766:	0f 91       	pop	r16
-    1768:	ff 90       	pop	r15
-    176a:	ef 90       	pop	r14
-    176c:	df 90       	pop	r13
-    176e:	cf 90       	pop	r12
-    1770:	bf 90       	pop	r11
-    1772:	af 90       	pop	r10
-    1774:	9f 90       	pop	r9
-    1776:	8f 90       	pop	r8
-    1778:	7f 90       	pop	r7
-    177a:	6f 90       	pop	r6
-    177c:	5f 90       	pop	r5
-    177e:	4f 90       	pop	r4
-    1780:	3f 90       	pop	r3
-    1782:	2f 90       	pop	r2
-    1784:	08 95       	ret
+    18d8:	28 96       	adiw	r28, 0x08	; 8
+    18da:	0f b6       	in	r0, 0x3f	; 63
+    18dc:	f8 94       	cli
+    18de:	de bf       	out	0x3e, r29	; 62
+    18e0:	0f be       	out	0x3f, r0	; 63
+    18e2:	cd bf       	out	0x3d, r28	; 61
+    18e4:	df 91       	pop	r29
+    18e6:	cf 91       	pop	r28
+    18e8:	1f 91       	pop	r17
+    18ea:	0f 91       	pop	r16
+    18ec:	ff 90       	pop	r15
+    18ee:	ef 90       	pop	r14
+    18f0:	df 90       	pop	r13
+    18f2:	cf 90       	pop	r12
+    18f4:	bf 90       	pop	r11
+    18f6:	af 90       	pop	r10
+    18f8:	9f 90       	pop	r9
+    18fa:	8f 90       	pop	r8
+    18fc:	7f 90       	pop	r7
+    18fe:	6f 90       	pop	r6
+    1900:	5f 90       	pop	r5
+    1902:	4f 90       	pop	r4
+    1904:	3f 90       	pop	r3
+    1906:	2f 90       	pop	r2
+    1908:	08 95       	ret
 
-00001786 <__tablejump2__>:
-    1786:	ee 0f       	add	r30, r30
-    1788:	ff 1f       	adc	r31, r31
-    178a:	05 90       	lpm	r0, Z+
-    178c:	f4 91       	lpm	r31, Z
-    178e:	e0 2d       	mov	r30, r0
-    1790:	09 94       	ijmp
+0000190a <__tablejump2__>:
+    190a:	ee 0f       	add	r30, r30
+    190c:	ff 1f       	adc	r31, r31
+    190e:	05 90       	lpm	r0, Z+
+    1910:	f4 91       	lpm	r31, Z
+    1912:	e0 2d       	mov	r30, r0
+    1914:	09 94       	ijmp
 
-00001792 <_exit>:
-    1792:	f8 94       	cli
+00001916 <_exit>:
+    1916:	f8 94       	cli
 
-00001794 <__stop_program>:
-    1794:	ff cf       	rjmp	.-2      	; 0x1794 <__stop_program>
+00001918 <__stop_program>:
+    1918:	ff cf       	rjmp	.-2      	; 0x1918 <__stop_program>

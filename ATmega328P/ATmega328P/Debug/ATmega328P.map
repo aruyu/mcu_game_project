@@ -23,6 +23,9 @@ Discarded input sections
  .text          0x00000000        0x0 src/core/Font.o
  .data          0x00000000        0x0 src/core/Font.o
  .bss           0x00000000        0x0 src/core/Font.o
+ .text          0x00000000        0x0 src/core/Frame.o
+ .data          0x00000000        0x0 src/core/Frame.o
+ .bss           0x00000000        0x0 src/core/Frame.o
  .text          0x00000000        0x0 src/core/Game.o
  .data          0x00000000        0x0 src/core/Game.o
  .bss           0x00000000        0x0 src/core/Game.o
@@ -52,8 +55,6 @@ Discarded input sections
                 0x00000000       0x36 src/modules/MCU.o
  .text._ZN3MCU7Setting10beginPCINTEa
                 0x00000000       0x6a src/modules/MCU.o
- .text._ZN3MCU7Setting10beginTimerEab
-                0x00000000       0xae src/modules/MCU.o
  .text._ZN3MCU7Setting8beginPWMEab
                 0x00000000      0x130 src/modules/MCU.o
  .text          0x00000000        0x0 src/modules/SW.o
@@ -174,6 +175,7 @@ Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
 LOAD main.o
 LOAD src/core/Font.o
+LOAD src/core/Frame.o
 LOAD src/core/Game.o
 LOAD src/core/Object.o
 LOAD src/core/Player.o
@@ -291,7 +293,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1796
+.text           0x00000000     0x191a
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -368,7 +370,6 @@ END GROUP
                 0x00000d32                __vector_3
                 0x00000d32                __vector_23
                 0x00000d32                __vector_25
-                0x00000d32                __vector_11
                 0x00000d32                __vector_13
                 0x00000d32                __vector_17
                 0x00000d32                __vector_19
@@ -387,71 +388,80 @@ END GROUP
                 0x00000d32                __vector_20
                 0x00000d36                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x00000d36       0x1e main.o
+ .text.main     0x00000d36       0x28 main.o
                 0x00000d36                main
+ .text.__vector_11
+                0x00000d5e       0x2c main.o
+                0x00000d5e                __vector_11
  .text._GLOBAL__sub_I_game
-                0x00000d54       0x16 main.o
+                0x00000d8a       0x16 main.o
  .text._ZN4Font11printLetterEiih
-                0x00000d6a       0xf2 src/core/Font.o
-                0x00000d6a                _ZN4Font11printLetterEiih
+                0x00000da0       0xf2 src/core/Font.o
+                0x00000da0                _ZN4Font11printLetterEiih
  .text._ZN4Font5printEiiPKc
-                0x00000e5c       0x4c src/core/Font.o
-                0x00000e5c                _ZN4Font5printEiiPKc
+                0x00000e92       0x4c src/core/Font.o
+                0x00000e92                _ZN4Font5printEiiPKc
+ .text._ZN5Frame11updateFrameEv
+                0x00000ede       0x9c src/core/Frame.o
+                0x00000ede                _ZN5Frame11updateFrameEv
  .text._ZN4Game5titleEv
-                0x00000ea8      0x166 src/core/Game.o
-                0x00000ea8                _ZN4Game5titleEv
+                0x00000f7a      0x166 src/core/Game.o
+                0x00000f7a                _ZN4Game5titleEv
  .text._ZN4Game5startEv
-                0x0000100e       0x4c src/core/Game.o
-                0x0000100e                _ZN4Game5startEv
+                0x000010e0       0x54 src/core/Game.o
+                0x000010e0                _ZN4Game5startEv
  .text._ZN6Player11startPlayerEv
-                0x0000105a       0x80 src/core/Player.o
-                0x0000105a                _ZN6Player11startPlayerEv
+                0x00001134       0x82 src/core/Player.o
+                0x00001134                _ZN6Player11startPlayerEv
  .text._ZN3MCU7Setting9beginPortEab
-                0x000010da       0x20 src/modules/MCU.o
-                0x000010da                _ZN3MCU7Setting9beginPortEab
+                0x000011b6       0x20 src/modules/MCU.o
+                0x000011b6                _ZN3MCU7Setting9beginPortEab
+ .text._ZN3MCU7Setting10beginTimerEab
+                0x000011d6       0xac src/modules/MCU.o
+                0x000011d6                _ZN3MCU7Setting10beginTimerEab
  .text._ZN3MCU7Setting8beginSPIEv
-                0x000010fa        0xa src/modules/MCU.o
-                0x000010fa                _ZN3MCU7Setting8beginSPIEv
+                0x00001282        0xa src/modules/MCU.o
+                0x00001282                _ZN3MCU7Setting8beginSPIEv
  .text._ZN3SPI7sendBitEh
-                0x00001104        0xa src/modules/TFT.o
-                0x00001104                _ZN3SPI7sendBitEh
+                0x0000128c        0xa src/modules/TFT.o
+                0x0000128c                _ZN3SPI7sendBitEh
  .text._ZN3SPI13exportCommandEh
-                0x0000110e        0xc src/modules/TFT.o
-                0x0000110e                _ZN3SPI13exportCommandEh
+                0x00001296        0xc src/modules/TFT.o
+                0x00001296                _ZN3SPI13exportCommandEh
  .text._ZN3SPI10exportDataEh
-                0x0000111a        0xc src/modules/TFT.o
-                0x0000111a                _ZN3SPI10exportDataEh
+                0x000012a2        0xc src/modules/TFT.o
+                0x000012a2                _ZN3SPI10exportDataEh
  .text._ZN3SPI14exportLongDataEj
-                0x00001126       0x26 src/modules/TFT.o
-                0x00001126                _ZN3SPI14exportLongDataEj
+                0x000012ae       0x26 src/modules/TFT.o
+                0x000012ae                _ZN3SPI14exportLongDataEj
  .text._ZN3TFT5beginEv
-                0x0000114c       0xaa src/modules/TFT.o
-                0x0000114c                _ZN3TFT5beginEv
+                0x000012d4       0xaa src/modules/TFT.o
+                0x000012d4                _ZN3TFT5beginEv
  .text._ZN3TFT11setRotationEa
-                0x000011f6       0x54 src/modules/TFT.o
-                0x000011f6                _ZN3TFT11setRotationEa
+                0x0000137e       0x50 src/modules/TFT.o
+                0x0000137e                _ZN3TFT11setRotationEa
  .text._ZN3TFT10setAddressEiiii
-                0x0000124a       0x68 src/modules/TFT.o
-                0x0000124a                _ZN3TFT10setAddressEiiii
+                0x000013ce       0x68 src/modules/TFT.o
+                0x000013ce                _ZN3TFT10setAddressEiiii
  .text._ZN3TFT10fillScreenEj
-                0x000012b2       0x8a src/modules/TFT.o
-                0x000012b2                _ZN3TFT10fillScreenEj
+                0x00001436       0x8a src/modules/TFT.o
+                0x00001436                _ZN3TFT10fillScreenEj
  .text._ZN3TFT10drawBitmapEiiiiPKhjjjj
-                0x0000133c      0x150 src/modules/TFT.o
-                0x0000133c                _ZN3TFT10drawBitmapEiiiiPKhjjjj
+                0x000014c0      0x150 src/modules/TFT.o
+                0x000014c0                _ZN3TFT10drawBitmapEiiiiPKhjjjj
  .text._ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj
-                0x0000148c      0x1a4 src/modules/TFT.o
-                0x0000148c                _ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj
+                0x00001610      0x1a4 src/modules/TFT.o
+                0x00001610                _ZN3TFT15drawBitmapTwiceEiiiiPKhjjjj
  .text._ZN3TFT8drawTileEiiPA100_Khajjjj
-                0x00001630      0x156 src/modules/TFT.o
-                0x00001630                _ZN3TFT8drawTileEiiPA100_Khajjjj
- .text.libgcc   0x00001786        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00001786                __tablejump2__
-                0x00001792                . = ALIGN (0x2)
+                0x000017b4      0x156 src/modules/TFT.o
+                0x000017b4                _ZN3TFT8drawTileEiiPA100_Khajjjj
+ .text.libgcc   0x0000190a        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x0000190a                __tablejump2__
+                0x00001916                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001792        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00001792                _exit
-                0x00001792                exit
+ .fini9         0x00001916        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00001916                _exit
+                0x00001916                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -470,11 +480,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001792        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001916        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001796                _etext = .
+                0x0000191a                _etext = .
 
-.data           0x00800100       0x30 load address 0x00001796
+.data           0x00800100       0x30 load address 0x0000191a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -489,22 +499,37 @@ END GROUP
                 0x00800130                _edata = .
                 0x00800130                PROVIDE (__data_end, .)
 
-.bss            0x00800130        0xc
+.bss            0x00800130       0x11
                 0x00800130                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.game      0x00800130        0xc main.o
+ .bss.game      0x00800130        0xa main.o
                 0x00800130                game
+ .bss._ZN5Frame11secondFrameE
+                0x0080013a        0x2 src/core/Frame.o
+                0x0080013a                _ZN5Frame11secondFrameE
+ .bss._ZN5Frame9tickFrameE
+                0x0080013c        0x2 src/core/Frame.o
+                0x0080013c                _ZN5Frame9tickFrameE
+ .bss._ZN5Frame9sixFramesE
+                0x0080013e        0x1 src/core/Frame.o
+                0x0080013e                _ZN5Frame9sixFramesE
+ .bss._ZN5Frame10fourFramesE
+                0x0080013f        0x1 src/core/Frame.o
+                0x0080013f                _ZN5Frame10fourFramesE
+ .bss._ZN5Frame9frameRateE
+                0x00800140        0x1 src/core/Frame.o
+                0x00800140                _ZN5Frame9frameRateE
  *(COMMON)
-                0x0080013c                PROVIDE (__bss_end, .)
-                0x00001796                __data_load_start = LOADADDR (.data)
-                0x000017c6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800141                PROVIDE (__bss_end, .)
+                0x0000191a                __data_load_start = LOADADDR (.data)
+                0x0000194a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080013c        0x0
+.noinit         0x00800141        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080013c                _end = .
+                0x00800141                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -549,6 +574,7 @@ END GROUP
  .comment       0x00000000       0x30 main.o
                                  0x31 (size before relaxing)
  .comment       0x00000030       0x31 src/core/Font.o
+ .comment       0x00000030       0x31 src/core/Frame.o
  .comment       0x00000030       0x31 src/core/Game.o
  .comment       0x00000030       0x31 src/core/Player.o
  .comment       0x00000030       0x31 src/modules/MCU.o
@@ -574,87 +600,96 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x170
+.debug_aranges  0x00000000      0x198
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x30 main.o
+                0x00000000       0x38 main.o
  .debug_aranges
-                0x00000030       0x28 src/core/Font.o
+                0x00000038       0x28 src/core/Font.o
  .debug_aranges
-                0x00000058       0x28 src/core/Game.o
+                0x00000060       0x20 src/core/Frame.o
  .debug_aranges
-                0x00000080       0x20 src/core/Player.o
+                0x00000080       0x28 src/core/Game.o
  .debug_aranges
-                0x000000a0       0x60 src/modules/MCU.o
+                0x000000a8       0x20 src/core/Player.o
  .debug_aranges
-                0x00000100       0x70 src/modules/TFT.o
+                0x000000c8       0x60 src/modules/MCU.o
+ .debug_aranges
+                0x00000128       0x70 src/modules/TFT.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x4a92
+.debug_info     0x00000000     0x4c92
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4     0x14f3 main.o
- .debug_info    0x00001ae7      0x70d src/core/Font.o
- .debug_info    0x000021f4      0xeaf src/core/Game.o
- .debug_info    0x000030a3      0x595 src/core/Player.o
- .debug_info    0x00003638      0x370 src/modules/MCU.o
- .debug_info    0x000039a8     0x10ea src/modules/TFT.o
+ .debug_info    0x000005f4     0x1522 main.o
+ .debug_info    0x00001b16      0x6fe src/core/Font.o
+ .debug_info    0x00002214      0x1a7 src/core/Frame.o
+ .debug_info    0x000023bb      0xf8f src/core/Game.o
+ .debug_info    0x0000334a      0x4ee src/core/Player.o
+ .debug_info    0x00003838      0x370 src/modules/MCU.o
+ .debug_info    0x00003ba8     0x10ea src/modules/TFT.o
 
-.debug_abbrev   0x00000000     0x1115
+.debug_abbrev   0x00000000     0x11a7
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x22d main.o
- .debug_abbrev  0x000007cf      0x17a src/core/Font.o
- .debug_abbrev  0x00000949      0x216 src/core/Game.o
- .debug_abbrev  0x00000b5f      0x1b5 src/core/Player.o
- .debug_abbrev  0x00000d14      0x1bf src/modules/MCU.o
- .debug_abbrev  0x00000ed3      0x242 src/modules/TFT.o
+ .debug_abbrev  0x000005a2      0x243 main.o
+ .debug_abbrev  0x000007e5      0x17a src/core/Font.o
+ .debug_abbrev  0x0000095f       0xd1 src/core/Frame.o
+ .debug_abbrev  0x00000a30      0x227 src/core/Game.o
+ .debug_abbrev  0x00000c57      0x14f src/core/Player.o
+ .debug_abbrev  0x00000da6      0x1bf src/modules/MCU.o
+ .debug_abbrev  0x00000f65      0x242 src/modules/TFT.o
 
-.debug_line     0x00000000     0x11a9
+.debug_line     0x00000000     0x12a4
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000134      0x190 main.o
- .debug_line    0x000002c4      0x163 src/core/Font.o
- .debug_line    0x00000427      0x263 src/core/Game.o
- .debug_line    0x0000068a      0x191 src/core/Player.o
- .debug_line    0x0000081b      0x46e src/modules/MCU.o
- .debug_line    0x00000c89      0x520 src/modules/TFT.o
+ .debug_line    0x00000134      0x1ca main.o
+ .debug_line    0x000002fe      0x163 src/core/Font.o
+ .debug_line    0x00000461      0x11e src/core/Frame.o
+ .debug_line    0x0000057f      0x27a src/core/Game.o
+ .debug_line    0x000007f9      0x11d src/core/Player.o
+ .debug_line    0x00000916      0x46e src/modules/MCU.o
+ .debug_line    0x00000d84      0x520 src/modules/TFT.o
 
-.debug_frame    0x00000000      0x4e4
+.debug_frame    0x00000000      0x530
  *(.debug_frame)
- .debug_frame   0x00000000       0x44 main.o
- .debug_frame   0x00000044       0x98 src/core/Font.o
- .debug_frame   0x000000dc       0x98 src/core/Game.o
- .debug_frame   0x00000174       0x60 src/core/Player.o
- .debug_frame   0x000001d4       0xa4 src/modules/MCU.o
- .debug_frame   0x00000278      0x26c src/modules/TFT.o
+ .debug_frame   0x00000000       0x64 main.o
+ .debug_frame   0x00000064       0x98 src/core/Font.o
+ .debug_frame   0x000000fc       0x24 src/core/Frame.o
+ .debug_frame   0x00000120       0x98 src/core/Game.o
+ .debug_frame   0x000001b8       0x68 src/core/Player.o
+ .debug_frame   0x00000220       0xa4 src/modules/MCU.o
+ .debug_frame   0x000002c4      0x26c src/modules/TFT.o
 
-.debug_str      0x00000000      0xafd
+.debug_str      0x00000000      0xc09
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x597 main.o
-                                0x5ee (size before relaxing)
- .debug_str     0x0000079f       0x52 src/core/Font.o
-                                0x4e7 (size before relaxing)
- .debug_str     0x000007f1       0xe3 src/core/Game.o
-                                0x5f7 (size before relaxing)
- .debug_str     0x000008d4       0x17 src/core/Player.o
-                                0x48e (size before relaxing)
- .debug_str     0x000008eb      0x193 src/modules/MCU.o
+ .debug_str     0x00000208      0x5c6 main.o
+                                0x61d (size before relaxing)
+ .debug_str     0x000007ce       0x52 src/core/Font.o
+                                0x4e0 (size before relaxing)
+ .debug_str     0x00000820      0x101 src/core/Frame.o
+                                0x2b7 (size before relaxing)
+ .debug_str     0x00000921       0xe9 src/core/Game.o
+                                0x679 (size before relaxing)
+ .debug_str     0x00000a0a       0x17 src/core/Player.o
+                                0x43c (size before relaxing)
+ .debug_str     0x00000a21      0x169 src/modules/MCU.o
                                 0x3b1 (size before relaxing)
- .debug_str     0x00000a7e       0x7f src/modules/TFT.o
-                                0x4ce (size before relaxing)
+ .debug_str     0x00000b8a       0x7f src/modules/TFT.o
+                                0x4c7 (size before relaxing)
 
-.debug_loc      0x00000000     0x210a
+.debug_loc      0x00000000     0x2177
  *(.debug_loc)
- .debug_loc     0x00000000       0x29 main.o
- .debug_loc     0x00000029      0x43b src/core/Font.o
- .debug_loc     0x00000464      0x3fc src/core/Game.o
- .debug_loc     0x00000860      0x143 src/core/Player.o
- .debug_loc     0x000009a3      0x564 src/modules/MCU.o
- .debug_loc     0x00000f07     0x1203 src/modules/TFT.o
+ .debug_loc     0x00000000       0x65 main.o
+ .debug_loc     0x00000065      0x43b src/core/Font.o
+ .debug_loc     0x000004a0       0x44 src/core/Frame.o
+ .debug_loc     0x000004e4      0x3fc src/core/Game.o
+ .debug_loc     0x000008e0      0x118 src/core/Player.o
+ .debug_loc     0x000009f8      0x564 src/modules/MCU.o
+ .debug_loc     0x00000f5c     0x121b src/modules/TFT.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -674,14 +709,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x170
+.debug_ranges   0x00000000      0x188
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x20 main.o
- .debug_ranges  0x00000020       0x18 src/core/Font.o
- .debug_ranges  0x00000038       0x18 src/core/Game.o
- .debug_ranges  0x00000050       0x10 src/core/Player.o
- .debug_ranges  0x00000060       0x50 src/modules/MCU.o
- .debug_ranges  0x000000b0       0xc0 src/modules/TFT.o
+ .debug_ranges  0x00000000       0x28 main.o
+ .debug_ranges  0x00000028       0x18 src/core/Font.o
+ .debug_ranges  0x00000040       0x10 src/core/Frame.o
+ .debug_ranges  0x00000050       0x18 src/core/Game.o
+ .debug_ranges  0x00000068       0x10 src/core/Player.o
+ .debug_ranges  0x00000078       0x50 src/modules/MCU.o
+ .debug_ranges  0x000000c8       0xc0 src/modules/TFT.o
 
 .debug_macro
  *(.debug_macro)

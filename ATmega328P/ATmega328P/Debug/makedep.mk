@@ -6,6 +6,8 @@ main.cpp
 
 src\core\Font.cpp
 
+src\core\Frame.cpp
+
 src\core\Game.cpp
 
 src\core\Object.cpp

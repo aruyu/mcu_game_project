@@ -31,6 +31,7 @@ uint8_t MCU::insertBit(uint8_t bitValue, bool isHigh)
 
 }
 
+
 /*----------------------------------------//
             Convert 10 to 16
 //----------------------------------------*/
@@ -108,6 +109,7 @@ uint8_t MCU::Features::ASCII(int8_t decimal)
 
   return ASCIIValue;
 }
+
 
 /*----------------------------------------//
                 Begin Port

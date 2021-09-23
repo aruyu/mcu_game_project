@@ -172,6 +172,12 @@
     <Compile Include="src\core\Font.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\core\Frame.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\core\Frame.hpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\core\Game.cpp">
       <SubType>compile</SubType>
     </Compile>

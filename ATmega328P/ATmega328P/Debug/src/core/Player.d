@@ -17,7 +17,8 @@ src/core/Player.d src/core/Player.o: ../src/core/Player.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/core/../modules/TFT.hpp ../src/core/../assets/CharRun.hpp
+ ../src/core/../modules/TFT.hpp ../src/core/../assets/CharRun.hpp \
+ ../src/core/Frame.hpp
 
 ../src/core/Player.hpp:
 
@@ -60,3 +61,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../src/core/../modules/TFT.hpp:
 
 ../src/core/../assets/CharRun.hpp:
+
+../src/core/Frame.hpp:

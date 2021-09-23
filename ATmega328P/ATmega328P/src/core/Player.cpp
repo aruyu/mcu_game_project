@@ -19,8 +19,10 @@ void Player::startPlayer(void)
 
   for (int i=0; i<6; i++)
   {
-    drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
-    _delay_ms(100);
+    if (Frame::sixFrames == i)
+    {
+      drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
+    }
   }
 
 }

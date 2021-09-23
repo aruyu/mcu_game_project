@@ -12,6 +12,8 @@
 #include "../modules/TFT.hpp"
 #include "../assets/CharRun.hpp"
 
+#include "Frame.hpp"
+
 
 /*
 //==========================================

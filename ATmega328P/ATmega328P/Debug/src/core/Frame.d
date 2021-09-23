@@ -1,4 +1,5 @@
-main.d main.o: .././main.cpp .././src/modules/MCU.hpp \
+src/core/Frame.d src/core/Frame.o: ../src/core/Frame.cpp \
+ ../src/core/Frame.hpp ../src/core/../modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -15,14 +16,11 @@ main.d main.o: .././main.cpp .././src/modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././src/core/Game.hpp .././src/core/../modules/TFT.hpp \
- .././src/core/../assets/LogoAtmel.hpp \
- .././src/core/../assets/FontASCII.hpp .././src/core/Font.hpp \
- .././src/core/Frame.hpp .././src/core/Object.hpp \
- .././src/core/Player.hpp .././src/core/../assets/CharRun.hpp
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-.././src/modules/MCU.hpp:
+../src/core/Frame.hpp:
+
+../src/core/../modules/MCU.hpp:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -57,21 +55,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-.././src/core/Game.hpp:
-
-.././src/core/../modules/TFT.hpp:
-
-.././src/core/../assets/LogoAtmel.hpp:
-
-.././src/core/../assets/FontASCII.hpp:
-
-.././src/core/Font.hpp:
-
-.././src/core/Frame.hpp:
-
-.././src/core/Object.hpp:
-
-.././src/core/Player.hpp:
-
-.././src/core/../assets/CharRun.hpp:

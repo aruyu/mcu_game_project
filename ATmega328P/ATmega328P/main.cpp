@@ -11,6 +11,7 @@
 #include "src/core/Game.hpp"
 
 using namespace MCU::Setting;
+ISR(TIMER1_COMPA_vect);
 
 Game game;
 
@@ -22,7 +23,10 @@ Game game;
 int main(void)
 {
   beginPort(B, OUT);
+  beginTimer(1, COMP);
   beginSPI();
+
+  sei();
 
   game.title();
 
@@ -37,3 +41,16 @@ int main(void)
 /*========================================//
 ---------------  MAIN END  ---------------
 //========================================*/
+
+
+ISR(TIMER1_COMPA_vect)
+{
+
+  Frame::frameRate++;
+
+  if (Frame::frameRate == 101)
+  {
+    Frame::frameRate = 0;
+  }
+
+}
