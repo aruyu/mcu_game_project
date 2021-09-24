@@ -11,7 +11,7 @@
 #include "src/core/Game.hpp"
 
 using namespace MCU::Setting;
-ISR(TIMER1_COMPA_vect);
+ISR(TIMER2_COMPA_vect);
 
 Game game;
 
@@ -23,7 +23,7 @@ Game game;
 int main(void)
 {
   beginPort(B, OUT);
-  beginTimer(1, COMP);
+  beginTimer(2, COMP);
   beginSPI();
 
   sei();
@@ -43,14 +43,8 @@ int main(void)
 //========================================*/
 
 
-ISR(TIMER1_COMPA_vect)
+ISR(TIMER2_COMPA_vect)
 {
-
   Frame::frameRate++;
-
-  if (Frame::frameRate == 101)
-  {
-    Frame::frameRate = 0;
-  }
-
+  Frame::tickFrame++;
 }

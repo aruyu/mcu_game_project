@@ -24,12 +24,12 @@ public:
   Frame(){};
   ~Frame(){};
 
-  void updateFrame(void);
+  static void updateFrame(void);
 
-  static uint8_t frameRate;
-  static uint8_t fourFrames;
-  static uint8_t sixFrames;
-  static uint16_t tickFrame;
-  static uint16_t secondFrame;
+  static int8_t frameRate;
+  static int8_t fourFrames;
+  static int8_t sixFrames;
+  static int8_t tickFrame;
+  static int8_t secondFrame;
 
 };

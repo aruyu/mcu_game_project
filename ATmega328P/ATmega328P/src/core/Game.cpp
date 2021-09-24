@@ -49,12 +49,11 @@ void Game::start(void)
   fillScreen(BLACK);
   _delay_ms(100);
 
-  Frame frame;
   Player user;
 
   while (1)
   {
-    frame.updateFrame();
+    Frame::updateFrame();
     user.startPlayer();
   }
 

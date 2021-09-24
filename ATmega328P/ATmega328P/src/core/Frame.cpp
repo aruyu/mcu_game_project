@@ -9,11 +9,11 @@
 
 #include "Frame.hpp"
 
-uint8_t Frame::frameRate;
-uint8_t Frame::fourFrames;
-uint8_t Frame::sixFrames;
-uint16_t Frame::tickFrame;
-uint16_t Frame::secondFrame;
+int8_t Frame::frameRate;
+int8_t Frame::fourFrames;
+int8_t Frame::sixFrames;
+int8_t Frame::tickFrame;
+int8_t Frame::secondFrame;
 
 
 /*----------------------------------------//
@@ -23,46 +23,26 @@ uint16_t Frame::secondFrame;
 void Frame::updateFrame(void)
 {
 
-  if (frameRate == 100)
+  if (frameRate == 7)
   {
-
-    secondFrame++;
-
-    if (secondFrame == 1000)
-    {
-      secondFrame = 0;
-    }
-
-  }
-
-  if (frameRate % 10 == 0)
-  {
-
+    frameRate = 0;
     fourFrames++;
     sixFrames++;
 
-    if (fourFrames == 5)
+    if (fourFrames == 4)
     {
       fourFrames = 0;
     }
 
-    if (sixFrames == 7)
+    if (sixFrames == 6)
     {
       sixFrames = 0;
     }
-
   }
 
-  if (frameRate % 2 == 0)
+  if (tickFrame == 2)
   {
-
-    tickFrame++;
-
-    if (tickFrame == 1000)
-    {
-      tickFrame = 0;
-    }
-
+    tickFrame = 0;
   }
 
 }
