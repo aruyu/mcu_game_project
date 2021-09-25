@@ -23,8 +23,11 @@ Game game;
 int main(void)
 {
   beginPort(B, OUT);
+  beginPort(D, OUT);
   beginTimer(2, COMP);
+  beginPWM(OC0A, FAST);
   beginSPI();
+  TCCR0B = 0x00;
 
   sei();
 

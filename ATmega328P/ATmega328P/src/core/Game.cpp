@@ -49,12 +49,64 @@ void Game::start(void)
   fillScreen(BLACK);
   _delay_ms(100);
 
-  Player user;
+  //Player user;
 
   while (1)
   {
-    Frame::updateFrame();
-    user.startPlayer();
+    //Frame::updateFrame();
+    //user.startPlayer();
+
+    TCCR0B = 0x0D;
+    OCR0A = 10;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    TCCR0B = 0x0D;
+    OCR0A = 10;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    
+    TCCR0B = 0x0D;
+    OCR0A = 20;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    TCCR0B = 0x0D;
+    OCR0A = 20;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    
+    TCCR0B = 0x0D;
+    OCR0A = 10;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    TCCR0B = 0x0D;
+    OCR0A = 10;
+    _delay_ms(250);
+    
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    
+    TCCR0B = 0x0D;
+    OCR0A = 5;
+    _delay_ms(500);
+    
+    TCCR0B = 0x00;
+    _delay_ms(500);
   }
 
 }
