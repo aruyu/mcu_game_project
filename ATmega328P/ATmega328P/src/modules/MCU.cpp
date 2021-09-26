@@ -279,8 +279,8 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK1 = 0x01;
 
-      TCCR1A = 0x00;    // 1024 Prescaler, Normal Mode
-      TCCR1B = 0x05;
+      TCCR1A = 0x00;    // 256 Prescaler, Normal Mode
+      TCCR1B = 0x04;
       TCNT1H = 0x00;    // Start Counting 0x0000
       TCNT1L = 0x00;
     }
@@ -289,8 +289,8 @@ void MCU::Setting::beginTimer(int8_t timerIndex, bool timerMode)
     {
       TIMSK1 = 0x02;
 
-      TCCR1A = 0x00;    // 1024 Prescaler, CTC Mode
-      TCCR1B = 0x0D;
+      TCCR1A = 0x00;    // 256 Prescaler, CTC Mode
+      TCCR1B = 0x0C;
       TCNT1H = 0x00;    // Start Counting 0x0000
       TCNT1L = 0x00;
 
