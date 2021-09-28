@@ -55,58 +55,32 @@ void Game::start(void)
   {
     //Frame::updateFrame();
     //user.startPlayer();
+	
+	TCCR0B = 0x0D;
+	
+	for (int i=0; i<51; i++)
+	{
+		OCR0A = i;
+		_delay_ms(1000);
+	}
 
-    TCCR0B = 0x0D;
-    OCR0A = 10;
-    _delay_ms(250);
     
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    TCCR0B = 0x0D;
-    OCR0A = 10;
-    _delay_ms(250);
-    
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    
-    TCCR0B = 0x0D;
-    OCR0A = 20;
-    _delay_ms(250);
-    
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    TCCR0B = 0x0D;
-    OCR0A = 20;
-    _delay_ms(250);
-    
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    
-    TCCR0B = 0x0D;
-    OCR0A = 10;
-    _delay_ms(250);
-    
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    TCCR0B = 0x0D;
-    OCR0A = 10;
-    _delay_ms(250);
-    
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    
-    TCCR0B = 0x0D;
-    OCR0A = 5;
-    _delay_ms(500);
-    
-    TCCR0B = 0x00;
-    _delay_ms(500);
   }
 
 }
+
+
+/*
+31 = 8B
+34 = 8A#
+36 = 8A
+38 = 8G#
+40 = 8G
+42 = 8F#
+45 = 8F
+47 = 8E
+50 = 8D#
+53 = 8D
+56 = 8C#
+60 = 8C
+*/

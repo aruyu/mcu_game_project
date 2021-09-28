@@ -10,10 +10,13 @@
 #include "Frame.hpp"
 
 int8_t Frame::frameRate;
+int8_t Frame::tickFrame;
 int8_t Frame::fourFrames;
 int8_t Frame::sixFrames;
-int8_t Frame::tickFrame;
+
+int8_t Frame::beatFrame;
 int8_t Frame::secondFrame;
+int16_t Frame::secondTime;
 
 
 /*----------------------------------------//
@@ -43,6 +46,17 @@ void Frame::updateFrame(void)
   if (tickFrame == 2)
   {
     tickFrame = 0;
+  }
+
+  if (beatFrame == 2)
+  {
+    beatFrame = 0;
+  }
+
+  if (secondFrame == 4)
+  {
+    secondFrame = 0;
+    secondTime++;
   }
 
 }

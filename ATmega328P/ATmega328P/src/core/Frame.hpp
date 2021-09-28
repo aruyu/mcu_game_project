@@ -25,11 +25,15 @@ public:
   ~Frame(){};
 
   static void updateFrame(void);
+  static void updateBeat(void);
 
   static int8_t frameRate;
+  static int8_t tickFrame;
   static int8_t fourFrames;
   static int8_t sixFrames;
-  static int8_t tickFrame;
+
+  static int8_t beatFrame;
   static int8_t secondFrame;
+  static int16_t secondTime;
 
 };

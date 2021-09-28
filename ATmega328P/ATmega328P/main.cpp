@@ -11,6 +11,8 @@
 #include "src/core/Game.hpp"
 
 using namespace MCU::Setting;
+
+ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
 Game game;
@@ -24,9 +26,12 @@ int main(void)
 {
   beginPort(B, OUT);
   beginPort(D, OUT);
+  beginTimer(1, COMP);
   beginTimer(2, COMP);
   beginPWM(OC0A, FAST);
   beginSPI();
+
+
   TCCR0B = 0x00;
 
   sei();
@@ -45,6 +50,12 @@ int main(void)
 ---------------  MAIN END  ---------------
 //========================================*/
 
+
+ISR(TIMER1_COMPA_vect)
+{
+  Frame::beatFrame++;
+  Frame::secondFrame++;
+}
 
 ISR(TIMER2_COMPA_vect)
 {
