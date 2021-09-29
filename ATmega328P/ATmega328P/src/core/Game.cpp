@@ -49,12 +49,12 @@ void Game::start(void)
   setColor(BLACK, WHITE);
   _delay_ms(100);
   sei();
-  
+
   //Player user;
 
   while (1)
   {
-    //Frame::updateFrame();
+    //Frame::update();
     //user.startPlayer();
 
     print(30, 50, Frame::presentTime);

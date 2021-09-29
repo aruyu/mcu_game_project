@@ -12,7 +12,6 @@
 
 using namespace MCU::Setting;
 
-ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
 Game game;
