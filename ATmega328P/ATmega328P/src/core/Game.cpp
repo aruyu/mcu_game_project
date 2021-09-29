@@ -45,8 +45,8 @@ void Game::title(void)
 
 void Game::start(void)
 {
-
   fillScreen(BLACK);
+  setColor(BLACK, WHITE);
   _delay_ms(100);
 
   //Player user;
@@ -55,16 +55,149 @@ void Game::start(void)
   {
     //Frame::updateFrame();
     //user.startPlayer();
-	
-	TCCR0B = 0x0D;
-	
-	for (int i=0; i<51; i++)
-	{
-		OCR0A = i;
-		_delay_ms(1000);
-	}
 
+    print(30, 70, "0x0B, 64");
+
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 36;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 47;
+    TCCR0B = 0x0B;
+    _delay_ms(500);
+    TCCR0B = 0x00;
+    _delay_ms(500);
+	
+	/////
+
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 47;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 53;
+    TCCR0B = 0x0B;
+    _delay_ms(750);
+    TCCR0B = 0x00;
+    _delay_ms(1250);
+	
+    ////
     
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 36;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 47;
+    TCCR0B = 0x0B;
+    _delay_ms(500);
+    TCCR0B = 0x00;
+    _delay_ms(500);
+    
+    /////
+
+    OCR0A = 40;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    OCR0A = 47;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 53;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+    
+    OCR0A = 47;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+
+    OCR0A = 60;
+    TCCR0B = 0x0B;
+    _delay_ms(250);
+    TCCR0B = 0x00;
+    _delay_ms(250);
+	
+    OCR0A = 80;
+    TCCR0B = 0x0B;
+    _delay_ms(750);
+    TCCR0B = 0x00;
+    _delay_ms(1250);
+
   }
 
 }

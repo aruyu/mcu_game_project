@@ -32,11 +32,11 @@
 
 #define OVF 0
 #define COMP 1
-#define CORRECT 2
-#define FAST 3
-#define MAINTAIN 4
-#define DOWN 5
-#define UP 6
+#define CORRECT 0
+#define FAST 1
+#define MAINTAIN 0
+#define DOWN 1
+#define UP 2
 
 #define _OCR0A 0xFF   // Compare with 255   Timer0
 #define _OCR2A 0xF9   // Compare with 249   Timer2 (16ms in 1024 Prescaler)
