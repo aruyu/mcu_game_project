@@ -35,5 +35,6 @@ public:
   void setColor(uint16_t color0Bit, uint16_t color1Bit) { m_Background = color0Bit; m_Colored = color1Bit; }
   void printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII);
   void print(int16_t xPos, int16_t yPos, const char *stringValue);
+  void print(int16_t xPos, int16_t yPos, uint32_t intager);
 
 };

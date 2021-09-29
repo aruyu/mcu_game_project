@@ -9,8 +9,10 @@
 
 #include "Frame.hpp"
 
-int8_t Frame::frameRate;
-int8_t Frame::tickFrame;
+uint32_t Frame::presentTime;
+uint32_t Frame::pastTick;
+uint32_t Frame::pastBeat;
+
 int8_t Frame::fourFrames;
 int8_t Frame::sixFrames;
 
@@ -20,43 +22,51 @@ int16_t Frame::secondTime;
 
 
 /*----------------------------------------//
-                Update Frame
+              Update Timer
 //----------------------------------------*/
 
-void Frame::updateFrame(void)
+void Frame::update(void)
 {
 
-  if (frameRate == 7)
+  if (presentTime > pastTick + 20)
   {
-    frameRate = 0;
+
+    pastTick = presentTime;
+
     fourFrames++;
     sixFrames++;
 
-    if (fourFrames == 4)
+    if (fourFrames == 5)
     {
       fourFrames = 0;
     }
 
-    if (sixFrames == 6)
+    if (sixFrames == 7)
     {
       sixFrames = 0;
     }
+
   }
 
-  if (tickFrame == 2)
+  if (presentTime > pastBeat + 50)
   {
-    tickFrame = 0;
-  }
 
-  if (beatFrame == 2)
-  {
-    beatFrame = 0;
-  }
+    pastTick = presentTime;
 
-  if (secondFrame == 4)
-  {
-    secondFrame = 0;
-    secondTime++;
+    beatFrame++;
+    secondFrame++;
+
+    if (beatFrame == 2)
+    {
+      beatFrame = 0;
+    }
+
+    if (beatFrame == 20)
+    {
+      secondFrame = 0;
+      secondTime++;
+    }
+
   }
 
 }

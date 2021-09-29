@@ -24,10 +24,12 @@ public:
   Frame(){};
   ~Frame(){};
 
-  static void updateFrame(void);
-  static void updateBeat(void);
+  static void update(void);
 
-  static int8_t frameRate;
+  static uint32_t presentTime;
+  static uint32_t pastBeat;
+  static uint32_t pastTick;
+
   static int8_t tickFrame;
   static int8_t fourFrames;
   static int8_t sixFrames;

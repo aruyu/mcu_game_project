@@ -73,3 +73,28 @@ void Font::print(int16_t xPos, int16_t yPos, const char *stringValue)
   }
 
 }
+
+/*----------------------------------------//
+              Print Intager
+//----------------------------------------*/
+
+void Font::print(int16_t xPos, int16_t yPos, uint32_t intager)
+{
+
+  uint32_t placeValue = 1;
+  uint8_t digit = 1;
+
+  while ((intager / placeValue) > 9)
+  {
+    digit++;
+    placeValue *= 10;
+  }
+  
+  for (int i=0; i<digit; i++)
+  {
+    printLetter(xPos + (16 * i), yPos, ((intager / placeValue) + 0x30));
+    intager %= placeValue;
+    placeValue /= 10;
+  }
+
+}

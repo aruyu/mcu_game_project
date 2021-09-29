@@ -26,7 +26,6 @@ int main(void)
 {
   beginPort(B, OUT);
   beginPort(D, OUT);
-  beginTimer(1, COMP);
   beginTimer(2, COMP);
   beginPWM(OC0A, FAST);
   beginSPI();
@@ -34,7 +33,7 @@ int main(void)
 
   TCCR0B = 0x00;
 
-  sei();
+  cli();
 
   game.title();
 
@@ -51,14 +50,7 @@ int main(void)
 //========================================*/
 
 
-ISR(TIMER1_COMPA_vect)
-{
-  Frame::beatFrame++;
-  Frame::secondFrame++;
-}
-
 ISR(TIMER2_COMPA_vect)
 {
-  Frame::frameRate++;
-  Frame::tickFrame++;
+  Frame::presentTime++;
 }

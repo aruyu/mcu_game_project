@@ -48,7 +48,8 @@ void Game::start(void)
   fillScreen(BLACK);
   setColor(BLACK, WHITE);
   _delay_ms(100);
-
+  sei();
+  
   //Player user;
 
   while (1)
@@ -56,7 +57,25 @@ void Game::start(void)
     //Frame::updateFrame();
     //user.startPlayer();
 
-    print(30, 70, "0x0B, 64");
+    print(30, 50, Frame::presentTime);
+  }
+
+}
+
+
+/*
+31 = 8B
+34 = 8A#
+36 = 8A
+38 = 8G#
+40 = 8G
+42 = 8F#
+45 = 8F
+47 = 8E
+50 = 8D#
+53 = 8D
+56 = 8C#
+60 = 8C
 
     OCR0A = 40;
     TCCR0B = 0x0B;
@@ -197,23 +216,4 @@ void Game::start(void)
     _delay_ms(750);
     TCCR0B = 0x00;
     _delay_ms(1250);
-
-  }
-
-}
-
-
-/*
-31 = 8B
-34 = 8A#
-36 = 8A
-38 = 8G#
-40 = 8G
-42 = 8F#
-45 = 8F
-47 = 8E
-50 = 8D#
-53 = 8D
-56 = 8C#
-60 = 8C
 */
