@@ -16,12 +16,12 @@
 
 void Player::startPlayer(void)
 {
-
+  
   for (int i=0; i<6; i++)
   {
     if (Frame::sixFrames == i)
     {
-      drawTile(60, 120, charRun, i, BLACK, MAROON, RED, WHITE);
+      drawBitmap(60, 120, 40, 40, charRun, i, BLACK, MAROON, RED, WHITE);
     }
   }
 

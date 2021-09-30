@@ -28,17 +28,17 @@ void SW::init(void)
 
   switch (m_SwitchPort)
   {
-  // PORTB
+    // PORTB
   case B:
     newData = PINB;
     break;
 
-  // PORTC
+    // PORTC
   case C:
     newData = PINC;
     break;
 
-  // PORTD
+    // PORTD
   case D:
     newData = PIND;
     break;
@@ -49,19 +49,19 @@ void SW::init(void)
 
   switch (m_SwitchMode)
   {
-  // REVERSAL
+    // REVERSAL
   case REVERSAL:
     result = oldData & ~newData;
     oldData = newData;
     break;
 
-  // NONREVERSAL
+    // NONREVERSAL
   case NONREVERSAL:
     result = oldData & newData;
     oldData = ~newData;
     break;
 
-  // SENSOR
+    // SENSOR
   case SENSOR:
     result = newData & maxData;
     break;

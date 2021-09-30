@@ -20,10 +20,10 @@ void Game::title(void)
   setRotation(0);
 
   fillScreen(WHITE);
-  drawBitmap(8, 70, 152, 48, logoAtmel, BLACK, RED, BLUE, WHITE);
+  drawBitmapOnce(8, 70, 152, 48, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(500);
 
-  drawBitmapTwice(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+  drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(3000);
 
   fillScreen(BLACK);
@@ -35,8 +35,11 @@ void Game::title(void)
   setColor(BLACK, CYAN);
   print(30, 120, "And Welcome to");
   setColor(BLACK, RED);
-  print(30, 136, "Atmega Game (^0^)");
+  print(30, 136, "Atmega Game (^O^)");
   _delay_ms(5000);
+
+  fillScreen(BLACK);
+  setColor(BLACK, WHITE);
 }
 
 /*----------------------------------------//
@@ -45,175 +48,21 @@ void Game::title(void)
 
 void Game::start(void)
 {
-  fillScreen(BLACK);
-  setColor(BLACK, WHITE);
+  
   _delay_ms(100);
-  sei();
 
-  //Player user;
+  print(40, 40, "TIME:");
+
+  Player user;
+
+  Frame::secondTime = 0;
+  Frame::init();
 
   while (1)
   {
-    //Frame::update();
-    //user.startPlayer();
-
-    print(30, 50, Frame::presentTime);
+    Frame::update();
+    user.startPlayer();
+    print(130, 40, Frame::secondTime);
   }
 
 }
-
-
-/*
-31 = 8B
-34 = 8A#
-36 = 8A
-38 = 8G#
-40 = 8G
-42 = 8F#
-45 = 8F
-47 = 8E
-50 = 8D#
-53 = 8D
-56 = 8C#
-60 = 8C
-
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 36;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 47;
-    TCCR0B = 0x0B;
-    _delay_ms(500);
-    TCCR0B = 0x00;
-    _delay_ms(500);
-	
-	/////
-
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 47;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 53;
-    TCCR0B = 0x0B;
-    _delay_ms(750);
-    TCCR0B = 0x00;
-    _delay_ms(1250);
-	
-    ////
-    
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 36;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 47;
-    TCCR0B = 0x0B;
-    _delay_ms(500);
-    TCCR0B = 0x00;
-    _delay_ms(500);
-    
-    /////
-
-    OCR0A = 40;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    OCR0A = 47;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 53;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-    
-    OCR0A = 47;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-
-    OCR0A = 60;
-    TCCR0B = 0x0B;
-    _delay_ms(250);
-    TCCR0B = 0x00;
-    _delay_ms(250);
-	
-    OCR0A = 80;
-    TCCR0B = 0x0B;
-    _delay_ms(750);
-    TCCR0B = 0x00;
-    _delay_ms(1250);
-*/

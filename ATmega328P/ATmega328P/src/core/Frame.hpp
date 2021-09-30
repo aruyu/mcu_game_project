@@ -25,17 +25,17 @@ public:
   ~Frame(){};
 
   static void update(void);
+  static void init(void);
 
+  static uint16_t secondTime;
   static uint32_t presentTime;
-  static uint32_t pastBeat;
   static uint32_t pastTick;
+  static uint32_t pastFrame;
+  static uint32_t pastBeat;
 
-  static int8_t tickFrame;
+  static int8_t oneTick;
   static int8_t fourFrames;
   static int8_t sixFrames;
-
-  static int8_t beatFrame;
-  static int8_t secondFrame;
-  static int16_t secondTime;
+  static int8_t sixteenBeats;
 
 };

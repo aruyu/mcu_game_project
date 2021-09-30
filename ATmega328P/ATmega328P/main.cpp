@@ -12,6 +12,7 @@
 
 using namespace MCU::Setting;
 
+ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
 Game game;
@@ -25,14 +26,13 @@ int main(void)
 {
   beginPort(B, OUT);
   beginPort(D, OUT);
+  beginTimer(1, COMP);
   beginTimer(2, COMP);
   beginPWM(OC0A, FAST);
   beginSPI();
-
+  sei();
 
   TCCR0B = 0x00;
-
-  cli();
 
   game.title();
 
@@ -49,7 +49,26 @@ int main(void)
 //========================================*/
 
 
+ISR(TIMER1_COMPA_vect)
+{
+  Frame::secondTime++;
+}
+
 ISR(TIMER2_COMPA_vect)
 {
   Frame::presentTime++;
 }
+
+  /*
+  ISR(PCINT0_vect)
+  {
+    if (SW_ == 0)
+    {
+      SW_ = 1;
+    }
+    
+    else
+    {
+      SW_ = 0;
+    }
+  }*/

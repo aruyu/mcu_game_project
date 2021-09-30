@@ -25,9 +25,8 @@ class Player : public TFT
 {
 
 private:
-  int8_t m_YPos;
   int8_t m_Life;
-  int8_t m_Weapon;
+  bool mIs_Jump;
 
 public:
   Player() : TFT() { m_Life = 3; }
