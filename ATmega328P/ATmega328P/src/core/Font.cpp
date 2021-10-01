@@ -92,7 +92,7 @@ void Font::print(int16_t xPos, int16_t yPos, uint32_t intager)
   
   for (int i=0; i<digit; i++)
   {
-    printLetter(xPos + (16 * i), yPos, ((intager / placeValue) + 0x30));
+    printLetter(xPos + (16 * i), yPos, (intager / placeValue) + 0x30);
     intager %= placeValue;
     placeValue /= 10;
   }

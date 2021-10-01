@@ -18,11 +18,9 @@ void Game::title(void)
 {
   begin();
   setRotation(0);
-
   fillScreen(WHITE);
-  drawBitmapOnce(8, 70, 152, 48, logoAtmel, BLACK, RED, BLUE, WHITE);
-  _delay_ms(500);
 
+  _delay_ms(1000);
   drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(3000);
 
@@ -40,6 +38,8 @@ void Game::title(void)
 
   fillScreen(BLACK);
   setColor(BLACK, WHITE);
+  print(16, 16, "Time:");
+  fillRect(0, 180, 320, 60, WHITE);
 }
 
 /*----------------------------------------//
@@ -51,18 +51,17 @@ void Game::start(void)
   
   _delay_ms(100);
 
-  print(40, 40, "TIME:");
-
+  Frame frame;
   Player user;
 
   Frame::secondTime = 0;
-  Frame::init();
+  frame.init();
 
   while (1)
   {
-    Frame::update();
+    frame.update();
     user.startPlayer();
-    print(130, 40, Frame::secondTime);
+    print(100, 16, Frame::secondTime);
   }
 
 }

@@ -150,7 +150,7 @@ void TFT::setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height)
 }
 
 /*----------------------------------------//
-              Fill Screen
+                Fill Screen
 //----------------------------------------*/
 
 void TFT::fillScreen(uint16_t colorValue)
@@ -169,9 +169,28 @@ void TFT::fillScreen(uint16_t colorValue)
 }
 
 /*----------------------------------------//
-                Draw Bitmap
+                Fill Rect
 //----------------------------------------*/
 
+void TFT::fillRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue)
+{
+
+  setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
+
+  for (int yPos=height; yPos>0; yPos--)
+  {
+    for (int xPos=width; xPos>0; xPos--)
+    {
+      exportLongData(colorValue);
+    }
+  }
+
+}
+
+/*----------------------------------------//
+                Draw Bitmap
+//----------------------------------------*/
+/*
 void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
     uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
@@ -219,7 +238,7 @@ void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t heig
   }
 
 }
-
+*/
 /*----------------------------------------//
             Draw Doubled Bitmap
 //----------------------------------------*/
@@ -281,10 +300,71 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 }
 
 /*----------------------------------------//
-            Draw Doubled Bitmap
+            Draw 100bytes Bitmap
 //----------------------------------------*/
 
 void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[100], int8_t tileSelection,
+    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+{
+
+  uint8_t data;
+  uint8_t temp;
+
+  setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
+
+  for (int i=0; i<(height / 2); i++)
+  {
+    for (int j=0; j<2; j++)
+    {
+      for (int k=0; k<(width / 8); k++)
+      {
+
+        data = pgm_read_byte(&bitmap[tileSelection][i * (width / 8) + k]);
+
+        for (int l=0; l<4; l++)
+        {
+          temp = data >> 6;
+
+          for (int m=0; m<2; m++)
+          {
+
+            if (temp == 0x00)       //1Pixel = 00
+            {
+              exportLongData(color0Bit);
+            }
+
+            else if (temp == 0x01)  //1Pixel = 01
+            {
+              exportLongData(color1Bit);
+            }
+
+            else if (temp == 0x02)  //1Pixel = 10
+            {
+              exportLongData(color2Bit);
+            }
+
+            else if (temp == 0x03)  //1Pixel = 11
+            {
+              exportLongData(color3Bit);
+            }
+
+          }
+
+          data <<= 2;
+        }
+
+      }
+    }
+  }
+
+}
+
+
+/*----------------------------------------//
+            Draw 160bytes Bitmap
+//----------------------------------------*/
+
+void TFT::drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
     uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 

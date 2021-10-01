@@ -9,65 +9,31 @@
 
 #include "SW.hpp"
 
+bool SW::interrupt0 = OFF;
+bool SW::interrupt1 = OFF;
+bool SW::PCInterrupt8 = OFF;
+bool SW::PCInterrupt9 = OFF;
+bool SW::PCInterrupt10 = OFF;
+bool SW::PCInterrupt11 = OFF;
+bool SW::PCInterrupt12 = OFF;
+bool SW::PCInterrupt13 = OFF;
+
 
 /*----------------------------------------//
             Set Sensor Value
 //----------------------------------------*/
-
+/*
 void SW::setMax(uint8_t maxValue)
 {
-  maxData = maxValue;
+  
 }
-
+*/
 /*----------------------------------------//
             Initialize Switch
 //----------------------------------------*/
-
+/*
 void SW::init(void)
 {
 
-  switch (m_SwitchPort)
-  {
-    // PORTB
-  case B:
-    newData = PINB;
-    break;
-
-    // PORTC
-  case C:
-    newData = PINC;
-    break;
-
-    // PORTD
-  case D:
-    newData = PIND;
-    break;
-
-  default:
-    break;
-  }
-
-  switch (m_SwitchMode)
-  {
-    // REVERSAL
-  case REVERSAL:
-    result = oldData & ~newData;
-    oldData = newData;
-    break;
-
-    // NONREVERSAL
-  case NONREVERSAL:
-    result = oldData & newData;
-    oldData = ~newData;
-    break;
-
-    // SENSOR
-  case SENSOR:
-    result = newData & maxData;
-    break;
-
-  default:
-    break;
-  }
-
 }
+*/

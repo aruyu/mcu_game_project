@@ -9,6 +9,7 @@
 
 #pragma once
 #include "../modules/MCU.hpp"
+#include "../modules/SW.hpp"
 #include "../modules/TFT.hpp"
 #include "../assets/LogoAtmel.hpp"
 #include "../assets/FontASCII.hpp"

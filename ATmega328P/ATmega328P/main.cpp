@@ -7,11 +7,11 @@
  *    Contact     - vine9151@gmail.com
  */
 
-#include "src/modules/MCU.hpp"
 #include "src/core/Game.hpp"
-
 using namespace MCU::Setting;
 
+ISR(INT0_vect);
+//ISR(INT1_vect);
 ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
@@ -25,7 +25,10 @@ Game game;
 int main(void)
 {
   beginPort(B, OUT);
-  beginPort(D, OUT);
+  beginPin(D, 6);
+
+  beginINT(0, DOWN);
+  //beginINT(1, DOWN);
   beginTimer(1, COMP);
   beginTimer(2, COMP);
   beginPWM(OC0A, FAST);
@@ -49,6 +52,11 @@ int main(void)
 //========================================*/
 
 
+ISR(INT0_vect)
+{
+  SW::interrupt0 = ON;
+}
+
 ISR(TIMER1_COMPA_vect)
 {
   Frame::secondTime++;
@@ -59,16 +67,17 @@ ISR(TIMER2_COMPA_vect)
   Frame::presentTime++;
 }
 
-  /*
-  ISR(PCINT0_vect)
+/*
+ISR(PCINT0_vect)
+{
+  if (SW_ == 0)
   {
-    if (SW_ == 0)
-    {
-      SW_ = 1;
-    }
-    
-    else
-    {
-      SW_ = 0;
-    }
-  }*/
+    SW_ = 1;
+  }
+  
+  else
+  {
+    SW_ = 0;
+  }
+}
+*/

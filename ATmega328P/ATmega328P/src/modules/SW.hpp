@@ -10,23 +10,6 @@
 #pragma once
 #include "MCU.hpp"
 
-#define REVERSAL 0
-#define NONREVERSAL 1
-#define SENSOR 2
-
-#define SW_OFF 0x00
-#define SW_0 0x01
-#define SW_1 0x02
-#define SW_2 0x04
-#define SW_3 0x08
-#define SW_4 0x10
-#define SW_5 0x20
-#define SW_6 0x40
-#define SW_7 0x80
-
-typedef volatile unsigned int NonOptimal;
-//using NonOptimal = volatile unsigned int;
-
 
 /*
 //==========================================
@@ -42,17 +25,16 @@ private:
   int8_t m_SwitchMode;
 
 public:
-  SW(int8_t switchPort, int8_t switchMode)
-  {
-    m_SwitchPort = switchPort;
-    m_SwitchMode = switchMode;
-  }
-  void setMax(uint8_t maxValue);
-  void init(void);
+  SW(){};
+  ~SW(){};
 
-  NonOptimal newData;
-  NonOptimal oldData;
-  NonOptimal result;
-  uint8_t maxData;
+  static bool interrupt0;
+  static bool interrupt1;
+  static bool PCInterrupt8;
+  static bool PCInterrupt9;
+  static bool PCInterrupt10;
+  static bool PCInterrupt11;
+  static bool PCInterrupt12;
+  static bool PCInterrupt13;
 
 };

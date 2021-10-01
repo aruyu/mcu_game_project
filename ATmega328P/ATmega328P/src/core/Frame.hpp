@@ -20,18 +20,20 @@
 class Frame
 {
 
+private:
+  uint32_t m_PastTick;
+  uint32_t m_PastFrame;
+  uint32_t m_PastBeat;
+
 public:
   Frame(){};
   ~Frame(){};
 
-  static void update(void);
-  static void init(void);
+  void update(void);
+  void init(void);
 
   static uint16_t secondTime;
   static uint32_t presentTime;
-  static uint32_t pastTick;
-  static uint32_t pastFrame;
-  static uint32_t pastBeat;
 
   static int8_t oneTick;
   static int8_t fourFrames;

@@ -9,15 +9,12 @@
 
 #include "Frame.hpp"
 
-uint16_t Frame::secondTime;
-uint32_t Frame::presentTime;
-uint32_t Frame::pastTick;
-uint32_t Frame::pastFrame;
-uint32_t Frame::pastBeat;
+uint16_t Frame::secondTime = 0;
+uint32_t Frame::presentTime = 0;
 
-int8_t Frame::oneTick;
-int8_t Frame::fourFrames;
-int8_t Frame::sixFrames;
+int8_t Frame::oneTick = 0;
+int8_t Frame::fourFrames = 0;
+int8_t Frame::sixFrames = 0;
 int8_t Frame::sixteenBeats = 1;
 
 
@@ -28,10 +25,10 @@ int8_t Frame::sixteenBeats = 1;
 void Frame::update(void)
 {
 
-  if (presentTime >= pastTick + 10)
+  if (presentTime >= m_PastTick + 5)
   {
 
-    pastTick = presentTime;
+    m_PastTick = presentTime;
 
     oneTick++;
 
@@ -42,10 +39,10 @@ void Frame::update(void)
 
   }
 
-  if (presentTime >= pastFrame + 100)
+  if (presentTime >= m_PastFrame + 100)
   {
 
-    pastFrame = presentTime;
+    m_PastFrame = presentTime;
 
     fourFrames++;
     sixFrames++;
@@ -62,10 +59,10 @@ void Frame::update(void)
 
   }
 
-  if (presentTime >= pastBeat + 125)
+  if (presentTime >= m_PastBeat + 125)
   {
 
-    pastBeat = presentTime;
+    m_PastBeat = presentTime;
 
     sixteenBeats++;
 
@@ -84,7 +81,7 @@ void Frame::update(void)
 
 void Frame::init(void)
 {
-  pastTick = presentTime;
-  pastFrame = presentTime;
-  pastBeat = presentTime;
+  m_PastTick = presentTime;
+  m_PastFrame = presentTime;
+  m_PastBeat = presentTime;
 }
