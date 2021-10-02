@@ -19,7 +19,9 @@ main.d main.o: .././main.cpp .././src/core/Game.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././src/core/../modules/SW.hpp .././src/core/../modules/TFT.hpp \
  .././src/core/../assets/LogoAtmel.hpp \
- .././src/core/../assets/FontASCII.hpp .././src/core/Font.hpp \
+ .././src/core/../assets/FontASCII.hpp \
+ .././src/core/../assets/TitleMenu.hpp \
+ .././src/core/../assets/groundTile.hpp .././src/core/Font.hpp \
  .././src/core/Frame.hpp .././src/core/Object.hpp \
  .././src/core/Player.hpp .././src/core/../assets/CharStand.hpp \
  .././src/core/../assets/CharRun.hpp .././src/core/../assets/CharUp.hpp \
@@ -70,6 +72,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././src/core/../assets/LogoAtmel.hpp:
 
 .././src/core/../assets/FontASCII.hpp:
+
+.././src/core/../assets/TitleMenu.hpp:
+
+.././src/core/../assets/groundTile.hpp:
 
 .././src/core/Font.hpp:
 

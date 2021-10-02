@@ -1,5 +1,5 @@
 /*
-        Image size            H = 128    V = 48
+        Image size            W = 128    H = 48
 
         B/W 1bit/pixel       Total : 768 Bytes
 */

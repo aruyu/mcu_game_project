@@ -13,6 +13,8 @@
 #include "../modules/TFT.hpp"
 #include "../assets/LogoAtmel.hpp"
 #include "../assets/FontASCII.hpp"
+#include "../assets/TitleMenu.hpp"
+#include "../assets/groundTile.hpp"
 
 #include "Font.hpp"
 #include "Frame.hpp"

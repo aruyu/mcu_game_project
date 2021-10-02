@@ -25,21 +25,19 @@ void Game::title(void)
   _delay_ms(3000);
 
   fillScreen(BLACK);
-  setFont(fontASCII);
-  setColor(BLACK, WHITE);
-  print(30, 70, "Hello, World!");
-  _delay_ms(1000);
-
-  setColor(BLACK, CYAN);
-  print(30, 120, "And Welcome to");
-  setColor(BLACK, RED);
-  print(30, 136, "Atmega Game (^O^)");
+  drawBitmap(8, 16, 304, 224, titleMenu, BLACK, MAROON, RED, WHITE);
+  _delay_ms(5000);
   _delay_ms(5000);
 
   fillScreen(BLACK);
+  setFont(fontASCII);
   setColor(BLACK, WHITE);
   print(16, 16, "Time:");
-  fillRect(0, 180, 320, 60, WHITE);
+  //fillRect(0, 180, 320, 60, WHITE);
+  for (int i=0; i<5; i++)
+  {
+    drawBitmap(64 * i, 176, 64, 64, groundTile, BLACK, MAROON, RED, WHITE);
+  }
 }
 
 /*----------------------------------------//

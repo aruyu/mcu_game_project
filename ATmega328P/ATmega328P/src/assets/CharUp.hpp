@@ -1,5 +1,5 @@
 /*
-        Image size            H = 16    V = 25
+        Image size            W = 16    H = 25
 
         Gray 2bit/pixel       Total : 100 x 4 Bytes
 */
