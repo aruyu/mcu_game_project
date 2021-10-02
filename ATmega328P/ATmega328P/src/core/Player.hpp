@@ -29,6 +29,7 @@ class Player : public TFT
 {
 
 private:
+  int8_t m_JumpSpeed;
   int8_t m_JumpTemp;
   int8_t m_JumpHeight;
   bool mIs_Reset;

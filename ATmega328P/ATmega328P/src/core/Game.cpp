@@ -20,7 +20,7 @@ void Game::title(void)
   setRotation(0);
   fillScreen(WHITE);
 
-  _delay_ms(1000);
+  _delay_ms(500);
   drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
   _delay_ms(3000);
 

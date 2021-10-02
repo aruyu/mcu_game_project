@@ -43,7 +43,7 @@ void Player::jumping(void)
       m_JumpTemp ++;
       m_JumpHeight -= 6;
 
-      if (m_JumpTemp == 3)
+      if (m_JumpTemp == 4)
       {
         m_JumpHeight += 6;
         mIs_Up = false;
@@ -61,9 +61,7 @@ void Player::jumping(void)
 
       if (m_JumpHeight <= 0)
       {
-        fillRect(60, 140 - 40, 40, 40, BLACK);
-        fillRect(60, 140 + 40, 40, 40, BLACK);
-        fillRect(60, 180, 40, 40, WHITE);
+        fillRect(60, 140 - 25, 40, 25, BLACK);
         SW::interrupt0 = OFF;
         mIs_Jump = false;
         mIs_Reset = false;
@@ -79,11 +77,8 @@ void Player::jumping(void)
     {
       if (Frame::fourFrames == i)
       {
-        drawBitmap(60, 130 - m_JumpHeight, 32, 50, charUp, i, BLACK, MAROON, RED, WHITE);
-
-        //fillRect(60, (130 - m_JumpHeight) - 8, 32, 8, BLACK);
-        fillRect(60, (130 - m_JumpHeight) + 50, 32, 8, BLACK);
-        fillRect(60, 180, 40, 15, WHITE);
+        drawBitmap(60, 122 - m_JumpHeight, 32, 50, charUp, i, BLACK, MAROON, RED, WHITE);
+        fillRect(60, (122 - m_JumpHeight) + 50, 32, 8, BLACK);
       }
     }
   }
@@ -94,10 +89,8 @@ void Player::jumping(void)
     {
       if (Frame::fourFrames == i)
       {
-        drawBitmap160(60, 125 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
-
-        fillRect(60, (125 - m_JumpHeight) - 8, 40, 8, BLACK);
-        //fillRect(60, (125 - m_JumpHeight) + 64, 40, 12, BLACK);
+        drawBitmap160(60, 122 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
+        fillRect(60, (122 - m_JumpHeight) - 8, 40, 8, BLACK);
       }
     }
   }
@@ -126,7 +119,7 @@ void Player::startPlayer(void)
   {
     if (mIs_Reset == false)
     {
-      fillRect(92, 130, 8, 50, BLACK);
+      fillRect(60, 140, 40, 40, BLACK);
       m_JumpTemp = 0;
       m_JumpHeight = 0;
       mIs_Up = true;
