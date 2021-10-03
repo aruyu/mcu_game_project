@@ -21,22 +21,21 @@ void Game::title(void)
   fillScreen(WHITE);
 
   _delay_ms(500);
-  drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+  drawBitmap(8, 70, 304, 96, logoAtmel, 2, BLACK, RED, BLUE, WHITE);
   _delay_ms(3000);
 
   fillScreen(BLACK);
-  drawBitmap(8, 16, 304, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-  _delay_ms(5000);
-  _delay_ms(5000);
+  drawBitmap(8, 16, 304, 224, titleMenu, 2, BLACK, MAROON, RED, WHITE);
+  _delay_ms(7500);
 
   fillScreen(BLACK);
   setFont(fontASCII);
   setColor(BLACK, WHITE);
   print(16, 16, "Time:");
-  //fillRect(0, 180, 320, 60, WHITE);
+
   for (int i=0; i<5; i++)
   {
-    drawBitmap(64 * i, 176, 64, 64, groundTile, BLACK, MAROON, RED, WHITE);
+    drawBitmap(64 * i, 180, 64, 60, groundTile, 2, BLACK, MAROON, RED, WHITE);
   }
 }
 

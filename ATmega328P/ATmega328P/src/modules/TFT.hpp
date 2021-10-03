@@ -95,13 +95,13 @@ public:
   void fillRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);
   
   void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
+    int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
   
   void drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[100], int8_t tileSelection,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
+    int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
 
   void drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
+    int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit);
 
 };
 

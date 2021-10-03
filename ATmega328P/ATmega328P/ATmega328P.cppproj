@@ -157,13 +157,28 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\assets\CharDown.hpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\assets\CharRun.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\assets\CharStand.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\assets\CharUp.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\assets\FontASCII.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\assets\GroundTile.hpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\assets\LogoAtmel.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\assets\TitleMenu.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\core\Font.cpp">

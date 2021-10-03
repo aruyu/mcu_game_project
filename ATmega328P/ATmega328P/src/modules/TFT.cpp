@@ -192,7 +192,7 @@ void TFT::fillRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, ui
 //----------------------------------------*/
 /*
 void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+  uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
   uint8_t data;
@@ -240,11 +240,11 @@ void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t heig
 }
 */
 /*----------------------------------------//
-            Draw Doubled Bitmap
+                Draw Bitmap
 //----------------------------------------*/
 
 void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+  int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
   uint8_t data;
@@ -252,20 +252,20 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
-  for (int i=0; i<(height / 2); i++)
+  for (int i=0; i<(height / multiple); i++)
   {
-    for (int j=0; j<2; j++)
+    for (int j=0; j<multiple; j++)
     {
-      for (int k=0; k<(width / 8); k++)
+      for (int k=0; k<(width / (4 * multiple)); k++)
       {
 
-        data = pgm_read_byte(&bitmap[i * (width / 8) + k]);
+        data = pgm_read_byte(&bitmap[i * (width / (4 * multiple)) + k]);
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
 
-          for (int m=0; m<2; m++)
+          for (int m=0; m<multiple; m++)
           {
 
             if (temp == 0x00)       //1Pixel = 00
@@ -304,7 +304,7 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 //----------------------------------------*/
 
 void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[100], int8_t tileSelection,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+  int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
   uint8_t data;
@@ -312,20 +312,20 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
-  for (int i=0; i<(height / 2); i++)
+  for (int i=0; i<(height / multiple); i++)
   {
-    for (int j=0; j<2; j++)
+    for (int j=0; j<multiple; j++)
     {
-      for (int k=0; k<(width / 8); k++)
+      for (int k=0; k<(width / (4 * multiple)); k++)
       {
 
-        data = pgm_read_byte(&bitmap[tileSelection][i * (width / 8) + k]);
+        data = pgm_read_byte(&bitmap[tileSelection][i * (width / (4 * multiple)) + k]);
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
 
-          for (int m=0; m<2; m++)
+          for (int m=0; m<multiple; m++)
           {
 
             if (temp == 0x00)       //1Pixel = 00
@@ -365,7 +365,7 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 //----------------------------------------*/
 
 void TFT::drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
-    uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+  int8_t multiple, uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
 {
 
   uint8_t data;
@@ -373,20 +373,20 @@ void TFT::drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t heigh
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
 
-  for (int i=0; i<(height / 2); i++)
+  for (int i=0; i<(height / multiple); i++)
   {
-    for (int j=0; j<2; j++)
+    for (int j=0; j<multiple; j++)
     {
-      for (int k=0; k<(width / 8); k++)
+      for (int k=0; k<(width / (4 * multiple)); k++)
       {
 
-        data = pgm_read_byte(&bitmap[tileSelection][i * (width / 8) + k]);
+        data = pgm_read_byte(&bitmap[tileSelection][i * (width / (4 * multiple)) + k]);
 
         for (int l=0; l<4; l++)
         {
           temp = data >> 6;
 
-          for (int m=0; m<2; m++)
+          for (int m=0; m<multiple; m++)
           {
 
             if (temp == 0x00)       //1Pixel = 00
