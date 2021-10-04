@@ -25,7 +25,7 @@
 ==========================================//
 */
 
-class Player : public TFT
+class Player : private TFT
 {
 
 private:

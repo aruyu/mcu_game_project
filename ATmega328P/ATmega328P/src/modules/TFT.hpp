@@ -76,7 +76,7 @@ public:
 ==========================================//
 */
 
-class TFT : public SPI
+class TFT : protected SPI
 {
 
 private:

@@ -721,29 +721,29 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x7547
+.debug_info     0x00000000     0x7543
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4     0x2d2a main.o
- .debug_info    0x0000331e      0x841 src/core/Font.o
- .debug_info    0x00003b5f      0x244 src/core/Frame.o
- .debug_info    0x00003da3     0x15d2 src/core/Game.o
- .debug_info    0x00005375      0x95d src/core/Player.o
- .debug_info    0x00005cd2      0x3c2 src/modules/MCU.o
- .debug_info    0x00006094      0x1c1 src/modules/SW.o
- .debug_info    0x00006255     0x12f2 src/modules/TFT.o
+ .debug_info    0x000005f4     0x2d29 main.o
+ .debug_info    0x0000331d      0x841 src/core/Font.o
+ .debug_info    0x00003b5e      0x244 src/core/Frame.o
+ .debug_info    0x00003da2     0x15d0 src/core/Game.o
+ .debug_info    0x00005372      0x95c src/core/Player.o
+ .debug_info    0x00005cce      0x3c2 src/modules/MCU.o
+ .debug_info    0x00006090      0x1c1 src/modules/SW.o
+ .debug_info    0x00006251     0x12f2 src/modules/TFT.o
 
-.debug_abbrev   0x00000000     0x134a
+.debug_abbrev   0x00000000     0x1365
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x252 main.o
- .debug_abbrev  0x000007f4      0x181 src/core/Font.o
- .debug_abbrev  0x00000975       0xe2 src/core/Frame.o
- .debug_abbrev  0x00000a57      0x25f src/core/Game.o
- .debug_abbrev  0x00000cb6      0x1bc src/core/Player.o
- .debug_abbrev  0x00000e72      0x1bf src/modules/MCU.o
- .debug_abbrev  0x00001031       0xb0 src/modules/SW.o
- .debug_abbrev  0x000010e1      0x269 src/modules/TFT.o
+ .debug_abbrev  0x000005a2      0x25b main.o
+ .debug_abbrev  0x000007fd      0x181 src/core/Font.o
+ .debug_abbrev  0x0000097e       0xe2 src/core/Frame.o
+ .debug_abbrev  0x00000a60      0x268 src/core/Game.o
+ .debug_abbrev  0x00000cc8      0x1c5 src/core/Player.o
+ .debug_abbrev  0x00000e8d      0x1bf src/modules/MCU.o
+ .debug_abbrev  0x0000104c       0xb0 src/modules/SW.o
+ .debug_abbrev  0x000010fc      0x269 src/modules/TFT.o
 
 .debug_line     0x00000000     0x1742
  *(.debug_line .debug_line.* .debug_line_end)

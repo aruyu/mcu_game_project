@@ -18,7 +18,7 @@
 ==========================================//
 */
 
-class Font : public TFT
+class Font : protected TFT
 {
 
 private:

@@ -28,7 +28,7 @@
 ==========================================//
 */
 
-class Game : public Font
+class Game : private Font
 {
 
 private:

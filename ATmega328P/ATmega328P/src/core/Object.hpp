@@ -18,7 +18,7 @@
 ==========================================//
 */
 
-class Object : public TFT
+class Object : private TFT
 {
 
 private:
