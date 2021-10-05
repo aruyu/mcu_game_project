@@ -32,10 +32,13 @@ class Game : private Font
 {
 
 private:
-  
+  int8_t m_Cursor;
+  bool mIs_Start;
+  bool mIs_Score;
+  bool mIs_Credit;
 
 public:
-  Game() : Font(){};
+  Game() : Font(){ m_Cursor = 0; mIs_Start = false; mIs_Score = false; mIs_Credit = false; }
   ~Game(){};
 
   void title(void);

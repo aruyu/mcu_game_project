@@ -10,6 +10,14 @@
 #pragma once
 #include "MCU.hpp"
 
+#define SW_OFF 0x00
+#define SW_LEFT 0x01
+#define SW_DOWN 0x02
+#define SW_RIGHT 0x04
+#define SW_UP 0x08
+#define SW_START 0x10
+#define SW_SELECT 0x20
+
 
 /*
 //==========================================
@@ -20,21 +28,22 @@
 class SW
 {
 
-private:
-  int8_t m_SwitchPort;
-  int8_t m_SwitchMode;
-
 public:
   SW(){};
   ~SW(){};
 
   static bool interrupt0;
   static bool interrupt1;
-  static bool PCInterrupt8;
-  static bool PCInterrupt9;
-  static bool PCInterrupt10;
-  static bool PCInterrupt11;
-  static bool PCInterrupt12;
-  static bool PCInterrupt13;
+  static bool up;
+  static bool down;
+  static bool left;
+  static bool right;
+  static bool start;
+  static bool select;
+
+  void update(void);
+  volatile uint8_t newData;
+  volatile uint8_t oldData;
+  volatile uint8_t result;
 
 };

@@ -40,8 +40,8 @@
 
 #define _OCR0A 0xFF   // Compare with 255   Timer0
 #define _OCR2A 0xF9   // Compare with 249   Timer2 (1ms in 64 Prescaler)
-#define _OCR1AH 0x3D
-#define _OCR1AL 0x08  // Compare with 15624 Timer1 (1s in 1024 Prescaler)
+#define _OCR1AH 0x00
+#define _OCR1AL 0xFF  // Compare with 15624 Timer1 (1s in 1024 Prescaler)
 
 
 /*

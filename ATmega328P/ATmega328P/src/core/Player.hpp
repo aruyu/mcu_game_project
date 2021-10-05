@@ -41,7 +41,7 @@ private:
   void dead(void);
 
 public:
-  Player() : TFT() { mIs_Up = false; mIs_Jump = false; mIs_Reset = false; }
+  Player() : TFT() { mIs_Reset = false; mIs_Jump = false; mIs_Up = false; }
   ~Player(){};
 
   void startPlayer(void);

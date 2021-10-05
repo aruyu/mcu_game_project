@@ -11,29 +11,21 @@
 
 bool SW::interrupt0 = OFF;
 bool SW::interrupt1 = OFF;
-bool SW::PCInterrupt8 = OFF;
-bool SW::PCInterrupt9 = OFF;
-bool SW::PCInterrupt10 = OFF;
-bool SW::PCInterrupt11 = OFF;
-bool SW::PCInterrupt12 = OFF;
-bool SW::PCInterrupt13 = OFF;
+bool SW::up = OFF;
+bool SW::down = OFF;
+bool SW::left = OFF;
+bool SW::right = OFF;
+bool SW::start = OFF;
+bool SW::select = OFF;
 
 
-/*----------------------------------------//
-            Set Sensor Value
-//----------------------------------------*/
-/*
-void SW::setMax(uint8_t maxValue)
-{
-  
-}
-*/
 /*----------------------------------------//
             Initialize Switch
 //----------------------------------------*/
-/*
-void SW::init(void)
-{
 
+void SW::update(void)
+{
+  newData = PINC | 0xC0;
+  result = oldData & ~newData;
+	oldData = newData;
 }
-*/

@@ -16,6 +16,7 @@ ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
 Game game;
+SW sw;
 
 
 /*========================================//
@@ -25,6 +26,7 @@ Game game;
 int main(void)
 {
   beginPort(B, OUT);
+  beginPort(C, IN);
   beginPin(D, 6);
 
   beginINT(0, DOWN);
@@ -52,14 +54,23 @@ int main(void)
 //========================================*/
 
 
-ISR(INT0_vect)
-{
-  SW::interrupt0 = ON;
-}
-
 ISR(TIMER1_COMPA_vect)
 {
-  Frame::secondTime++;
+  sw.update();
+
+  switch (sw.result)
+  {
+  case SW_UP:
+    sw.up = ON;
+    break;
+  
+  case SW_DOWN:
+    sw.down = ON;
+    break;
+
+   default:
+    break;
+  }
 }
 
 ISR(TIMER2_COMPA_vect)
@@ -67,17 +78,8 @@ ISR(TIMER2_COMPA_vect)
   Frame::presentTime++;
 }
 
-/*
-ISR(PCINT0_vect)
+
+ISR(INT0_vect)
 {
-  if (SW_ == 0)
-  {
-    SW_ = 1;
-  }
-  
-  else
-  {
-    SW_ = 0;
-  }
+  SW::interrupt0 = ON;
 }
-*/

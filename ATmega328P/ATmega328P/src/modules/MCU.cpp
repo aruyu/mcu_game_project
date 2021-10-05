@@ -231,6 +231,7 @@ void MCU::Setting::beginPCINT(int8_t PCINTIndex)
   if (PCINTIndex <= 7)
   {
     PCMSK0 |= insertBit(PCINTIndex, HIGH);
+    PCICR |= 0x01;
     return;
   }
 
@@ -238,6 +239,7 @@ void MCU::Setting::beginPCINT(int8_t PCINTIndex)
   {
     PCINTIndex -= 8;
     PCMSK1 |= insertBit(PCINTIndex, HIGH);
+    PCICR |= 0x02;
     return;
   }
 
@@ -245,6 +247,7 @@ void MCU::Setting::beginPCINT(int8_t PCINTIndex)
   {
     PCINTIndex -= 16;
     PCMSK1 |= insertBit(PCINTIndex, HIGH);
+    PCICR |= 0x04;
     return;
   }
 

@@ -21,7 +21,7 @@ void Player::running(void)
   {
     if (Frame::sixFrames == i)
     {
-      drawBitmap(60, 140, 40, 40, charRun, i, 2, BLACK, MAROON, RED, WHITE);
+      drawBitmap(60, 140, 40, 40, charRun, i, BLACK, MAROON, RED, WHITE);
     }
   }
 
@@ -76,7 +76,7 @@ void Player::jumping(void)
     {
       if (Frame::fourFrames == i)
       {
-        drawBitmap(60, 122 - m_JumpHeight, 32, 50, charUp, i, 2, BLACK, MAROON, RED, WHITE);
+        drawBitmap(60, 122 - m_JumpHeight, 32, 50, charUp, i, BLACK, MAROON, RED, WHITE);
         fillRect(60, (122 - m_JumpHeight) + 50, 32, 8, BLACK);
       }
     }
@@ -88,7 +88,7 @@ void Player::jumping(void)
     {
       if (Frame::fourFrames == i)
       {
-        drawBitmap160(60, 122 - m_JumpHeight, 40, 64, charDown, i, 2, BLACK, MAROON, RED, WHITE);
+        drawBitmap160(60, 122 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
         fillRect(60, (122 - m_JumpHeight) - 8, 40, 8, BLACK);
       }
     }
