@@ -32,6 +32,12 @@ public:
   SW(){};
   ~SW(){};
 
+  static void update(void);
+  static void init(void);
+  static volatile uint8_t result;
+  static volatile uint8_t newData;
+  static volatile uint8_t oldData;
+
   static bool interrupt0;
   static bool interrupt1;
   static bool up;
@@ -40,10 +46,5 @@ public:
   static bool right;
   static bool start;
   static bool select;
-
-  void update(void);
-  volatile uint8_t newData;
-  volatile uint8_t oldData;
-  volatile uint8_t result;
 
 };

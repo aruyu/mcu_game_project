@@ -11,41 +11,15 @@
 
 
 /*----------------------------------------//
-                Game Title
+              Game Title Loop
 //----------------------------------------*/
 
-void Game::title(void)
+void Game::titleLoop(void)
 {
-  begin();
-  setRotation(0);
-
-  fillScreen(WHITE);
-  drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
-  _delay_ms(3000);
-
-  fillScreen(BLACK);
-  drawBitmap(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-  _delay_ms(500);
-
-  setFont(fontASCII);
-  setColor(BLACK, WHITE);
-}
-
-/*----------------------------------------//
-                Start Game
-//----------------------------------------*/
-
-void Game::start(void)
-{
-  
-  _delay_ms(100);
-
-  Frame frame;
-  frame.init();
 
   while (1)
   {
-    frame.update();
+    Frame::update();
 
     if (SW::up == ON)
     {
@@ -71,28 +45,53 @@ void Game::start(void)
       SW::down = OFF;
     }
 
-    if (Frame::sixFrames == 0)
+    switch (m_Cursor)
     {
-      switch (m_Cursor)
+    case 0:
+      if (Frame::sixFrames == 0)
       {
-      case 0:
         fillRect(2, 160, 6, 14, BLACK);
-        break;
-
-      case 1:
-        fillRect(2, 184, 6, 14, BLACK);
-        break;
-
-      case 2:
-        fillRect(2, 208, 6, 14, BLACK);
-        break;
-      
-      default:
-        break;
       }
+
+      if (SW::interrupt0 == ON)
+      {
+        SW::interrupt0 = OFF;
+        return;
+      }
+      
+      break;
+
+    case 1:
+      if (Frame::sixFrames == 0)
+      {
+        fillRect(2, 184, 6, 14, BLACK);
+      }
+
+      if (SW::interrupt0 == ON)
+      {
+        SW::interrupt0 = OFF;
+      }
+      
+      break;
+
+    case 2:
+      if (Frame::sixFrames == 0)
+      {
+        fillRect(2, 208, 6, 14, BLACK);
+      }
+
+      if (SW::interrupt0 == ON)
+      {
+        SW::interrupt0 = OFF;
+      }
+      
+      break;
+
+    default:
+      break;
     }
 
-    else if (Frame::sixFrames == 4)
+    if (Frame::sixFrames == 4)
     {
       fillRect(2, 160, 6, 14, WHITE);
       fillRect(2, 184, 6, 14, WHITE);
@@ -100,21 +99,77 @@ void Game::start(void)
     }
   }
 
+}
+
+/*----------------------------------------//
+              Game Start Loop
+//----------------------------------------*/
+
+void Game::startLoop(void)
+{
 
   Player user;
-  //Frame::secondTime = 0;
-  //print(16, 16, "Time:");
+  
+  while (1)
+  {
+    Frame::update();
+    user.startPlayer();
+    //print(100, 16, Frame::secondTime);
+  }
+
+}
+
+/*----------------------------------------//
+                Game Logo
+//----------------------------------------*/
+
+void Game::title(void)
+{
+
+  if (mIs_Reset == false)
+  {
+    begin();
+    setRotation(0);
+
+    fillScreen(WHITE);
+    drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    _delay_ms(3000);
+
+    setFont(fontASCII);
+    setColor(BLACK, WHITE);
+
+    mIs_Reset = true;
+  }
+  
+  fillScreen(BLACK);
+  drawBitmap(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
+  _delay_ms(100);
+
+  SW::init();
+  Frame::init();
+  titleLoop();
+
+}
+
+/*----------------------------------------//
+                Start Game
+//----------------------------------------*/
+
+void Game::start(void)
+{
+
+  fillScreen(BLACK);
+  print(80, 100, "Game Start");
+  _delay_ms(2500);
+  fillRect(80, 100, 160, 16, BLACK);
 
   for (int i=0; i<5; i++)
   {
     drawBitmap(64 * i, 180, 64, 60, groundTile, BLACK, MAROON, RED, WHITE);
   }
 
-  while (1)
-  {
-    frame.update();
-    user.startPlayer();
-    //print(100, 16, Frame::secondTime);
-  }
+  SW::init();
+  Frame::init();
+  startLoop();
 
 }

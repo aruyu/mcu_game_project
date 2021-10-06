@@ -36,9 +36,13 @@ private:
   bool mIs_Start;
   bool mIs_Score;
   bool mIs_Credit;
+  bool mIs_Reset;
+
+  void titleLoop(void);
+  void startLoop(void);
 
 public:
-  Game() : Font(){ m_Cursor = 0; mIs_Start = false; mIs_Score = false; mIs_Credit = false; }
+  Game() : Font(){ m_Cursor = 0; mIs_Start = false; mIs_Score = false; mIs_Credit = false; mIs_Reset = false; }
   ~Game(){};
 
   void title(void);

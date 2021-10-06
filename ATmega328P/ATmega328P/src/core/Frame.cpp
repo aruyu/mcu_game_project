@@ -11,6 +11,9 @@
 
 uint16_t Frame::secondTime = 0;
 uint32_t Frame::presentTime = 0;
+uint32_t Frame::pastTick = 0;
+uint32_t Frame::pastFrame = 0;
+uint32_t Frame::pastBeat = 0;
 
 int8_t Frame::oneTick = 0;
 int8_t Frame::fourFrames = 0;
@@ -25,10 +28,10 @@ int8_t Frame::sixteenBeats = 1;
 void Frame::update(void)
 {
 
-  if (presentTime >= m_PastTick + 5)
+  if (presentTime >= pastTick + 5)
   {
 
-    m_PastTick = presentTime;
+    pastTick = presentTime;
 
     oneTick++;
 
@@ -39,10 +42,10 @@ void Frame::update(void)
 
   }
 
-  if (presentTime >= m_PastFrame + 100)
+  if (presentTime >= pastFrame + 100)
   {
 
-    m_PastFrame = presentTime;
+    pastFrame = presentTime;
 
     fourFrames++;
     sixFrames++;
@@ -59,10 +62,10 @@ void Frame::update(void)
 
   }
 
-  if (presentTime >= m_PastBeat + 125)
+  if (presentTime >= pastBeat + 125)
   {
 
-    m_PastBeat = presentTime;
+    pastBeat = presentTime;
 
     sixteenBeats++;
 
@@ -76,12 +79,12 @@ void Frame::update(void)
 }
 
 /*----------------------------------------//
-                Reset Frame
+              Initialize Frame
 //----------------------------------------*/
 
 void Frame::init(void)
 {
-  m_PastTick = presentTime;
-  m_PastFrame = presentTime;
-  m_PastBeat = presentTime;
+  pastTick = presentTime;
+  pastFrame = presentTime;
+  pastBeat = presentTime;
 }

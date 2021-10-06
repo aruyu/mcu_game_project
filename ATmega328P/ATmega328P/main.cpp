@@ -10,13 +10,13 @@
 #include "src/core/Game.hpp"
 using namespace MCU::Setting;
 
+ISR(TIMER0_OVF_vect);
+//ISR(TIMER1_COMPA_vect);
+ISR(TIMER2_COMPA_vect);
 ISR(INT0_vect);
 //ISR(INT1_vect);
-ISR(TIMER1_COMPA_vect);
-ISR(TIMER2_COMPA_vect);
 
 Game game;
-SW sw;
 
 
 /*========================================//
@@ -31,18 +31,16 @@ int main(void)
 
   beginINT(0, DOWN);
   //beginINT(1, DOWN);
-  beginTimer(1, COMP);
+  beginTimer(0, OVF);
+  //beginTimer(1, COMP);
   beginTimer(2, COMP);
-  beginPWM(OC0A, FAST);
+
   beginSPI();
   sei();
 
-  TCCR0B = 0x00;
-
-  game.title();
-
   while (1)
   {
+    game.title();
     game.start();
   }
 
@@ -54,30 +52,49 @@ int main(void)
 //========================================*/
 
 
+ISR(TIMER0_OVF_vect)
+{
+  SW::update();
+
+  if (SW::result != SW_OFF)
+  {
+    switch (SW::result)
+    {
+    case SW_UP:
+      SW::up = ON;
+      break;
+    
+    case SW_DOWN:
+      SW::down = ON;
+      break;
+
+    default:
+      break;
+    }
+  }
+}
+/*
 ISR(TIMER1_COMPA_vect)
 {
-  sw.update();
-
-  switch (sw.result)
+  switch (PWM)
   {
-  case SW_UP:
-    sw.up = ON;
+  case ON:
+    PWM = OFF;
     break;
   
-  case SW_DOWN:
-    sw.down = ON;
+  case OFF:
+    PWM = ON;
     break;
-
-   default:
+  
+  default:
     break;
   }
 }
-
+*/
 ISR(TIMER2_COMPA_vect)
 {
   Frame::presentTime++;
 }
-
 
 ISR(INT0_vect)
 {
