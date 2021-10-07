@@ -30,6 +30,34 @@ void Game::titleLoop(void)
         m_Cursor = 0;
       }
 
+      switch (m_Cursor)
+      {
+      case 0:
+        clear(2, 160, 6, 14, BLACK);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, WHITE);
+
+        break;
+
+      case 1:
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, BLACK);
+        clear(2, 208, 6, 14, WHITE);
+
+        break;
+
+      case 2:
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, BLACK);
+        
+        break;
+
+      default:
+        break;
+      }
+
+      _delay_ms(100);
       SW::up = OFF;
     }
 
@@ -42,60 +70,102 @@ void Game::titleLoop(void)
         m_Cursor = 2;
       }
 
+      switch (m_Cursor)
+      {
+      case 0:
+        clear(2, 160, 6, 14, BLACK);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, WHITE);
+
+        break;
+
+      case 1:
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, BLACK);
+        clear(2, 208, 6, 14, WHITE);
+
+        break;
+
+      case 2:
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, BLACK);
+        
+        break;
+
+      default:
+        break;
+      }
+
+      _delay_ms(100);
       SW::down = OFF;
     }
 
     switch (m_Cursor)
     {
     case 0:
-      if (Frame::sixFrames == 0)
-      {
-        fillRect(2, 160, 6, 14, BLACK);
-      }
-
       if (SW::interrupt0 == ON)
       {
         SW::interrupt0 = OFF;
         return;
       }
-      
+
+      else if (Frame::sixFrames == 0)
+      {
+        clear(2, 160, 6, 14, BLACK);
+      }
+
+      else if (Frame::sixFrames == 4)
+      {
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, WHITE);
+      }
+
       break;
 
     case 1:
-      if (Frame::sixFrames == 0)
-      {
-        fillRect(2, 184, 6, 14, BLACK);
-      }
-
       if (SW::interrupt0 == ON)
       {
         SW::interrupt0 = OFF;
       }
-      
+
+      else if (Frame::sixFrames == 0)
+      {
+        clear(2, 184, 6, 14, BLACK);
+      }
+
+      else if (Frame::sixFrames == 4)
+      {
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, WHITE);
+      }
+
       break;
 
     case 2:
-      if (Frame::sixFrames == 0)
-      {
-        fillRect(2, 208, 6, 14, BLACK);
-      }
-
       if (SW::interrupt0 == ON)
       {
         SW::interrupt0 = OFF;
+      }
+
+      else if (Frame::sixFrames == 0)
+      {
+        clear(2, 208, 6, 14, BLACK);
+      }
+
+      else if (Frame::sixFrames == 4)
+      {
+        clear(2, 160, 6, 14, WHITE);
+        clear(2, 184, 6, 14, WHITE);
+        clear(2, 208, 6, 14, WHITE);
       }
       
       break;
 
     default:
       break;
-    }
-
-    if (Frame::sixFrames == 4)
-    {
-      fillRect(2, 160, 6, 14, WHITE);
-      fillRect(2, 184, 6, 14, WHITE);
-      fillRect(2, 208, 6, 14, WHITE);
     }
   }
 
@@ -109,12 +179,32 @@ void Game::startLoop(void)
 {
 
   Player user;
+  Object block;
+
+  Frame::scoreTime = 0;
+  print(16, 16, "Score:");
   
   while (1)
   {
     Frame::update();
-    user.startPlayer();
-    //print(100, 16, Frame::secondTime);
+    user.start();
+    block.start();
+    
+    if (m_ScoreTemp != Frame::scoreTime)
+    {
+      print(120, 16, Frame::scoreTime);
+      m_ScoreTemp = Frame::scoreTime;
+    }
+
+    if (user.mIs_Jump == false)
+    {
+      if (block.xPosition < 80 && block.xPosition > 30)
+      {
+        print(96, 100, "GAME OVER");
+        _delay_ms(2500);
+        return;
+      }
+    }
   }
 
 }
@@ -132,7 +222,7 @@ void Game::title(void)
     setRotation(0);
 
     fillScreen(WHITE);
-    drawBitmap(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    draw(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
     _delay_ms(3000);
 
     setFont(fontASCII);
@@ -142,7 +232,7 @@ void Game::title(void)
   }
   
   fillScreen(BLACK);
-  drawBitmap(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
+  draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
   _delay_ms(100);
 
   SW::init();
@@ -159,13 +249,22 @@ void Game::start(void)
 {
 
   fillScreen(BLACK);
-  print(80, 100, "Game Start");
-  _delay_ms(2500);
-  fillRect(80, 100, 160, 16, BLACK);
+  draw(40, 140, 40, 40, charStand, BLACK, MAROON, RED, WHITE);
+
+  print(120, 100, "Ready");
+  _delay_ms(1500);
 
   for (int i=0; i<5; i++)
   {
-    drawBitmap(64 * i, 180, 64, 60, groundTile, BLACK, MAROON, RED, WHITE);
+    print(120, 100, "Start");
+    _delay_ms(100);
+    clear(120, 100, 80, 16, BLACK);
+    _delay_ms(100);
+  }
+  
+  for (int j=0; j<5; j++)
+  {
+    draw(64 * j, 180, 64, 48, groundTile, BLACK, BROWN, MAROON, WHITE);
   }
 
   SW::init();

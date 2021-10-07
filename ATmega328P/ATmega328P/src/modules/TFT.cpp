@@ -172,7 +172,7 @@ void TFT::fillScreen(uint16_t colorValue)
                 Fill Rect
 //----------------------------------------*/
 
-void TFT::fillRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue)
+void TFT::clear(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue)
 {
 
   setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
@@ -192,7 +192,7 @@ void TFT::fillRect(int16_t xPos, int16_t yPos, int16_t width, int16_t height, ui
 //----------------------------------------*/
 /*
 void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
-  uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+  uint16_t color0, uint16_t color1, uint16_t color2, uint16_t color3)
 {
 
   uint8_t data;
@@ -213,22 +213,22 @@ void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t heig
 
         if (temp == 0x00)       //1Pixel = 00
         {
-          exportLongData(color0Bit);
+          exportLongData(color0);
         }
 
         else if (temp == 0x01)  //1Pixel = 01
         {
-          exportLongData(color1Bit);
+          exportLongData(color1);
         }
 
         else if (temp == 0x02)  //1Pixel = 10
         {
-          exportLongData(color2Bit);
+          exportLongData(color2);
         }
 
         else if (temp == 0x03)  //1Pixel = 11
         {
-          exportLongData(color3Bit);
+          exportLongData(color3);
         }
 
         data <<= 2;
@@ -239,12 +239,63 @@ void TFT::drawBitmapOnce(int16_t xPos, int16_t yPos, int16_t width, int16_t heig
 
 }
 */
+
 /*----------------------------------------//
                 Draw Bitmap
 //----------------------------------------*/
 
-void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
-  uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
+  uint16_t color0, uint16_t color1)
+{
+
+  uint8_t data;
+  uint8_t temp;
+
+  setAddress(xPos, yPos, (xPos + width - 1), (yPos + height - 1));
+
+  for (int i=0; i<(height / 2); i++)
+  {
+    for (int j=0; j<2; j++)
+    {
+      for (int k=0; k<(width / 16); k++)
+      {
+
+        data = pgm_read_byte(&bitmap[i * (width / 16) + k]);
+
+        for (int l=0; l<8; l++)
+        {
+          temp = data >> 7;
+
+          for (int m=0; m<2; m++)
+          {
+
+            if (temp == 0x00)       //1Pixel = 0
+            {
+              exportLongData(color0);
+            }
+
+            else                    //1Pixel = 1
+            {
+              exportLongData(color1);
+            }
+
+          }
+
+          data <<= 1;
+        }
+
+      }
+    }
+  }
+
+}
+
+/*----------------------------------------//
+                Draw Bitmap
+//----------------------------------------*/
+
+void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const uint8_t *bitmap,
+  uint16_t color0, uint16_t color1, uint16_t color2, uint16_t color3)
 {
 
   uint8_t data;
@@ -270,22 +321,22 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 
             if (temp == 0x00)       //1Pixel = 00
             {
-              exportLongData(color0Bit);
+              exportLongData(color0);
             }
 
             else if (temp == 0x01)  //1Pixel = 01
             {
-              exportLongData(color1Bit);
+              exportLongData(color1);
             }
 
             else if (temp == 0x02)  //1Pixel = 10
             {
-              exportLongData(color2Bit);
+              exportLongData(color2);
             }
 
             else if (temp == 0x03)  //1Pixel = 11
             {
-              exportLongData(color3Bit);
+              exportLongData(color3);
             }
 
           }
@@ -303,8 +354,8 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
             Draw 100bytes Bitmap
 //----------------------------------------*/
 
-void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[100], int8_t tileSelection,
-  uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[100], int8_t tileSelection,
+  uint16_t color0, uint16_t color1, uint16_t color2, uint16_t color3)
 {
 
   uint8_t data;
@@ -330,22 +381,22 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
 
             if (temp == 0x00)       //1Pixel = 00
             {
-              exportLongData(color0Bit);
+              exportLongData(color0);
             }
 
             else if (temp == 0x01)  //1Pixel = 01
             {
-              exportLongData(color1Bit);
+              exportLongData(color1);
             }
 
             else if (temp == 0x02)  //1Pixel = 10
             {
-              exportLongData(color2Bit);
+              exportLongData(color2);
             }
 
             else if (temp == 0x03)  //1Pixel = 11
             {
-              exportLongData(color3Bit);
+              exportLongData(color3);
             }
 
           }
@@ -364,8 +415,8 @@ void TFT::drawBitmap(int16_t xPos, int16_t yPos, int16_t width, int16_t height, 
             Draw 160bytes Bitmap
 //----------------------------------------*/
 
-void TFT::drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
-  uint16_t color0Bit, uint16_t color1Bit, uint16_t color2Bit, uint16_t color3Bit)
+void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
+  uint16_t color0, uint16_t color1, uint16_t color2, uint16_t color3)
 {
 
   uint8_t data;
@@ -391,22 +442,22 @@ void TFT::drawBitmap160(int16_t xPos, int16_t yPos, int16_t width, int16_t heigh
 
             if (temp == 0x00)       //1Pixel = 00
             {
-              exportLongData(color0Bit);
+              exportLongData(color0);
             }
 
             else if (temp == 0x01)  //1Pixel = 01
             {
-              exportLongData(color1Bit);
+              exportLongData(color1);
             }
 
             else if (temp == 0x02)  //1Pixel = 10
             {
-              exportLongData(color2Bit);
+              exportLongData(color2);
             }
 
             else if (temp == 0x03)  //1Pixel = 11
             {
-              exportLongData(color3Bit);
+              exportLongData(color3);
             }
 
           }

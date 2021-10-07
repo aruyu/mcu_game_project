@@ -178,6 +178,9 @@
     <Compile Include="src\assets\LogoAtmel.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\assets\Objects.hpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\assets\TitleMenu.hpp">
       <SubType>compile</SubType>
     </Compile>

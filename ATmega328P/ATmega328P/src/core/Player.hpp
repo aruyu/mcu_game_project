@@ -11,7 +11,6 @@
 #include "../modules/MCU.hpp"
 #include "../modules/SW.hpp"
 #include "../modules/TFT.hpp"
-#include "../assets/CharStand.hpp"
 #include "../assets/CharRun.hpp"
 #include "../assets/CharUp.hpp"
 #include "../assets/CharDown.hpp"
@@ -33,17 +32,18 @@ private:
   int8_t m_JumpTemp;
   int8_t m_JumpHeight;
   bool mIs_Reset;
-  bool mIs_Jump;
   bool mIs_Up;
+  bool mIs_Drawed;
 
   void running(void);
   void jumping(void);
-  void dead(void);
 
 public:
   Player() : TFT() { mIs_Reset = false; mIs_Jump = false; mIs_Up = false; }
   ~Player(){};
 
-  void startPlayer(void);
+  void start(void);
+  void dead(void);
+  bool mIs_Jump;
   
 };

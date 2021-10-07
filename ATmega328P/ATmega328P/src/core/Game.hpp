@@ -11,10 +11,11 @@
 #include "../modules/MCU.hpp"
 #include "../modules/SW.hpp"
 #include "../modules/TFT.hpp"
-#include "../assets/LogoAtmel.hpp"
+#include "../assets/CharStand.hpp"
 #include "../assets/FontASCII.hpp"
+#include "../assets/GroundTile.hpp"
+#include "../assets/LogoAtmel.hpp"
 #include "../assets/TitleMenu.hpp"
-#include "../assets/groundTile.hpp"
 
 #include "Font.hpp"
 #include "Frame.hpp"
@@ -33,7 +34,7 @@ class Game : private Font
 
 private:
   int8_t m_Cursor;
-  bool mIs_Start;
+  uint16_t m_ScoreTemp;
   bool mIs_Score;
   bool mIs_Credit;
   bool mIs_Reset;
@@ -42,7 +43,7 @@ private:
   void startLoop(void);
 
 public:
-  Game() : Font(){ m_Cursor = 0; mIs_Start = false; mIs_Score = false; mIs_Credit = false; mIs_Reset = false; }
+  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; mIs_Reset = false; }
   ~Game(){};
 
   void title(void);

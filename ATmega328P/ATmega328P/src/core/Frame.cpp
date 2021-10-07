@@ -9,7 +9,7 @@
 
 #include "Frame.hpp"
 
-uint16_t Frame::secondTime = 0;
+uint16_t Frame::scoreTime = 0;
 uint32_t Frame::presentTime = 0;
 uint32_t Frame::pastTick = 0;
 uint32_t Frame::pastFrame = 0;
@@ -67,6 +67,7 @@ void Frame::update(void)
 
     pastBeat = presentTime;
 
+    scoreTime++;
     sixteenBeats++;
 
     if (sixteenBeats == 2)

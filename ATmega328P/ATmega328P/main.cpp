@@ -67,6 +67,22 @@ ISR(TIMER0_OVF_vect)
     case SW_DOWN:
       SW::down = ON;
       break;
+    
+    case SW_LEFT:
+      SW::left = ON;
+      break;
+    
+    case SW_RIGHT:
+      SW::right = ON;
+      break;
+    
+    case SW_START:
+      SW::start = ON;
+      break;
+    
+    case SW_SELECT:
+      SW::select = ON;
+      break;
 
     default:
       break;
@@ -100,3 +116,9 @@ ISR(INT0_vect)
 {
   SW::interrupt0 = ON;
 }
+/*
+ISR(INT1_vect)
+{
+  SW::interrupt1 = ON;
+}
+*/

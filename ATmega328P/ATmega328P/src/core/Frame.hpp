@@ -27,7 +27,7 @@ public:
   static void update(void);
   static void init(void);
 
-  static uint16_t secondTime;
+  static uint16_t scoreTime;
   static uint32_t presentTime;
   static uint32_t pastTick;
   static uint32_t pastFrame;
