@@ -98,7 +98,7 @@ public:
   ~TFT(){};
 
   void begin(void);
-  void setRotation(int8_t rotation);
+  void setRotation(int8_t mode);
   void setAddress(int16_t xPos, int16_t yPos, int16_t width, int16_t height);
   void fillScreen(uint16_t colorValue);
   void clear(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue);

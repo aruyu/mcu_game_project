@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000009c0  00000000  00000000  00010a98  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000108e  00000000  00000000  00011458  2**0
+ 10 .debug_str    00001076  00000000  00000000  00011458  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000353b  00000000  00000000  000124e6  2**0
+ 11 .debug_loc    0000353b  00000000  00000000  000124ce  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000210  00000000  00000000  00015a21  2**0
+ 12 .debug_ranges 00000210  00000000  00000000  00015a09  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2572,7 +2572,7 @@ public:
   void startLoop(void);
 
 public:
-  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; mIs_Reset = false; }
+  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; m_IsReset = false; }
     256c:	12 86       	std	Z+10, r1	; 0x0a
     256e:	14 86       	std	Z+12, r1	; 0x0c
     2570:	13 86       	std	Z+11, r1	; 0x0b
@@ -3894,7 +3894,7 @@ public:
   void jumping(void);
 
 public:
-  Player() : TFT() { mIs_Reset = false; mIs_Jump = false; mIs_Up = false; }
+  Player() : TFT() { m_IsReset = false; m_IsJump = false; m_IsUp = false; }
     2d4c:	18 86       	std	Y+8, r1	; 0x08
     2d4e:	1b 86       	std	Y+11, r1	; 0x0b
     2d50:	19 86       	std	Y+9, r1	; 0x09
@@ -3907,7 +3907,7 @@ public:
   void setPosition(int16_t xPos, int16_t yPos) { xPosition = xPos; yPosition = yPos; }
 
 public:
-  Object() : TFT(){ mIs_Nomal = false; m_MoveTemp = 0; m_MoveDistance = 0; xPosition = 0; yPosition = 0; }
+  Object() : TFT(){ m_IsNomal = false; m_MoveTemp = 0; m_MoveDistance = 0; xPosition = 0; yPosition = 0; }
     2d5a:	1b 8e       	std	Y+27, r1	; 0x1b
     2d5c:	18 8e       	std	Y+24, r1	; 0x18
     2d5e:	1a 8e       	std	Y+26, r1	; 0x1a
@@ -3976,7 +3976,7 @@ public:
     2dd0:	83 87       	std	Z+11, r24	; 0x0b
     }
 
-    if (user.mIs_Jump == false)
+    if (user.m_IsJump == false)
     2dd2:	8b 85       	ldd	r24, Y+11	; 0x0b
     2dd4:	81 11       	cpse	r24, r1
     2dd6:	d8 cf       	rjmp	.-80     	; 0x2d88 <_ZN4Game9startLoopEv+0x6e>
@@ -4049,7 +4049,7 @@ void Game::title(void)
     2e3a:	df 93       	push	r29
     2e3c:	ec 01       	movw	r28, r24
 
-  if (mIs_Reset == false)
+  if (m_IsReset == false)
     2e3e:	8f 85       	ldd	r24, Y+15	; 0x0f
     2e40:	81 11       	cpse	r24, r1
     2e42:	43 c0       	rjmp	.+134    	; 0x2eca <_ZN4Game5titleEv+0xa6>
@@ -4118,7 +4118,7 @@ public:
     2eb0:	99 e1       	ldi	r25, 0x19	; 25
     2eb2:	9d 83       	std	Y+5, r25	; 0x05
     2eb4:	8c 83       	std	Y+4, r24	; 0x04
-  void setColor(uint16_t color0Bit, uint16_t color1Bit) { m_Background = color0Bit; m_Colored = color1Bit; }
+  void setColor(uint16_t color0, uint16_t color1) { m_Background = color0; m_Colored = color1; }
     2eb6:	1f 82       	std	Y+7, r1	; 0x07
     2eb8:	1e 82       	std	Y+6, r1	; 0x06
     2eba:	8f ef       	ldi	r24, 0xFF	; 255
@@ -4130,7 +4130,7 @@ public:
     setFont(fontASCII);
     setColor(BLACK, WHITE);
 
-    mIs_Reset = true;
+    m_IsReset = true;
     2ec2:	81 e0       	ldi	r24, 0x01	; 1
     2ec4:	8f 87       	std	Y+15, r24	; 0x0f
     2ec6:	0f 90       	pop	r0
@@ -4631,7 +4631,7 @@ void Object::start(void)
     323a:	df 93       	push	r29
     323c:	ec 01       	movw	r28, r24
 
-  if (mIs_Nomal == false)
+  if (m_IsNomal == false)
     323e:	8f 85       	ldd	r24, Y+15	; 0x0f
     3240:	81 11       	cpse	r24, r1
     3242:	04 c0       	rjmp	.+8      	; 0x324c <_ZN6Object5startEv+0x28>
@@ -5088,7 +5088,7 @@ void Player::start(void)
     35ac:	88 23       	and	r24, r24
     35ae:	b9 f0       	breq	.+46     	; 0x35de <_ZN6Player5startEv+0x44>
   {
-    if (mIs_Reset == false)
+    if (m_IsReset == false)
     35b0:	8f 81       	ldd	r24, Y+7	; 0x07
     35b2:	81 11       	cpse	r24, r1
     35b4:	14 c0       	rjmp	.+40     	; 0x35de <_ZN6Player5startEv+0x44>
@@ -5110,18 +5110,18 @@ void Player::start(void)
     35d0:	1d 82       	std	Y+5, r1	; 0x05
       m_JumpHeight = 0;
     35d2:	1e 82       	std	Y+6, r1	; 0x06
-      mIs_Up = true;
+      m_IsUp = true;
     35d4:	81 e0       	ldi	r24, 0x01	; 1
     35d6:	88 87       	std	Y+8, r24	; 0x08
-      mIs_Jump = true;
+      m_IsJump = true;
     35d8:	8a 87       	std	Y+10, r24	; 0x0a
-      mIs_Reset = true;
+      m_IsReset = true;
     35da:	8f 83       	std	Y+7, r24	; 0x07
     35dc:	07 c0       	rjmp	.+14     	; 0x35ec <_ZN6Player5startEv+0x52>
     }
   }
 
-  if (mIs_Jump == false)
+  if (m_IsJump == false)
     35de:	8a 85       	ldd	r24, Y+10	; 0x0a
     35e0:	81 11       	cpse	r24, r1
     35e2:	04 c0       	rjmp	.+8      	; 0x35ec <_ZN6Player5startEv+0x52>

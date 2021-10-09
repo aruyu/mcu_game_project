@@ -65,7 +65,7 @@ void Object::disappear(void)
 void Object::start(void)
 {
 
-  if (mIs_Nomal == false)
+  if (m_IsNomal == false)
   {
     rolling();
   }

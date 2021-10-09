@@ -19,10 +19,10 @@ void Player::running(void)
 
   if (Frame::oneTick == 1)
   {
-    mIs_Drawed = false;
+    m_IsDrawed = false;
   }
 
-  if (mIs_Drawed == false)
+  if (m_IsDrawed == false)
   {
     for (int i=0; i<6; i++)
     {
@@ -30,7 +30,7 @@ void Player::running(void)
       if (Frame::sixFrames == i)
       {
         draw(40, 140, 40, 40, charRun, i, BLACK, MAROON, RED, WHITE);
-        mIs_Drawed = true;
+        m_IsDrawed = true;
       }
 
     }
@@ -48,7 +48,7 @@ void Player::jumping(void)
   if (Frame::oneTick == 1)
   {
 
-    if (mIs_Up == true)
+    if (m_IsUp == true)
     {
       m_JumpHeight += 6;
 
@@ -60,7 +60,7 @@ void Player::jumping(void)
         if (m_JumpTemp == 4)
         {
           m_JumpHeight += 6;
-          mIs_Up = false;
+          m_IsUp = false;
         }
       }
     }
@@ -73,19 +73,19 @@ void Player::jumping(void)
       {
         clear(40, 140 - 25, 40, 25, BLACK);
         SW::interrupt0 = OFF;
-        mIs_Jump = false;
-        mIs_Reset = false;
+        m_IsJump = false;
+        m_IsReset = false;
         return;
       }
     }
 
-    mIs_Drawed = false;
+    m_IsDrawed = false;
 
   }
 
-  if (mIs_Drawed == false)
+  if (m_IsDrawed == false)
   {
-    if (mIs_Up == true)
+    if (m_IsUp == true)
     {
       for (int i=0; i<4; i++)
       {
@@ -93,7 +93,7 @@ void Player::jumping(void)
         {
           draw(40, 122 - m_JumpHeight, 32, 50, charUp, i, BLACK, MAROON, RED, WHITE);
           clear(40, (122 - m_JumpHeight) + 50, 32, 8, BLACK);
-          mIs_Drawed = true;
+          m_IsDrawed = true;
         }
       }
     }
@@ -106,7 +106,7 @@ void Player::jumping(void)
         {
           draw(40, 122 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
           clear(40, (122 - m_JumpHeight) - 8, 40, 8, BLACK);
-          mIs_Drawed = true;
+          m_IsDrawed = true;
         }
       }
     }
@@ -132,18 +132,18 @@ void Player::start(void)
 
   if (SW::interrupt0 == ON)
   {
-    if (mIs_Reset == false)
+    if (m_IsReset == false)
     {
       clear(40, 140, 40, 40, BLACK);
       m_JumpTemp = 0;
       m_JumpHeight = 0;
-      mIs_Up = true;
-      mIs_Jump = true;
-      mIs_Reset = true;
+      m_IsUp = true;
+      m_IsJump = true;
+      m_IsReset = true;
     }
   }
 
-  if (mIs_Jump == false)
+  if (m_IsJump == false)
   {
     running();
   }

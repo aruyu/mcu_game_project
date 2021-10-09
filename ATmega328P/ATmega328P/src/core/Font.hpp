@@ -32,7 +32,7 @@ public:
   ~Font(){};
 
   void setFont(const uint8_t *bitmap) { m_Bitmap = bitmap; }
-  void setColor(uint16_t color0Bit, uint16_t color1Bit) { m_Background = color0Bit; m_Colored = color1Bit; }
+  void setColor(uint16_t color0, uint16_t color1) { m_Background = color0; m_Colored = color1; }
   void printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII);
   void print(int16_t xPos, int16_t yPos, const char *stringValue);
   void print(int16_t xPos, int16_t yPos, uint32_t intager);

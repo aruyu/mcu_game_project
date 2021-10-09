@@ -196,7 +196,7 @@ void Game::startLoop(void)
       m_ScoreTemp = Frame::scoreTime;
     }
 
-    if (user.mIs_Jump == false)
+    if (user.m_IsJump == false)
     {
       if (block.xPosition < 80 && block.xPosition > 30)
       {
@@ -216,7 +216,7 @@ void Game::startLoop(void)
 void Game::title(void)
 {
 
-  if (mIs_Reset == false)
+  if (m_IsReset == false)
   {
     begin();
     setRotation(0);
@@ -228,7 +228,7 @@ void Game::title(void)
     setFont(fontASCII);
     setColor(BLACK, WHITE);
 
-    mIs_Reset = true;
+    m_IsReset = true;
   }
   
   fillScreen(BLACK);

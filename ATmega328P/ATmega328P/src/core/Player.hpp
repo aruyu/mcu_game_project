@@ -31,19 +31,19 @@ private:
   int8_t m_JumpSpeed;
   int8_t m_JumpTemp;
   int8_t m_JumpHeight;
-  bool mIs_Reset;
-  bool mIs_Up;
-  bool mIs_Drawed;
+  bool m_IsReset;
+  bool m_IsUp;
+  bool m_IsDrawed;
 
   void running(void);
   void jumping(void);
 
 public:
-  Player() : TFT() { mIs_Reset = false; mIs_Jump = false; mIs_Up = false; }
+  Player() : TFT() { m_IsReset = false; m_IsJump = false; m_IsUp = false; }
   ~Player(){};
 
   void start(void);
   void dead(void);
-  bool mIs_Jump;
+  bool m_IsJump;
   
 };

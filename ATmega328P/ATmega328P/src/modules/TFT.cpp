@@ -100,14 +100,14 @@ void TFT::begin(void)
               Set Rotation
 //----------------------------------------*/
 
-void TFT::setRotation(int8_t rotation)
+void TFT::setRotation(int8_t mode)
 {
   
   int16_t temp;
 
   exportCommand(0x36);  // Memory Access Control (36h)
 
-  switch (rotation)
+  switch (mode)
   {
   case 0:
     exportData(0x28);   // Row / Column Exchange, RGB-BGR Order

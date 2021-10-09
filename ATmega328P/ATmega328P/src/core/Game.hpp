@@ -35,15 +35,15 @@ class Game : private Font
 private:
   int8_t m_Cursor;
   uint16_t m_ScoreTemp;
-  bool mIs_Score;
-  bool mIs_Credit;
-  bool mIs_Reset;
+  bool m_IsScore;
+  bool m_IsCredit;
+  bool m_IsReset;
 
   void titleLoop(void);
   void startLoop(void);
 
 public:
-  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; mIs_Reset = false; }
+  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; m_IsReset = false; }
   ~Game(){};
 
   void title(void);

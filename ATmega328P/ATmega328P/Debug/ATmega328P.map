@@ -780,7 +780,7 @@ END GROUP
  .debug_frame   0x00000668       0x34 src/modules/SW.o
  .debug_frame   0x0000069c      0x324 src/modules/TFT.o
 
-.debug_str      0x00000000     0x108e
+.debug_str      0x00000000     0x1076
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0x77f main.o
@@ -789,18 +789,18 @@ END GROUP
                                 0x518 (size before relaxing)
  .debug_str     0x000009f2      0x17b src/core/Frame.o
                                 0x340 (size before relaxing)
- .debug_str     0x00000b6d      0x266 src/core/Game.o
-                                0x98d (size before relaxing)
- .debug_str     0x00000dd3       0x17 src/core/Object.o
+ .debug_str     0x00000b6d      0x260 src/core/Game.o
+                                0x987 (size before relaxing)
+ .debug_str     0x00000dcd       0x17 src/core/Object.o
                                 0x534 (size before relaxing)
- .debug_str     0x00000dea       0x17 src/core/Player.o
+ .debug_str     0x00000de4       0x17 src/core/Player.o
                                 0x4ca (size before relaxing)
- .debug_str     0x00000e01      0x149 src/modules/MCU.o
+ .debug_str     0x00000dfb      0x149 src/modules/MCU.o
                                 0x3e0 (size before relaxing)
- .debug_str     0x00000f4a       0xbd src/modules/SW.o
+ .debug_str     0x00000f44       0xbd src/modules/SW.o
                                 0x2ee (size before relaxing)
- .debug_str     0x00001007       0x87 src/modules/TFT.o
-                                0x4be (size before relaxing)
+ .debug_str     0x00001001       0x75 src/modules/TFT.o
+                                0x4ba (size before relaxing)
 
 .debug_loc      0x00000000     0x353b
  *(.debug_loc)
