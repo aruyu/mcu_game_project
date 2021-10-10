@@ -178,7 +178,7 @@
     <Compile Include="src\assets\LogoAtmel.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\assets\Objects.hpp">
+    <Compile Include="src\assets\ObjectTiles.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\assets\TitleMenu.hpp">

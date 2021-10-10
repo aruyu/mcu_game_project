@@ -39,11 +39,11 @@ private:
   void jumping(void);
 
 public:
-  Player() : TFT() { m_IsReset = false; m_IsJump = false; m_IsUp = false; }
+  Player() : TFT() { m_IsReset = false; m_IsUp = false; isJump = false; }
   ~Player(){};
 
   void start(void);
   void dead(void);
-  bool m_IsJump;
+  bool isJump;
   
 };

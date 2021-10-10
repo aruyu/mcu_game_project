@@ -73,8 +73,8 @@ void Player::jumping(void)
       {
         clear(40, 140 - 25, 40, 25, BLACK);
         SW::interrupt0 = OFF;
-        m_IsJump = false;
         m_IsReset = false;
+        isJump = false;
         return;
       }
     }
@@ -138,12 +138,12 @@ void Player::start(void)
       m_JumpTemp = 0;
       m_JumpHeight = 0;
       m_IsUp = true;
-      m_IsJump = true;
+      isJump = true;
       m_IsReset = true;
     }
   }
 
-  if (m_IsJump == false)
+  if (isJump == false)
   {
     running();
   }

@@ -48,7 +48,7 @@ void Object::rolling(void)
 }
 
 /*----------------------------------------//
-              Object Disappear
+            Disappear Object
 //----------------------------------------*/
 
 void Object::disappear(void)
@@ -76,4 +76,16 @@ void Object::start(void)
     clear(0, 164, 40, 40, BLACK);
   }
 
+}
+
+/*----------------------------------------//
+            Initialize Object
+//----------------------------------------*/
+
+void Object::init(void)
+{
+  m_MoveTemp = 0;
+  m_MoveDistance = 0;
+  xPosition = 0;
+  yPosition = 0;
 }

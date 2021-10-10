@@ -22,7 +22,7 @@ src/core/Game.d src/core/Game.o: ../src/core/Game.cpp \
  ../src/core/../assets/GroundTile.hpp ../src/core/../assets/LogoAtmel.hpp \
  ../src/core/../assets/TitleMenu.hpp ../src/core/Font.hpp \
  ../src/core/Frame.hpp ../src/core/Object.hpp \
- ../src/core/../assets/Objects.hpp ../src/core/Player.hpp \
+ ../src/core/../assets/ObjectTiles.hpp ../src/core/Player.hpp \
  ../src/core/../assets/CharRun.hpp ../src/core/../assets/CharUp.hpp \
  ../src/core/../assets/CharDown.hpp
 
@@ -84,7 +84,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/core/Object.hpp:
 
-../src/core/../assets/Objects.hpp:
+../src/core/../assets/ObjectTiles.hpp:
 
 ../src/core/Player.hpp:
 

@@ -196,7 +196,7 @@ void Game::startLoop(void)
       m_ScoreTemp = Frame::scoreTime;
     }
 
-    if (user.m_IsJump == false)
+    if (user.isJump == false)
     {
       if (block.xPosition < 80 && block.xPosition > 30)
       {

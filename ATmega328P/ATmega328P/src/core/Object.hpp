@@ -41,7 +41,7 @@ private:
   void setPosition(int16_t xPos, int16_t yPos) { xPosition = xPos; yPosition = yPos; }
 
 public:
-  Object() : TFT() { m_IsNomal = false; m_MoveTemp = 0; m_MoveDistance = 0; xPosition = 0; yPosition = 0; }
+  Object() : TFT() { m_IsNomal = false; }
   Object(const uint8_t *bitmap, int8_t speed) : TFT() { m_Bitmap = bitmap; m_MoveSpeed = speed; m_IsNomal = true; }
   ~Object(){};
 
