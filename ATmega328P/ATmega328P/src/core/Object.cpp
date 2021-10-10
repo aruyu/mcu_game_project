@@ -23,7 +23,7 @@ void Object::rolling(void)
 
     if (m_MoveDistance > 304)
     {
-      draw(0, 164, 16, 16, fire, BLACK, RED, YELLOW, WHITE);
+      draw(0, 164, 16, 16, fireTile, BLACK, RED, YELLOW, WHITE);
       clear(16, 164, 4, 16, BLACK);
       m_MoveDistance = 304;
       m_MoveTemp += 1;
@@ -40,7 +40,7 @@ void Object::rolling(void)
     else
     {
       setPosition(304 - m_MoveDistance, 164);
-      draw(304 - m_MoveDistance, 164, 16, 16, bomb, BLACK, DARKGRAY, GRAY, WHITE);
+      draw(304 - m_MoveDistance, 164, 16, 16, bombTile, BLACK, DARKGRAY, GRAY, WHITE);
       clear(320 - m_MoveDistance, 164, 6, 16, BLACK);
     }
   }
