@@ -1,7 +1,7 @@
 /*
         Image size            W = 8    H = 8
 
-        B/W 1bit/pixel       Total : 16 Bytes
+        Gray 2bit/pixel       Total : 16 Bytes
 */
 
 

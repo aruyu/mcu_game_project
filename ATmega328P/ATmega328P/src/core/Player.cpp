@@ -57,7 +57,7 @@ void Player::jumping(void)
         m_JumpTemp ++;
         m_JumpHeight -= 6;
 
-        if (m_JumpTemp == 4)
+        if (m_JumpTemp == 6)
         {
           m_JumpHeight += 6;
           m_IsUp = false;
@@ -85,29 +85,25 @@ void Player::jumping(void)
 
   if (m_IsDrawed == false)
   {
-    if (m_IsUp == true)
+    for (int i=0; i<4; i++)
     {
-      for (int i=0; i<4; i++)
+      if (Frame::fourFrames == i)
       {
-        if (Frame::fourFrames == i)
+
+        if (m_IsUp == true)
         {
           draw(40, 122 - m_JumpHeight, 32, 50, charUp, i, BLACK, MAROON, RED, WHITE);
           clear(40, (122 - m_JumpHeight) + 50, 32, 8, BLACK);
-          m_IsDrawed = true;
         }
-      }
-    }
 
-    else
-    {
-      for (int i=0; i<4; i++)
-      {
-        if (Frame::fourFrames == i)
+        else
         {
           draw(40, 122 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
           clear(40, (122 - m_JumpHeight) - 8, 40, 8, BLACK);
-          m_IsDrawed = true;
         }
+
+        m_IsDrawed = true;
+
       }
     }
   }
@@ -137,9 +133,9 @@ void Player::start(void)
       clear(40, 140, 40, 40, BLACK);
       m_JumpTemp = 0;
       m_JumpHeight = 0;
+      m_IsReset = true;
       m_IsUp = true;
       isJump = true;
-      m_IsReset = true;
     }
   }
 

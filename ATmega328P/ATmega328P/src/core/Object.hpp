@@ -29,19 +29,26 @@ private:
   int16_t m_ObjectWidth;
   int16_t m_ObjectHeight;
 
-  int8_t m_RandomNumber;
   int8_t m_MoveSpeed;
   int8_t m_MoveTemp;
   int16_t m_MoveDistance;
+  int8_t m_RandomNumber;
+
+  bool m_IsReset;
   bool m_IsNomal;
+  bool m_IsRolling;
   bool m_IsDrawed;
 
+  void ball(void);
+  void bomb(void);
+  void present(void);
+  
   void rolling(void);
   void disappear(void);
   void setPosition(int16_t xPos, int16_t yPos) { xPosition = xPos; yPosition = yPos; }
 
 public:
-  Object() : TFT() { m_IsNomal = false; }
+  Object() : TFT() { m_MoveSpeed = 4; m_IsNomal = false; m_IsRolling = false; }
   Object(const uint8_t *bitmap, int8_t speed) : TFT() { m_Bitmap = bitmap; m_MoveSpeed = speed; m_IsNomal = true; }
   ~Object(){};
 
