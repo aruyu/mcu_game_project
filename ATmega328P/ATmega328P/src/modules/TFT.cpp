@@ -415,7 +415,7 @@ void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const 
             Draw 160bytes Bitmap
 //----------------------------------------*/
 
-void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[160], int8_t tileSelection,
+void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[120], int8_t tileSelection,
   uint16_t color0, uint16_t color1, uint16_t color2, uint16_t color3)
 {
 

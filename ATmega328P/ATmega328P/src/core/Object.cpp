@@ -27,7 +27,7 @@ void Object::ball(void)
   else
   {
     clear(0, 164, 24, 16, BLACK);
-    m_IsRolling = false;
+    isRolling = false;
   }
 
 }
@@ -56,7 +56,7 @@ void Object::bomb(void)
     if (m_MoveTemp > 20)
     {
       clear(0, 164, 24, 16, BLACK);
-      m_IsRolling = false;
+      isRolling = false;
     }
   }
 
@@ -74,12 +74,14 @@ void Object::present(void)
     setPosition(304 - m_MoveDistance, 164);
     draw(304 - m_MoveDistance, 164, 16, 16, presentTile, BLACK, MAROON, RED, WHITE);
     clear(320 - m_MoveDistance, 164, m_MoveSpeed + 2, 16, BLACK);
+    isPresent = true;
   }
 
   else
   {
     clear(0, 164, 24, 16, BLACK);
-    m_IsRolling = false;
+    isRolling = false;
+    isPresent = false;
   }
 
 }
@@ -97,21 +99,21 @@ void Object::rolling(void)
     m_IsDrawed = false;
   }
   
-  if (m_IsRolling == true)
+  if (isRolling == true)
   {
     if (m_RandomNumber < 4)
     {
       ball();
     }
 
-    else if (m_RandomNumber > 4 && m_RandomNumber < 8)
-    {
-      bomb();
-    }
-
-    else if (m_RandomNumber > 8)
+    else if (m_RandomNumber >= 4 && m_RandomNumber < 6)
     {
       present();
+    }
+
+    else if (m_RandomNumber >= 6)
+    {
+      bomb();
     }
 
     m_IsDrawed = true;
@@ -119,7 +121,7 @@ void Object::rolling(void)
 
   else
   {
-    if (Frame::secondFrame == m_RandomNumber)
+    if (m_RandomNumber == Frame::secondFrame)
     {
       m_IsReset = false;
     }
@@ -140,7 +142,7 @@ void Object::start(void)
     {
       init();
       m_IsReset = true;
-      m_IsRolling = true;
+      isRolling = true;
     }
 
     rolling();
@@ -148,8 +150,11 @@ void Object::start(void)
 
   else
   {
-    draw(260, 40, 32, 32, moonTile, BLACK, WHITE);
-    clear(260, 40, 32, 32, BLACK);
+    if (m_IsReset == false)
+    {
+      draw(260, 40, 32, 32, m_Bitmap, BLACK, WHITE);
+      m_IsReset = true;
+    }
   }
 
 }

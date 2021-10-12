@@ -19,6 +19,7 @@ void Game::titleLoop(void)
 
   while (1)
   {
+
     Frame::update();
 
     if (SW::up == ON)
@@ -167,6 +168,7 @@ void Game::titleLoop(void)
     default:
       break;
     }
+
   }
 
 }
@@ -179,32 +181,100 @@ void Game::startLoop(void)
 {
 
   Player user;
-  Object block;
+  Object block1;
+  Object block2;
 
   Frame::scoreTime = 0;
   print(16, 16, "Score:");
+  draw(256, 32, 32, 32, moonTile, BLACK, WHITE);
   
   while (1)
   {
+
     Frame::update();
     user.start();
-    block.start();
-    
+    block1.start();
+    block2.start();
+
+    if (block1.isRolling == false || block2.isRolling == false)
+    {
+      block1.setSpeed(2);
+      block2.setSpeed(2);
+    }
+
+    else
+    {
+      block1.setSpeed(4);
+      block2.setSpeed(4);
+    }
+
     if (m_ScoreTemp != Frame::scoreTime)
     {
+
       print(120, 16, Frame::scoreTime);
       m_ScoreTemp = Frame::scoreTime;
+
+      if (m_IsDrawed == true)
+      {
+        m_Temp ++;
+
+        if (m_Temp > 5)
+        {
+          m_Temp = 0;
+          clear(120, 40, 48, 16, BLACK);
+          m_IsDrawed = false;
+        }
+      }
+      
     }
 
     if (user.isJump == false)
     {
-      if (block.xPosition < 80 && block.xPosition > 30)
+      if (block1.xPosition < 75 && block1.xPosition > 40)
       {
-        print(96, 100, "GAME OVER");
-        _delay_ms(2500);
-        return;
+        if (block1.isPresent == false)
+        {
+          print(96, 100, "GAME OVER");
+          _delay_ms(2500);
+          return;
+        }
+
+        else
+        {
+          clear(80, 160, 20, 20, BLACK);
+          Frame::scoreTime += 10;
+          print(120, 40, "+10");
+          m_IsDrawed = true;
+
+          block1.isRolling = false;
+          block1.isPresent = false;
+          block1.init();
+        }
+      }
+
+      if (block2.xPosition < 75 && block2.xPosition > 40)
+      {
+        if (block2.isPresent == false)
+        {
+          print(96, 100, "GAME OVER");
+          _delay_ms(2500);
+          return;
+        }
+
+        else
+        {
+          clear(80, 160, 20, 20, BLACK);
+          Frame::scoreTime += 10;
+          print(120, 40, "+10");
+          m_IsDrawed = true;
+
+          block2.isRolling = false;
+          block2.isPresent = false;
+          block2.init();
+        }
       }
     }
+
   }
 
 }

@@ -15,12 +15,12 @@ uint32_t Frame::pastTick = 0;
 uint32_t Frame::pastFrame = 0;
 uint32_t Frame::pastBeat = 0;
 
-int8_t Frame::oneTick = 0;
-int8_t Frame::twoTick = 1;
-int8_t Frame::secondFrame = 0;
-int8_t Frame::fourFrames = 0;
-int8_t Frame::sixFrames = 0;
-int8_t Frame::sixteenBeats = 1;
+uint8_t Frame::oneTick = 0;
+uint8_t Frame::twoTick = 1;
+uint8_t Frame::secondFrame = 0;
+uint8_t Frame::fourFrames = 0;
+uint8_t Frame::sixFrames = 0;
+uint8_t Frame::sixteenBeats = 1;
 
 
 /*----------------------------------------//

@@ -34,16 +34,20 @@ class Game : private Font
 
 private:
   int8_t m_Cursor;
+  int8_t m_Temp;
   uint16_t m_ScoreTemp;
+
   bool m_IsScore;
   bool m_IsCredit;
   bool m_IsReset;
+  bool m_IsHardmode;
+  bool m_IsDrawed;
 
   void titleLoop(void);
   void startLoop(void);
 
 public:
-  Game() : Font() { m_Cursor = 0; m_ScoreTemp = 0; m_IsReset = false; }
+  Game() : Font() { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false; m_IsHardmode = false; m_IsDrawed = false; }
   ~Game(){};
 
   void title(void);

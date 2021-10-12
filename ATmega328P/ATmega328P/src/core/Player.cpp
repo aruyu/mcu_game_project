@@ -98,8 +98,8 @@ void Player::jumping(void)
 
         else
         {
-          draw(40, 122 - m_JumpHeight, 40, 64, charDown, i, BLACK, MAROON, RED, WHITE);
-          clear(40, (122 - m_JumpHeight) - 8, 40, 8, BLACK);
+          draw(40, 122 - m_JumpHeight, 32, 60, charDown, i, BLACK, MAROON, RED, WHITE);
+          clear(40, (122 - m_JumpHeight) - 8, 32, 8, BLACK);
         }
 
         m_IsDrawed = true;

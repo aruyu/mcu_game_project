@@ -33,11 +33,11 @@ public:
   static uint32_t pastFrame;
   static uint32_t pastBeat;
 
-  static int8_t oneTick;
-  static int8_t twoTick;
-  static int8_t secondFrame;
-  static int8_t fourFrames;
-  static int8_t sixFrames;
-  static int8_t sixteenBeats;
+  static uint8_t oneTick;
+  static uint8_t twoTick;
+  static uint8_t secondFrame;
+  static uint8_t fourFrames;
+  static uint8_t sixFrames;
+  static uint8_t sixteenBeats;
 
 };
