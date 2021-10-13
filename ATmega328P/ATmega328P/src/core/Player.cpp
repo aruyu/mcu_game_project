@@ -26,13 +26,11 @@ void Player::running(void)
   {
     for (int i=0; i<6; i++)
     {
-
       if (Frame::sixFrames == i)
       {
         draw(40, 140, 40, 40, charRun, i, BLACK, MAROON, RED, WHITE);
         m_IsDrawed = true;
       }
-
     }
   }
 
@@ -126,17 +124,14 @@ void Player::dead(void)
 void Player::start(void)
 {
 
-  if (SW::interrupt0 == ON)
+  if (SW::interrupt0 == ON && m_IsReset == false)
   {
-    if (m_IsReset == false)
-    {
-      clear(40, 140, 40, 40, BLACK);
-      m_JumpTemp = 0;
-      m_JumpHeight = 0;
-      m_IsReset = true;
-      m_IsUp = true;
-      isJump = true;
-    }
+    clear(40, 140, 40, 40, BLACK);
+    m_JumpTemp = 0;
+    m_JumpHeight = 0;
+    m_IsReset = true;
+    m_IsUp = true;
+    isJump = true;
   }
 
   if (isJump == false)

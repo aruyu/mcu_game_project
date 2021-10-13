@@ -36,7 +36,6 @@ void Game::titleLoop(void)
       case 0:
         clear(2, 160, 6, 14, BLACK);
         clear(2, 184, 6, 14, WHITE);
-        clear(2, 208, 6, 14, WHITE);
 
         break;
 
@@ -48,7 +47,6 @@ void Game::titleLoop(void)
         break;
 
       case 2:
-        clear(2, 160, 6, 14, WHITE);
         clear(2, 184, 6, 14, WHITE);
         clear(2, 208, 6, 14, BLACK);
         
@@ -76,7 +74,6 @@ void Game::titleLoop(void)
       case 0:
         clear(2, 160, 6, 14, BLACK);
         clear(2, 184, 6, 14, WHITE);
-        clear(2, 208, 6, 14, WHITE);
 
         break;
 
@@ -88,7 +85,6 @@ void Game::titleLoop(void)
         break;
 
       case 2:
-        clear(2, 160, 6, 14, WHITE);
         clear(2, 184, 6, 14, WHITE);
         clear(2, 208, 6, 14, BLACK);
         
@@ -119,8 +115,6 @@ void Game::titleLoop(void)
       else if (Frame::sixFrames == 4)
       {
         clear(2, 160, 6, 14, WHITE);
-        clear(2, 184, 6, 14, WHITE);
-        clear(2, 208, 6, 14, WHITE);
       }
 
       break;
@@ -138,9 +132,7 @@ void Game::titleLoop(void)
 
       else if (Frame::sixFrames == 4)
       {
-        clear(2, 160, 6, 14, WHITE);
         clear(2, 184, 6, 14, WHITE);
-        clear(2, 208, 6, 14, WHITE);
       }
 
       break;
@@ -158,8 +150,6 @@ void Game::titleLoop(void)
 
       else if (Frame::sixFrames == 4)
       {
-        clear(2, 160, 6, 14, WHITE);
-        clear(2, 184, 6, 14, WHITE);
         clear(2, 208, 6, 14, WHITE);
       }
       
@@ -232,14 +222,7 @@ void Game::startLoop(void)
     {
       if (block1.xPosition < 75 && block1.xPosition > 40)
       {
-        if (block1.isPresent == false)
-        {
-          print(96, 100, "GAME OVER");
-          _delay_ms(2500);
-          return;
-        }
-
-        else
+        if (block1.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
           Frame::scoreTime += 10;
@@ -250,18 +233,18 @@ void Game::startLoop(void)
           block1.isPresent = false;
           block1.init();
         }
-      }
 
-      if (block2.xPosition < 75 && block2.xPosition > 40)
-      {
-        if (block2.isPresent == false)
+        else
         {
           print(96, 100, "GAME OVER");
           _delay_ms(2500);
           return;
         }
+      }
 
-        else
+      if (block2.xPosition < 75 && block2.xPosition > 40)
+      {
+        if (block2.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
           Frame::scoreTime += 10;
@@ -271,6 +254,13 @@ void Game::startLoop(void)
           block2.isRolling = false;
           block2.isPresent = false;
           block2.init();
+        }
+
+        else
+        {
+          print(96, 100, "GAME OVER");
+          _delay_ms(2500);
+          return;
         }
       }
     }

@@ -53,7 +53,7 @@ void Object::bomb(void)
     m_MoveDistance = 304;
     m_MoveTemp += 1;
 
-    if (m_MoveTemp > 20)
+    if (m_MoveTemp > 25)
     {
       clear(0, 164, 24, 16, BLACK);
       isRolling = false;
@@ -99,29 +99,55 @@ void Object::rolling(void)
     m_IsDrawed = false;
   }
   
-  if (isRolling == true)
+  if (m_IsNomal == false)
   {
-    if (m_RandomNumber < 4)
+    if (isRolling == true && m_IsDrawed == false)
     {
-      ball();
+      if (m_RandomNumber < 4)
+      {
+        ball();
+      }
+
+      else if (m_RandomNumber >= 4 && m_RandomNumber < 6)
+      {
+        present();
+      }
+
+      else if (m_RandomNumber >= 6)
+      {
+        bomb();
+      }
+
+      m_IsDrawed = true;
     }
 
-    else if (m_RandomNumber >= 4 && m_RandomNumber < 6)
+    else if (isRolling == false)
     {
-      present();
+      if (m_RandomNumber == Frame::secondFrame)
+      {
+        m_IsReset = false;
+      }
     }
-
-    else if (m_RandomNumber >= 6)
-    {
-      bomb();
-    }
-
-    m_IsDrawed = true;
   }
 
   else
   {
-    if (m_RandomNumber == Frame::secondFrame)
+    if (isRolling == true && m_IsDrawed == false)
+    {
+      if (m_IsBig == true)
+      {
+        fillPixel()
+      }
+
+      else
+      {
+
+      }
+      
+      m_IsDrawed = true;
+    }
+
+    else if (isRolling == false)
     {
       m_IsReset = false;
     }
@@ -136,26 +162,14 @@ void Object::rolling(void)
 void Object::start(void)
 {
 
-  if (m_IsNomal == false)
+  if (m_IsReset == false)
   {
-    if (m_IsReset == false)
-    {
-      init();
-      m_IsReset = true;
-      isRolling = true;
-    }
-
-    rolling();
+    init();
+    m_IsReset = true;
+    isRolling = true;
   }
 
-  else
-  {
-    if (m_IsReset == false)
-    {
-      draw(260, 40, 32, 32, m_Bitmap, BLACK, WHITE);
-      m_IsReset = true;
-    }
-  }
+  rolling();
 
 }
 

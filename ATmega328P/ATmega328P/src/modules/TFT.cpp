@@ -169,7 +169,17 @@ void TFT::fillScreen(uint16_t colorValue)
 }
 
 /*----------------------------------------//
-                Fill Rect
+                Fill Pixel
+//----------------------------------------*/
+
+void TFT::fillPixel(int16_t xPos, int16_t yPos, uint16_t colorValue)
+{
+  setAddress(xPos, yPos, xPos, yPos);
+  exportLongData(colorValue);
+}
+
+/*----------------------------------------//
+                Clear Screen
 //----------------------------------------*/
 
 void TFT::clear(int16_t xPos, int16_t yPos, int16_t width, int16_t height, uint16_t colorValue)
@@ -412,7 +422,7 @@ void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const 
 
 
 /*----------------------------------------//
-            Draw 160bytes Bitmap
+            Draw 120bytes Bitmap
 //----------------------------------------*/
 
 void TFT::draw(int16_t xPos, int16_t yPos, int16_t width, int16_t height, const unsigned char (*bitmap)[120], int8_t tileSelection,

@@ -34,9 +34,10 @@ private:
   int16_t m_MoveDistance;
   uint8_t m_RandomNumber;
 
-  bool m_IsReset;
   bool m_IsNomal;
+  bool m_IsReset;
   bool m_IsDrawed;
+  bool m_IsBig;
 
   void ball(void);
   void bomb(void);
@@ -47,8 +48,8 @@ private:
   void setPosition(int16_t xPos, int16_t yPos) { xPosition = xPos; yPosition = yPos; }
 
 public:
-  Object() : TFT() { m_MoveSpeed = 4; m_IsNomal = false; m_IsReset = false; isRolling = false; isPresent = false; }
-  Object(const uint8_t *bitmap, int8_t speed) : TFT() { m_Bitmap = bitmap; m_MoveSpeed = speed; m_IsNomal = true; }
+  Object() : TFT() { m_IsNomal = false; m_MoveSpeed = 4; m_IsReset = false; isRolling = false; isPresent = false; }
+  Object(bool isBig, int8_t speed) : TFT() { m_IsNomal = true; m_MoveSpeed = speed; m_IsReset = false; m_IsBig = isBig; }
   ~Object(){};
 
   void start(void);
