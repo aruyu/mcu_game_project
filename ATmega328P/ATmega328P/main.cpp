@@ -30,7 +30,7 @@ int main(void)
   beginPin(D, 6);
 
   beginINT(0, DOWN);
-  //beginINT(1, DOWN);
+  beginINT(1, DOWN);
   beginTimer(0, OVF);
   //beginTimer(1, COMP);
   beginTimer(2, COMP);
@@ -116,9 +116,8 @@ ISR(INT0_vect)
 {
   SW::interrupt0 = ON;
 }
-/*
+
 ISR(INT1_vect)
 {
   SW::interrupt1 = ON;
 }
-*/

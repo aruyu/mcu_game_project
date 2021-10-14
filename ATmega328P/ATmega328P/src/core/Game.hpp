@@ -45,12 +45,14 @@ private:
 
   void titleLoop(void);
   void startLoop(void);
-
-public:
-  Game() : Font() { m_IsHardmode = false; };
-  ~Game(){};
+  void endLoop(void);
 
   void init(void) { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; Frame::scoreTime = 0; }
+
+public:
+  Game() : Font() { m_IsHardmode = false; }
+  ~Game(){};
+
   void title(void);
   void start(void);
   void end(void);

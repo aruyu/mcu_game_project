@@ -211,6 +211,7 @@ void Object::start(void)
 void Object::init(void)
 {
   xPosition = 0;
+  m_Temp = 0;
   m_MoveTemp = 0;
   m_MoveDistance = 0;
   m_RandomNumber = (Frame::presentTime * 3) % 10;

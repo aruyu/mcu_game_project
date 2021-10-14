@@ -125,9 +125,7 @@ void Player::start(void)
 
   if (SW::interrupt0 == ON && m_IsReset == false)
   {
-    clear(40, 140, 40, 40, BLACK);
-    m_JumpTemp = 0;
-    m_JumpHeight = 0;
+    init();
     m_IsReset = true;
     m_IsUp = true;
     isJump = true;
@@ -143,4 +141,16 @@ void Player::start(void)
     jumping();
   }
 
+}
+
+/*----------------------------------------//
+            Initialize Player
+//----------------------------------------*/
+
+void Player::init(void)
+{
+  clear(40, 140, 40, 40, BLACK);
+  m_Temp = 0;
+  m_JumpTemp = 0;
+  m_JumpHeight = 0;
 }

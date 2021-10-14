@@ -47,8 +47,8 @@ private:
   void rollBackground(void);
 
 public:
-  Object() : TFT() { m_Temp = 0; m_IsBlock = true; m_MoveSpeed = 4; m_IsReset = false; isRolling = false; isPresent = false; init(); }
-  Object(int16_t width, int16_t height, const uint8_t *bitmap, int8_t speed) : TFT() { m_Temp = 0; m_IsBlock = false; m_MoveSpeed = speed; m_IsReset = false; isRolling = false;
+  Object() : TFT() { m_MoveSpeed = 3; m_IsBlock = true; m_IsReset = false; isRolling = false; isPresent = false; init(); }
+  Object(int16_t width, int16_t height, const uint8_t *bitmap, int8_t speed) : TFT() { m_MoveSpeed = speed; m_IsBlock = false; m_IsReset = false; isRolling = false;
     m_Bitmap = bitmap; m_Width = width; m_Height = height; }
 
   ~Object(){};
