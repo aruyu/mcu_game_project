@@ -19,7 +19,7 @@ void Object::ball(void)
 
   if (m_MoveDistance < 304)
   {
-    setPosition(304 - m_MoveDistance, 164);
+    xPosition = 304 - m_MoveDistance;
     draw(304 - m_MoveDistance, 164, 16, 16, ballTile, BLACK, DARKGRAY, GRAY, WHITE);
     clear(320 - m_MoveDistance, 164, m_MoveSpeed + 2, 16, BLACK);
   }
@@ -41,7 +41,7 @@ void Object::bomb(void)
 
   if (m_MoveDistance < 304)
   {
-    setPosition(304 - m_MoveDistance, 164);
+    xPosition = 304 - m_MoveDistance;
     draw(304 - m_MoveDistance, 164, 16, 16, bombTile, BLACK, DARKGRAY, GRAY, WHITE);
     clear(320 - m_MoveDistance, 164, m_MoveSpeed + 2, 16, BLACK);
   }
@@ -71,7 +71,7 @@ void Object::present(void)
 
   if (m_MoveDistance < 304)
   {
-    setPosition(304 - m_MoveDistance, 164);
+    xPosition = 304 - m_MoveDistance;
     draw(304 - m_MoveDistance, 164, 16, 16, presentTile, BLACK, MAROON, RED, WHITE);
     clear(320 - m_MoveDistance, 164, m_MoveSpeed + 2, 16, BLACK);
     isPresent = true;
@@ -87,70 +87,93 @@ void Object::present(void)
 }
 
 /*----------------------------------------//
-              Object Rolling
+                Roll Object
 //----------------------------------------*/
 
-void Object::rolling(void)
+void Object::rollBlock(void)
 {
 
-  if (Frame::twoTick == 1)
+  if (m_Temp != Frame::twoTick)
   {
-    m_MoveDistance += m_MoveSpeed;
-    m_IsDrawed = false;
-  }
-  
-  if (m_IsNomal == false)
-  {
-    if (isRolling == true && m_IsDrawed == false)
+    m_Temp = Frame::twoTick;
+
+    if (Frame::twoTick == 1)
     {
-      if (m_RandomNumber < 4)
-      {
-        ball();
-      }
-
-      else if (m_RandomNumber >= 4 && m_RandomNumber < 6)
-      {
-        present();
-      }
-
-      else if (m_RandomNumber >= 6)
-      {
-        bomb();
-      }
-
-      m_IsDrawed = true;
-    }
-
-    else if (isRolling == false)
-    {
-      if (m_RandomNumber == Frame::secondFrame)
-      {
-        m_IsReset = false;
-      }
+      m_MoveDistance += m_MoveSpeed;
+      m_IsDrawed = false;
     }
   }
 
-  else
+  if (isRolling == true && m_IsDrawed == false)
   {
-    if (isRolling == true && m_IsDrawed == false)
+    if (m_RandomNumber < 4)
     {
-      if (m_IsBig == true)
-      {
-        fillPixel()
-      }
-
-      else
-      {
-
-      }
-      
-      m_IsDrawed = true;
+      ball();
     }
 
-    else if (isRolling == false)
+    else if (m_RandomNumber >= 4 && m_RandomNumber < 6)
+    {
+      present();
+    }
+
+    else if (m_RandomNumber >= 6)
+    {
+      bomb();
+    }
+
+    m_IsDrawed = true;
+  }
+
+  else if (isRolling == false)
+  {
+    if (m_RandomNumber == Frame::secondFrame)
     {
       m_IsReset = false;
     }
+  }
+
+}
+
+/*----------------------------------------//
+                Roll Object
+//----------------------------------------*/
+
+void Object::rollBackground(void)
+{
+
+  if (m_Temp != Frame::twoTick)
+  {
+    m_Temp = Frame::twoTick;
+    m_rollTemp++;
+
+    if (Frame::twoTick == 1 && m_rollTemp > m_MoveSpeed)
+    {
+      m_rollTemp = 0;
+      m_MoveDistance += 1;
+      m_IsDrawed = false;
+    }
+  }
+  
+  if (isRolling == true && m_IsDrawed == false)
+  {
+    if ((m_Width - m_MoveDistance) > 0)
+    {
+      draw(m_Width - m_MoveDistance, m_Height, 16, 10, m_Bitmap, BLACK, WHITE);
+    }
+
+    else
+    {
+      clear(0, m_Height, 20, 10, BLACK);
+      isRolling = false;
+    }
+  
+    m_IsDrawed = true;
+  }
+
+  else if (isRolling == false)
+  {
+    m_Width = 304;
+    m_IsReset = false;
   }
 
 }
@@ -168,9 +191,17 @@ void Object::start(void)
     m_IsReset = true;
     isRolling = true;
   }
+  
+  if (m_IsBlock == true)
+  {
+    rollBlock();
+  }
 
-  rolling();
-
+  else
+  {
+    rollBackground();
+  }
+  
 }
 
 /*----------------------------------------//
@@ -179,10 +210,9 @@ void Object::start(void)
 
 void Object::init(void)
 {
+  xPosition = 0;
   m_MoveTemp = 0;
   m_MoveDistance = 0;
-  xPosition = 0;
-  yPosition = 0;
   m_RandomNumber = (Frame::presentTime * 3) % 10;
   m_RandomNumber = (Frame::presentTime * m_RandomNumber) % 10;
 }

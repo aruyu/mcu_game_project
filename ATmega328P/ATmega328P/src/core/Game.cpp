@@ -173,29 +173,87 @@ void Game::startLoop(void)
   Player user;
   Object block1;
   Object block2;
+  Object block3;
+  Object star1(50, 70, bigStar, 30);
+  Object star2(250, 80, smallStar1, 10);
+  Object star3(150, 110, smallStar0, 3);
 
-  Frame::scoreTime = 0;
   print(16, 16, "Score:");
   draw(256, 32, 32, 32, moonTile, BLACK, WHITE);
-  
+
   while (1)
   {
 
     Frame::update();
     user.start();
-    block1.start();
-    block2.start();
 
-    if (block1.isRolling == false || block2.isRolling == false)
+    star1.start();
+    star2.start();
+    star3.start();
+
+    if (m_IsHighSpeed == false && Frame::scoreTime < 5)
     {
-      block1.setSpeed(2);
-      block2.setSpeed(2);
+      block1.start();
+    }
+
+    else if (m_IsHighSpeed == false)
+    {
+      block1.start();
+      block2.start();
     }
 
     else
     {
-      block1.setSpeed(4);
-      block2.setSpeed(4);
+      block1.start();
+      block2.start();
+      block3.start();
+    }
+
+    if (m_IsReset == false)
+    {
+      if (m_ScoreTemp >= 300 && m_ScoreTemp < 311)
+      {
+        block1.setSpeed(5);
+        block2.setSpeed(5);
+        print(120, 40, "Speed+");
+        m_IsReset = true;
+        m_IsDrawed = true;
+      }
+
+      else if (m_ScoreTemp >= 600 && m_ScoreTemp < 611)
+      {
+        block1.setSpeed(6);
+        block2.setSpeed(6);
+        print(120, 40, "Speed+");
+        m_IsReset = true;
+        m_IsDrawed = true;
+      }
+
+      else if (m_ScoreTemp >= 1000 && m_ScoreTemp < 1011)
+      {
+        block1.setSpeed(7);
+        block2.setSpeed(7);
+        block3.setSpeed(7);
+        print(120, 40, "Block+");
+        m_IsReset = true;
+        m_IsHighSpeed = true;
+        m_IsDrawed = true;
+      }
+    }
+
+    if (m_IsHardmode == true)
+    {
+      if (block1.isRolling == false || block2.isRolling == false)
+      {
+        block1.setSpeed(4);
+        block2.setSpeed(4);
+      }
+
+      else
+      {
+        block1.setSpeed(6);
+        block2.setSpeed(6);
+      }
     }
 
     if (m_ScoreTemp != Frame::scoreTime)
@@ -208,14 +266,28 @@ void Game::startLoop(void)
       {
         m_Temp ++;
 
-        if (m_Temp > 5)
+        if (m_IsReset == false)
         {
-          m_Temp = 0;
-          clear(120, 40, 48, 16, BLACK);
-          m_IsDrawed = false;
+          if (m_Temp > 5)
+          {
+            m_Temp = 0;
+            clear(120, 40, 96, 16, BLACK);
+            m_IsDrawed = false;
+          }
+        }
+
+        else
+        {
+          if (m_Temp > 10)
+          {
+            m_Temp = 0;
+            clear(120, 40, 96, 16, BLACK);
+            m_IsReset = false;
+            m_IsDrawed = false;
+          }
         }
       }
-      
+
     }
 
     if (user.isJump == false)
@@ -225,8 +297,9 @@ void Game::startLoop(void)
         if (block1.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
-          Frame::scoreTime += 10;
+          clear(120, 40, 96, 16, BLACK);
           print(120, 40, "+10");
+          Frame::scoreTime += 10;
           m_IsDrawed = true;
 
           block1.isRolling = false;
@@ -236,8 +309,9 @@ void Game::startLoop(void)
 
         else
         {
-          print(96, 100, "GAME OVER");
+          print(90, 100, "GAME OVER");
           _delay_ms(2500);
+          m_IsReset = true;
           return;
         }
       }
@@ -247,8 +321,9 @@ void Game::startLoop(void)
         if (block2.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
-          Frame::scoreTime += 10;
+          clear(120, 40, 96, 16, BLACK);
           print(120, 40, "+10");
+          Frame::scoreTime += 10;
           m_IsDrawed = true;
 
           block2.isRolling = false;
@@ -258,8 +333,33 @@ void Game::startLoop(void)
 
         else
         {
-          print(96, 100, "GAME OVER");
+          print(90, 100, "GAME OVER");
           _delay_ms(2500);
+          m_IsReset = true;
+          return;
+        }
+      }
+
+      if (block3.xPosition < 75 && block3.xPosition > 40)
+      {
+        if (block3.isPresent == true)
+        {
+          clear(80, 160, 20, 20, BLACK);
+          clear(120, 40, 96, 16, BLACK);
+          print(120, 40, "+10");
+          Frame::scoreTime += 10;
+          m_IsDrawed = true;
+
+          block3.isRolling = false;
+          block3.isPresent = false;
+          block3.init();
+        }
+
+        else
+        {
+          print(90, 100, "GAME OVER");
+          _delay_ms(2500);
+          m_IsReset = true;
           return;
         }
       }
@@ -327,6 +427,7 @@ void Game::start(void)
     draw(64 * j, 180, 64, 48, groundTile, BLACK, BROWN, MAROON, WHITE);
   }
 
+  Game::init();
   SW::init();
   Frame::init();
   startLoop();

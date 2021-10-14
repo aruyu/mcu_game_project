@@ -80,3 +80,38 @@ const uint8_t moonTile[32] PROGMEM =
   0x1f,0xf8,
   0x07,0xe0
 };
+
+
+/*
+        Image size            W = 8    H = 5
+
+        B/W 1bit/pixel       Total : 5 Bytes
+*/
+
+
+const uint8_t smallStar0[5] PROGMEM =
+{
+  0xc0,
+  0xc0,
+  0x00,
+  0x00,
+  0x00
+};
+
+const uint8_t smallStar1[5] PROGMEM =
+{
+  0x40,
+  0xe0,
+  0x40,
+  0x00,
+  0x00
+};
+
+const uint8_t bigStar[5] PROGMEM =
+{
+  0x20,
+  0x20,
+  0xd8,
+  0x20,
+  0x20
+};

@@ -11,7 +11,6 @@
 #include "../modules/MCU.hpp"
 #include "../modules/SW.hpp"
 #include "../modules/TFT.hpp"
-#include "../assets/CharStand.hpp"
 #include "../assets/FontASCII.hpp"
 #include "../assets/GroundTile.hpp"
 #include "../assets/LogoAtmel.hpp"
@@ -41,15 +40,17 @@ private:
   bool m_IsCredit;
   bool m_IsReset;
   bool m_IsHardmode;
+  bool m_IsHighSpeed;
   bool m_IsDrawed;
 
   void titleLoop(void);
   void startLoop(void);
 
 public:
-  Game() : Font() { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false; m_IsHardmode = false; m_IsDrawed = false; }
+  Game() : Font() { m_IsHardmode = false; };
   ~Game(){};
 
+  void init(void) { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; Frame::scoreTime = 0; }
   void title(void);
   void start(void);
   void end(void);

@@ -26,6 +26,8 @@ private:
   uint16_t m_Background;
   uint16_t m_Colored;
 
+  void printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII);
+
 public:
   Font() : TFT(){};
   Font(const uint8_t *bitmap) : TFT() { m_Bitmap = bitmap; }
@@ -33,7 +35,6 @@ public:
 
   void setFont(const uint8_t *bitmap) { m_Bitmap = bitmap; }
   void setColor(uint16_t color0, uint16_t color1) { m_Background = color0; m_Colored = color1; }
-  void printLetter(int16_t xPos, int16_t yPos, uint8_t ASCII);
   void print(int16_t xPos, int16_t yPos, const char *stringValue);
   void print(int16_t xPos, int16_t yPos, uint32_t intager);
 

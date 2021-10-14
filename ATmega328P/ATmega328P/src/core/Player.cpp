@@ -17,9 +17,14 @@
 void Player::running(void)
 {
 
-  if (Frame::oneTick == 1)
+  if (m_Temp != Frame::twoTick)
   {
-    m_IsDrawed = false;
+    m_Temp = Frame::twoTick;
+
+    if (Frame::oneTick == 1)
+    {
+      m_IsDrawed = false;
+    }
   }
 
   if (m_IsDrawed == false)
@@ -43,42 +48,45 @@ void Player::running(void)
 void Player::jumping(void)
 {
 
-  if (Frame::oneTick == 1)
+  if (m_Temp != Frame::twoTick)
   {
+    m_Temp = Frame::twoTick;
 
-    if (m_IsUp == true)
+    if (Frame::oneTick == 1)
     {
-      m_JumpHeight += 6;
-
-      if (m_JumpHeight >= 50)
+      if (m_IsUp == true)
       {
-        m_JumpTemp ++;
-        m_JumpHeight -= 6;
+        m_JumpHeight += 6;
 
-        if (m_JumpTemp == 6)
+        if (m_JumpHeight >= 50)
         {
-          m_JumpHeight += 6;
-          m_IsUp = false;
+          m_JumpTemp ++;
+          m_JumpHeight -= 6;
+
+          if (m_JumpTemp == 6)
+          {
+            m_JumpHeight += 6;
+            m_IsUp = false;
+          }
         }
       }
-    }
 
-    else
-    {
-      m_JumpHeight -= 6;
-
-      if (m_JumpHeight <= 0)
+      else
       {
-        clear(40, 140 - 25, 40, 25, BLACK);
-        SW::interrupt0 = OFF;
-        m_IsReset = false;
-        isJump = false;
-        return;
+        m_JumpHeight -= 6;
+
+        if (m_JumpHeight <= 0)
+        {
+          clear(40, 140 - 25, 40, 25, BLACK);
+          SW::interrupt0 = OFF;
+          m_IsReset = false;
+          isJump = false;
+          return;
+        }
       }
+
+      m_IsDrawed = false;
     }
-
-    m_IsDrawed = false;
-
   }
 
   if (m_IsDrawed == false)
@@ -105,15 +113,6 @@ void Player::jumping(void)
       }
     }
   }
-  
-}
-
-/*----------------------------------------//
-                Player Dead
-//----------------------------------------*/
-
-void Player::dead(void)
-{
   
 }
 

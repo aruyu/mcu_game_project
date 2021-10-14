@@ -26,38 +26,38 @@ class Object : private TFT
 
 private:
   const uint8_t *m_Bitmap;
-  int16_t m_ObjectWidth;
-  int16_t m_ObjectHeight;
+  int16_t m_Width;
+  int16_t m_Height;
+  int8_t m_Temp;
+  int8_t m_rollTemp;
 
   int8_t m_MoveSpeed;
   int8_t m_MoveTemp;
   int16_t m_MoveDistance;
   uint8_t m_RandomNumber;
-
-  bool m_IsNomal;
+  
+  bool m_IsBlock;
   bool m_IsReset;
   bool m_IsDrawed;
-  bool m_IsBig;
 
   void ball(void);
   void bomb(void);
   void present(void);
-  
-  void rolling(void);
-  void disappear(void);
-  void setPosition(int16_t xPos, int16_t yPos) { xPosition = xPos; yPosition = yPos; }
+  void rollBlock(void);
+  void rollBackground(void);
 
 public:
-  Object() : TFT() { m_IsNomal = false; m_MoveSpeed = 4; m_IsReset = false; isRolling = false; isPresent = false; }
-  Object(bool isBig, int8_t speed) : TFT() { m_IsNomal = true; m_MoveSpeed = speed; m_IsReset = false; m_IsBig = isBig; }
+  Object() : TFT() { m_Temp = 0; m_IsBlock = true; m_MoveSpeed = 4; m_IsReset = false; isRolling = false; isPresent = false; init(); }
+  Object(int16_t width, int16_t height, const uint8_t *bitmap, int8_t speed) : TFT() { m_Temp = 0; m_IsBlock = false; m_MoveSpeed = speed; m_IsReset = false; isRolling = false;
+    m_Bitmap = bitmap; m_Width = width; m_Height = height; }
+
   ~Object(){};
 
-  void start(void);
   void init(void);
+  void start(void);
   void setSpeed(int8_t speed) { m_MoveSpeed = speed; }
 
   int16_t xPosition;
-  int16_t yPosition;
   bool isRolling;
   bool isPresent;
 
