@@ -122,20 +122,20 @@ void MCU::Setting::beginPin(int8_t port, int8_t pinNumber)
   {
     // PORTB
   case B:
-    DDRB |= insertBit(pinNumber, HIGH);
-    PORTB |= insertBit(pinNumber, LOW);
+    DDRB += insertBit(pinNumber, HIGH);
+    PORTB += insertBit(pinNumber, LOW);
     break;
 
     // PORTC
   case C:
-    DDRC |= insertBit(pinNumber, HIGH);
-    PORTC |= insertBit(pinNumber, LOW);
+    DDRC += insertBit(pinNumber, HIGH);
+    PORTC += insertBit(pinNumber, LOW);
     break;
 
     // PORTD
   case D:
-    DDRD |= insertBit(pinNumber, HIGH);
-    PORTD |= insertBit(pinNumber, LOW);
+    DDRD += insertBit(pinNumber, HIGH);
+    PORTD += insertBit(pinNumber, LOW);
     break;
 
   default:
@@ -199,7 +199,7 @@ void MCU::Setting::beginPort(int8_t port, bool isOutput)
 void MCU::Setting::beginINT(int8_t INTIndex, int8_t INTMode)
 {
 
-  EIMSK |= insertBit(INTIndex, HIGH);
+  EIMSK += insertBit(INTIndex, HIGH);
 
   switch (INTMode)
   {
@@ -230,24 +230,24 @@ void MCU::Setting::beginPCINT(int8_t PCINTIndex)
 
   if (PCINTIndex <= 7)
   {
-    PCMSK0 |= insertBit(PCINTIndex, HIGH);
-    PCICR |= 0x01;
+    PCMSK0 += insertBit(PCINTIndex, HIGH);
+    PCICR += 0x01;
     return;
   }
 
   else if (PCINTIndex <= 14)
   {
     PCINTIndex -= 8;
-    PCMSK1 |= insertBit(PCINTIndex, HIGH);
-    PCICR |= 0x02;
+    PCMSK1 += insertBit(PCINTIndex, HIGH);
+    PCICR += 0x02;
     return;
   }
 
   else if (PCINTIndex <= 23)
   {
     PCINTIndex -= 16;
-    PCMSK1 |= insertBit(PCINTIndex, HIGH);
-    PCICR |= 0x04;
+    PCMSK1 += insertBit(PCINTIndex, HIGH);
+    PCICR += 0x04;
     return;
   }
 

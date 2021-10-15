@@ -32,6 +32,8 @@ Discarded input sections
  .text          0x00000000        0x0 src/core/Frame.o
  .data          0x00000000        0x0 src/core/Frame.o
  .bss           0x00000000        0x0 src/core/Frame.o
+ .data._ZN5Frame7twoTickE
+                0x00000000        0x1 src/core/Frame.o
  .text          0x00000000        0x0 src/core/Game.o
  .data          0x00000000        0x0 src/core/Game.o
  .bss           0x00000000        0x0 src/core/Game.o
@@ -320,7 +322,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x49ac
+.text           0x00000000     0x496a
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -465,132 +467,132 @@ END GROUP
                 0x00002684      0x14e src/core/Font.o
                 0x00002684                _ZN4Font5printEiim
  .text._ZN5Frame6updateEv
-                0x000027d2      0x128 src/core/Frame.o
+                0x000027d2      0x118 src/core/Frame.o
                 0x000027d2                _ZN5Frame6updateEv
  .text._ZN5Frame4initEv
-                0x000028fa       0x42 src/core/Frame.o
-                0x000028fa                _ZN5Frame4initEv
+                0x000028ea       0x42 src/core/Frame.o
+                0x000028ea                _ZN5Frame4initEv
  .text._ZN4Game9titleLoopEv
-                0x0000293c      0x31a src/core/Game.o
-                0x0000293c                _ZN4Game9titleLoopEv
+                0x0000292c      0x31a src/core/Game.o
+                0x0000292c                _ZN4Game9titleLoopEv
  .text._ZN4Game9startLoopEv
-                0x00002c56      0x714 src/core/Game.o
-                0x00002c56                _ZN4Game9startLoopEv
+                0x00002c46      0x6fe src/core/Game.o
+                0x00002c46                _ZN4Game9startLoopEv
  .text._ZN4Game5titleEv
-                0x0000336a      0x12e src/core/Game.o
-                0x0000336a                _ZN4Game5titleEv
+                0x00003344      0x12e src/core/Game.o
+                0x00003344                _ZN4Game5titleEv
  .text._ZN4Game5startEv
-                0x00003498      0x190 src/core/Game.o
-                0x00003498                _ZN4Game5startEv
+                0x00003472      0x190 src/core/Game.o
+                0x00003472                _ZN4Game5startEv
  .text._ZN6Object4ballEv
-                0x00003628       0xd4 src/core/Object.o
-                0x00003628                _ZN6Object4ballEv
+                0x00003602       0xd4 src/core/Object.o
+                0x00003602                _ZN6Object4ballEv
  .text._ZN6Object4bombEv
-                0x000036fc      0x13a src/core/Object.o
-                0x000036fc                _ZN6Object4bombEv
+                0x000036d6      0x13a src/core/Object.o
+                0x000036d6                _ZN6Object4bombEv
  .text._ZN6Object7presentEv
-                0x00003836       0xd6 src/core/Object.o
-                0x00003836                _ZN6Object7presentEv
+                0x00003810       0xd6 src/core/Object.o
+                0x00003810                _ZN6Object7presentEv
  .text._ZN6Object9rollBlockEv
-                0x0000390c       0x8c src/core/Object.o
-                0x0000390c                _ZN6Object9rollBlockEv
+                0x000038e6       0x94 src/core/Object.o
+                0x000038e6                _ZN6Object9rollBlockEv
  .text._ZN6Object14rollBackgroundEv
-                0x00003998       0xd8 src/core/Object.o
-                0x00003998                _ZN6Object14rollBackgroundEv
+                0x0000397a       0xdc src/core/Object.o
+                0x0000397a                _ZN6Object14rollBackgroundEv
  .text._ZN6Object4initEv
-                0x00003a70       0x8c src/core/Object.o
-                0x00003a70                _ZN6Object4initEv
+                0x00003a56       0x82 src/core/Object.o
+                0x00003a56                _ZN6Object4initEv
  .text._ZN6Object5startEv
-                0x00003afc       0x32 src/core/Object.o
-                0x00003afc                _ZN6Object5startEv
+                0x00003ad8       0x32 src/core/Object.o
+                0x00003ad8                _ZN6Object5startEv
  .text._ZN6Player7runningEv
-                0x00003b2e       0xe0 src/core/Player.o
-                0x00003b2e                _ZN6Player7runningEv
+                0x00003b0a       0xda src/core/Player.o
+                0x00003b0a                _ZN6Player7runningEv
  .text._ZN6Player7jumpingEv
-                0x00003c0e      0x202 src/core/Player.o
-                0x00003c0e                _ZN6Player7jumpingEv
+                0x00003be4      0x1ea src/core/Player.o
+                0x00003be4                _ZN6Player7jumpingEv
  .text._ZN6Player4initEv
-                0x00003e10       0x3a src/core/Player.o
-                0x00003e10                _ZN6Player4initEv
+                0x00003dce       0x3a src/core/Player.o
+                0x00003dce                _ZN6Player4initEv
  .text._ZN6Player5startEv
-                0x00003e4a       0x3e src/core/Player.o
-                0x00003e4a                _ZN6Player5startEv
+                0x00003e08       0x3e src/core/Player.o
+                0x00003e08                _ZN6Player5startEv
  .text._ZN3MCU7Setting8beginPinEaa
-                0x00003e88       0x5a src/modules/MCU.o
-                0x00003e88                _ZN3MCU7Setting8beginPinEaa
+                0x00003e46       0x5a src/modules/MCU.o
+                0x00003e46                _ZN3MCU7Setting8beginPinEaa
  .text._ZN3MCU7Setting9beginPortEab
-                0x00003ee2       0x20 src/modules/MCU.o
-                0x00003ee2                _ZN3MCU7Setting9beginPortEab
+                0x00003ea0       0x20 src/modules/MCU.o
+                0x00003ea0                _ZN3MCU7Setting9beginPortEab
  .text._ZN3MCU7Setting8beginINTEaa
-                0x00003f02       0x36 src/modules/MCU.o
-                0x00003f02                _ZN3MCU7Setting8beginINTEaa
+                0x00003ec0       0x36 src/modules/MCU.o
+                0x00003ec0                _ZN3MCU7Setting8beginINTEaa
  .text._ZN3MCU7Setting10beginTimerEab
-                0x00003f38       0xac src/modules/MCU.o
-                0x00003f38                _ZN3MCU7Setting10beginTimerEab
+                0x00003ef6       0xac src/modules/MCU.o
+                0x00003ef6                _ZN3MCU7Setting10beginTimerEab
  .text._ZN3MCU7Setting8beginSPIEv
-                0x00003fe4        0xa src/modules/MCU.o
-                0x00003fe4                _ZN3MCU7Setting8beginSPIEv
+                0x00003fa2        0xa src/modules/MCU.o
+                0x00003fa2                _ZN3MCU7Setting8beginSPIEv
  .text._ZN2SW6updateEv
-                0x00003fee       0x22 src/modules/SW.o
-                0x00003fee                _ZN2SW6updateEv
+                0x00003fac       0x22 src/modules/SW.o
+                0x00003fac                _ZN2SW6updateEv
  .text._ZN2SW4initEv
-                0x00004010       0x22 src/modules/SW.o
-                0x00004010                _ZN2SW4initEv
+                0x00003fce       0x22 src/modules/SW.o
+                0x00003fce                _ZN2SW4initEv
  .text._ZN3SPI7sendBitEh
-                0x00004032        0xa src/modules/TFT.o
-                0x00004032                _ZN3SPI7sendBitEh
+                0x00003ff0        0xa src/modules/TFT.o
+                0x00003ff0                _ZN3SPI7sendBitEh
  .text._ZN3SPI13exportCommandEh
-                0x0000403c        0xc src/modules/TFT.o
-                0x0000403c                _ZN3SPI13exportCommandEh
+                0x00003ffa        0xc src/modules/TFT.o
+                0x00003ffa                _ZN3SPI13exportCommandEh
  .text._ZN3SPI10exportDataEh
-                0x00004048        0xc src/modules/TFT.o
-                0x00004048                _ZN3SPI10exportDataEh
+                0x00004006        0xc src/modules/TFT.o
+                0x00004006                _ZN3SPI10exportDataEh
  .text._ZN3SPI14exportLongDataEj
-                0x00004054       0x26 src/modules/TFT.o
-                0x00004054                _ZN3SPI14exportLongDataEj
+                0x00004012       0x26 src/modules/TFT.o
+                0x00004012                _ZN3SPI14exportLongDataEj
  .text._ZN3TFT5beginEv
-                0x0000407a       0xaa src/modules/TFT.o
-                0x0000407a                _ZN3TFT5beginEv
+                0x00004038       0xaa src/modules/TFT.o
+                0x00004038                _ZN3TFT5beginEv
  .text._ZN3TFT11setRotationEa
-                0x00004124       0x50 src/modules/TFT.o
-                0x00004124                _ZN3TFT11setRotationEa
+                0x000040e2       0x50 src/modules/TFT.o
+                0x000040e2                _ZN3TFT11setRotationEa
  .text._ZN3TFT10setAddressEiiii
-                0x00004174       0x68 src/modules/TFT.o
-                0x00004174                _ZN3TFT10setAddressEiiii
+                0x00004132       0x68 src/modules/TFT.o
+                0x00004132                _ZN3TFT10setAddressEiiii
  .text._ZN3TFT10fillScreenEj
-                0x000041dc       0x8a src/modules/TFT.o
-                0x000041dc                _ZN3TFT10fillScreenEj
+                0x0000419a       0x8a src/modules/TFT.o
+                0x0000419a                _ZN3TFT10fillScreenEj
  .text._ZN3TFT5clearEiiiij
-                0x00004266       0x72 src/modules/TFT.o
-                0x00004266                _ZN3TFT5clearEiiiij
+                0x00004224       0x72 src/modules/TFT.o
+                0x00004224                _ZN3TFT5clearEiiiij
  .text._ZN3TFT4drawEiiiiPKhjj
-                0x000042d8      0x154 src/modules/TFT.o
-                0x000042d8                _ZN3TFT4drawEiiiiPKhjj
+                0x00004296      0x154 src/modules/TFT.o
+                0x00004296                _ZN3TFT4drawEiiiiPKhjj
  .text._ZN3TFT4drawEiiiiPKhjjjj
-                0x0000442c      0x1a4 src/modules/TFT.o
-                0x0000442c                _ZN3TFT4drawEiiiiPKhjjjj
+                0x000043ea      0x1a4 src/modules/TFT.o
+                0x000043ea                _ZN3TFT4drawEiiiiPKhjjjj
  .text._ZN3TFT4drawEiiiiPA100_Khajjjj
-                0x000045d0      0x1aa src/modules/TFT.o
-                0x000045d0                _ZN3TFT4drawEiiiiPA100_Khajjjj
+                0x0000458e      0x1aa src/modules/TFT.o
+                0x0000458e                _ZN3TFT4drawEiiiiPA100_Khajjjj
  .text._ZN3TFT4drawEiiiiPA120_Khajjjj
-                0x0000477a      0x1aa src/modules/TFT.o
-                0x0000477a                _ZN3TFT4drawEiiiiPA120_Khajjjj
+                0x00004738      0x1aa src/modules/TFT.o
+                0x00004738                _ZN3TFT4drawEiiiiPA120_Khajjjj
  .text.libgcc.div
-                0x00004924       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00004924                __udivmodsi4
+                0x000048e2       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x000048e2                __udivmodsi4
  .text.libgcc.mul
-                0x00004968       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
-                0x00004968                __muluhisi3
- .text.libgcc   0x0000497e        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x0000497e                __tablejump2__
+                0x00004926       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
+                0x00004926                __muluhisi3
+ .text.libgcc   0x0000493c        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x0000493c                __tablejump2__
  .text.libgcc.mul
-                0x0000498a       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x0000498a                __umulhisi3
-                0x000049a8                . = ALIGN (0x2)
+                0x00004948       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00004948                __umulhisi3
+                0x00004966                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000049a8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000049a8                _exit
-                0x000049a8                exit
+ .fini9         0x00004966        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00004966                _exit
+                0x00004966                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -609,107 +611,103 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000049a8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00004966        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000049ac                _etext = .
+                0x0000496a                _etext = .
 
-.data           0x00800100       0x38 load address 0x000049ac
+.data           0x00800100       0x36 load address 0x0000496a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data._ZN5Frame12sixteenBeatsE
                 0x00800100        0x1 src/core/Frame.o
                 0x00800100                _ZN5Frame12sixteenBeatsE
- .data._ZN5Frame7twoTickE
-                0x00800101        0x1 src/core/Frame.o
-                0x00800101                _ZN5Frame7twoTickE
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800102       0x35 src/core/Game.o
+                0x00800101       0x35 src/core/Game.o
  *(.gnu.linkonce.r*)
-                0x00800138                . = ALIGN (0x2)
- *fill*         0x00800137        0x1 
-                0x00800138                _edata = .
-                0x00800138                PROVIDE (__data_end, .)
+                0x00800136                . = ALIGN (0x2)
+                0x00800136                _edata = .
+                0x00800136                PROVIDE (__data_end, .)
 
-.bss            0x00800138       0x35
-                0x00800138                PROVIDE (__bss_start, .)
+.bss            0x00800136       0x35
+                0x00800136                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.game      0x00800138       0x14 main.o
-                0x00800138                game
+ .bss.game      0x00800136       0x14 main.o
+                0x00800136                game
  .bss._ZN5Frame9sixFramesE
-                0x0080014c        0x1 src/core/Frame.o
-                0x0080014c                _ZN5Frame9sixFramesE
+                0x0080014a        0x1 src/core/Frame.o
+                0x0080014a                _ZN5Frame9sixFramesE
  .bss._ZN5Frame10fourFramesE
-                0x0080014d        0x1 src/core/Frame.o
-                0x0080014d                _ZN5Frame10fourFramesE
+                0x0080014b        0x1 src/core/Frame.o
+                0x0080014b                _ZN5Frame10fourFramesE
  .bss._ZN5Frame11secondFrameE
-                0x0080014e        0x1 src/core/Frame.o
-                0x0080014e                _ZN5Frame11secondFrameE
+                0x0080014c        0x1 src/core/Frame.o
+                0x0080014c                _ZN5Frame11secondFrameE
  .bss._ZN5Frame7oneTickE
-                0x0080014f        0x1 src/core/Frame.o
-                0x0080014f                _ZN5Frame7oneTickE
+                0x0080014d        0x1 src/core/Frame.o
+                0x0080014d                _ZN5Frame7oneTickE
  .bss._ZN5Frame8pastBeatE
-                0x00800150        0x4 src/core/Frame.o
-                0x00800150                _ZN5Frame8pastBeatE
+                0x0080014e        0x4 src/core/Frame.o
+                0x0080014e                _ZN5Frame8pastBeatE
  .bss._ZN5Frame9pastFrameE
-                0x00800154        0x4 src/core/Frame.o
-                0x00800154                _ZN5Frame9pastFrameE
+                0x00800152        0x4 src/core/Frame.o
+                0x00800152                _ZN5Frame9pastFrameE
  .bss._ZN5Frame8pastTickE
-                0x00800158        0x4 src/core/Frame.o
-                0x00800158                _ZN5Frame8pastTickE
+                0x00800156        0x4 src/core/Frame.o
+                0x00800156                _ZN5Frame8pastTickE
  .bss._ZN5Frame11presentTimeE
-                0x0080015c        0x4 src/core/Frame.o
-                0x0080015c                _ZN5Frame11presentTimeE
+                0x0080015a        0x4 src/core/Frame.o
+                0x0080015a                _ZN5Frame11presentTimeE
  .bss._ZN5Frame9scoreTimeE
-                0x00800160        0x2 src/core/Frame.o
-                0x00800160                _ZN5Frame9scoreTimeE
+                0x0080015e        0x2 src/core/Frame.o
+                0x0080015e                _ZN5Frame9scoreTimeE
  .bss._ZN2SW6selectE
-                0x00800162        0x1 src/modules/SW.o
-                0x00800162                _ZN2SW6selectE
+                0x00800160        0x1 src/modules/SW.o
+                0x00800160                _ZN2SW6selectE
  .bss._ZN2SW5startE
-                0x00800163        0x1 src/modules/SW.o
-                0x00800163                _ZN2SW5startE
+                0x00800161        0x1 src/modules/SW.o
+                0x00800161                _ZN2SW5startE
  .bss._ZN2SW5rightE
-                0x00800164        0x1 src/modules/SW.o
-                0x00800164                _ZN2SW5rightE
+                0x00800162        0x1 src/modules/SW.o
+                0x00800162                _ZN2SW5rightE
  .bss._ZN2SW4leftE
-                0x00800165        0x1 src/modules/SW.o
-                0x00800165                _ZN2SW4leftE
+                0x00800163        0x1 src/modules/SW.o
+                0x00800163                _ZN2SW4leftE
  .bss._ZN2SW4downE
-                0x00800166        0x1 src/modules/SW.o
-                0x00800166                _ZN2SW4downE
+                0x00800164        0x1 src/modules/SW.o
+                0x00800164                _ZN2SW4downE
  .bss._ZN2SW2upE
-                0x00800167        0x1 src/modules/SW.o
-                0x00800167                _ZN2SW2upE
+                0x00800165        0x1 src/modules/SW.o
+                0x00800165                _ZN2SW2upE
  .bss._ZN2SW10interrupt1E
-                0x00800168        0x1 src/modules/SW.o
-                0x00800168                _ZN2SW10interrupt1E
+                0x00800166        0x1 src/modules/SW.o
+                0x00800166                _ZN2SW10interrupt1E
  .bss._ZN2SW10interrupt0E
-                0x00800169        0x1 src/modules/SW.o
-                0x00800169                _ZN2SW10interrupt0E
+                0x00800167        0x1 src/modules/SW.o
+                0x00800167                _ZN2SW10interrupt0E
  .bss._ZN2SW7oldDataE
-                0x0080016a        0x1 src/modules/SW.o
-                0x0080016a                _ZN2SW7oldDataE
+                0x00800168        0x1 src/modules/SW.o
+                0x00800168                _ZN2SW7oldDataE
  .bss._ZN2SW7newDataE
-                0x0080016b        0x1 src/modules/SW.o
-                0x0080016b                _ZN2SW7newDataE
+                0x00800169        0x1 src/modules/SW.o
+                0x00800169                _ZN2SW7newDataE
  .bss._ZN2SW6resultE
-                0x0080016c        0x1 src/modules/SW.o
-                0x0080016c                _ZN2SW6resultE
+                0x0080016a        0x1 src/modules/SW.o
+                0x0080016a                _ZN2SW6resultE
  *(COMMON)
-                0x0080016d                PROVIDE (__bss_end, .)
-                0x000049ac                __data_load_start = LOADADDR (.data)
-                0x000049e4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080016b                PROVIDE (__bss_end, .)
+                0x0000496a                __data_load_start = LOADADDR (.data)
+                0x000049a0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080016d        0x0
+.noinit         0x0080016b        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080016d                _end = .
+                0x0080016b                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -806,44 +804,44 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xa5dd
+.debug_info     0x00000000     0xa5ee
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4     0x30dd main.o
  .debug_info    0x000036d1      0x89d src/core/Font.o
  .debug_info    0x00003f6e      0x260 src/core/Frame.o
- .debug_info    0x000041ce     0x30aa src/core/Game.o
- .debug_info    0x00007278      0xd40 src/core/Object.o
- .debug_info    0x00007fb8      0x9d2 src/core/Player.o
- .debug_info    0x0000898a      0x3c2 src/modules/MCU.o
- .debug_info    0x00008d4c      0x253 src/modules/SW.o
- .debug_info    0x00008f9f     0x163e src/modules/TFT.o
+ .debug_info    0x000041ce     0x3088 src/core/Game.o
+ .debug_info    0x00007256      0xd43 src/core/Object.o
+ .debug_info    0x00007f99      0xa02 src/core/Player.o
+ .debug_info    0x0000899b      0x3c2 src/modules/MCU.o
+ .debug_info    0x00008d5d      0x253 src/modules/SW.o
+ .debug_info    0x00008fb0     0x163e src/modules/TFT.o
 
-.debug_abbrev   0x00000000     0x15c4
+.debug_abbrev   0x00000000     0x15d1
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2      0x2c6 main.o
  .debug_abbrev  0x00000868      0x199 src/core/Font.o
  .debug_abbrev  0x00000a01       0xb7 src/core/Frame.o
  .debug_abbrev  0x00000ab8      0x2f3 src/core/Game.o
- .debug_abbrev  0x00000dab      0x183 src/core/Object.o
- .debug_abbrev  0x00000f2e      0x1a6 src/core/Player.o
- .debug_abbrev  0x000010d4      0x1bf src/modules/MCU.o
- .debug_abbrev  0x00001293       0xcf src/modules/SW.o
- .debug_abbrev  0x00001362      0x262 src/modules/TFT.o
+ .debug_abbrev  0x00000dab      0x190 src/core/Object.o
+ .debug_abbrev  0x00000f3b      0x1a6 src/core/Player.o
+ .debug_abbrev  0x000010e1      0x1bf src/modules/MCU.o
+ .debug_abbrev  0x000012a0       0xcf src/modules/SW.o
+ .debug_abbrev  0x0000136f      0x262 src/modules/TFT.o
 
-.debug_line     0x00000000     0x2200
+.debug_line     0x00000000     0x21e0
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000134      0x2e7 main.o
  .debug_line    0x0000041b      0x1dc src/core/Font.o
- .debug_line    0x000005f7      0x171 src/core/Frame.o
- .debug_line    0x00000768      0x859 src/core/Game.o
- .debug_line    0x00000fc1      0x34a src/core/Object.o
- .debug_line    0x0000130b      0x2cc src/core/Player.o
- .debug_line    0x000015d7      0x4c7 src/modules/MCU.o
- .debug_line    0x00001a9e      0x101 src/modules/SW.o
- .debug_line    0x00001b9f      0x661 src/modules/TFT.o
+ .debug_line    0x000005f7      0x165 src/core/Frame.o
+ .debug_line    0x0000075c      0x839 src/core/Game.o
+ .debug_line    0x00000f95      0x356 src/core/Object.o
+ .debug_line    0x000012eb      0x2cc src/core/Player.o
+ .debug_line    0x000015b7      0x4c7 src/modules/MCU.o
+ .debug_line    0x00001a7e      0x101 src/modules/SW.o
+ .debug_line    0x00001b7f      0x661 src/modules/TFT.o
 
 .debug_frame    0x00000000      0xb44
  *(.debug_frame)
@@ -857,7 +855,7 @@ END GROUP
  .debug_frame   0x000007bc       0x34 src/modules/SW.o
  .debug_frame   0x000007f0      0x354 src/modules/TFT.o
 
-.debug_str      0x00000000     0x11d1
+.debug_str      0x00000000     0x11f3
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0x839 main.o
@@ -866,28 +864,28 @@ END GROUP
                                 0x538 (size before relaxing)
  .debug_str     0x00000aac      0x1ba src/core/Frame.o
                                 0x380 (size before relaxing)
- .debug_str     0x00000c66      0x2d4 src/core/Game.o
-                                0xabe (size before relaxing)
- .debug_str     0x00000f3a       0x17 src/core/Object.o
+ .debug_str     0x00000c66      0x2f6 src/core/Game.o
+                                0xae0 (size before relaxing)
+ .debug_str     0x00000f5c       0x17 src/core/Object.o
                                 0x5f5 (size before relaxing)
- .debug_str     0x00000f51       0x17 src/core/Player.o
-                                0x4ed (size before relaxing)
- .debug_str     0x00000f68      0x149 src/modules/MCU.o
+ .debug_str     0x00000f73       0x17 src/core/Player.o
+                                0x518 (size before relaxing)
+ .debug_str     0x00000f8a      0x149 src/modules/MCU.o
                                 0x3e0 (size before relaxing)
- .debug_str     0x000010b1       0xbd src/modules/SW.o
+ .debug_str     0x000010d3       0xbd src/modules/SW.o
                                 0x2ee (size before relaxing)
- .debug_str     0x0000116e       0x63 src/modules/TFT.o
+ .debug_str     0x00001190       0x63 src/modules/TFT.o
                                 0x4da (size before relaxing)
 
-.debug_loc      0x00000000     0x4044
+.debug_loc      0x00000000     0x3f8e
  *(.debug_loc)
  .debug_loc     0x00000000      0x1cf main.o
  .debug_loc     0x000001cf      0x6fd src/core/Font.o
- .debug_loc     0x000008cc      0xd14 src/core/Game.o
- .debug_loc     0x000015e0      0x5f5 src/core/Object.o
- .debug_loc     0x00001bd5      0x46d src/core/Player.o
- .debug_loc     0x00002042      0x5b7 src/modules/MCU.o
- .debug_loc     0x000025f9     0x1a4b src/modules/TFT.o
+ .debug_loc     0x000008cc      0xc96 src/core/Game.o
+ .debug_loc     0x00001562      0x5bf src/core/Object.o
+ .debug_loc     0x00001b21      0x46b src/core/Player.o
+ .debug_loc     0x00001f8c      0x5b7 src/modules/MCU.o
+ .debug_loc     0x00002543     0x1a4b src/modules/TFT.o
 
 .debug_macinfo
  *(.debug_macinfo)

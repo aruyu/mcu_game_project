@@ -17,13 +17,18 @@
 void Player::running(void)
 {
 
-  if (m_Temp != Frame::twoTick)
+  if (m_Temp != Frame::oneTick)
   {
-    m_Temp = Frame::twoTick;
+    m_Temp = Frame::oneTick;
 
-    if (Frame::oneTick == 1)
+    if (Frame::oneTick == 0)
     {
       m_IsDrawed = false;
+    }
+
+    else
+    {
+      return;
     }
   }
 
@@ -48,24 +53,23 @@ void Player::running(void)
 void Player::jumping(void)
 {
 
-  if (m_Temp != Frame::twoTick)
+  if (m_Temp != Frame::oneTick)
   {
-    m_Temp = Frame::twoTick;
+    m_Temp = Frame::oneTick;
 
-    if (Frame::oneTick == 1)
+    if (Frame::oneTick == 0)
     {
       if (m_IsUp == true)
       {
-        m_JumpHeight += 6;
+        m_JumpHeight += m_JumpSpeed;
 
         if (m_JumpHeight >= 50)
         {
+          m_JumpHeight -= m_JumpSpeed;
           m_JumpTemp ++;
-          m_JumpHeight -= 6;
 
-          if (m_JumpTemp == 6)
+          if (m_JumpTemp == 8)
           {
-            m_JumpHeight += 6;
             m_IsUp = false;
           }
         }
@@ -73,7 +77,7 @@ void Player::jumping(void)
 
       else
       {
-        m_JumpHeight -= 6;
+        m_JumpHeight -= m_JumpSpeed;
 
         if (m_JumpHeight <= 0)
         {
@@ -86,6 +90,11 @@ void Player::jumping(void)
       }
 
       m_IsDrawed = false;
+    }
+
+    else
+    {
+      return;
     }
   }
 

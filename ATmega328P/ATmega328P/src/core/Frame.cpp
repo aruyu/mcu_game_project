@@ -36,16 +36,10 @@ void Frame::update(void)
     pastTick = presentTime;
 
     oneTick++;
-    twoTick++;
 
-    if (oneTick == 2)
+    if (oneTick == 3)
     {
       oneTick = 0;
-    }
-
-    if (twoTick == 2)
-    {
-      twoTick = 0;
     }
 
   }

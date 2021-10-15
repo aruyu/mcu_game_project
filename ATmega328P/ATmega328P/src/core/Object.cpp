@@ -93,14 +93,27 @@ void Object::present(void)
 void Object::rollBlock(void)
 {
 
-  if (m_Temp != Frame::twoTick)
+  if (m_Temp != Frame::oneTick)
   {
-    m_Temp = Frame::twoTick;
+    m_Temp = Frame::oneTick;
 
-    if (Frame::twoTick == 1)
+    if (Frame::oneTick == 2)
     {
       m_MoveDistance += m_MoveSpeed;
       m_IsDrawed = false;
+    }
+
+    else
+    {
+      if (isRolling == true)
+      {
+        return;
+      }
+
+      else
+      {
+        isRolling = false;
+      }
     }
   }
 
@@ -141,16 +154,21 @@ void Object::rollBlock(void)
 void Object::rollBackground(void)
 {
 
-  if (m_Temp != Frame::twoTick)
+  if (m_Temp != Frame::oneTick)
   {
-    m_Temp = Frame::twoTick;
+    m_Temp = Frame::oneTick;
     m_rollTemp++;
 
-    if (Frame::twoTick == 1 && m_rollTemp > m_MoveSpeed)
+    if (Frame::oneTick == 1 && m_rollTemp > m_MoveSpeed)
     {
       m_rollTemp = 0;
       m_MoveDistance += 1;
       m_IsDrawed = false;
+    }
+
+    else
+    {
+      return;
     }
   }
   
@@ -214,6 +232,6 @@ void Object::init(void)
   m_Temp = 0;
   m_MoveTemp = 0;
   m_MoveDistance = 0;
-  m_RandomNumber = (Frame::presentTime * 3) % 10;
+  m_RandomNumber = (Frame::presentTime * Frame::oneTick) % 10;
   m_RandomNumber = (Frame::presentTime * m_RandomNumber) % 10;
 }

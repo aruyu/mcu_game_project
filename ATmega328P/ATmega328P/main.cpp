@@ -10,11 +10,11 @@
 #include "src/core/Game.hpp"
 using namespace MCU::Setting;
 
+ISR(INT0_vect);
+ISR(INT1_vect);
 ISR(TIMER0_OVF_vect);
 //ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
-ISR(INT0_vect);
-//ISR(INT1_vect);
 
 Game game;
 

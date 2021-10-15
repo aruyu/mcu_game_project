@@ -31,6 +31,7 @@ class Player : private TFT
 private:
   int8_t m_Temp;
   int8_t m_JumpTemp;
+  int8_t m_JumpSpeed;
   int8_t m_JumpHeight;
   bool m_IsReset;
   bool m_IsUp;
@@ -40,11 +41,13 @@ private:
   void jumping(void);
 
 public:
-  Player() : TFT() { m_IsReset = false; m_IsUp = false; isJump = false; }
+  Player() : TFT() { m_JumpSpeed = 6; m_IsReset = false; m_IsUp = false; isJump = false; }
   ~Player(){};
 
   void init(void);
   void start(void);
+  void setSpeed(int8_t speed) { m_JumpSpeed = speed; }
+
   bool isJump;
   
 };

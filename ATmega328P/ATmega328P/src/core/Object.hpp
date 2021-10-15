@@ -31,8 +31,8 @@ private:
   int8_t m_Temp;
   int8_t m_rollTemp;
 
-  int8_t m_MoveSpeed;
   int8_t m_MoveTemp;
+  int8_t m_MoveSpeed;
   int16_t m_MoveDistance;
   uint8_t m_RandomNumber;
   

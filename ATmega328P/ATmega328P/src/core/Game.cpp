@@ -204,7 +204,7 @@ void Game::startLoop(void)
       block3.start();
     }
 
-    if (m_IsReset == false && m_IsHardmode == false)
+    if (m_IsReset == false)
     {
       if (m_ScoreTemp >= 200 && m_ScoreTemp < 211)
       {
@@ -242,6 +242,7 @@ void Game::startLoop(void)
         block1.setSpeed(7);
         block2.setSpeed(7);
         block3.setSpeed(7);
+        user.setSpeed(8);
 
         m_IsReset = true;
         m_IsHighSpeed = true;
@@ -249,20 +250,19 @@ void Game::startLoop(void)
       }
     }
 
-    else if (m_IsHardmode == true)
+    /*
+    if (block1.isRolling == false || block2.isRolling == false)
     {
-      if (block1.isRolling == false || block2.isRolling == false)
-      {
-        block1.setSpeed(4);
-        block2.setSpeed(4);
-      }
-
-      else
-      {
-        block1.setSpeed(6);
-        block2.setSpeed(6);
-      }
+      block1.setSpeed(4);
+      block2.setSpeed(4);
     }
+
+    else
+    {
+      block1.setSpeed(6);
+      block2.setSpeed(6);
+    }
+    */
 
     if (m_ScoreTemp != Frame::scoreTime)
     {
