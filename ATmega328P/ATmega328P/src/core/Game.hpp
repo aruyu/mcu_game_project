@@ -47,7 +47,48 @@ private:
   void startLoop(void);
   void endLoop(void);
 
-  void init(void) { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; Frame::scoreTime = 0; }
+  void init(void) { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0;
+    m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; Frame::scoreTime = 0; }
+
+protected:
+  uint8_t firstName1st;
+  uint8_t firstName2nd;
+  uint8_t firstName3rd;
+  uint8_t firstMode;
+  uint16_t firstScore;
+
+  uint8_t secondName1st;
+  uint8_t secondName2nd;
+  uint8_t secondName3rd;
+  uint8_t secondMode;
+  uint16_t secondScore;
+
+  uint8_t thirdName1st;
+  uint8_t thirdName2nd;
+  uint8_t thirdName3rd;
+  uint8_t thirdMode;
+  uint16_t thirdScore;
+
+  uint8_t fourthName1st;
+  uint8_t fourthName2nd;
+  uint8_t fourthName3rd;
+  uint8_t fourthMode;
+  uint16_t fourthScore;
+
+  uint8_t fifthName1st;
+  uint8_t fifthName2nd;
+  uint8_t fifthName3rd;
+  uint8_t fifthMode;
+  uint16_t fifthScore;
+
+  uint8_t tempName1st;
+  uint8_t tempName2nd;
+  uint8_t tempName3rd;
+  uint8_t tempMode;
+  uint8_t checkReset;
+
+  void resetScore(void);
+  void readScore(void);
 
 public:
   Game() : Font() { m_IsHardmode = false; }

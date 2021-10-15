@@ -42,6 +42,7 @@ int main(void)
   {
     game.title();
     game.start();
+    game.end();
   }
 
   return 0;
