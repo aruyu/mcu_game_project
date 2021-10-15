@@ -14,7 +14,7 @@
 #include "../assets/FontASCII.hpp"
 #include "../assets/GroundTile.hpp"
 #include "../assets/LogoAtmel.hpp"
-#include "../assets/TitleMenu.hpp"
+#include "../assets/TitleScreen.hpp"
 
 #include "Font.hpp"
 #include "Frame.hpp"

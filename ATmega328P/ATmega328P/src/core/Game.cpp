@@ -60,20 +60,64 @@ void Game::titleLoop(void)
 
       if (SW::interrupt0 == ON)
       {
+        setColor(BLACK, WHITE);
         draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-        SW::interrupt0 = OFF;
+        SW::init();
         m_IsScore = false;
       }
     }
 
     else if (m_IsScore == false && m_IsCredit == true)
     {
+      if (SW::select == OFF)
+      {
+        setColor(BLACK, YELLOW);
+        print(30, 16, "Game Designed &");
+        print(16, 36, "Programmed By");
+
+        setColor(BLACK, WHITE);
+        print(240, 36, "CLJ");
+
+        setColor(BLACK, GRAY);
+        print(30, 56, "Github:");
+
+        setColor(BLACK, WHITE);
+        print(158, 56, "vine91");
+
+        setColor(BLACK, RED);
+        print(40, 88, "Special Thanks");
+
+        setColor(BLACK, WHITE);
+        print(0, 110, "The");
+        print(58, 110, "1st");
+        print(116, 110, "Generation");
+        print(286, 110, "Of");
+        print(8, 130, "Medical Engineering");
+        print(60, 150, "Students And");
+        print(50, 170, "Professors in");
+
+        setColor(BLACK, BLUE);
+        print(5, 202, "Korea");
+        print(95, 202, "Polytechnics..");
+      }
+      
+      else
+      {
+        clear(0, 110, 320, 20, BLACK);
+        clear(0, 130, 24, 20, BLACK);
+        clear(296, 130, 24, 20, BLACK);
+        clear(0, 190, 320, 30, BLACK);
+
+        draw(24, 130, 272, 60, creditMenu, BLACK, WHITE);
+      }
+
       _delay_ms(100);
 
       if (SW::interrupt0 == ON)
       {
+        setColor(BLACK, WHITE);
         draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-        SW::interrupt0 = OFF;
+        SW::init();
         m_IsCredit = false;
       }
     }
@@ -159,12 +203,6 @@ void Game::titleLoop(void)
       switch (m_Cursor)
       {
       case 0:
-        if (SW::interrupt0 == ON)
-        {
-          SW::interrupt0 = OFF;
-          return;
-        }
-
         if (Frame::sixFrames == 0)
         {
           clear(2, 160, 6, 14, BLACK);
@@ -175,16 +213,14 @@ void Game::titleLoop(void)
           clear(2, 160, 6, 14, WHITE);
         }
 
+        if (SW::interrupt0 == ON)
+        {
+          return;
+        }
+
         break;
 
       case 1:
-        if (SW::interrupt0 == ON)
-        {
-          clear(55, 20, 210, 200, BLACK);
-          SW::interrupt0 = OFF;
-          m_IsScore = true;
-        }
-
         if (Frame::sixFrames == 0)
         {
           clear(2, 184, 6, 14, BLACK);
@@ -195,16 +231,16 @@ void Game::titleLoop(void)
           clear(2, 184, 6, 14, WHITE);
         }
 
-        break;
-
-      case 2:
         if (SW::interrupt0 == ON)
         {
           clear(55, 20, 210, 200, BLACK);
-          SW::interrupt0 = OFF;
-          m_IsCredit = true;
+          SW::init();
+          m_IsScore = true;
         }
 
+        break;
+
+      case 2:
         if (Frame::sixFrames == 0)
         {
           clear(2, 208, 6, 14, BLACK);
@@ -213,6 +249,13 @@ void Game::titleLoop(void)
         else if (Frame::sixFrames == 4)
         {
           clear(2, 208, 6, 14, WHITE);
+        }
+
+        if (SW::interrupt0 == ON)
+        {
+          fillScreen(BLACK);
+          SW::init();
+          m_IsCredit = true;
         }
         
         break;
@@ -235,9 +278,9 @@ void Game::startLoop(void)
 
   Player user;
   Object block1, block2, block3;
-  Object star1(50, 70, bigStar, 30);
+  Object star1(50, 70, bigStar, 40);
   Object star2(250, 80, smallStar1, 10);
-  Object star3(150, 110, smallStar0, 3);
+  Object star3(150, 110, smallStar0, 2);
 
   print(16, 16, "Score:");
   draw(256, 32, 32, 32, moonTile, BLACK, WHITE);
@@ -488,7 +531,7 @@ void Game::endLoop(void)
     {
       m_Temp -= 1;
 
-      if (m_Temp < 0x41)
+      if (m_Temp < 0x20)
       {
         m_Temp = 0x5A;
       }
@@ -503,7 +546,7 @@ void Game::endLoop(void)
 
       if (m_Temp > 0x5A)
       {
-        m_Temp = 0x41;
+        m_Temp = 0x20;
       }
 
       _delay_ms(100);
