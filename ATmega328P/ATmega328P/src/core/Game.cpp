@@ -278,9 +278,9 @@ void Game::startLoop(void)
 
   Player user;
   Object block1, block2, block3;
-  Object star1(50, 82, bigStar, 40);
-  Object star2(250, 90, smallStar1, 10);
-  Object star3(150, 110, smallStar0, 3);
+  Object star1(50, 72, bigStar, 40);
+  Object star2(250, 88, smallStar0, 10);
+  Object star3(150, 110, smallStar1, 3);
 
   print(10, 16, "Score:");
   draw(250, 40, 32, 32, moonTile, BLACK, WHITE);

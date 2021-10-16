@@ -116,10 +116,10 @@ Disassembly of section .text:
       cc:	20 20 d8 20 20                                        .  
 
 000000d1 <_ZL10smallStar1>:
-      d1:	40 e0 40 00 00                                      @.@..
+      d1:	c0 c0 00 00 00                                      .....
 
 000000d6 <_ZL10smallStar0>:
-      d6:	c0 c0 00 00 00                                      .....
+      d6:	40 e0 40 00 00                                      @.@..
 
 000000db <_ZL8moonTile>:
       db:	07 00 1c 00 38 00 78 00 70 00 f0 00 f0 00 f0 00     ....8.x.p.......
@@ -1690,7 +1690,7 @@ void Frame::update(void)
     2ad2:	90 93 46 02 	sts	0x0246, r25	; 0x800246 <_ZN5Frame9scoreTimeE+0x1>
     2ad6:	80 93 45 02 	sts	0x0245, r24	; 0x800245 <_ZN5Frame9scoreTimeE>
     sixteenBeats++;
-    2ada:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+    2ada:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_ZN5Frame12sixteenBeatsE>
     2ade:	8f 5f       	subi	r24, 0xFF	; 255
 
     if (sixteenBeats == 2)
@@ -1702,13 +1702,13 @@ void Frame::update(void)
 
     scoreTime++;
     sixteenBeats++;
-    2ae4:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+    2ae4:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_ZN5Frame12sixteenBeatsE>
     2ae8:	08 95       	ret
 
     if (sixteenBeats == 2)
     {
       sixteenBeats = 0;
-    2aea:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__DATA_REGION_ORIGIN__>
+    2aea:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <_ZN5Frame12sixteenBeatsE>
     2aee:	08 95       	ret
 
 00002af0 <_ZN5Frame4initEv>:
@@ -3104,7 +3104,7 @@ public:
     3454:	9f af       	std	Y+63, r25	; 0x3f
     3456:	8e af       	std	Y+62, r24	; 0x3e
     3458:	6d 97       	sbiw	r28, 0x1d	; 29
-    345a:	82 e5       	ldi	r24, 0x52	; 82
+    345a:	88 e4       	ldi	r24, 0x48	; 72
     345c:	90 e0       	ldi	r25, 0x00	; 0
     345e:	6f 96       	adiw	r28, 0x1f	; 31
     3460:	9f af       	std	Y+63, r25	; 0x3f
@@ -3142,7 +3142,7 @@ public:
     3494:	c3 58       	subi	r28, 0x83	; 131
     3496:	d0 40       	sbci	r29, 0x00	; 0
     m_Bitmap = bitmap; m_Width = width; m_Height = height; }
-    3498:	81 ed       	ldi	r24, 0xD1	; 209
+    3498:	86 ed       	ldi	r24, 0xD6	; 214
     349a:	90 e0       	ldi	r25, 0x00	; 0
     349c:	e3 96       	adiw	r28, 0x33	; 51
     349e:	9f af       	std	Y+63, r25	; 0x3f
@@ -3154,7 +3154,7 @@ public:
     34aa:	9f af       	std	Y+63, r25	; 0x3f
     34ac:	8e af       	std	Y+62, r24	; 0x3e
     34ae:	e5 97       	sbiw	r28, 0x35	; 53
-    34b0:	8a e5       	ldi	r24, 0x5A	; 90
+    34b0:	88 e5       	ldi	r24, 0x58	; 88
     34b2:	90 e0       	ldi	r25, 0x00	; 0
     34b4:	e7 96       	adiw	r28, 0x37	; 55
     34b6:	9f af       	std	Y+63, r25	; 0x3f
@@ -3199,7 +3199,7 @@ public:
     34f8:	cb 59       	subi	r28, 0x9B	; 155
     34fa:	d0 40       	sbci	r29, 0x00	; 0
     m_Bitmap = bitmap; m_Width = width; m_Height = height; }
-    34fc:	86 ed       	ldi	r24, 0xD6	; 214
+    34fc:	81 ed       	ldi	r24, 0xD1	; 209
     34fe:	90 e0       	ldi	r25, 0x00	; 0
     3500:	c7 57       	subi	r28, 0x77	; 119
     3502:	df 4f       	sbci	r29, 0xFF	; 255
@@ -3224,9 +3224,9 @@ public:
     3528:	cd 58       	subi	r28, 0x8D	; 141
     352a:	d0 40       	sbci	r29, 0x00	; 0
   Object block1, block2, block3;
-  Object star1(50, 82, bigStar, 40);
-  Object star2(250, 90, smallStar1, 10);
-  Object star3(150, 110, smallStar0, 3);
+  Object star1(50, 72, bigStar, 40);
+  Object star2(250, 88, smallStar0, 10);
+  Object star3(150, 110, smallStar1, 3);
 
   print(10, 16, "Score:");
     352c:	68 2c       	mov	r6, r8
