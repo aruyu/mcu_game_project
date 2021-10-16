@@ -33,6 +33,7 @@ class Game : private Font
 
 private:
   int8_t m_Cursor;
+  int8_t m_Cache;
   int8_t m_Temp;
   uint16_t m_ScoreTemp;
 
@@ -42,13 +43,14 @@ private:
   bool m_IsHardmode;
   bool m_IsHighSpeed;
   bool m_IsDrawed;
+  bool m_IsDrawedScore;
 
   void titleLoop(void);
   void startLoop(void);
   void endLoop(void);
 
-  void init(void) { m_Cursor = 0; m_Temp = 0; m_ScoreTemp = 0;
-    m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; Frame::scoreTime = 0; }
+  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false;
+    m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false; Frame::scoreTime = 0; }
 
 protected:
   uint8_t firstName1st;
@@ -85,6 +87,7 @@ protected:
   uint8_t tempName2nd;
   uint8_t tempName3rd;
   uint8_t tempMode;
+
   uint8_t checkReset;
 
   void resetScore(void);

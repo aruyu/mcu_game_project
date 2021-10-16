@@ -181,7 +181,7 @@
     <Compile Include="src\assets\ObjectTiles.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\assets\TitleMenu.hpp">
+    <Compile Include="src\assets\TitleScreen.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\core\Font.cpp">

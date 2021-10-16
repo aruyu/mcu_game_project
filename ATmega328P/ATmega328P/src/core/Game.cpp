@@ -278,12 +278,12 @@ void Game::startLoop(void)
 
   Player user;
   Object block1, block2, block3;
-  Object star1(50, 70, bigStar, 40);
-  Object star2(250, 80, smallStar1, 10);
-  Object star3(150, 110, smallStar0, 2);
+  Object star1(50, 82, bigStar, 40);
+  Object star2(250, 90, smallStar1, 10);
+  Object star3(150, 110, smallStar0, 3);
 
-  print(16, 16, "Score:");
-  draw(256, 32, 32, 32, moonTile, BLACK, WHITE);
+  print(10, 16, "Score:");
+  draw(250, 40, 32, 32, moonTile, BLACK, WHITE);
 
   while (1)
   {
@@ -310,52 +310,6 @@ void Game::startLoop(void)
       block3.start();
     }
 
-    if (m_IsReset == false)
-    {
-      if (m_ScoreTemp >= 200 && m_ScoreTemp < 211)
-      {
-        print(120, 40, "Speed+");
-        block1.setSpeed(4);
-        block2.setSpeed(4);
-
-        m_IsReset = true;
-        m_IsDrawed = true;
-      }
-
-      else if (m_ScoreTemp >= 400 && m_ScoreTemp < 411)
-      {
-        print(120, 40, "Speed+");
-        block1.setSpeed(5);
-        block2.setSpeed(5);
-
-        m_IsReset = true;
-        m_IsDrawed = true;
-      }
-
-      else if (m_ScoreTemp >= 600 && m_ScoreTemp < 611)
-      {
-        print(120, 40, "Speed+");
-        block1.setSpeed(6);
-        block2.setSpeed(6);
-
-        m_IsReset = true;
-        m_IsDrawed = true;
-      }
-
-      else if (m_ScoreTemp >= 1000 && m_ScoreTemp < 1011)
-      {
-        print(120, 40, "Block+");
-        block1.setSpeed(7);
-        block2.setSpeed(7);
-        block3.setSpeed(7);
-        user.setSpeed(8);
-
-        m_IsReset = true;
-        m_IsHighSpeed = true;
-        m_IsDrawed = true;
-      }
-    }
-
     /*
     if (block1.isRolling == false || block2.isRolling == false)
     {
@@ -373,26 +327,143 @@ void Game::startLoop(void)
     if (m_ScoreTemp != Frame::scoreTime)
     {
       m_ScoreTemp = Frame::scoreTime;
-      print(120, 16, Frame::scoreTime);
+      print(108, 16, Frame::scoreTime);
       SW::start = OFF;
 
       if (m_IsDrawed == true)
       {
         m_Temp ++;
 
-        if (m_IsReset == false && m_Temp > 5)
+        if (m_IsReset == false && m_Temp > 10)
         {
           m_Temp = 0;
-          clear(120, 40, 96, 16, BLACK);
+          clear(108, 40, 96, 16, BLACK);
+
           m_IsDrawed = false;
         }
 
-        else if (m_IsReset == true && m_Temp > 10)
+        else if (m_IsReset == true && m_Temp > 20)
         {
           m_Temp = 0;
-          clear(120, 40, 96, 16, BLACK);
+          clear(108, 40, 96, 16, BLACK);
+
           m_IsReset = false;
           m_IsDrawed = false;
+        }
+      }
+
+      if (m_IsDrawedScore == true)
+      {
+        m_Cache ++;
+
+        if (m_Cache > 20)
+        {
+          m_Cache = 0;
+          clear(176, 16, 144, 16, BLACK);
+
+          m_IsDrawedScore = false;
+        }
+      }
+
+      else
+      {
+        if (m_ScoreTemp > firstScore && m_ScoreTemp < (firstScore + 20))
+        {
+          print(188, 16, "New");
+          print(240, 16, "Record");
+
+          m_IsDrawedScore = true;
+        }
+
+        else if (m_ScoreTemp > secondScore && m_ScoreTemp < (secondScore + 20))
+        {
+          printLetter(188, 16, firstName1st);
+          printLetter(204, 16, firstName2nd);
+          printLetter(220, 16, firstName3rd);
+          print(240, 16, firstScore);
+          m_IsDrawedScore = true;
+        }
+
+        else if (m_ScoreTemp > thirdScore && m_ScoreTemp < (thirdScore + 20))
+        {
+          printLetter(188, 16, secondName1st);
+          printLetter(204, 16, secondName2nd);
+          printLetter(220, 16, secondName3rd);
+          print(240, 16, secondScore);
+          m_IsDrawedScore = true;
+        }
+
+        else if (m_ScoreTemp > fourthScore && m_ScoreTemp < (fourthScore + 20))
+        {
+          printLetter(188, 16, thirdName1st);
+          printLetter(204, 16, thirdName2nd);
+          printLetter(220, 16, thirdName3rd);
+          print(240, 16, thirdScore);
+          m_IsDrawedScore = true;
+        }
+
+        else if (m_ScoreTemp > fifthScore && m_ScoreTemp < (fifthScore + 20))
+        {
+          printLetter(188, 16, fourthName1st);
+          printLetter(204, 16, fourthName2nd);
+          printLetter(220, 16, fourthName3rd);
+          print(240, 16, fourthScore);
+          m_IsDrawedScore = true;
+        }
+
+        else if (m_ScoreTemp < 20)
+        {
+          printLetter(188, 16, fifthName1st);
+          printLetter(204, 16, fifthName2nd);
+          printLetter(220, 16, fifthName3rd);
+          print(240, 16, fifthScore);
+          m_IsDrawedScore = true;
+        }
+      }
+
+      if (m_IsReset == false)
+      {
+        if (m_ScoreTemp >= 200 && m_ScoreTemp < 221)
+        {
+          print(108, 40, "Speed+");
+          block1.setSpeed(4);
+          block2.setSpeed(4);
+
+          m_IsReset = true;
+          m_IsDrawed = true;
+        }
+
+        else if (m_ScoreTemp >= 400 && m_ScoreTemp < 421)
+        {
+          print(108, 40, "Speed+");
+          block1.setSpeed(5);
+          block2.setSpeed(5);
+
+          m_IsReset = true;
+          m_IsDrawed = true;
+        }
+
+        else if (m_ScoreTemp >= 600 && m_ScoreTemp < 621)
+        {
+          print(108, 40, "Speed+");
+          block1.setSpeed(6);
+          block2.setSpeed(6);
+
+          m_IsReset = true;
+          m_IsDrawed = true;
+        }
+
+        else if (m_ScoreTemp >= 1000 && m_ScoreTemp < 1021)
+        {
+          print(108, 40, "Block+");
+          block1.setSpeed(7);
+          block2.setSpeed(7);
+          block3.setSpeed(7);
+          user.setSpeed(8);
+
+          m_IsReset = true;
+          m_IsHighSpeed = true;
+          m_IsDrawed = true;
         }
       }
     }
@@ -404,8 +475,8 @@ void Game::startLoop(void)
         if (block1.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
-          clear(120, 40, 96, 16, BLACK);
-          print(120, 40, "+10");
+          clear(108, 40, 96, 16, BLACK);
+          print(108, 40, "+10");
           Frame::scoreTime += 10;
           m_IsDrawed = true;
 
@@ -428,8 +499,8 @@ void Game::startLoop(void)
         if (block2.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
-          clear(120, 40, 96, 16, BLACK);
-          print(120, 40, "+10");
+          clear(108, 40, 96, 16, BLACK);
+          print(108, 40, "+10");
           Frame::scoreTime += 10;
           m_IsDrawed = true;
 
@@ -452,8 +523,8 @@ void Game::startLoop(void)
         if (block3.isPresent == true)
         {
           clear(80, 160, 20, 20, BLACK);
-          clear(120, 40, 96, 16, BLACK);
-          print(120, 40, "+10");
+          clear(108, 40, 96, 16, BLACK);
+          print(108, 40, "+10");
           Frame::scoreTime += 10;
           m_IsDrawed = true;
 
@@ -510,8 +581,8 @@ void Game::startLoop(void)
 void Game::endLoop(void)
 {
 
-  clear(55, 20, 210, 200, BLACK);
-  print(80, 50, "Name Score");
+  clear(55, 20, 210, 160, BLACK);
+  print(90, 50, "New Score");
   print(166, 100, m_ScoreTemp);
   tempName1st = 0x41;
   tempName2nd = 0x41;
@@ -807,11 +878,11 @@ void Game::end(void)
 void Game::resetScore(void)
 {
 
-  eeprom_update_word((uint16_t*)10, 2000);
+  eeprom_update_word((uint16_t*)10, 1500);
   eeprom_update_word((uint16_t*)20, 1000);
   eeprom_update_word((uint16_t*)30, 800);
-  eeprom_update_word((uint16_t*)40, 600);
-  eeprom_update_word((uint16_t*)50, 400);
+  eeprom_update_word((uint16_t*)40, 500);
+  eeprom_update_word((uint16_t*)50, 300);
 
   eeprom_update_byte((uint8_t*)110, 0x4B);
   eeprom_update_byte((uint8_t*)111, 0x50);
