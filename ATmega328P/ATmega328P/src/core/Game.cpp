@@ -21,7 +21,7 @@ void Game::titleLoop(void)
   {
 
     Frame::update();
-    
+
     if (m_IsScore == true && m_IsCredit == false)
     {
       print(120, 30, "Score");
