@@ -347,7 +347,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x5b32
+.text           0x00000000     0x5d40
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -512,143 +512,143 @@ END GROUP
                 0x00004070      0x194 src/core/Game.o
                 0x00004070                _ZN4Game5startEv
  .text._ZN4Game3endEv
-                0x00004204      0x1d0 src/core/Game.o
+                0x00004204      0x3de src/core/Game.o
                 0x00004204                _ZN4Game3endEv
  .text._ZN4Game10resetScoreEv
-                0x000043d4      0x110 src/core/Game.o
-                0x000043d4                _ZN4Game10resetScoreEv
+                0x000045e2      0x110 src/core/Game.o
+                0x000045e2                _ZN4Game10resetScoreEv
  .text._ZN4Game9readScoreEv
-                0x000044e4      0x11a src/core/Game.o
-                0x000044e4                _ZN4Game9readScoreEv
+                0x000046f2      0x11a src/core/Game.o
+                0x000046f2                _ZN4Game9readScoreEv
  .text._ZN4Game5titleEv
-                0x000045fe      0x160 src/core/Game.o
-                0x000045fe                _ZN4Game5titleEv
+                0x0000480c      0x160 src/core/Game.o
+                0x0000480c                _ZN4Game5titleEv
  .text._ZN6Object4ballEv
-                0x0000475e       0xd4 src/core/Object.o
-                0x0000475e                _ZN6Object4ballEv
+                0x0000496c       0xd4 src/core/Object.o
+                0x0000496c                _ZN6Object4ballEv
  .text._ZN6Object4bombEv
-                0x00004832      0x13a src/core/Object.o
-                0x00004832                _ZN6Object4bombEv
+                0x00004a40      0x13a src/core/Object.o
+                0x00004a40                _ZN6Object4bombEv
  .text._ZN6Object7presentEv
-                0x0000496c       0xd6 src/core/Object.o
-                0x0000496c                _ZN6Object7presentEv
+                0x00004b7a       0xd6 src/core/Object.o
+                0x00004b7a                _ZN6Object7presentEv
  .text._ZN6Object9rollBlockEv
-                0x00004a42       0x94 src/core/Object.o
-                0x00004a42                _ZN6Object9rollBlockEv
+                0x00004c50       0x94 src/core/Object.o
+                0x00004c50                _ZN6Object9rollBlockEv
  .text._ZN6Object14rollBackgroundEv
-                0x00004ad6       0xdc src/core/Object.o
-                0x00004ad6                _ZN6Object14rollBackgroundEv
+                0x00004ce4       0xdc src/core/Object.o
+                0x00004ce4                _ZN6Object14rollBackgroundEv
  .text._ZN6Object4initEv
-                0x00004bb2       0x82 src/core/Object.o
-                0x00004bb2                _ZN6Object4initEv
+                0x00004dc0       0x82 src/core/Object.o
+                0x00004dc0                _ZN6Object4initEv
  .text._ZN6Object5startEv
-                0x00004c34       0x32 src/core/Object.o
-                0x00004c34                _ZN6Object5startEv
+                0x00004e42       0x32 src/core/Object.o
+                0x00004e42                _ZN6Object5startEv
  .text._ZN6Player7runningEv
-                0x00004c66       0xda src/core/Player.o
-                0x00004c66                _ZN6Player7runningEv
+                0x00004e74       0xda src/core/Player.o
+                0x00004e74                _ZN6Player7runningEv
  .text._ZN6Player7jumpingEv
-                0x00004d40      0x1ea src/core/Player.o
-                0x00004d40                _ZN6Player7jumpingEv
+                0x00004f4e      0x1ea src/core/Player.o
+                0x00004f4e                _ZN6Player7jumpingEv
  .text._ZN6Player4initEv
-                0x00004f2a       0x3a src/core/Player.o
-                0x00004f2a                _ZN6Player4initEv
+                0x00005138       0x3a src/core/Player.o
+                0x00005138                _ZN6Player4initEv
  .text._ZN6Player5startEv
-                0x00004f64       0x3e src/core/Player.o
-                0x00004f64                _ZN6Player5startEv
+                0x00005172       0x3e src/core/Player.o
+                0x00005172                _ZN6Player5startEv
  .text._ZN3MCU7Setting8beginPinEaa
-                0x00004fa2       0x5a src/modules/MCU.o
-                0x00004fa2                _ZN3MCU7Setting8beginPinEaa
+                0x000051b0       0x5a src/modules/MCU.o
+                0x000051b0                _ZN3MCU7Setting8beginPinEaa
  .text._ZN3MCU7Setting9beginPortEab
-                0x00004ffc       0x20 src/modules/MCU.o
-                0x00004ffc                _ZN3MCU7Setting9beginPortEab
+                0x0000520a       0x20 src/modules/MCU.o
+                0x0000520a                _ZN3MCU7Setting9beginPortEab
  .text._ZN3MCU7Setting8beginINTEaa
-                0x0000501c       0x36 src/modules/MCU.o
-                0x0000501c                _ZN3MCU7Setting8beginINTEaa
+                0x0000522a       0x36 src/modules/MCU.o
+                0x0000522a                _ZN3MCU7Setting8beginINTEaa
  .text._ZN3MCU7Setting10beginTimerEab
-                0x00005052       0xac src/modules/MCU.o
-                0x00005052                _ZN3MCU7Setting10beginTimerEab
+                0x00005260       0xac src/modules/MCU.o
+                0x00005260                _ZN3MCU7Setting10beginTimerEab
  .text._ZN3MCU7Setting8beginSPIEv
-                0x000050fe        0xa src/modules/MCU.o
-                0x000050fe                _ZN3MCU7Setting8beginSPIEv
+                0x0000530c        0xa src/modules/MCU.o
+                0x0000530c                _ZN3MCU7Setting8beginSPIEv
  .text._ZN2SW6updateEv
-                0x00005108       0x22 src/modules/SW.o
-                0x00005108                _ZN2SW6updateEv
+                0x00005316       0x22 src/modules/SW.o
+                0x00005316                _ZN2SW6updateEv
  .text._ZN2SW4initEv
-                0x0000512a       0x22 src/modules/SW.o
-                0x0000512a                _ZN2SW4initEv
+                0x00005338       0x22 src/modules/SW.o
+                0x00005338                _ZN2SW4initEv
  .text._ZN3SPI7sendBitEh
-                0x0000514c        0xa src/modules/TFT.o
-                0x0000514c                _ZN3SPI7sendBitEh
+                0x0000535a        0xa src/modules/TFT.o
+                0x0000535a                _ZN3SPI7sendBitEh
  .text._ZN3SPI13exportCommandEh
-                0x00005156        0xc src/modules/TFT.o
-                0x00005156                _ZN3SPI13exportCommandEh
+                0x00005364        0xc src/modules/TFT.o
+                0x00005364                _ZN3SPI13exportCommandEh
  .text._ZN3SPI10exportDataEh
-                0x00005162        0xc src/modules/TFT.o
-                0x00005162                _ZN3SPI10exportDataEh
+                0x00005370        0xc src/modules/TFT.o
+                0x00005370                _ZN3SPI10exportDataEh
  .text._ZN3SPI14exportLongDataEj
-                0x0000516e       0x26 src/modules/TFT.o
-                0x0000516e                _ZN3SPI14exportLongDataEj
+                0x0000537c       0x26 src/modules/TFT.o
+                0x0000537c                _ZN3SPI14exportLongDataEj
  .text._ZN3TFT5beginEv
-                0x00005194       0xaa src/modules/TFT.o
-                0x00005194                _ZN3TFT5beginEv
+                0x000053a2       0xaa src/modules/TFT.o
+                0x000053a2                _ZN3TFT5beginEv
  .text._ZN3TFT11setRotationEa
-                0x0000523e       0x50 src/modules/TFT.o
-                0x0000523e                _ZN3TFT11setRotationEa
+                0x0000544c       0x50 src/modules/TFT.o
+                0x0000544c                _ZN3TFT11setRotationEa
  .text._ZN3TFT10setAddressEiiii
-                0x0000528e       0x68 src/modules/TFT.o
-                0x0000528e                _ZN3TFT10setAddressEiiii
+                0x0000549c       0x68 src/modules/TFT.o
+                0x0000549c                _ZN3TFT10setAddressEiiii
  .text._ZN3TFT10fillScreenEj
-                0x000052f6       0x8a src/modules/TFT.o
-                0x000052f6                _ZN3TFT10fillScreenEj
+                0x00005504       0x8a src/modules/TFT.o
+                0x00005504                _ZN3TFT10fillScreenEj
  .text._ZN3TFT5clearEiiiij
-                0x00005380       0x72 src/modules/TFT.o
-                0x00005380                _ZN3TFT5clearEiiiij
+                0x0000558e       0x72 src/modules/TFT.o
+                0x0000558e                _ZN3TFT5clearEiiiij
  .text._ZN3TFT4drawEiiiiPKhjj
-                0x000053f2      0x154 src/modules/TFT.o
-                0x000053f2                _ZN3TFT4drawEiiiiPKhjj
+                0x00005600      0x154 src/modules/TFT.o
+                0x00005600                _ZN3TFT4drawEiiiiPKhjj
  .text._ZN3TFT4drawEiiiiPKhjjjj
-                0x00005546      0x1a4 src/modules/TFT.o
-                0x00005546                _ZN3TFT4drawEiiiiPKhjjjj
+                0x00005754      0x1a4 src/modules/TFT.o
+                0x00005754                _ZN3TFT4drawEiiiiPKhjjjj
  .text._ZN3TFT4drawEiiiiPA100_Khajjjj
-                0x000056ea      0x1aa src/modules/TFT.o
-                0x000056ea                _ZN3TFT4drawEiiiiPA100_Khajjjj
+                0x000058f8      0x1aa src/modules/TFT.o
+                0x000058f8                _ZN3TFT4drawEiiiiPA100_Khajjjj
  .text._ZN3TFT4drawEiiiiPA120_Khajjjj
-                0x00005894      0x1aa src/modules/TFT.o
-                0x00005894                _ZN3TFT4drawEiiiiPA120_Khajjjj
+                0x00005aa2      0x1aa src/modules/TFT.o
+                0x00005aa2                _ZN3TFT4drawEiiiiPA120_Khajjjj
  .text.libgcc.div
-                0x00005a3e       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00005a3e                __udivmodsi4
+                0x00005c4c       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00005c4c                __udivmodsi4
  .text.libgcc.mul
-                0x00005a82       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
-                0x00005a82                __muluhisi3
- .text.libgcc   0x00005a98        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00005a98                __tablejump2__
+                0x00005c90       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
+                0x00005c90                __muluhisi3
+ .text.libgcc   0x00005ca6        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00005ca6                __tablejump2__
  .text.libgcc.mul
-                0x00005aa4       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00005aa4                __umulhisi3
+                0x00005cb2       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00005cb2                __umulhisi3
  .text.avr-libc
-                0x00005ac2       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
-                0x00005ac2                eeprom_read_byte
+                0x00005cd0       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+                0x00005cd0                eeprom_read_byte
  .text.avr-libc
-                0x00005ad2        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
-                0x00005ad2                eeprom_read_word
+                0x00005ce0        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
+                0x00005ce0                eeprom_read_word
  .text.avr-libc
-                0x00005ade       0x24 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
-                0x00005ade                eeprom_update_byte
-                0x00005ae0                eeprom_update_r18
+                0x00005cec       0x24 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
+                0x00005cec                eeprom_update_byte
+                0x00005cee                eeprom_update_r18
  .text.avr-libc
-                0x00005b02        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
-                0x00005b02                eeprom_update_word
+                0x00005d10        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
+                0x00005d10                eeprom_update_word
  .text.avr-libc
-                0x00005b0e       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
-                0x00005b0e                eeprom_read_block
-                0x00005b12                eeprom_read_blraw
-                0x00005b2e                . = ALIGN (0x2)
+                0x00005d1c       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
+                0x00005d1c                eeprom_read_block
+                0x00005d20                eeprom_read_blraw
+                0x00005d3c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00005b2e        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00005b2e                _exit
-                0x00005b2e                exit
+ .fini9         0x00005d3c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00005d3c                _exit
+                0x00005d3c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -667,11 +667,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00005b2e        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00005d3c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00005b32                _etext = .
+                0x00005d40                _etext = .
 
-.data           0x00800100       0xf8 load address 0x00005b32
+.data           0x00800100       0xf8 load address 0x00005d40
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -758,8 +758,8 @@ END GROUP
                 0x00800251                _ZN2SW6resultE
  *(COMMON)
                 0x00800252                PROVIDE (__bss_end, .)
-                0x00005b32                __data_load_start = LOADADDR (.data)
-                0x00005c2a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00005d40                __data_load_start = LOADADDR (.data)
+                0x00005e38                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800252        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -872,23 +872,23 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xd145
+.debug_info     0x00000000     0xd655
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4     0x3533 main.o
  .debug_info    0x00003b27      0x89c src/core/Font.o
  .debug_info    0x000043c3      0x260 src/core/Frame.o
- .debug_info    0x00004623     0x5485 src/core/Game.o
- .debug_info    0x00009aa8      0xd43 src/core/Object.o
- .debug_info    0x0000a7eb      0xa02 src/core/Player.o
- .debug_info    0x0000b1ed      0x3c2 src/modules/MCU.o
- .debug_info    0x0000b5af      0x253 src/modules/SW.o
- .debug_info    0x0000b802     0x163e src/modules/TFT.o
- .debug_info    0x0000ce40       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_info    0x0000ceda       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
- .debug_info    0x0000cf74       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
- .debug_info    0x0000d00f       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
- .debug_info    0x0000d0aa       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
+ .debug_info    0x00004623     0x5995 src/core/Game.o
+ .debug_info    0x00009fb8      0xd43 src/core/Object.o
+ .debug_info    0x0000acfb      0xa02 src/core/Player.o
+ .debug_info    0x0000b6fd      0x3c2 src/modules/MCU.o
+ .debug_info    0x0000babf      0x253 src/modules/SW.o
+ .debug_info    0x0000bd12     0x163e src/modules/TFT.o
+ .debug_info    0x0000d350       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_info    0x0000d3ea       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
+ .debug_info    0x0000d484       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
+ .debug_info    0x0000d51f       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
+ .debug_info    0x0000d5ba       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
 
 .debug_abbrev   0x00000000     0x1667
  *(.debug_abbrev)
@@ -908,23 +908,23 @@ END GROUP
  .debug_abbrev  0x0000163f       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
  .debug_abbrev  0x00001653       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
 
-.debug_line     0x00000000     0x2c7b
+.debug_line     0x00000000     0x2da7
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000134      0x2f3 main.o
  .debug_line    0x00000427      0x1dc src/core/Font.o
  .debug_line    0x00000603      0x165 src/core/Frame.o
- .debug_line    0x00000768     0x1024 src/core/Game.o
- .debug_line    0x0000178c      0x356 src/core/Object.o
- .debug_line    0x00001ae2      0x2cc src/core/Player.o
- .debug_line    0x00001dae      0x4c7 src/modules/MCU.o
- .debug_line    0x00002275      0x101 src/modules/SW.o
- .debug_line    0x00002376      0x661 src/modules/TFT.o
- .debug_line    0x000029d7       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_line    0x00002a51       0x67 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
- .debug_line    0x00002ab8       0xb6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
- .debug_line    0x00002b6e       0x62 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
- .debug_line    0x00002bd0       0xab C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
+ .debug_line    0x00000768     0x1150 src/core/Game.o
+ .debug_line    0x000018b8      0x356 src/core/Object.o
+ .debug_line    0x00001c0e      0x2cc src/core/Player.o
+ .debug_line    0x00001eda      0x4c7 src/modules/MCU.o
+ .debug_line    0x000023a1      0x101 src/modules/SW.o
+ .debug_line    0x000024a2      0x661 src/modules/TFT.o
+ .debug_line    0x00002b03       0x7a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_line    0x00002b7d       0x67 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
+ .debug_line    0x00002be4       0xb6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
+ .debug_line    0x00002c9a       0x62 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
+ .debug_line    0x00002cfc       0xab C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
 
 .debug_frame    0x00000000      0xc40
  *(.debug_frame)

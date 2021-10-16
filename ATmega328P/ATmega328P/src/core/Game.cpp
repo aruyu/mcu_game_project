@@ -334,7 +334,7 @@ void Game::startLoop(void)
       {
         m_Temp ++;
 
-        if (m_IsReset == false && m_Temp > 10)
+        if (m_IsReset == false && m_Temp > 5)
         {
           m_Temp = 0;
           clear(108, 40, 96, 16, BLACK);
@@ -356,7 +356,7 @@ void Game::startLoop(void)
       {
         m_Cache ++;
 
-        if (m_Cache > 20)
+        if (m_Cache > 10)
         {
           m_Cache = 0;
           clear(176, 16, 144, 16, BLACK);
@@ -367,7 +367,7 @@ void Game::startLoop(void)
 
       else
       {
-        if (m_ScoreTemp > firstScore && m_ScoreTemp < (firstScore + 20))
+        if (m_ScoreTemp > firstScore && m_ScoreTemp < (firstScore + 10))
         {
           print(188, 16, "New");
           print(240, 16, "Record");
@@ -375,7 +375,7 @@ void Game::startLoop(void)
           m_IsDrawedScore = true;
         }
 
-        else if (m_ScoreTemp > secondScore && m_ScoreTemp < (secondScore + 20))
+        else if (m_ScoreTemp > secondScore && m_ScoreTemp < (secondScore + 10))
         {
           printLetter(188, 16, firstName1st);
           printLetter(204, 16, firstName2nd);
@@ -384,7 +384,7 @@ void Game::startLoop(void)
           m_IsDrawedScore = true;
         }
 
-        else if (m_ScoreTemp > thirdScore && m_ScoreTemp < (thirdScore + 20))
+        else if (m_ScoreTemp > thirdScore && m_ScoreTemp < (thirdScore + 10))
         {
           printLetter(188, 16, secondName1st);
           printLetter(204, 16, secondName2nd);
@@ -393,7 +393,7 @@ void Game::startLoop(void)
           m_IsDrawedScore = true;
         }
 
-        else if (m_ScoreTemp > fourthScore && m_ScoreTemp < (fourthScore + 20))
+        else if (m_ScoreTemp > fourthScore && m_ScoreTemp < (fourthScore + 10))
         {
           printLetter(188, 16, thirdName1st);
           printLetter(204, 16, thirdName2nd);
@@ -402,7 +402,7 @@ void Game::startLoop(void)
           m_IsDrawedScore = true;
         }
 
-        else if (m_ScoreTemp > fifthScore && m_ScoreTemp < (fifthScore + 20))
+        else if (m_ScoreTemp > fifthScore && m_ScoreTemp < (fifthScore + 10))
         {
           printLetter(188, 16, fourthName1st);
           printLetter(204, 16, fourthName2nd);
@@ -411,7 +411,7 @@ void Game::startLoop(void)
           m_IsDrawedScore = true;
         }
 
-        else if (m_ScoreTemp < 20)
+        else if (m_ScoreTemp < 10)
         {
           printLetter(188, 16, fifthName1st);
           printLetter(204, 16, fifthName2nd);
@@ -830,6 +830,30 @@ void Game::end(void)
       eeprom_update_byte((uint8_t*)111, tempName2nd);
       eeprom_update_byte((uint8_t*)112, tempName3rd);
       eeprom_update_byte((uint8_t*)113, 0x00);
+
+      eeprom_update_word((uint16_t*)20, firstScore);
+      eeprom_update_byte((uint8_t*)120, firstName1st);
+      eeprom_update_byte((uint8_t*)121, firstName2nd);
+      eeprom_update_byte((uint8_t*)122, firstName3rd);
+      eeprom_update_byte((uint8_t*)123, 0x00);
+
+      eeprom_update_word((uint16_t*)30, secondScore);
+      eeprom_update_byte((uint8_t*)130, secondName1st);
+      eeprom_update_byte((uint8_t*)131, secondName2nd);
+      eeprom_update_byte((uint8_t*)132, secondName3rd);
+      eeprom_update_byte((uint8_t*)133, 0x00);
+
+      eeprom_update_word((uint16_t*)40, thirdScore);
+      eeprom_update_byte((uint8_t*)140, thirdName1st);
+      eeprom_update_byte((uint8_t*)141, thirdName2nd);
+      eeprom_update_byte((uint8_t*)142, thirdName3rd);
+      eeprom_update_byte((uint8_t*)143, 0x00);
+
+      eeprom_update_word((uint16_t*)50, fourthScore);
+      eeprom_update_byte((uint8_t*)150, fourthName1st);
+      eeprom_update_byte((uint8_t*)151, fourthName2nd);
+      eeprom_update_byte((uint8_t*)152, fourthName3rd);
+      eeprom_update_byte((uint8_t*)153, 0x00);
     }
 
     else if (m_ScoreTemp > secondScore)
@@ -839,6 +863,24 @@ void Game::end(void)
       eeprom_update_byte((uint8_t*)121, tempName2nd);
       eeprom_update_byte((uint8_t*)122, tempName3rd);
       eeprom_update_byte((uint8_t*)123, 0x00);
+
+      eeprom_update_word((uint16_t*)30, secondScore);
+      eeprom_update_byte((uint8_t*)130, secondName1st);
+      eeprom_update_byte((uint8_t*)131, secondName2nd);
+      eeprom_update_byte((uint8_t*)132, secondName3rd);
+      eeprom_update_byte((uint8_t*)133, 0x00);
+
+      eeprom_update_word((uint16_t*)40, thirdScore);
+      eeprom_update_byte((uint8_t*)140, thirdName1st);
+      eeprom_update_byte((uint8_t*)141, thirdName2nd);
+      eeprom_update_byte((uint8_t*)142, thirdName3rd);
+      eeprom_update_byte((uint8_t*)143, 0x00);
+
+      eeprom_update_word((uint16_t*)50, fourthScore);
+      eeprom_update_byte((uint8_t*)150, fourthName1st);
+      eeprom_update_byte((uint8_t*)151, fourthName2nd);
+      eeprom_update_byte((uint8_t*)152, fourthName3rd);
+      eeprom_update_byte((uint8_t*)153, 0x00);
     }
 
     else if (m_ScoreTemp > thirdScore)
@@ -848,6 +890,18 @@ void Game::end(void)
       eeprom_update_byte((uint8_t*)131, tempName2nd);
       eeprom_update_byte((uint8_t*)132, tempName3rd);
       eeprom_update_byte((uint8_t*)133, 0x00);
+
+      eeprom_update_word((uint16_t*)40, thirdScore);
+      eeprom_update_byte((uint8_t*)140, thirdName1st);
+      eeprom_update_byte((uint8_t*)141, thirdName2nd);
+      eeprom_update_byte((uint8_t*)142, thirdName3rd);
+      eeprom_update_byte((uint8_t*)143, 0x00);
+
+      eeprom_update_word((uint16_t*)50, fourthScore);
+      eeprom_update_byte((uint8_t*)150, fourthName1st);
+      eeprom_update_byte((uint8_t*)151, fourthName2nd);
+      eeprom_update_byte((uint8_t*)152, fourthName3rd);
+      eeprom_update_byte((uint8_t*)153, 0x00);
     }
 
     else if (m_ScoreTemp > fourthScore)
@@ -857,6 +911,12 @@ void Game::end(void)
       eeprom_update_byte((uint8_t*)141, tempName2nd);
       eeprom_update_byte((uint8_t*)142, tempName3rd);
       eeprom_update_byte((uint8_t*)143, 0x00);
+
+      eeprom_update_word((uint16_t*)50, fourthScore);
+      eeprom_update_byte((uint8_t*)150, fourthName1st);
+      eeprom_update_byte((uint8_t*)151, fourthName2nd);
+      eeprom_update_byte((uint8_t*)152, fourthName3rd);
+      eeprom_update_byte((uint8_t*)153, 0x00);
     }
 
     else if (m_ScoreTemp > fifthScore)
@@ -879,10 +939,10 @@ void Game::resetScore(void)
 {
 
   eeprom_update_word((uint16_t*)10, 1500);
-  eeprom_update_word((uint16_t*)20, 1000);
-  eeprom_update_word((uint16_t*)30, 800);
-  eeprom_update_word((uint16_t*)40, 500);
-  eeprom_update_word((uint16_t*)50, 300);
+  eeprom_update_word((uint16_t*)20, 800);
+  eeprom_update_word((uint16_t*)30, 500);
+  eeprom_update_word((uint16_t*)40, 300);
+  eeprom_update_word((uint16_t*)50, 100);
 
   eeprom_update_byte((uint8_t*)110, 0x4B);
   eeprom_update_byte((uint8_t*)111, 0x50);
