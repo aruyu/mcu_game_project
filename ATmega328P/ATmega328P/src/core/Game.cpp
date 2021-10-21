@@ -292,12 +292,7 @@ void Game::startLoop(void)
     star2.start();
     star3.start();
 
-    if (m_IsHighSpeed == false && Frame::scoreTime < 5)
-    {
-      block1.start();
-    }
-
-    else if (m_IsHighSpeed == false)
+    if (m_IsHighSpeed == false)
     {
       block1.start();
       block2.start();
@@ -308,6 +303,26 @@ void Game::startLoop(void)
       block1.start();
       block2.start();
       block3.start();
+    }
+
+    if (block1.xPosition > 288 && block2.xPosition > 288)
+    {
+      block2.isRolling = false;
+    }
+    
+    else
+    {
+      if ((block1.xPosition > 235 && block1.xPosition <= 260) && block2.xPosition > 288)
+      {
+        block2.isRolling = false;
+        block2.clearObject();
+      }
+
+      else if ((block2.xPosition > 235 && block2.xPosition <= 260) && block1.xPosition > 288)
+      {
+        block1.isRolling = false;
+        block1.clearObject();
+      }
     }
 
     /*

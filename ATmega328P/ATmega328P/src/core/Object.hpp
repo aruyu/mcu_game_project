@@ -30,6 +30,7 @@ private:
   int16_t m_Height;
   int8_t m_Temp;
   int8_t m_rollTemp;
+  int8_t m_clearTemp;
 
   int8_t m_MoveTemp;
   int8_t m_MoveSpeed;
@@ -39,6 +40,7 @@ private:
   bool m_IsBlock;
   bool m_IsReset;
   bool m_IsDrawed;
+  bool m_IsClearDrawed;
 
   void ball(void);
   void bomb(void);
@@ -56,6 +58,7 @@ public:
   void init(void);
   void start(void);
   void setSpeed(int8_t speed) { m_MoveSpeed = speed; }
+  void clearObject(void);
 
   int16_t xPosition;
   bool isRolling;

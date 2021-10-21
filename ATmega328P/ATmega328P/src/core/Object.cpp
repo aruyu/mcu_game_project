@@ -235,3 +235,33 @@ void Object::init(void)
   m_RandomNumber = (Frame::presentTime * Frame::oneTick) % 10;
   m_RandomNumber = (Frame::presentTime * m_RandomNumber) % 10;
 }
+
+/*----------------------------------------//
+              Clear Object
+//----------------------------------------*/
+
+void Object::clearObject(void)
+{
+
+  if (m_clearTemp != Frame::oneTick)
+  {
+    m_clearTemp = Frame::oneTick;
+
+    if (Frame::oneTick == 1)
+    {
+      m_IsClearDrawed = false;
+    }
+
+    else
+    {
+      return;
+    }
+  }
+
+  if (m_IsClearDrawed == false)
+  {
+    clear(304 - m_MoveDistance, 164, 16, 16, BLACK);
+    m_IsClearDrawed = true;
+  }
+
+}
