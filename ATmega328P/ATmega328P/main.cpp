@@ -12,8 +12,7 @@ using namespace MCU::Setting;
 
 ISR(INT0_vect);
 ISR(INT1_vect);
-ISR(TIMER0_OVF_vect);
-//ISR(TIMER1_COMPA_vect);
+ISR(TIMER1_COMPA_vect);
 ISR(TIMER2_COMPA_vect);
 
 Game game;
@@ -31,9 +30,9 @@ int main(void)
 
   beginINT(0, DOWN);
   beginINT(1, DOWN);
-  beginTimer(0, OVF);
-  //beginTimer(1, COMP);
+  beginTimer(1, COMP);
   beginTimer(2, COMP);
+  beginPWM(OC0A, FAST);
 
   beginSPI();
   sei();
@@ -53,7 +52,7 @@ int main(void)
 //========================================*/
 
 
-ISR(TIMER0_OVF_vect)
+ISR(TIMER1_COMPA_vect)
 {
   SW::update();
 
@@ -90,24 +89,7 @@ ISR(TIMER0_OVF_vect)
     }
   }
 }
-/*
-ISR(TIMER1_COMPA_vect)
-{
-  switch (PWM)
-  {
-  case ON:
-    PWM = OFF;
-    break;
-  
-  case OFF:
-    PWM = ON;
-    break;
-  
-  default:
-    break;
-  }
-}
-*/
+
 ISR(TIMER2_COMPA_vect)
 {
   Frame::presentTime++;

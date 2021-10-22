@@ -1,5 +1,5 @@
-main.d main.o: .././main.cpp .././src/core/Game.hpp \
- .././src/core/../modules/MCU.hpp \
+src/audio/Music.d src/audio/Music.o: ../src/audio/Music.cpp \
+ ../src/audio/Music.hpp ../src/audio/../modules/MCU.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -18,20 +18,11 @@ main.d main.o: .././main.cpp .././src/core/Game.hpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././src/core/../modules/SW.hpp .././src/core/../modules/TFT.hpp \
- .././src/core/../assets/FontASCII.hpp \
- .././src/core/../assets/GroundTile.hpp \
- .././src/core/../assets/LogoAtmel.hpp \
- .././src/core/../assets/TitleScreen.hpp .././src/core/../audio/Music.hpp \
- .././src/core/../audio/../core/Frame.hpp .././src/core/Font.hpp \
- .././src/core/Object.hpp .././src/core/../assets/ObjectTiles.hpp \
- .././src/core/Player.hpp .././src/core/../assets/CharDown.hpp \
- .././src/core/../assets/CharRun.hpp \
- .././src/core/../assets/CharStand.hpp .././src/core/../assets/CharUp.hpp
+ ../src/audio/../core/Frame.hpp
 
-.././src/core/Game.hpp:
+../src/audio/Music.hpp:
 
-.././src/core/../modules/MCU.hpp:
+../src/audio/../modules/MCU.hpp:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -69,34 +60,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././src/core/../modules/SW.hpp:
-
-.././src/core/../modules/TFT.hpp:
-
-.././src/core/../assets/FontASCII.hpp:
-
-.././src/core/../assets/GroundTile.hpp:
-
-.././src/core/../assets/LogoAtmel.hpp:
-
-.././src/core/../assets/TitleScreen.hpp:
-
-.././src/core/../audio/Music.hpp:
-
-.././src/core/../audio/../core/Frame.hpp:
-
-.././src/core/Font.hpp:
-
-.././src/core/Object.hpp:
-
-.././src/core/../assets/ObjectTiles.hpp:
-
-.././src/core/Player.hpp:
-
-.././src/core/../assets/CharDown.hpp:
-
-.././src/core/../assets/CharRun.hpp:
-
-.././src/core/../assets/CharStand.hpp:
-
-.././src/core/../assets/CharUp.hpp:
+../src/audio/../core/Frame.hpp:

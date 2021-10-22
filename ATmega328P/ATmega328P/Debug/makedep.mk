@@ -4,6 +4,8 @@
 
 main.cpp
 
+src\audio\Music.cpp
+
 src\core\Font.cpp
 
 src\core\Frame.cpp

@@ -31,13 +31,12 @@ public:
   static uint32_t presentTime;
   static uint32_t pastTick;
   static uint32_t pastFrame;
+  static uint32_t pastScore;
   static uint32_t pastBeat;
 
   static uint8_t oneTick;
-  static uint8_t twoTick;
   static uint8_t secondFrame;
   static uint8_t fourFrames;
   static uint8_t sixFrames;
-  static uint8_t sixteenBeats;
 
 };

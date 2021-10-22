@@ -35,7 +35,7 @@ void SPI::exportCommand(uint8_t commandValue)
 }
 
 /*----------------------------------------//
-              Export Data
+                Export Data
 //----------------------------------------*/
 
 void SPI::exportData(uint8_t dataValue)
@@ -49,7 +49,7 @@ void SPI::exportData(uint8_t dataValue)
 }
 
 /*----------------------------------------//
-            Export Long Data
+              Export Long Data
 //----------------------------------------*/
 
 void SPI::exportLongData(uint16_t longDataValue)
@@ -80,7 +80,7 @@ void TFT::begin(void)
   _delay_ms(20);
 
   exportCommand(0xC0);  // Power Control 1 (C0h)
-  exportData(0x2B);     // VRH [5:0], GVDD 5.00V
+  exportData(0x3F);     // VRH [5:0], GVDD 6.00V
 
   exportCommand(0x36);  // Memory Access Control (36h)
   exportData(0x48);     // Column Address Order, RGB-BGR Order

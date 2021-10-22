@@ -13,14 +13,13 @@ uint16_t Frame::scoreTime = 0;
 uint32_t Frame::presentTime = 0;
 uint32_t Frame::pastTick = 0;
 uint32_t Frame::pastFrame = 0;
+uint32_t Frame::pastScore = 0;
 uint32_t Frame::pastBeat = 0;
 
 uint8_t Frame::oneTick = 0;
-uint8_t Frame::twoTick = 1;
 uint8_t Frame::secondFrame = 0;
 uint8_t Frame::fourFrames = 0;
 uint8_t Frame::sixFrames = 0;
-uint8_t Frame::sixteenBeats = 1;
 
 
 /*----------------------------------------//
@@ -34,7 +33,6 @@ void Frame::update(void)
   {
 
     pastTick = presentTime;
-
     oneTick++;
 
     if (oneTick == 3)
@@ -70,19 +68,10 @@ void Frame::update(void)
 
   }
 
-  if (presentTime >= pastBeat + 125)
+  if (presentTime >= pastScore + 125)
   {
-
-    pastBeat = presentTime;
-
+    pastScore = presentTime;
     scoreTime++;
-    sixteenBeats++;
-
-    if (sixteenBeats == 2)
-    {
-      sixteenBeats = 0;
-    }
-
   }
 
 }
@@ -95,5 +84,6 @@ void Frame::init(void)
 {
   pastTick = presentTime;
   pastFrame = presentTime;
+  pastScore = presentTime;
   pastBeat = presentTime;
 }

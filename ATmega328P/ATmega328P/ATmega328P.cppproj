@@ -184,6 +184,12 @@
     <Compile Include="src\assets\TitleScreen.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\audio\Music.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\audio\Music.hpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\core\Font.cpp">
       <SubType>compile</SubType>
     </Compile>

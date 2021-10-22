@@ -43,6 +43,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.cpp \
+../src/audio/Music.cpp \
 ../src/core/Font.cpp \
 ../src/core/Frame.cpp \
 ../src/core/Game.cpp \
@@ -61,6 +62,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
+src/audio/Music.o \
 src/core/Font.o \
 src/core/Frame.o \
 src/core/Game.o \
@@ -72,6 +74,7 @@ src/modules/TFT.o
 
 OBJS_AS_ARGS +=  \
 main.o \
+src/audio/Music.o \
 src/core/Font.o \
 src/core/Frame.o \
 src/core/Game.o \
@@ -83,6 +86,7 @@ src/modules/TFT.o
 
 C_DEPS +=  \
 main.d \
+src/audio/Music.d \
 src/core/Font.d \
 src/core/Frame.d \
 src/core/Game.d \
@@ -94,6 +98,7 @@ src/modules/TFT.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
+src/audio/Music.d \
 src/core/Font.d \
 src/core/Frame.d \
 src/core/Game.d \
@@ -118,6 +123,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ./main.o: .././main.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\gcc\dev\atmega328p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/audio/Music.o: ../src/audio/Music.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\gcc\dev\atmega328p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -15,6 +15,7 @@
 #include "../assets/GroundTile.hpp"
 #include "../assets/LogoAtmel.hpp"
 #include "../assets/TitleScreen.hpp"
+#include "../audio/Music.hpp"
 
 #include "Font.hpp"
 #include "Frame.hpp"

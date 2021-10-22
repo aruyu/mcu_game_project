@@ -11,8 +11,30 @@
 #include "../modules/MCU.hpp"
 #include "../core/Frame.hpp"
 
-#include "Audio.hpp"
+enum TonicSolFa
+{
+  DO, RE, MI, FA, SO, RA, SI
+};
 
+
+/*
+//==========================================
+              CLASS - Audio
+==========================================//
+*/
+
+class Audio
+{
+
+public:
+  Audio(){};
+  ~Audio(){};
+
+  void exportOCR(uint16_t OCRValue);
+  void setOCR(bool isON);
+  void setSound(int8_t tonicSolFa);
+
+};
 
 /*
 //==========================================
@@ -20,13 +42,22 @@
 ==========================================//
 */
 
-class Music
+class Music : private Audio
 {
 
 private:
+  uint8_t m_SixteenBeat;
+  bool m_IsFirst;
+  bool m_IsSecond;
 
 public:
-  Music(){};
-  ~Music(){};
+  Music() { init(); }
+  ~Music() { setOCR(OFF); }
+
+  void title(void);
+  void jump(void);
+  void dead(void);
+  void end(void) { setOCR(OFF); }
+  void init(void) { m_SixteenBeat = 0; }
 
 };

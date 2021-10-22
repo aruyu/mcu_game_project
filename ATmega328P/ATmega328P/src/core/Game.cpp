@@ -17,9 +17,11 @@
 void Game::titleLoop(void)
 {
 
+  Music music;
+
   while (1)
   {
-
+    
     Frame::update();
 
     if (m_IsScore == true && m_IsCredit == false)
@@ -124,6 +126,9 @@ void Game::titleLoop(void)
 
     else if (m_IsScore == false && m_IsCredit == false)
     {
+
+      music.title();
+
       if (SW::up == ON)
       {
         m_Cursor -= 1;
@@ -215,6 +220,7 @@ void Game::titleLoop(void)
 
         if (SW::interrupt0 == ON)
         {
+          music.end();
           return;
         }
 
@@ -235,6 +241,7 @@ void Game::titleLoop(void)
         {
           clear(55, 20, 210, 200, BLACK);
           SW::init();
+          music.end();
           m_IsScore = true;
         }
 
@@ -255,6 +262,7 @@ void Game::titleLoop(void)
         {
           fillScreen(BLACK);
           SW::init();
+          music.end();
           m_IsCredit = true;
         }
         
@@ -276,6 +284,7 @@ void Game::titleLoop(void)
 void Game::startLoop(void)
 {
 
+  Music music;
   Player user;
   Object block1, block2, block3;
   Object star1(50, 72, bigStar, 40);
@@ -315,12 +324,14 @@ void Game::startLoop(void)
       if ((block1.xPosition > 235 && block1.xPosition <= 260) && block2.xPosition > 288)
       {
         block2.isRolling = false;
+        block2.isPresent = false;
         block2.clearObject();
       }
 
       else if ((block2.xPosition > 235 && block2.xPosition <= 260) && block1.xPosition > 288)
       {
         block1.isRolling = false;
+        block1.isPresent = false;
         block1.clearObject();
       }
     }
@@ -481,6 +492,12 @@ void Game::startLoop(void)
           m_IsDrawed = true;
         }
       }
+
+      if (user.isJump == false)
+      {
+        music.init();
+      }
+      
     }
 
     if (user.isJump == false)
@@ -556,6 +573,11 @@ void Game::startLoop(void)
           return;
         }
       }
+    }
+
+    else
+    {
+      music.jump();
     }
 
     if (SW::select == OFF)
