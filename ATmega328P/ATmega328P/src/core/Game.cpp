@@ -882,15 +882,40 @@ void Game::start(void)
 void Game::end(void)
 {
 
+  Audio audio;
+
   if (m_ScoreTemp > fifthScore)
   {
-    for (int i=0; i<4; i++)
-    {
-      print(90, 100, "NEW SCORE");
-      _delay_ms(250);
-      clear(90, 100, 144, 16, BLACK);
-      _delay_ms(250);
-    }
+    print(90, 100, "NEW SCORE");
+
+    audio.setTonicSolFa(FA);
+    audio.setSound(ON);
+    _delay_ms(125);
+    audio.setTonicSolFa(MI);
+    _delay_ms(125);
+
+    clear(90, 100, 144, 16, BLACK);
+
+    audio.setTonicSolFa(SO);
+    _delay_ms(125);
+    audio.setTonicSolFa(FA);
+    _delay_ms(125);
+
+    print(90, 100, "NEW SCORE");
+
+    audio.setTonicSolFa(RA);
+    _delay_ms(125);
+    audio.setTonicSolFa(SO);
+    _delay_ms(125);
+
+    clear(90, 100, 144, 16, BLACK);
+
+    audio.setTonicSolFa(DO);
+    _delay_ms(250);
+    audio.setSound(OFF);
+
+    print(90, 100, "NEW SCORE");
+    _delay_ms(250);
 
     SW::init();
     Frame::init();
