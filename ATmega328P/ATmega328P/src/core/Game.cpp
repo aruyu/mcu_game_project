@@ -17,7 +17,7 @@
 void Game::titleLoop(void)
 {
 
-  Music music;
+  Music title(TITLE, ON);
 
   while (1)
   {
@@ -126,8 +126,7 @@ void Game::titleLoop(void)
 
     else if (m_IsScore == false && m_IsCredit == false)
     {
-
-      music.title();
+      title.start();
 
       if (SW::up == ON)
       {
@@ -220,7 +219,7 @@ void Game::titleLoop(void)
 
         if (SW::interrupt0 == ON)
         {
-          music.end();
+          title.pause();
           return;
         }
 
@@ -241,7 +240,7 @@ void Game::titleLoop(void)
         {
           clear(55, 20, 210, 200, BLACK);
           SW::init();
-          music.end();
+          title.pause();
           m_IsScore = true;
         }
 
@@ -262,7 +261,7 @@ void Game::titleLoop(void)
         {
           fillScreen(BLACK);
           SW::init();
-          music.end();
+          title.pause();
           m_IsCredit = true;
         }
         
@@ -284,22 +283,26 @@ void Game::titleLoop(void)
 void Game::startLoop(void)
 {
 
-  Music music;
   Player user;
   Object block1, block2, block3;
   Object star1(50, 72, bigStar, 40);
   Object star2(250, 88, smallStar0, 10);
   Object star3(150, 110, smallStar1, 3);
+  Music startingSound(START, ON);
+  Music jumpingSound(JUMP);
+  Audio audio;
 
   print(10, 16, "Score:");
   draw(250, 40, 32, 32, moonTile, BLACK, WHITE);
 
   while (1)
   {
-
+    
     star1.start();
     star2.start();
     star3.start();
+    startingSound.start();
+    jumpingSound.start();
 
     if (m_IsHighSpeed == false)
     {
@@ -492,12 +495,6 @@ void Game::startLoop(void)
           m_IsDrawed = true;
         }
       }
-
-      if (user.isJump == false)
-      {
-        music.init();
-      }
-      
     }
 
     if (user.isJump == false)
@@ -520,7 +517,15 @@ void Game::startLoop(void)
         else
         {
           print(90, 100, "GAME OVER");
-          _delay_ms(2000);
+
+          audio.setTonicSolFa(MI);
+          audio.setSound(ON);
+          _delay_ms(250);
+          audio.setTonicSolFa(DO);
+          _delay_ms(500);
+          audio.setSound(OFF);
+          _delay_ms(1250);
+
           m_IsReset = true;
           return;
         }
@@ -544,7 +549,15 @@ void Game::startLoop(void)
         else
         {
           print(90, 100, "GAME OVER");
-          _delay_ms(2000);
+
+          audio.setTonicSolFa(MI);
+          audio.setSound(ON);
+          _delay_ms(250);
+          audio.setTonicSolFa(DO);
+          _delay_ms(500);
+          audio.setSound(OFF);
+          _delay_ms(1250);
+
           m_IsReset = true;
           return;
         }
@@ -568,16 +581,29 @@ void Game::startLoop(void)
         else
         {
           print(90, 100, "GAME OVER");
-          _delay_ms(2000);
+
+          audio.setTonicSolFa(MI);
+          audio.setSound(ON);
+          _delay_ms(250);
+          audio.setTonicSolFa(DO);
+          _delay_ms(500);
+          audio.setSound(OFF);
+          _delay_ms(1250);
+
           m_IsReset = true;
           return;
         }
       }
     }
 
-    else
+    if (user.isJump == true && startingSound.isPlay == false)
     {
-      music.jump();
+      jumpingSound.isPlay = true;
+    }
+
+    else if (user.isJump == false && startingSound.isPlay == false)
+    {
+      jumpingSound.isPlay = false;
     }
 
     if (SW::select == OFF)
@@ -598,8 +624,12 @@ void Game::startLoop(void)
         for (int i=0; i<5; i++)
         {
           print(120, 100, "Start");
+          audio.setTonicSolFa(RE);
+          audio.setSound(ON);
           _delay_ms(100);
+
           clear(120, 100, 80, 16, BLACK);
+          audio.setSound(OFF);
           _delay_ms(100);
         }
 
@@ -813,6 +843,8 @@ void Game::title(void)
 void Game::start(void)
 {
 
+  Audio audio;
+
   fillScreen(BLACK);
   draw(40, 140, 40, 40, charStand, BLACK, MAROON, RED, WHITE);
 
@@ -822,8 +854,12 @@ void Game::start(void)
   for (int i=0; i<5; i++)
   {
     print(120, 100, "Start");
+    audio.setTonicSolFa(RE);
+    audio.setSound(ON);
     _delay_ms(100);
+
     clear(120, 100, 80, 16, BLACK);
+    audio.setSound(OFF);
     _delay_ms(100);
   }
   

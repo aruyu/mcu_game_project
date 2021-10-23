@@ -16,6 +16,11 @@ enum TonicSolFa
   DO, RE, MI, FA, SO, RA, SI
 };
 
+enum MusicMode
+{
+  TITLE, START, JUMP
+};
+
 
 /*
 //==========================================
@@ -26,13 +31,15 @@ enum TonicSolFa
 class Audio
 {
 
+private:
+  void exportOCR(uint16_t OCRValue);
+
 public:
   Audio(){};
   ~Audio(){};
 
-  void exportOCR(uint16_t OCRValue);
-  void setOCR(bool isON);
-  void setSound(int8_t tonicSolFa);
+  void setSound(bool isON);
+  void setTonicSolFa(int8_t tonicSolFa);
 
 };
 
@@ -46,18 +53,21 @@ class Music : private Audio
 {
 
 private:
+  int8_t m_MusicMode;
   uint8_t m_SixteenBeat;
-  bool m_IsFirst;
-  bool m_IsSecond;
+
+  void titleMusic(void);
+  void startingMusic(void);
+  void jumpingMusic(void);
 
 public:
-  Music() { init(); }
-  ~Music() { setOCR(OFF); }
+  Music(int8_t mode) { m_MusicMode = mode; m_SixteenBeat = 0; isPlay = false; }
+  Music(int8_t mode, bool start) { m_MusicMode = mode; m_SixteenBeat = 0; isPlay = true; }
+  ~Music() { setSound(OFF); }
 
-  void title(void);
-  void jump(void);
-  void dead(void);
-  void end(void) { setOCR(OFF); }
-  void init(void) { m_SixteenBeat = 0; }
+  void start(void);
+  void pause(void) { setSound(OFF); }
+
+  bool isPlay;
 
 };

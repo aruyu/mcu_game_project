@@ -20,10 +20,10 @@ void Audio::exportOCR(uint16_t OCRValue)
 }
 
 /*----------------------------------------//
-                  Set OCR
+                Set Sound
 //----------------------------------------*/
 
-void Audio::setOCR(bool isON)
+void Audio::setSound(bool isON)
 {
   if (isON == true)
   {
@@ -37,10 +37,10 @@ void Audio::setOCR(bool isON)
 }
 
 /*----------------------------------------//
-                Set Sound
+              Set TonicSolFa
 //----------------------------------------*/
 
-void Audio::setSound(int8_t tonicSolFa)
+void Audio::setTonicSolFa(int8_t tonicSolFa)
 {
 
   switch (tonicSolFa)
@@ -79,96 +79,90 @@ void Audio::setSound(int8_t tonicSolFa)
 
 }
 
+
 /*----------------------------------------//
-                Start title
+                Title BGM
 //----------------------------------------*/
 
-void Music::title(void)
+void Music::titleMusic(void)
 {
-
-  if (Frame::presentTime >= Frame::pastBeat + 125)
-  {
-    Frame::pastBeat = Frame::presentTime;
-    m_SixteenBeat++;
-
-    if (m_SixteenBeat == 16)
-    {
-      m_SixteenBeat = 0;
-    }
-  }
 
   switch (m_SixteenBeat)
   {
   case 0:
-    setSound(MI);
-    setOCR(ON);
+    setTonicSolFa(MI);
+    setSound(ON);
     break;
   
   case 1:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 2:
-    setSound(MI);
-    setOCR(ON);
+    setTonicSolFa(MI);
+    setSound(ON);
     break;
   
   case 3:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 4:
-    setSound(SI);
-    setOCR(ON);
+    setTonicSolFa(SI);
+    setSound(ON);
     break;
   
   case 5:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 6:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 7:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 8:
-    setSound(MI);
-    setOCR(ON);
+    setTonicSolFa(MI);
+    setSound(ON);
     break;
   
   case 9:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 10:
-    setSound(MI);
-    setOCR(ON);
+    setTonicSolFa(MI);
+    setSound(ON);
     break;
   
   case 11:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 12:
-    setSound(DO);
-    setOCR(ON);
+    setTonicSolFa(DO);
+    setSound(ON);
     break;
   
   case 13:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 14:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
   case 15:
-    setOCR(OFF);
+    setSound(OFF);
     break;
   
+  case 16:
+    m_SixteenBeat = 0;
+    break;
+
   default:
     break;
   }
@@ -176,35 +170,167 @@ void Music::title(void)
 }
 
 /*----------------------------------------//
-                Jump BGM
+                Start Effect
 //----------------------------------------*/
 
-void Music::jump(void)
+void Music::startingMusic(void)
 {
-
-  if (Frame::presentTime >= Frame::pastBeat + 125)
-  {
-    Frame::pastBeat = Frame::presentTime;
-    m_SixteenBeat++;
-  }
 
   switch (m_SixteenBeat)
   {
   case 0:
-    setSound(FA);
-    setOCR(ON);
     break;
   
   case 1:
-    setSound(SO);
     break;
-  
+    
   case 2:
-    setSound(SI);
+    setTonicSolFa(MI);
+    setSound(ON);
+    break;
+    
+  case 3:
+    setSound(OFF);
+    break;
+
+  case 4:
+    setTonicSolFa(MI);
+    setSound(ON);
+    break;
+    
+  case 5:
+    setTonicSolFa(RE);
+    setSound(ON);
     break;
   
+  case 6:
+    setSound(OFF);
+    break;
+  
+  case 7:
+    setTonicSolFa(FA);
+    setSound(ON);
+    break;
+  
+  case 8:
+    setSound(OFF);
+    break;
+    
+  case 9:
+    setTonicSolFa(FA);
+    setSound(ON);
+    break;
+    
+  case 10:
+    setTonicSolFa(MI);
+    setSound(ON);
+    break;
+
+  case 11:
+    setSound(OFF);
+    break;
+    
+  case 12:
+    setTonicSolFa(SO);
+    setSound(ON);
+    break;
+  
+  case 13:
+    break;
+  
+  case 14:
+    break;
+  
+  case 15:
+    break;
+  
+  case 16:
+    setSound(OFF);
+    break;
+  
+  case 17:
+    isPlay = false;
+    break;
+    
   default:
     break;
+  }
+
+}
+
+/*----------------------------------------//
+                Jump Effect
+//----------------------------------------*/
+
+void Music::jumpingMusic(void)
+{
+
+  switch (m_SixteenBeat)
+  {
+  case 0:
+    break;
+    
+  case 1:
+    setTonicSolFa(MI);
+    setSound(ON);
+    break;
+    
+  case 2:
+    setTonicSolFa(FA);
+    break;
+
+  case 3:
+    setTonicSolFa(SO);
+    break;
+    
+  case 4:
+    setSound(OFF);
+    break;
+    
+  default:
+    break;
+  }
+
+}
+
+/*----------------------------------------//
+                Start Music
+//----------------------------------------*/
+
+void Music::start(void)
+{
+
+  if (isPlay == true)
+  {
+    if (Frame::presentTime >= Frame::pastBeat + 125)
+    {
+      Frame::pastBeat = Frame::presentTime;
+      m_SixteenBeat++;
+    }
+
+    switch (m_MusicMode)
+    {
+    case TITLE:
+      titleMusic();
+      break;
+      
+    case START:
+      startingMusic();
+      break;
+
+    case JUMP:
+      jumpingMusic();
+      break;
+      
+    default:
+      break;
+    }
+    
+  }
+
+  else
+  {
+    m_SixteenBeat = 0;
   }
 
 }
