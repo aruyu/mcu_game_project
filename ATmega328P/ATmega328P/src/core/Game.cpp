@@ -802,6 +802,8 @@ void Game::endLoop(void)
 void Game::title(void)
 {
 
+  Audio audio;
+
   if (m_IsReset == false)
   {
     begin();
@@ -809,8 +811,15 @@ void Game::title(void)
 
     fillScreen(WHITE);
     draw(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
-    _delay_ms(3000);
 
+    audio.setTonicSolFa(SO);
+    audio.setSound(ON);
+    _delay_ms(125);
+    audio.setTonicSolFa(SI);
+    _delay_ms(500);
+    audio.setSound(OFF);
+
+    _delay_ms(1250);
     setFont(fontASCII);
     setColor(BLACK, WHITE);
 
