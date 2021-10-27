@@ -46,6 +46,9 @@ private:
   bool m_IsDrawed;
   bool m_IsDrawedScore;
 
+  void scoreTitle(void);
+  void creditTitle(void);
+  void nomalTitle(void);
   void titleLoop(void);
   void startLoop(void);
   void endLoop(void);

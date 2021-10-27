@@ -11,6 +11,203 @@
 
 
 /*----------------------------------------//
+                Title Screen
+//----------------------------------------*/
+
+void Game::nomalTitle(void)
+{
+
+  if (SW::up == ON)
+  {
+    m_Cursor -= 1;
+
+    if (m_Cursor < 0)
+    {
+      m_Cursor = 0;
+    }
+
+    switch (m_Cursor)
+    {
+    case 0:
+      clear(2, 160, 6, 14, BLACK);
+      clear(2, 184, 6, 14, WHITE);
+
+      break;
+
+    case 1:
+      clear(2, 160, 6, 14, WHITE);
+      clear(2, 184, 6, 14, BLACK);
+      clear(2, 208, 6, 14, WHITE);
+
+      break;
+
+    case 2:
+      clear(2, 184, 6, 14, WHITE);
+      clear(2, 208, 6, 14, BLACK);
+          
+      break;
+
+    default:
+      break;
+    }
+
+    _delay_ms(100);
+    SW::up = OFF;
+  }
+
+  else if (SW::down == ON)
+  {
+    m_Cursor += 1;
+
+    if (m_Cursor > 2)
+    {
+      m_Cursor = 2;
+    }
+
+    switch (m_Cursor)
+    {
+    case 0:
+      clear(2, 160, 6, 14, BLACK);
+      clear(2, 184, 6, 14, WHITE);
+
+      break;
+
+    case 1:
+      clear(2, 160, 6, 14, WHITE);
+      clear(2, 184, 6, 14, BLACK);
+      clear(2, 208, 6, 14, WHITE);
+
+      break;
+
+    case 2:
+      clear(2, 184, 6, 14, WHITE);
+      clear(2, 208, 6, 14, BLACK);
+          
+      break;
+
+    default:
+      break;
+    }
+
+    _delay_ms(100);
+    SW::down = OFF;
+  }
+
+}
+
+/*----------------------------------------//
+                Score Title
+//----------------------------------------*/
+
+void Game::scoreTitle(void)
+{
+
+  print(120, 30, "Score");
+
+  print(70, 65, "1");
+  printLetter(102, 65, firstName1st);
+  printLetter(118, 65, firstName2nd);
+  printLetter(134, 65, firstName3rd);
+  print(166, 65, firstScore);
+
+  print(70, 95, "2");
+  printLetter(102, 95, secondName1st);
+  printLetter(118, 95, secondName2nd);
+  printLetter(134, 95, secondName3rd);
+  print(166, 95, secondScore);
+
+  print(70, 125, "3");
+  printLetter(102, 125, thirdName1st);
+  printLetter(118, 125, thirdName2nd);
+  printLetter(134, 125, thirdName3rd);
+  print(166, 125, thirdScore);
+
+  print(70, 155, "4");
+  printLetter(102, 155, fourthName1st);
+  printLetter(118, 155, fourthName2nd);
+  printLetter(134, 155, fourthName3rd);
+  print(166, 155, fourthScore);
+
+  print(70, 185, "5");
+  printLetter(102, 185, fifthName1st);
+  printLetter(118, 185, fifthName2nd);
+  printLetter(134, 185, fifthName3rd);
+  print(166, 185, fifthScore);
+
+  _delay_ms(100);
+
+  if (SW::interrupt1 == ON)
+  {
+    setColor(BLACK, WHITE);
+    draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
+    SW::init();
+    m_IsScore = false;
+  }
+
+}
+
+/*----------------------------------------//
+                Credit Title
+//----------------------------------------*/
+
+void Game::creditTitle(void)
+{
+
+  if (SW::select == OFF)
+  {
+    setColor(BLACK, YELLOW);
+    print(30, 16, "Game Designed &");
+    print(16, 36, "Programmed By");
+
+    setColor(BLACK, WHITE);
+    print(240, 36, "CLJ");
+
+    setColor(BLACK, GRAY);
+    print(30, 56, "Github:");
+
+    setColor(BLACK, WHITE);
+    print(158, 56, "vine91");
+
+    setColor(BLACK, RED);
+    print(40, 88, "Special Thanks");
+
+    setColor(BLACK, WHITE);
+    print(0, 110, "The");
+    print(58, 110, "1st");
+    print(116, 110, "Generation");
+    print(286, 110, "Of");
+    print(8, 130, "Medical Engineering");
+    print(60, 150, "Students And");
+    print(50, 170, "Professors in");
+
+    setColor(BLACK, BLUE);
+    print(5, 202, "Korea");
+    print(95, 202, "Polytechnics..");
+  }
+      
+  else
+  {
+    clear(0, 110, 320, 20, BLACK);
+    clear(0, 130, 24, 20, BLACK);
+    clear(296, 130, 24, 20, BLACK);
+    clear(0, 190, 320, 30, BLACK);
+
+    draw(24, 130, 272, 60, creditMenu, BLACK, WHITE);
+  }
+
+  _delay_ms(100);
+
+  if (SW::interrupt1 == ON)
+  {
+    setColor(BLACK, WHITE);
+    draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
+    SW::init();
+    m_IsCredit = false;
+  }
+
+}
+
+/*----------------------------------------//
               Game Title Loop
 //----------------------------------------*/
 
@@ -21,188 +218,13 @@ void Game::titleLoop(void)
 
   while (1)
   {
-    
+
     Frame::update();
 
-    if (m_IsScore == true && m_IsCredit == false)
-    {
-      print(120, 30, "Score");
-
-      print(70, 65, "1");
-      printLetter(102, 65, firstName1st);
-      printLetter(118, 65, firstName2nd);
-      printLetter(134, 65, firstName3rd);
-      print(166, 65, firstScore);
-
-      print(70, 95, "2");
-      printLetter(102, 95, secondName1st);
-      printLetter(118, 95, secondName2nd);
-      printLetter(134, 95, secondName3rd);
-      print(166, 95, secondScore);
-
-      print(70, 125, "3");
-      printLetter(102, 125, thirdName1st);
-      printLetter(118, 125, thirdName2nd);
-      printLetter(134, 125, thirdName3rd);
-      print(166, 125, thirdScore);
-
-      print(70, 155, "4");
-      printLetter(102, 155, fourthName1st);
-      printLetter(118, 155, fourthName2nd);
-      printLetter(134, 155, fourthName3rd);
-      print(166, 155, fourthScore);
-
-      print(70, 185, "5");
-      printLetter(102, 185, fifthName1st);
-      printLetter(118, 185, fifthName2nd);
-      printLetter(134, 185, fifthName3rd);
-      print(166, 185, fifthScore);
-
-      _delay_ms(100);
-
-      if (SW::interrupt0 == ON)
-      {
-        setColor(BLACK, WHITE);
-        draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-        SW::init();
-        m_IsScore = false;
-      }
-    }
-
-    else if (m_IsScore == false && m_IsCredit == true)
-    {
-      if (SW::select == OFF)
-      {
-        setColor(BLACK, YELLOW);
-        print(30, 16, "Game Designed &");
-        print(16, 36, "Programmed By");
-
-        setColor(BLACK, WHITE);
-        print(240, 36, "CLJ");
-
-        setColor(BLACK, GRAY);
-        print(30, 56, "Github:");
-
-        setColor(BLACK, WHITE);
-        print(158, 56, "vine91");
-
-        setColor(BLACK, RED);
-        print(40, 88, "Special Thanks");
-
-        setColor(BLACK, WHITE);
-        print(0, 110, "The");
-        print(58, 110, "1st");
-        print(116, 110, "Generation");
-        print(286, 110, "Of");
-        print(8, 130, "Medical Engineering");
-        print(60, 150, "Students And");
-        print(50, 170, "Professors in");
-
-        setColor(BLACK, BLUE);
-        print(5, 202, "Korea");
-        print(95, 202, "Polytechnics..");
-      }
-      
-      else
-      {
-        clear(0, 110, 320, 20, BLACK);
-        clear(0, 130, 24, 20, BLACK);
-        clear(296, 130, 24, 20, BLACK);
-        clear(0, 190, 320, 30, BLACK);
-
-        draw(24, 130, 272, 60, creditMenu, BLACK, WHITE);
-      }
-
-      _delay_ms(100);
-
-      if (SW::interrupt0 == ON)
-      {
-        setColor(BLACK, WHITE);
-        draw(0, 16, 320, 224, titleMenu, BLACK, MAROON, RED, WHITE);
-        SW::init();
-        m_IsCredit = false;
-      }
-    }
-
-    else if (m_IsScore == false && m_IsCredit == false)
+    if (m_IsScore == false && m_IsCredit == false)
     {
       title.start();
-
-      if (SW::up == ON)
-      {
-        m_Cursor -= 1;
-
-        if (m_Cursor < 0)
-        {
-          m_Cursor = 0;
-        }
-
-        switch (m_Cursor)
-        {
-        case 0:
-          clear(2, 160, 6, 14, BLACK);
-          clear(2, 184, 6, 14, WHITE);
-
-          break;
-
-        case 1:
-          clear(2, 160, 6, 14, WHITE);
-          clear(2, 184, 6, 14, BLACK);
-          clear(2, 208, 6, 14, WHITE);
-
-          break;
-
-        case 2:
-          clear(2, 184, 6, 14, WHITE);
-          clear(2, 208, 6, 14, BLACK);
-          
-          break;
-
-        default:
-          break;
-        }
-
-        _delay_ms(100);
-        SW::up = OFF;
-      }
-
-      else if (SW::down == ON)
-      {
-        m_Cursor += 1;
-
-        if (m_Cursor > 2)
-        {
-          m_Cursor = 2;
-        }
-
-        switch (m_Cursor)
-        {
-        case 0:
-          clear(2, 160, 6, 14, BLACK);
-          clear(2, 184, 6, 14, WHITE);
-
-          break;
-
-        case 1:
-          clear(2, 160, 6, 14, WHITE);
-          clear(2, 184, 6, 14, BLACK);
-          clear(2, 208, 6, 14, WHITE);
-
-          break;
-
-        case 2:
-          clear(2, 184, 6, 14, WHITE);
-          clear(2, 208, 6, 14, BLACK);
-          
-          break;
-
-        default:
-          break;
-        }
-
-        _delay_ms(100);
-        SW::down = OFF;
-      }
+      nomalTitle();
 
       switch (m_Cursor)
       {
@@ -217,9 +239,8 @@ void Game::titleLoop(void)
           clear(2, 160, 6, 14, WHITE);
         }
 
-        if (SW::interrupt0 == ON)
+        if (SW::interrupt1 == ON)
         {
-          title.pause();
           return;
         }
 
@@ -236,7 +257,7 @@ void Game::titleLoop(void)
           clear(2, 184, 6, 14, WHITE);
         }
 
-        if (SW::interrupt0 == ON)
+        if (SW::interrupt1 == ON)
         {
           clear(55, 20, 210, 200, BLACK);
           SW::init();
@@ -257,19 +278,29 @@ void Game::titleLoop(void)
           clear(2, 208, 6, 14, WHITE);
         }
 
-        if (SW::interrupt0 == ON)
+        if (SW::interrupt1 == ON)
         {
           fillScreen(BLACK);
           SW::init();
           title.pause();
           m_IsCredit = true;
         }
-        
+ 
         break;
 
       default:
         break;
       }
+    }
+
+    else if (m_IsScore == true && m_IsCredit == false)
+    {
+      scoreTitle();
+    }
+
+    else if (m_IsScore == false && m_IsCredit == true)
+    {
+      creditTitle();
     }
 
   }
@@ -288,9 +319,10 @@ void Game::startLoop(void)
   Object star1(50, 72, bigStar, 40);
   Object star2(250, 88, smallStar0, 10);
   Object star3(150, 110, smallStar1, 3);
+
+  Audio audio;
   Music startingSound(START, ON);
   Music jumpingSound(JUMP);
-  Audio audio;
 
   print(10, 16, "Score:");
   draw(250, 40, 32, 32, moonTile, BLACK, WHITE);
