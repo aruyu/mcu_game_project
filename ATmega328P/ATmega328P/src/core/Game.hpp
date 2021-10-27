@@ -40,8 +40,8 @@ private:
 
   bool m_IsScore;
   bool m_IsCredit;
-  bool m_IsReset;
   bool m_IsHardmode;
+  bool m_IsReset;
   bool m_IsHighSpeed;
   bool m_IsDrawed;
   bool m_IsDrawedScore;
@@ -53,8 +53,8 @@ private:
   void startLoop(void);
   void endLoop(void);
 
-  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false;
-    m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false; Frame::scoreTime = 0; }
+  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; Frame::scoreTime = 0;
+    m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false;  }
 
 protected:
   uint8_t firstName1st;

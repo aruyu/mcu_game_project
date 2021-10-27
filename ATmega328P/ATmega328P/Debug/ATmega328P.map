@@ -915,43 +915,43 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xf475
+.debug_info     0x00000000     0xf4f7
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4     0x35b3 main.o
- .debug_info    0x00003ba7      0xec5 src/audio/Music.o
- .debug_info    0x00004a6c      0x89c src/core/Font.o
- .debug_info    0x00005308      0x242 src/core/Frame.o
- .debug_info    0x0000554a     0x67e8 src/core/Game.o
- .debug_info    0x0000bd32      0xde9 src/core/Object.o
- .debug_info    0x0000cb1b      0xa02 src/core/Player.o
- .debug_info    0x0000d51d      0x3c2 src/modules/MCU.o
- .debug_info    0x0000d8df      0x253 src/modules/SW.o
- .debug_info    0x0000db32     0x163e src/modules/TFT.o
- .debug_info    0x0000f170       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_info    0x0000f20a       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
- .debug_info    0x0000f2a4       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
- .debug_info    0x0000f33f       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
- .debug_info    0x0000f3da       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
+ .debug_info    0x000005f4     0x35f4 main.o
+ .debug_info    0x00003be8      0xec5 src/audio/Music.o
+ .debug_info    0x00004aad      0x89c src/core/Font.o
+ .debug_info    0x00005349      0x242 src/core/Frame.o
+ .debug_info    0x0000558b     0x67e8 src/core/Game.o
+ .debug_info    0x0000bd73      0xde9 src/core/Object.o
+ .debug_info    0x0000cb5c      0xa02 src/core/Player.o
+ .debug_info    0x0000d55e      0x403 src/modules/MCU.o
+ .debug_info    0x0000d961      0x253 src/modules/SW.o
+ .debug_info    0x0000dbb4     0x163e src/modules/TFT.o
+ .debug_info    0x0000f1f2       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_info    0x0000f28c       0x9a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
+ .debug_info    0x0000f326       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
+ .debug_info    0x0000f3c1       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
+ .debug_info    0x0000f45c       0x9b C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
 
-.debug_abbrev   0x00000000     0x188a
+.debug_abbrev   0x00000000     0x18d0
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x2c6 main.o
- .debug_abbrev  0x00000868      0x208 src/audio/Music.o
- .debug_abbrev  0x00000a70      0x181 src/core/Font.o
- .debug_abbrev  0x00000bf1       0xb7 src/core/Frame.o
- .debug_abbrev  0x00000ca8      0x358 src/core/Game.o
- .debug_abbrev  0x00001000      0x190 src/core/Object.o
- .debug_abbrev  0x00001190      0x1a6 src/core/Player.o
- .debug_abbrev  0x00001336      0x1bf src/modules/MCU.o
- .debug_abbrev  0x000014f5       0xcf src/modules/SW.o
- .debug_abbrev  0x000015c4      0x262 src/modules/TFT.o
- .debug_abbrev  0x00001826       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_abbrev  0x0000183a       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
- .debug_abbrev  0x0000184e       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
- .debug_abbrev  0x00001862       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
- .debug_abbrev  0x00001876       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
+ .debug_abbrev  0x000005a2      0x2e9 main.o
+ .debug_abbrev  0x0000088b      0x208 src/audio/Music.o
+ .debug_abbrev  0x00000a93      0x181 src/core/Font.o
+ .debug_abbrev  0x00000c14       0xb7 src/core/Frame.o
+ .debug_abbrev  0x00000ccb      0x358 src/core/Game.o
+ .debug_abbrev  0x00001023      0x190 src/core/Object.o
+ .debug_abbrev  0x000011b3      0x1a6 src/core/Player.o
+ .debug_abbrev  0x00001359      0x1e2 src/modules/MCU.o
+ .debug_abbrev  0x0000153b       0xcf src/modules/SW.o
+ .debug_abbrev  0x0000160a      0x262 src/modules/TFT.o
+ .debug_abbrev  0x0000186c       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_abbrev  0x00001880       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_word.o)
+ .debug_abbrev  0x00001894       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_byte.o)
+ .debug_abbrev  0x000018a8       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eeupd_word.o)
+ .debug_abbrev  0x000018bc       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_block.o)
 
 .debug_line     0x00000000     0x3350
  *(.debug_line .debug_line.* .debug_line_end)
@@ -985,28 +985,28 @@ END GROUP
  .debug_frame   0x00000a18       0x34 src/modules/SW.o
  .debug_frame   0x00000a4c      0x354 src/modules/TFT.o
 
-.debug_str      0x00000000     0x1671
+.debug_str      0x00000000     0x1699
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0xa98 main.o
-                                0xaf6 (size before relaxing)
- .debug_str     0x00000ca0      0x1bb src/audio/Music.o
+ .debug_str     0x00000208      0xac0 main.o
+                                0xb1e (size before relaxing)
+ .debug_str     0x00000cc8      0x1bb src/audio/Music.o
                                 0x39e (size before relaxing)
- .debug_str     0x00000e5b       0x6b src/core/Font.o
+ .debug_str     0x00000e83       0x6b src/core/Font.o
                                 0x538 (size before relaxing)
- .debug_str     0x00000ec6      0x198 src/core/Frame.o
+ .debug_str     0x00000eee      0x198 src/core/Frame.o
                                 0x35e (size before relaxing)
- .debug_str     0x0000105e      0x3a1 src/core/Game.o
+ .debug_str     0x00001086      0x3a1 src/core/Game.o
                                 0xf6b (size before relaxing)
- .debug_str     0x000013ff       0x17 src/core/Object.o
+ .debug_str     0x00001427       0x17 src/core/Object.o
                                 0x637 (size before relaxing)
- .debug_str     0x00001416       0x17 src/core/Player.o
+ .debug_str     0x0000143e       0x17 src/core/Player.o
                                 0x518 (size before relaxing)
- .debug_str     0x0000142d      0x124 src/modules/MCU.o
-                                0x3e0 (size before relaxing)
- .debug_str     0x00001551       0xbd src/modules/SW.o
+ .debug_str     0x00001455      0x124 src/modules/MCU.o
+                                0x408 (size before relaxing)
+ .debug_str     0x00001579       0xbd src/modules/SW.o
                                 0x2ee (size before relaxing)
- .debug_str     0x0000160e       0x63 src/modules/TFT.o
+ .debug_str     0x00001636       0x63 src/modules/TFT.o
                                 0x4da (size before relaxing)
 
 .debug_loc      0x00000000     0x5cdf

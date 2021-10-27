@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000003b0  00000000  00000000  00006800  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000f475  00000000  00000000  00006bb0  2**0
+  6 .debug_info   0000f4f7  00000000  00000000  00006bb0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000188a  00000000  00000000  00016025  2**0
+  7 .debug_abbrev 000018d0  00000000  00000000  000160a7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00003350  00000000  00000000  000178af  2**0
+  8 .debug_line   00003350  00000000  00000000  00017977  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000da0  00000000  00000000  0001ac00  2**2
+  9 .debug_frame  00000da0  00000000  00000000  0001acc8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001671  00000000  00000000  0001b9a0  2**0
+ 10 .debug_str    00001699  00000000  00000000  0001ba68  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00005cdf  00000000  00000000  0001d011  2**0
+ 11 .debug_loc    00005cdf  00000000  00000000  0001d101  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000002d8  00000000  00000000  00022cf0  2**0
+ 12 .debug_ranges 000002d8  00000000  00000000  00022de0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1101,7 +1101,7 @@ public:
 
 public:
   Game() : Font() { m_IsHardmode = false; }
-    27a0:	12 8a       	std	Z+18, r1	; 0x12
+    27a0:	11 8a       	std	Z+17, r1	; 0x11
     27a2:	08 95       	ret
 
 000027a4 <_ZN5Audio8setSoundEb>:
@@ -4222,7 +4222,7 @@ public:
     39ac:	84 87       	std	Z+12, r24	; 0x0c
 
         if (m_IsReset == false && m_Temp > 5)
-    39ae:	91 89       	ldd	r25, Z+17	; 0x11
+    39ae:	92 89       	ldd	r25, Z+18	; 0x12
     39b0:	91 11       	cpse	r25, r1
     39b2:	14 c0       	rjmp	.+40     	; 0x39dc <_ZN4Game9startLoopEv+0x390>
     39b4:	86 30       	cpi	r24, 0x06	; 6
@@ -4275,7 +4275,7 @@ public:
 
           m_IsReset = false;
     3a00:	f4 01       	movw	r30, r8
-    3a02:	11 8a       	std	Z+17, r1	; 0x11
+    3a02:	12 8a       	std	Z+18, r1	; 0x12
           m_IsDrawed = false;
     3a04:	14 8a       	std	Z+20, r1	; 0x14
         }
@@ -4679,7 +4679,7 @@ public:
 
       if (m_IsReset == false)
     3cb2:	f4 01       	movw	r30, r8
-    3cb4:	81 89       	ldd	r24, Z+17	; 0x11
+    3cb4:	82 89       	ldd	r24, Z+18	; 0x12
     3cb6:	81 11       	cpse	r24, r1
     3cb8:	64 c0       	rjmp	.+200    	; 0x3d82 <_ZN4Game9startLoopEv+0x736>
       {
@@ -4712,7 +4712,7 @@ public:
           m_IsReset = true;
     3ce4:	81 e0       	ldi	r24, 0x01	; 1
     3ce6:	f4 01       	movw	r30, r8
-    3ce8:	81 8b       	std	Z+17, r24	; 0x11
+    3ce8:	82 8b       	std	Z+18, r24	; 0x12
           m_IsDrawed = true;
     3cea:	84 8b       	std	Z+20, r24	; 0x14
     3cec:	4a c0       	rjmp	.+148    	; 0x3d82 <_ZN4Game9startLoopEv+0x736>
@@ -4745,7 +4745,7 @@ public:
           m_IsReset = true;
     3d14:	81 e0       	ldi	r24, 0x01	; 1
     3d16:	f4 01       	movw	r30, r8
-    3d18:	81 8b       	std	Z+17, r24	; 0x11
+    3d18:	82 8b       	std	Z+18, r24	; 0x12
           m_IsDrawed = true;
     3d1a:	84 8b       	std	Z+20, r24	; 0x14
     3d1c:	32 c0       	rjmp	.+100    	; 0x3d82 <_ZN4Game9startLoopEv+0x736>
@@ -4778,7 +4778,7 @@ public:
           m_IsReset = true;
     3d44:	81 e0       	ldi	r24, 0x01	; 1
     3d46:	f4 01       	movw	r30, r8
-    3d48:	81 8b       	std	Z+17, r24	; 0x11
+    3d48:	82 8b       	std	Z+18, r24	; 0x12
           m_IsDrawed = true;
     3d4a:	84 8b       	std	Z+20, r24	; 0x14
     3d4c:	1a c0       	rjmp	.+52     	; 0x3d82 <_ZN4Game9startLoopEv+0x736>
@@ -4820,7 +4820,7 @@ public:
           m_IsReset = true;
     3d78:	81 e0       	ldi	r24, 0x01	; 1
     3d7a:	f4 01       	movw	r30, r8
-    3d7c:	81 8b       	std	Z+17, r24	; 0x11
+    3d7c:	82 8b       	std	Z+18, r24	; 0x12
           m_IsHighSpeed = true;
     3d7e:	83 8b       	std	Z+19, r24	; 0x13
           m_IsDrawed = true;
@@ -4975,7 +4975,7 @@ public:
           m_IsReset = true;
     3e80:	81 e0       	ldi	r24, 0x01	; 1
     3e82:	f4 01       	movw	r30, r8
-    3e84:	81 8b       	std	Z+17, r24	; 0x11
+    3e84:	82 8b       	std	Z+18, r24	; 0x12
           return;
     3e86:	a0 c1       	rjmp	.+832    	; 0x41c8 <_ZN4Game9startLoopEv+0xb7c>
         }
@@ -5126,7 +5126,7 @@ public:
           m_IsReset = true;
     3f88:	81 e0       	ldi	r24, 0x01	; 1
     3f8a:	f4 01       	movw	r30, r8
-    3f8c:	81 8b       	std	Z+17, r24	; 0x11
+    3f8c:	82 8b       	std	Z+18, r24	; 0x12
           return;
     3f8e:	1c c1       	rjmp	.+568    	; 0x41c8 <_ZN4Game9startLoopEv+0xb7c>
         }
@@ -5282,7 +5282,7 @@ public:
           m_IsReset = true;
     409a:	81 e0       	ldi	r24, 0x01	; 1
     409c:	f4 01       	movw	r30, r8
-    409e:	81 8b       	std	Z+17, r24	; 0x11
+    409e:	82 8b       	std	Z+18, r24	; 0x12
           return;
     40a0:	93 c0       	rjmp	.+294    	; 0x41c8 <_ZN4Game9startLoopEv+0xb7c>
         }
@@ -5593,7 +5593,7 @@ void Game::endLoop(void)
       SW::right = OFF;
     }
 
-    else if (SW::select == ON)
+    else if (SW::interrupt1 == ON)
     {
       m_Temp = 0x41;
     4286:	0f 2e       	mov	r0, r31
@@ -5748,8 +5748,8 @@ void Game::endLoop(void)
     4338:	92 c0       	rjmp	.+292    	; 0x445e <_ZN4Game7endLoopEv+0x240>
     }
 
-    else if (SW::select == ON)
-    433a:	80 91 49 02 	lds	r24, 0x0249	; 0x800249 <_ZN2SW6selectE>
+    else if (SW::interrupt1 == ON)
+    433a:	80 91 4f 02 	lds	r24, 0x024F	; 0x80024f <_ZN2SW10interrupt1E>
     433e:	88 23       	and	r24, r24
     4340:	09 f4       	brne	.+2      	; 0x4344 <_ZN4Game7endLoopEv+0x126>
     4342:	8d c0       	rjmp	.+282    	; 0x445e <_ZN4Game7endLoopEv+0x240>
@@ -5921,8 +5921,8 @@ void Game::endLoop(void)
       _delay_ms(100);
       SW::start = OFF;
     4456:	10 92 4a 02 	sts	0x024A, r1	; 0x80024a <_ZN2SW5startE>
-      SW::select = OFF;
-    445a:	10 92 49 02 	sts	0x0249, r1	; 0x800249 <_ZN2SW6selectE>
+      SW::interrupt1 = OFF;
+    445a:	10 92 4f 02 	sts	0x024F, r1	; 0x80024f <_ZN2SW10interrupt1E>
     }
 
     switch (m_Cursor)
@@ -6359,20 +6359,20 @@ void Game::start(void)
   void startLoop(void);
   void endLoop(void);
 
-  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false;
+  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; Frame::scoreTime = 0;
     4710:	f2 01       	movw	r30, r4
     4712:	12 86       	std	Z+10, r1	; 0x0a
     4714:	13 86       	std	Z+11, r1	; 0x0b
     4716:	14 86       	std	Z+12, r1	; 0x0c
     4718:	16 86       	std	Z+14, r1	; 0x0e
     471a:	15 86       	std	Z+13, r1	; 0x0d
-    471c:	11 8a       	std	Z+17, r1	; 0x11
-    m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false; Frame::scoreTime = 0; }
-    471e:	13 8a       	std	Z+19, r1	; 0x13
-    4720:	14 8a       	std	Z+20, r1	; 0x14
-    4722:	15 8a       	std	Z+21, r1	; 0x15
-    4724:	10 92 48 02 	sts	0x0248, r1	; 0x800248 <_ZN5Frame9scoreTimeE+0x1>
-    4728:	10 92 47 02 	sts	0x0247, r1	; 0x800247 <_ZN5Frame9scoreTimeE>
+    471c:	10 92 48 02 	sts	0x0248, r1	; 0x800248 <_ZN5Frame9scoreTimeE+0x1>
+    4720:	10 92 47 02 	sts	0x0247, r1	; 0x800247 <_ZN5Frame9scoreTimeE>
+    m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false;  }
+    4724:	12 8a       	std	Z+18, r1	; 0x12
+    4726:	13 8a       	std	Z+19, r1	; 0x13
+    4728:	14 8a       	std	Z+20, r1	; 0x14
+    472a:	15 8a       	std	Z+21, r1	; 0x15
   Game::init();
   startLoop();
     472c:	c2 01       	movw	r24, r4
@@ -6606,15 +6606,15 @@ void Game::end(void)
     48b8:	c6 01       	movw	r24, r12
     48ba:	0e 94 51 15 	call	0x2aa2	; 0x2aa2 <_ZN4Font5printEiiPKc>
     48be:	2f ef       	ldi	r18, 0xFF	; 255
-    48c0:	84 e3       	ldi	r24, 0x34	; 52
-    48c2:	9c e0       	ldi	r25, 0x0C	; 12
+    48c0:	89 e6       	ldi	r24, 0x69	; 105
+    48c2:	98 e1       	ldi	r25, 0x18	; 24
     48c4:	21 50       	subi	r18, 0x01	; 1
     48c6:	80 40       	sbci	r24, 0x00	; 0
     48c8:	90 40       	sbci	r25, 0x00	; 0
     48ca:	e1 f7       	brne	.-8      	; 0x48c4 <_ZN4Game3endEv+0x168>
     48cc:	00 c0       	rjmp	.+0      	; 0x48ce <_ZN4Game3endEv+0x172>
     48ce:	00 00       	nop
-    _delay_ms(250);
+    _delay_ms(500);
 
     SW::init();
     48d0:	0e 94 fd 2d 	call	0x5bfa	; 0x5bfa <_ZN2SW4initEv>
@@ -7477,7 +7477,7 @@ void Game::title(void)
 
   if (m_IsReset == false)
     4ef4:	fc 01       	movw	r30, r24
-    4ef6:	81 89       	ldd	r24, Z+17	; 0x11
+    4ef6:	82 89       	ldd	r24, Z+18	; 0x12
     4ef8:	81 11       	cpse	r24, r1
     4efa:	6a c0       	rjmp	.+212    	; 0x4fd0 <_ZN4Game5titleEv+0x100>
   {
@@ -7601,7 +7601,7 @@ public:
 
     m_IsReset = true;
     4fc8:	81 e0       	ldi	r24, 0x01	; 1
-    4fca:	81 8b       	std	Z+17, r24	; 0x11
+    4fca:	82 8b       	std	Z+18, r24	; 0x12
     4fcc:	0f 90       	pop	r0
     4fce:	0f 90       	pop	r0
   }
@@ -7681,20 +7681,20 @@ public:
   void startLoop(void);
   void endLoop(void);
 
-  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; m_IsReset = false;
+  void init(void) { m_Cursor = 0; m_Cache = 0; m_Temp = 0; m_ScoreTemp = 0; Frame::scoreTime = 0;
     504e:	f3 01       	movw	r30, r6
     5050:	12 86       	std	Z+10, r1	; 0x0a
     5052:	13 86       	std	Z+11, r1	; 0x0b
     5054:	14 86       	std	Z+12, r1	; 0x0c
     5056:	16 86       	std	Z+14, r1	; 0x0e
     5058:	15 86       	std	Z+13, r1	; 0x0d
-    505a:	11 8a       	std	Z+17, r1	; 0x11
-    m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false; Frame::scoreTime = 0; }
-    505c:	13 8a       	std	Z+19, r1	; 0x13
-    505e:	14 8a       	std	Z+20, r1	; 0x14
-    5060:	15 8a       	std	Z+21, r1	; 0x15
-    5062:	10 92 48 02 	sts	0x0248, r1	; 0x800248 <_ZN5Frame9scoreTimeE+0x1>
-    5066:	10 92 47 02 	sts	0x0247, r1	; 0x800247 <_ZN5Frame9scoreTimeE>
+    505a:	10 92 48 02 	sts	0x0248, r1	; 0x800248 <_ZN5Frame9scoreTimeE+0x1>
+    505e:	10 92 47 02 	sts	0x0247, r1	; 0x800247 <_ZN5Frame9scoreTimeE>
+    m_IsReset = false; m_IsHighSpeed = false; m_IsDrawed = false; m_IsDrawedScore = false;  }
+    5062:	12 8a       	std	Z+18, r1	; 0x12
+    5064:	13 8a       	std	Z+19, r1	; 0x13
+    5066:	14 8a       	std	Z+20, r1	; 0x14
+    5068:	15 8a       	std	Z+21, r1	; 0x15
   Game::init();
   titleLoop();
     506a:	c3 01       	movw	r24, r6

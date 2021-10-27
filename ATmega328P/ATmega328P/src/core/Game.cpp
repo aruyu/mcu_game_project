@@ -723,7 +723,7 @@ void Game::endLoop(void)
       SW::right = OFF;
     }
 
-    else if (SW::select == ON)
+    else if (SW::interrupt1 == ON)
     {
       m_Temp = 0x41;
       m_Cursor += 1;
@@ -763,7 +763,7 @@ void Game::endLoop(void)
 
       _delay_ms(100);
       SW::start = OFF;
-      SW::select = OFF;
+      SW::interrupt1 = OFF;
     }
 
     switch (m_Cursor)
@@ -956,7 +956,7 @@ void Game::end(void)
     audio.setSound(OFF);
 
     print(90, 100, "NEW SCORE");
-    _delay_ms(250);
+    _delay_ms(500);
 
     SW::init();
     Frame::init();

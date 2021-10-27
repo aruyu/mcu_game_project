@@ -21,16 +21,6 @@
 #define IN 0
 #define OUT 1
 
-#define B 0
-#define C 1
-#define D 2
-#define OC0A 3
-#define OC0B 4
-#define OC1A 5
-#define OC1B 6
-#define OC2A 7
-#define OC2B 8
-
 #define OVF 0
 #define COMP 1
 #define CORRECT 0
@@ -43,6 +33,11 @@
 #define _OCR2A 0xF9   // Compare with 249   Timer2 (1ms in 64 Prescaler)
 #define _OCR1AH 0x00
 #define _OCR1AL 0xFF  // Compare with 15624 Timer1 (1s in 1024 Prescaler)
+
+enum PinNumber
+{
+  B, C, D, OC0A, OC0B, OC1A, OC1B, OC2A, OC2B
+};
 
 
 /*
