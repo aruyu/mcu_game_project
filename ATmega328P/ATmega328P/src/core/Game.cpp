@@ -845,8 +845,8 @@ void Game::title(void)
     setColor(WHITE, BLACK);
 
     fillScreen(WHITE);
-    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
     print(80, 55, "Powered By");
+    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
 
     audio.setTonicSolFa(SO);
     audio.setSound(ON);

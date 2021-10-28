@@ -7532,47 +7532,47 @@ public:
     4f34:	7f ef       	ldi	r23, 0xFF	; 255
     4f36:	c3 01       	movw	r24, r6
     4f38:	0e 94 fc 2e 	call	0x5df8	; 0x5df8 <_ZN3TFT10fillScreenEj>
-    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
-    4f3c:	8f ef       	ldi	r24, 0xFF	; 255
-    4f3e:	8f 93       	push	r24
-    4f40:	8f 93       	push	r24
-    4f42:	0f 2e       	mov	r0, r31
-    4f44:	ff e1       	ldi	r31, 0x1F	; 31
-    4f46:	8f 2e       	mov	r8, r31
-    4f48:	91 2c       	mov	r9, r1
-    4f4a:	f0 2d       	mov	r31, r0
-    4f4c:	0f 2e       	mov	r0, r31
-    4f4e:	a1 2c       	mov	r10, r1
-    4f50:	f8 ef       	ldi	r31, 0xF8	; 248
-    4f52:	bf 2e       	mov	r11, r31
-    4f54:	f0 2d       	mov	r31, r0
-    4f56:	c1 2c       	mov	r12, r1
-    4f58:	d1 2c       	mov	r13, r1
-    4f5a:	0f 2e       	mov	r0, r31
-    4f5c:	f9 ec       	ldi	r31, 0xC9	; 201
-    4f5e:	ef 2e       	mov	r14, r31
-    4f60:	f4 e1       	ldi	r31, 0x14	; 20
-    4f62:	ff 2e       	mov	r15, r31
-    4f64:	f0 2d       	mov	r31, r0
-    4f66:	00 e6       	ldi	r16, 0x60	; 96
-    4f68:	10 e0       	ldi	r17, 0x00	; 0
-    4f6a:	20 e3       	ldi	r18, 0x30	; 48
-    4f6c:	31 e0       	ldi	r19, 0x01	; 1
-    4f6e:	40 e5       	ldi	r20, 0x50	; 80
-    4f70:	50 e0       	ldi	r21, 0x00	; 0
-    4f72:	68 e0       	ldi	r22, 0x08	; 8
-    4f74:	70 e0       	ldi	r23, 0x00	; 0
-    4f76:	c3 01       	movw	r24, r6
-    4f78:	0e 94 24 30 	call	0x6048	; 0x6048 <_ZN3TFT4drawEiiiiPKhjjjj>
     print(80, 55, "Powered By");
-    4f7c:	26 ef       	ldi	r18, 0xF6	; 246
+    4f3c:	26 ef       	ldi	r18, 0xF6	; 246
+    4f3e:	31 e0       	ldi	r19, 0x01	; 1
+    4f40:	47 e3       	ldi	r20, 0x37	; 55
+    4f42:	50 e0       	ldi	r21, 0x00	; 0
+    4f44:	60 e5       	ldi	r22, 0x50	; 80
+    4f46:	70 e0       	ldi	r23, 0x00	; 0
+    4f48:	c3 01       	movw	r24, r6
+    4f4a:	0e 94 51 15 	call	0x2aa2	; 0x2aa2 <_ZN4Font5printEiiPKc>
+    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    4f4e:	8f ef       	ldi	r24, 0xFF	; 255
+    4f50:	8f 93       	push	r24
+    4f52:	8f 93       	push	r24
+    4f54:	0f 2e       	mov	r0, r31
+    4f56:	ff e1       	ldi	r31, 0x1F	; 31
+    4f58:	8f 2e       	mov	r8, r31
+    4f5a:	91 2c       	mov	r9, r1
+    4f5c:	f0 2d       	mov	r31, r0
+    4f5e:	0f 2e       	mov	r0, r31
+    4f60:	a1 2c       	mov	r10, r1
+    4f62:	f8 ef       	ldi	r31, 0xF8	; 248
+    4f64:	bf 2e       	mov	r11, r31
+    4f66:	f0 2d       	mov	r31, r0
+    4f68:	c1 2c       	mov	r12, r1
+    4f6a:	d1 2c       	mov	r13, r1
+    4f6c:	0f 2e       	mov	r0, r31
+    4f6e:	f9 ec       	ldi	r31, 0xC9	; 201
+    4f70:	ef 2e       	mov	r14, r31
+    4f72:	f4 e1       	ldi	r31, 0x14	; 20
+    4f74:	ff 2e       	mov	r15, r31
+    4f76:	f0 2d       	mov	r31, r0
+    4f78:	00 e6       	ldi	r16, 0x60	; 96
+    4f7a:	10 e0       	ldi	r17, 0x00	; 0
+    4f7c:	20 e3       	ldi	r18, 0x30	; 48
     4f7e:	31 e0       	ldi	r19, 0x01	; 1
-    4f80:	47 e3       	ldi	r20, 0x37	; 55
+    4f80:	40 e5       	ldi	r20, 0x50	; 80
     4f82:	50 e0       	ldi	r21, 0x00	; 0
-    4f84:	60 e5       	ldi	r22, 0x50	; 80
+    4f84:	68 e0       	ldi	r22, 0x08	; 8
     4f86:	70 e0       	ldi	r23, 0x00	; 0
     4f88:	c3 01       	movw	r24, r6
-    4f8a:	0e 94 51 15 	call	0x2aa2	; 0x2aa2 <_ZN4Font5printEiiPKc>
+    4f8a:	0e 94 24 30 	call	0x6048	; 0x6048 <_ZN3TFT4drawEiiiiPKhjjjj>
 
     audio.setTonicSolFa(SO);
     4f8e:	64 e0       	ldi	r22, 0x04	; 4
