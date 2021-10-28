@@ -329,12 +329,10 @@ void Game::startLoop(void)
 
   while (1)
   {
-    
+
     star1.start();
     star2.start();
     star3.start();
-    startingSound.start();
-    jumpingSound.start();
 
     if (m_IsHighSpeed == false)
     {
@@ -642,10 +640,13 @@ void Game::startLoop(void)
     {
       Frame::update();
       user.start();
+      startingSound.start();
+      jumpingSound.start();
     }
 
     else
     {
+      startingSound.pause();
       print(120, 100, "Pause");
 
       if (SW::start == ON)
@@ -736,26 +737,26 @@ void Game::endLoop(void)
       switch (m_Cursor)
       {
       case 0:
-        clear(102, 120, 16, 8, WHITE);
-        clear(118, 120, 16, 8, BLACK);
+        clear(102, 120, 14, 8, WHITE);
+        clear(118, 120, 14, 8, BLACK);
 
         break;
 
       case 1:
-        clear(102, 120, 16, 8, BLACK);
-        clear(118, 120, 16, 8, WHITE);
-        clear(134, 120, 16, 8, BLACK);
+        clear(102, 120, 14, 8, BLACK);
+        clear(118, 120, 14, 8, WHITE);
+        clear(134, 120, 14, 8, BLACK);
 
         break;
 
       case 2:
-        clear(118, 120, 16, 8, BLACK);
-        clear(134, 120, 16, 8, WHITE);
+        clear(118, 120, 14, 8, BLACK);
+        clear(134, 120, 14, 8, WHITE);
 
         break;
 
       case 3:
-        clear(134, 120, 16, 8, BLACK);
+        clear(134, 120, 14, 8, BLACK);
 
       default:
         break;
@@ -773,12 +774,12 @@ void Game::endLoop(void)
 
       if (Frame::sixFrames == 0)
       {
-        clear(102, 120, 16, 8, BLACK);
+        clear(102, 120, 14, 8, BLACK);
       }
 
       else if (Frame::sixFrames == 4)
       {
-        clear(102, 120, 16, 8, WHITE);
+        clear(102, 120, 14, 8, WHITE);
       }
 
       break;
@@ -788,12 +789,12 @@ void Game::endLoop(void)
 
       if (Frame::sixFrames == 0)
       {
-        clear(118, 120, 16, 8, BLACK);
+        clear(118, 120, 14, 8, BLACK);
       }
 
       else if (Frame::sixFrames == 4)
       {
-        clear(118, 120, 16, 8, WHITE);
+        clear(118, 120, 14, 8, WHITE);
       }
 
       break;
@@ -803,12 +804,12 @@ void Game::endLoop(void)
 
       if (Frame::sixFrames == 0)
       {
-        clear(134, 120, 16, 8, BLACK);
+        clear(134, 120, 14, 8, BLACK);
       }
 
       else if (Frame::sixFrames == 4)
       {
-        clear(134, 120, 16, 8, WHITE);
+        clear(134, 120, 14, 8, WHITE);
       }
 
       break;
@@ -840,9 +841,12 @@ void Game::title(void)
   {
     begin();
     setRotation(0);
+    setFont(fontASCII);
+    setColor(WHITE, BLACK);
 
     fillScreen(WHITE);
-    draw(8, 70, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    print(80, 55, "Powered By");
 
     audio.setTonicSolFa(SO);
     audio.setSound(ON);
@@ -852,9 +856,7 @@ void Game::title(void)
     audio.setSound(OFF);
 
     _delay_ms(1250);
-    setFont(fontASCII);
     setColor(BLACK, WHITE);
-
     m_IsReset = true;
   }
 
