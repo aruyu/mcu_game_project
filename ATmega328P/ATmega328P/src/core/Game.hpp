@@ -13,7 +13,7 @@
 #include "../modules/TFT.hpp"
 #include "../assets/FontASCII.hpp"
 #include "../assets/GroundTile.hpp"
-#include "../assets/LogoAtmel.hpp"
+#include "../assets/LogoBitmap.hpp"
 #include "../assets/TitleScreen.hpp"
 #include "../audio/Music.hpp"
 

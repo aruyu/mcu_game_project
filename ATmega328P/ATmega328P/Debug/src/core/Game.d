@@ -20,7 +20,7 @@ src/core/Game.d src/core/Game.o: ../src/core/Game.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../src/core/../modules/SW.hpp ../src/core/../modules/TFT.hpp \
  ../src/core/../assets/FontASCII.hpp ../src/core/../assets/GroundTile.hpp \
- ../src/core/../assets/LogoAtmel.hpp \
+ ../src/core/../assets/LogoBitmap.hpp \
  ../src/core/../assets/TitleScreen.hpp ../src/core/../audio/Music.hpp \
  ../src/core/../audio/../core/Frame.hpp ../src/core/Font.hpp \
  ../src/core/Object.hpp ../src/core/../assets/ObjectTiles.hpp \
@@ -76,7 +76,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/core/../assets/GroundTile.hpp:
 
-../src/core/../assets/LogoAtmel.hpp:
+../src/core/../assets/LogoBitmap.hpp:
 
 ../src/core/../assets/TitleScreen.hpp:
 

@@ -842,11 +842,10 @@ void Game::title(void)
     begin();
     setRotation(0);
     setFont(fontASCII);
-    setColor(WHITE, BLACK);
+    setColor(BLACK, WHITE);
 
     fillScreen(WHITE);
-    print(80, 55, "Powered By");
-    draw(8, 80, 304, 96, logoAtmel, BLACK, RED, BLUE, WHITE);
+    draw(72, 100, 176, 40, logoBitmap, BLACK, BLACK, RED, WHITE);
 
     audio.setTonicSolFa(SO);
     audio.setSound(ON);
@@ -856,7 +855,6 @@ void Game::title(void)
     audio.setSound(OFF);
 
     _delay_ms(1250);
-    setColor(BLACK, WHITE);
     m_IsReset = true;
   }
 
