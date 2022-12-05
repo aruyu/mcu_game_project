@@ -1,6 +1,6 @@
-# ATmega328P Project
+# MCU Game Project
 
-## A Game Project powered by MCU Processor...
+## A Game project powered by ATmega328P processor...
 
 > Playing preview
 
