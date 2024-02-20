@@ -1,4 +1,4 @@
-# AVR Game Project
+# ATmega MCU Game Project
 
 > A Game project powered by ATmega328P MCU...
 
